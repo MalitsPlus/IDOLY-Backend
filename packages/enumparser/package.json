@@ -1,0 +1,13 @@
+{
+    "name": "@hoshimi/enumparser",
+    "private": true,
+    "version": "1.0.0",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {},
+    "author": "Outvi V <git@outv.im>",
+    "description": "Convert C# enum files to TypeScript enum definition.",
+    "dependencies": {
+        "peggy": "^1.2.0"
+    }
+}

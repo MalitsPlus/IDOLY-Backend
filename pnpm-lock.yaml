@@ -1,0 +1,17 @@
+lockfileVersion: 5.3
+
+importers:
+
+  packages/enumparser:
+    specifiers:
+      peggy: ^1.2.0
+    dependencies:
+      peggy: 1.2.0
+
+packages:
+
+  /peggy/1.2.0:
+    resolution: {integrity: sha512-PQ+NKpAobImfMprYQtc4Egmyi29bidRGEX0kKjCU5uuW09s0Cthwqhfy7mLkwcB4VcgacE5L/ZjruD/kOPCUUw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dev: false
