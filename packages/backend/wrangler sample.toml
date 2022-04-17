@@ -1,0 +1,24 @@
+account_id = "{{ACCOUNT_ID}}"
+compatibility_date = "2022-04-17"
+name = "idoly-backend"
+route = ""
+type = "javascript"
+workers_dev = true
+zone_id = ""
+
+[build]
+command = "pnpm install && pnpm run build"
+
+[build.upload]
+format = "service-worker"
+
+# KV namespace for the data
+[[kv_namespaces]]
+binding = "KV"
+id = "{{KV_ID}}"
+
+# Hard-coded environment variables
+# Update binding.t.ts after adding/removing any variable
+[vars]
+ADMIN_TOKEN = "{{ADMIN_TOKEN}}"
+DB_PREFIX = "{{DB_PREFIX}}"
