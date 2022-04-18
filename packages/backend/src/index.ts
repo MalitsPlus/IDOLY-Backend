@@ -2,6 +2,7 @@ import { Router } from 'itty-router'
 import { Routes } from './const'
 
 // Subrouters
+import ApiRouter from './api'
 import ManageRouter from './manage'
 
 const errorHandler = (error: any) =>
@@ -13,6 +14,9 @@ const router = Router()
 
 // Management Router
 router.all(Routes.Manage + '/*', ManageRouter.handle)
+
+// API Router
+router.all(Routes.Api + '/*', ApiRouter.handle)
 
 // Healthcheck
 router.get('/alive', () => new Response('Hi Manager!'))

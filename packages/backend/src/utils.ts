@@ -5,3 +5,11 @@ export function tryJsonParse(s: any): any | null {
     return null
   }
 }
+
+export function jsonResponse(s: any): Response {
+  return new Response(typeof s === 'object' ? JSON.stringify(s) : s, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+}

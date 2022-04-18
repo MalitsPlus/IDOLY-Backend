@@ -1,0 +1,9 @@
+{
+  "name": "@hoshimi/types",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Typings for IP data.",
+  "main": "",
+  "types": "index.d.ts",
+  "author": "Outvi V <git@outv.im>"
+}

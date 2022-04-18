@@ -1,5 +1,6 @@
 {
     "name": "@hoshimi/backend",
+    "private": true,
     "version": "1.0.0",
     "description": "Backend for INFO-PRIDE",
     "main": "dist/worker.js",
@@ -24,6 +25,7 @@
     "devDependencies": {
         "@cloudflare/workers-types": "^3.0.0",
         "@types/jest": "27",
+        "@types/path-browserify": "^1.0.0",
         "@types/service-worker-mock": "^2.0.1",
         "@typescript-eslint/eslint-plugin": "^4.16.1",
         "@typescript-eslint/parser": "^4.16.1",
@@ -40,6 +42,8 @@
         "webpack-cli": "^4.7.0"
     },
     "dependencies": {
-        "itty-router": "^2.6.1"
+        "@hoshimi/types": "link:../types",
+        "itty-router": "^2.6.1",
+        "path-browserify": "^1.0.1"
     }
 }
