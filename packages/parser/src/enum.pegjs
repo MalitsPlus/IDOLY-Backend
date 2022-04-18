@@ -4,7 +4,7 @@ File
   }
 
 CSharpUsing
-  = "using" _ PackagePath _ ";"
+  = "using" _ (Identifier _ "=")? _ PackagePath _ ";"
 
 CSharpNamespace
   = "namespace" _ PackagePath _ "{" _ enums:Enum* _ "}" {
@@ -26,26 +26,26 @@ EnumItems
   }
 
 Integer
-  = _ [0-9]+ { return parseInt(text(), 10); }
+  = [0-9]+ { return parseInt(text(), 10); }
 
 PackagePath
   = [A-Za-z\.]+
 
-AlphaNumeric
-  = [a-zA-z0-9]
+GoodChar
+  = [A-Za-z0-9_]
 
-Identifer
-  = l:AlphaNumeric+ {
+Identifier
+  = l:GoodChar+ {
     return l.join("")
   }
 
 EnumHeader
-  = "public" _ "enum" _ name:Identifer {
+  = "public" _ "enum" _ name:Identifier {
     return {name}
   }
 
 EnumItemLine
-  = "[ProtoMember(" _ id:Integer _ ")]" _ name:Identifer "," {
+  = "[ProtoMember(" _ id:Integer _ ")]" _ name:Identifier "," {
   	return {id, name}
   }
 

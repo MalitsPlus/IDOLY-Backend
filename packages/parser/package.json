@@ -1,8 +1,7 @@
 {
-    "name": "@hoshimi/enumparser",
+    "name": "@hoshimi/parser",
     "private": true,
     "version": "1.0.0",
-    "main": "src/index.js",
     "type": "module",
     "scripts": {},
     "author": "Outvi V <git@outv.im>",
