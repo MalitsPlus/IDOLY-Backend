@@ -6,6 +6,7 @@ export const Routes = {
 
 export const ApiRoutes = {
   CardLevel: '/CardLevel',
+  Character: '/Character',
 } as const
 
 export const SpecialKey = {
