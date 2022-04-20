@@ -1,7 +1,9 @@
-import type { CardLevel } from './CardLevel'
+import type { Card, CardLevel, Character } from './ProtoMaster'
 
-export type AcceptableKey = 'CardLevel'
+export type AcceptableKey = 'Card' | 'CardLevel' | 'Character'
 
 export type TypeMapping = {
-  CardLevel: CardLevel
+  CardLevel: CardLevel[]
+  Card: Card[]
+  Character: Character[]
 }

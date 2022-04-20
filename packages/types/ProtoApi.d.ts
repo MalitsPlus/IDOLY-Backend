@@ -59,6 +59,7 @@ import type {
   ConsumptionResult,
   MasterTag,
   Payslip,
+  Reward,
   RewardResult,
   User,
   UserAccessory,
