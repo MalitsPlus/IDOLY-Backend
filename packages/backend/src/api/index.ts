@@ -1,7 +1,7 @@
 import { Router, Request } from 'itty-router'
 import { join } from 'path-browserify'
 
-import { APIMapping } from '@hoshimi/types'
+import { APIMapping } from '@outloudvi/hoshimi-types'
 
 import { Routes } from '../const'
 import CardLevelRoute from './cardLevel'

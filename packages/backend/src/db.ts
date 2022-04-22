@@ -1,4 +1,4 @@
-import type { ResourceMapping, AcceptableKey } from '@hoshimi/types'
+import type { ResourceMapping, AcceptableKey } from '@outloudvi/hoshimi-types'
 
 export async function dbGet<T extends AcceptableKey>(
   s: T,
