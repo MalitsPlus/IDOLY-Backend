@@ -1,11 +1,19 @@
-import type { Card, CardLevel, Character } from './ProtoMaster'
+import type {
+  Card,
+  CardLevel,
+  CardParameter,
+  CardRarity,
+  Character,
+} from './ProtoMaster'
 
 type OnlyOutput<O> = () => Promise<O>
 type InputAndOutput<I, O> = (i: I) => Promise<O>
 
 export type APIMapping = {
-  CardLevel: OnlyOutput<CardLevel[]>
   Card: OnlyOutput<Card[]>
+  CardLevel: OnlyOutput<CardLevel[]>
+  CardParameter: OnlyOutput<CardParameter[]>
+  CardRarity: OnlyOutput<CardRarity[]>
   Character: InputAndOutput<
     {
       characterGroupId?: string
@@ -15,8 +23,10 @@ export type APIMapping = {
 }
 
 export type ResourceMapping = {
-  CardLevel: CardLevel[]
   Card: Card[]
+  CardLevel: CardLevel[]
+  CardParameter: CardParameter[]
+  CardRarity: CardRarity[]
   Character: Character[]
 }
 

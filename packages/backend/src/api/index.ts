@@ -2,19 +2,23 @@ import { Router, Request } from 'itty-router'
 import { join } from 'path-browserify'
 
 import { APIMapping } from '@outloudvi/hoshimi-types'
+import { jsonResponse } from '../utils'
 
 import { Routes } from '../const'
-import CardLevelRoute from './cardLevel'
-import CharacterRoute from './character'
 import CardRoute from './card'
-import { jsonResponse } from '../utils'
+import CardLevelRoute from './cardLevel'
+import CardParameterRoute from './cardParameter'
+import CardRarityRoute from './cardRarity'
+import CharacterRoute from './character'
 
 const apiRouter = Router({ base: Routes.Api })
 
 const ApiRoutes: APIMapping = {
-  CardLevel: CardLevelRoute,
-  Character: CharacterRoute,
   Card: CardRoute,
+  CardLevel: CardLevelRoute,
+  CardParameter: CardParameterRoute,
+  CardRarity: CardRarityRoute,
+  Character: CharacterRoute,
 }
 
 for (const [name, route] of Object.entries(ApiRoutes)) {
