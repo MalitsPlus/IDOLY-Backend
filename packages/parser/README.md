@@ -1,5 +1,5 @@
-## enumparser
+## @hoshimi/parser
 
-Parse `ProtoEnum.cs` and generate respective TypeScript `enum`s.
+Parse enums and classes and generate the TypeScript version of the enumeration/class definition.
 
-`src/parser.js` is generated from `src/enum.pegjs`.
+Use `classParser.js` for files with only classes, and `enumParser.js` for files with only enums.
