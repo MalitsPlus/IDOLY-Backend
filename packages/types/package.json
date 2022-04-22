@@ -3,11 +3,12 @@
   "version": "1.0.2",
   "description": "Typings for IP data.",
   "repository": "https://github.com/outloudvi/hoshimi-packages",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "author": "Outvi V <git@outv.im>",
   "scripts": {
-    "bundle": "rimraf dist/ && tsc && cp package.json dist/"
+    "build": "tsc",
+    "bundle": "bash scripts/build.sh"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
