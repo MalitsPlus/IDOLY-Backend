@@ -36,7 +36,7 @@ export function createRouter(
 ): Router {
   const router = Router({ base: join(Routes.Api, path) })
   router.get('/', async (req) => {
-    const reqBody: Record<string, string> = parseFromParams(req)
+    const reqBody: Record<string, string | string[]> = parseFromParams(req)
     const ret = await responder(reqBody)
     return jsonResponse(ret)
   })
@@ -52,9 +52,14 @@ export default apiRouter
 
 function parseFromParams(req: Request) {
   const params = new URL(req.url).searchParams
-  const ret: Record<string, string> = {}
-  for (const [k, v] of params.entries()) {
-    ret[k] = v
+  const ret: Record<string, string | string[]> = {}
+  for (const key of params.keys()) {
+    const values = params.getAll(key)
+    if (values.length === 1) {
+      ret[key] = values[0]
+    } else {
+      ret[key] = values
+    }
   }
   return ret
 }
