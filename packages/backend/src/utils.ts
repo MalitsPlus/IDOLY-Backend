@@ -1,3 +1,4 @@
+import { MultiString } from '@outloudvi/hoshimi-types'
 import { json } from 'itty-router-extras'
 import { CorsHeaders } from './const'
 
@@ -15,4 +16,12 @@ export function jsonResponse(s: any): Response {
       ...CorsHeaders,
     },
   })
+}
+
+export function parseMultiString(s: MultiString): string[] {
+  if (!s) return []
+  if (typeof s === 'string') {
+    return s.split(',').map((x) => x.trim())
+  }
+  return s
 }

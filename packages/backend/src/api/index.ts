@@ -10,6 +10,7 @@ import CardLevelRoute from './cardLevel'
 import CardParameterRoute from './cardParameter'
 import CardRarityRoute from './cardRarity'
 import CharacterRoute from './character'
+import SkillRoute from './skill'
 
 const apiRouter = Router({ base: Routes.Api })
 
@@ -19,6 +20,7 @@ const ApiRoutes: APIMapping = {
   CardParameter: CardParameterRoute,
   CardRarity: CardRarityRoute,
   Character: CharacterRoute,
+  Skill: SkillRoute,
 }
 
 for (const [name, route] of Object.entries(ApiRoutes)) {
