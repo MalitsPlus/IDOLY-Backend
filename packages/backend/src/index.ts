@@ -1,5 +1,5 @@
 import { Router } from 'itty-router'
-import { Routes } from './const'
+import { CorsHeaders, Routes } from './const'
 
 // Subrouters
 import ApiRouter from './api'
@@ -11,6 +11,14 @@ const errorHandler = (error: any) =>
   })
 
 const router = Router()
+
+// CORS
+router.options('*', () => {
+  return new Response(null, {
+    status: 200,
+    headers: CorsHeaders,
+  })
+})
 
 // Management Router
 router.all(Routes.Manage + '/*', ManageRouter.handle)

@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@cloudflare/workers-types': ^3.0.0
       '@hoshimi/types': link:../types
+      '@types/itty-router-extras': ^0.4.0
       '@types/jest': '27'
       '@types/path-browserify': ^1.0.0
       '@types/service-worker-mock': ^2.0.1
@@ -15,6 +16,7 @@ importers:
       eslint-config-prettier: ^8.1.0
       eslint-config-typescript: ^3.0.0
       itty-router: ^2.6.1
+      itty-router-extras: ^0.4.2
       jest: ^27.0.1
       path-browserify: ^1.0.1
       prettier: ^2.3.0
@@ -27,9 +29,11 @@ importers:
     dependencies:
       '@hoshimi/types': link:../types
       itty-router: 2.6.1
+      itty-router-extras: 0.4.2
       path-browserify: 1.0.1
     devDependencies:
       '@cloudflare/workers-types': 3.5.1
+      '@types/itty-router-extras': 0.4.0
       '@types/jest': 27.4.1
       '@types/path-browserify': 1.0.0
       '@types/service-worker-mock': 2.0.1
@@ -47,11 +51,19 @@ importers:
       webpack: 5.72.0_webpack-cli@4.9.2
       webpack-cli: 4.9.2_webpack@5.72.0
 
-  packages/enumparser:
+  packages/parser:
     specifiers:
       peggy: ^1.2.0
     dependencies:
       peggy: 1.2.0
+
+  packages/types:
+    specifiers:
+      rimraf: ^3.0.2
+      typescript: ^4.3.2
+    devDependencies:
+      rimraf: 3.0.2
+      typescript: 4.6.3
 
 packages:
 
@@ -752,6 +764,12 @@ packages:
     resolution: {integrity: sha512-c3mAZEuK0lvBp8tmuL74XRKn1+y2dcwOUpH7x4WrF6gk1GIgiluDRgMYQtw2OFcBvAJWlt6ASU3tSqxp0Uu0Aw==}
     dependencies:
       '@types/istanbul-lib-report': 3.0.0
+    dev: true
+
+  /@types/itty-router-extras/0.4.0:
+    resolution: {integrity: sha512-IcXmXB8vVbjWy4McZjKzo+3sdQyzMpyHi5mQ4iViu6yX9cS/SVlGR+6H/AgzfG32svaQJeOhl2gfXYwf1AKEgg==}
+    dependencies:
+      itty-router: 2.6.1
     dev: true
 
   /@types/jest/27.4.1:
@@ -2205,9 +2223,12 @@ packages:
       istanbul-lib-report: 3.0.0
     dev: true
 
+  /itty-router-extras/0.4.2:
+    resolution: {integrity: sha512-ppHaBzcTXs7idFSDISehG+8kif2/4aqLCfyY/Y/uIZv79sfEfNmTq9G+rDeqblun/VZRBiXZD8ztYmMS8EOsKw==}
+    dev: false
+
   /itty-router/2.6.1:
     resolution: {integrity: sha512-l9gxWe5TOLUESYnBn85Jxd6tIZLWdRX5YKkHIBfSgbNQ7UFPNUGuWihRV+LlEbfJJIzgLmhwAbaWRi5yWJm8kg==}
-    dev: false
 
   /jest-changed-files/27.5.1:
     resolution: {integrity: sha512-buBLMiByfWGCoMsLLzGUUSpAmIAGnbR2KJoMN10ziLhOLvP4e0SlypHnAel8iqQXTrcbmfEY9sSqae5sgUsTvw==}

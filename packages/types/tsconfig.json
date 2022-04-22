@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "module": "commonjs",
+    "target": "esnext",
+    "lib": ["esnext"],
+    "alwaysStrict": true,
+    "strict": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "types": [],
+    "declaration": true
+  },
+  "include": [
+    "index.ts",
+    "ProtoApi.ts",
+    "ProtoEnum.ts",
+    "ProtoMaster.ts",
+    "ProtoTransactiont.ts"
+  ],
+  "exclude": ["node_modules", "dist", "test"]
+}

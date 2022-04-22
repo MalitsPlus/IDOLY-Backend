@@ -1,14 +1,23 @@
-import { Router } from 'itty-router'
-import { Routes, ApiRoutes } from '../const'
-import { join } from 'path-browserify'
+import { APIMapping } from '@hoshimi/types'
 import { dbGet } from '../db'
-import { jsonResponse } from '../utils'
 
-const router = Router({ base: join(Routes.Api, ApiRoutes.Character) })
+const responder: APIMapping['Character'] = async ({ characterGroupId }) => {
+  const result = await dbGet('Character')
+  if (characterGroupId) {
+    return result.filter(matches({ characterGroupId }))
+  }
+  return result
+}
 
-router.get('/', async () => {
-  const ret = await dbGet('Character')
-  return jsonResponse(ret)
-})
+export default responder
 
-export default router
+function matches(
+  filter: Record<string, any>,
+): (t: Record<string, any>) => boolean {
+  return (t) => {
+    for (const [k, v] of Object.entries(filter)) {
+      if (t[k] !== v) return false
+    }
+    return true
+  }
+}

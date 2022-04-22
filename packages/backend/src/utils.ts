@@ -1,3 +1,6 @@
+import { json } from 'itty-router-extras'
+import { CorsHeaders } from './const'
+
 export function tryJsonParse(s: any): any | null {
   try {
     return JSON.parse(s)
@@ -7,9 +10,9 @@ export function tryJsonParse(s: any): any | null {
 }
 
 export function jsonResponse(s: any): Response {
-  return new Response(typeof s === 'object' ? JSON.stringify(s) : s, {
+  return json(s, {
     headers: {
-      'Content-Type': 'application/json',
+      ...CorsHeaders,
     },
   })
 }

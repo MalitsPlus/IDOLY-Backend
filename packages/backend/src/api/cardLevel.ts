@@ -1,14 +1,6 @@
-import { Router } from 'itty-router'
-import { Routes, ApiRoutes } from '../const'
-import { join } from 'path-browserify'
+import type { APIMapping } from '@hoshimi/types'
 import { dbGet } from '../db'
-import { jsonResponse } from '../utils'
 
-const router = Router({ base: join(Routes.Api, ApiRoutes.CardLevel) })
+const responder: APIMapping['CardLevel'] = () => dbGet('CardLevel')
 
-router.get('/', async () => {
-  const ret = await dbGet('CardLevel')
-  return jsonResponse(ret)
-})
-
-export default router
+export default responder

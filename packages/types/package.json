@@ -1,9 +1,19 @@
 {
-  "name": "@hoshimi/types",
-  "private": true,
+  "name": "@outloudvi/hoshimi-types",
   "version": "1.0.0",
   "description": "Typings for IP data.",
-  "main": "",
-  "types": "index.d.ts",
-  "author": "Outvi V <git@outv.im>"
+  "repository": "https://github.com/outloudvi/hoshimi-packages",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "author": "Outvi V <git@outv.im>",
+  "scripts": {
+    "bundle": "rimraf dist/ && tsc && cp package.json dist/"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.3.2"
+  }
 }
