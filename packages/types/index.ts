@@ -55,4 +55,5 @@ export type ResourceMapping = {
   Skill: Skill[]
 }
 
-export type AcceptableKey = keyof ResourceMapping
+export type AcceptableDbKey = keyof ResourceMapping
+export type AcceptableApiPath = keyof APIMapping
