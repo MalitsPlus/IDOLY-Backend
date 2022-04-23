@@ -4,12 +4,13 @@ import type {
   CardParameter,
   CardRarity,
   Character,
+  Music,
+  MusicChartPattern,
   Skill,
 } from './ProtoMaster'
 
-type OnlyOutput<O> = () => Promise<O>
-type InputAndOutput<I, O> = (i: I) => Promise<O>
-export type MultiString = string[] | string
+import type { MusicChart } from './types'
+import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
 
 export type APIMapping = {
   Card: OnlyOutput<Card[]>
@@ -21,6 +22,19 @@ export type APIMapping = {
       characterGroupId?: string
     },
     Character[]
+  >
+  MusicChart: InputAndOutput<
+    {
+      chartId: string
+    },
+    MusicChart
+  >
+  MusicChartList: OnlyOutput<
+    {
+      musicId: string
+      title: string
+      chartId: string[]
+    }[]
   >
   Skill: InputAndOutput<
     {
@@ -36,6 +50,8 @@ export type ResourceMapping = {
   CardParameter: CardParameter[]
   CardRarity: CardRarity[]
   Character: Character[]
+  Music: Music[]
+  MusicChartPattern: MusicChartPattern[]
   Skill: Skill[]
 }
 

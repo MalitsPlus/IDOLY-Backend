@@ -11,6 +11,7 @@ import CardParameterRoute from './cardParameter'
 import CardRarityRoute from './cardRarity'
 import CharacterRoute from './character'
 import SkillRoute from './skill'
+import MusicChartRoutes from './musicChart'
 
 const apiRouter = Router({ base: Routes.Api })
 
@@ -20,6 +21,8 @@ const ApiRoutes: APIMapping = {
   CardParameter: CardParameterRoute,
   CardRarity: CardRarityRoute,
   Character: CharacterRoute,
+  MusicChart: MusicChartRoutes.pattern,
+  MusicChartList: MusicChartRoutes.list,
   Skill: SkillRoute,
 }
 
