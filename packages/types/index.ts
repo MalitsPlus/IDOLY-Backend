@@ -33,7 +33,10 @@ export type APIMapping = {
     {
       musicId: string
       title: string
-      chartId: string[]
+      charts: {
+        id: string
+        desc: string
+      }[]
     }[]
   >
   Skill: InputAndOutput<

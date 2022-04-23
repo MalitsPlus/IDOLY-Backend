@@ -1,6 +1,6 @@
-import type { ResourceMapping, AcceptableKey } from '@outloudvi/hoshimi-types'
+import type { ResourceMapping, AcceptableDbKey } from '@outloudvi/hoshimi-types'
 
-export async function dbGet<T extends AcceptableKey>(
+export async function dbGet<T extends AcceptableDbKey>(
   s: T,
 ): Promise<ResourceMapping[T]> {
   const jsonText = await KV.get(DB_PREFIX + '_' + s)
