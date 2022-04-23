@@ -1,4 +1,5 @@
 import { Router } from 'itty-router'
+import { json } from 'itty-router-extras'
 import { CorsHeaders, Routes } from './const'
 
 // Subrouters
@@ -6,9 +7,18 @@ import ApiRouter from './api'
 import ManageRouter from './manage'
 
 const errorHandler = (error: any) =>
-  new Response('[Internal error] ' + error.message ?? 'Unknown Error', {
-    status: error.status || 500,
-  })
+  json(
+    {
+      ok: false,
+      error: '[Internal error] ' + error.message ?? 'Unknown Error',
+    },
+    {
+      headers: {
+        ...CorsHeaders,
+      },
+      status: error.status ?? 500,
+    },
+  )
 
 const router = Router()
 
