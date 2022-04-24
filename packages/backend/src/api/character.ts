@@ -1,23 +1,47 @@
 import { APIMapping } from '@outloudvi/hoshimi-types'
 import { dbGet } from '../db'
+import { parseMultiString } from '../utils'
+import pick from 'lodash.pick'
 
-const responder: APIMapping['Character'] = async ({ characterGroupId }) => {
-  const result = await dbGet('Character')
-  if (characterGroupId) {
-    return result.filter(matches({ characterGroupId }))
-  }
-  return result
+const list: APIMapping['Character/List'] = async () => {
+  const ch = await dbGet('Character')
+  return ch.map((x) =>
+    pick(x, ['id', 'order', 'characterGroupId', 'name', 'enName', 'color']),
+  )
 }
 
-export default responder
-
-function matches(
-  filter: Record<string, any>,
-): (t: Record<string, any>) => boolean {
-  return (t) => {
-    for (const [k, v] of Object.entries(filter)) {
-      if (t[k] !== v) return false
-    }
-    return true
-  }
+const select: APIMapping['Character'] = async ({ ids: _ids }) => {
+  const ids = parseMultiString(_ids)
+  const ch = await dbGet('Character')
+  return ch
+    .filter((x) => ids.includes(x.id))
+    .map((x) =>
+      pick(x, [
+        'id',
+        'characterGroupId',
+        'order',
+        'name',
+        'enName',
+        'cv',
+        'age',
+        'birthday',
+        'height',
+        'weight',
+        'zodiacSign',
+        'hometown',
+        'favorite',
+        'unfavorite',
+        'profile',
+        'isNpc',
+        'altCharacters',
+        'color',
+        'isLeftHanded',
+        'shortProfile',
+        'threeSize',
+        'catchphrase',
+        'idiom',
+      ]),
+    )
 }
+
+export default { list, select }

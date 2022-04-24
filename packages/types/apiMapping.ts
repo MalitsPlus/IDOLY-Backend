@@ -17,9 +17,40 @@ export type APIMapping = {
   CardRarity: OnlyOutput<CardRarity[]>
   Character: InputAndOutput<
     {
-      characterGroupId?: string
+      ids: MultiString
     },
-    Character[]
+    Pick<
+      Character,
+      | 'id'
+      | 'characterGroupId'
+      | 'order'
+      | 'name'
+      | 'enName'
+      | 'cv'
+      | 'age'
+      | 'birthday'
+      | 'height'
+      | 'weight'
+      | 'zodiacSign'
+      | 'hometown'
+      | 'favorite'
+      | 'unfavorite'
+      | 'profile'
+      | 'isNpc'
+      | 'altCharacters'
+      | 'color'
+      | 'isLeftHanded'
+      | 'shortProfile'
+      | 'threeSize'
+      | 'catchphrase'
+      | 'idiom'
+    >[]
+  >
+  'Character/List': OnlyOutput<
+    Pick<
+      Character,
+      'id' | 'order' | 'characterGroupId' | 'name' | 'enName' | 'color'
+    >[]
   >
   MusicChart: InputAndOutput<
     {

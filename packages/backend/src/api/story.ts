@@ -1,4 +1,5 @@
 import { APIMapping } from '@outloudvi/hoshimi-types'
+import pick from 'lodash.pick'
 import { dbGet } from '../db'
 
 const responder: APIMapping['Story'] = async ({ id }) => {
@@ -7,8 +8,7 @@ const responder: APIMapping['Story'] = async ({ id }) => {
   if (!ret) {
     throw Error(`Story not found: ${id}`)
   }
-  const { name, sectionName, description } = ret
-  return { name, id, sectionName, description }
+  return pick(ret, ['id', 'name', 'sectionName', 'description'])
 }
 
 export default responder
