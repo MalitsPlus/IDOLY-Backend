@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@cloudflare/workers-types': ^3.0.0
       '@outloudvi/hoshimi-types': link:../types
+      '@ovv/itty-router': ^2.6.1
       '@types/itty-router-extras': ^0.4.0
       '@types/jest': '27'
       '@types/lodash.pick': ^4.4.7
@@ -16,7 +17,6 @@ importers:
       eslint: ^7.21.0
       eslint-config-prettier: ^8.1.0
       eslint-config-typescript: ^3.0.0
-      itty-router: ^2.6.1
       itty-router-extras: ^0.4.2
       jest: ^27.0.1
       lodash.pick: ^4.4.0
@@ -30,7 +30,7 @@ importers:
       webpack-cli: ^4.7.0
     dependencies:
       '@outloudvi/hoshimi-types': link:../types
-      itty-router: 2.6.1
+      '@ovv/itty-router': 2.6.1
       itty-router-extras: 0.4.2
       lodash.pick: 4.4.0
       path-browserify: 1.0.1
@@ -683,6 +683,10 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
     dev: true
+
+  /@ovv/itty-router/2.6.1:
+    resolution: {integrity: sha512-Xr34q+oW9sKqrMcZb7AEB+/3aEpRCEuqx5y+5DAHUMT2+D0hpqxXwPQ96GHzfskitb3bkhmsjJZ7MC5J7Puk4g==}
+    dev: false
 
   /@sinonjs/commons/1.8.3:
     resolution: {integrity: sha512-xkNcLAn/wZaX14RPlwizcKicDk9G3F8m2nU3L7Ukm5zBgTwiT0wsoFAHx9Jq56fJA1z/7uKGtCRu16sOUCLIHQ==}
@@ -2243,6 +2247,7 @@ packages:
 
   /itty-router/2.6.1:
     resolution: {integrity: sha512-l9gxWe5TOLUESYnBn85Jxd6tIZLWdRX5YKkHIBfSgbNQ7UFPNUGuWihRV+LlEbfJJIzgLmhwAbaWRi5yWJm8kg==}
+    dev: true
 
   /jest-changed-files/27.5.1:
     resolution: {integrity: sha512-buBLMiByfWGCoMsLLzGUUSpAmIAGnbR2KJoMN10ziLhOLvP4e0SlypHnAel8iqQXTrcbmfEY9sSqae5sgUsTvw==}

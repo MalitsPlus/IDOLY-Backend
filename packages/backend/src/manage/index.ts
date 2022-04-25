@@ -1,9 +1,10 @@
-import { Router } from 'itty-router'
+import { Router } from '@ovv/itty-router'
 
 import requireAdmin from '../middleware/requireAdmin'
 
 import { Routes, SpecialKey } from '../const'
 import { tryJsonParse } from '../utils'
+import { UpdateTimeKey } from '../db'
 
 const router = Router({ base: Routes.Manage })
 
@@ -28,6 +29,20 @@ router.put('/write', requireAdmin, async (request) => {
     })
   }
   await KV.put(key, val)
+  return new Response('ok')
+})
+
+/**
+ * PUT /manage/write/done
+ *
+ * Authorization: Bearer [ADMINISTRATION TOKEN]
+ */
+router.post('/write/done', requireAdmin, async () => {
+  const now = new Date()
+  // A bit of privacy...
+  now.setMinutes(0)
+  now.setSeconds(0)
+  await KV.put(UpdateTimeKey, String(now))
   return new Response('ok')
 })
 

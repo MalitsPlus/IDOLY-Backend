@@ -17,3 +17,5 @@ for i in *.json; do
     echo $SUBMIT_JSON | curl -X PUT -H "Authorization: Bearer $ADMIN_TOKEN" --data @- "$API_ENDPOINT"
     rm "$TEMPFILE"
 done
+
+curl -X POST -H "Authorization: Bearer $ADMIN_TOKEN" "$API_ENDPOINT/done"

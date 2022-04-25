@@ -1,4 +1,4 @@
-import { Router } from 'itty-router'
+import { Router } from '@ovv/itty-router'
 import { json } from 'itty-router-extras'
 import { CorsHeaders, Routes } from './const'
 
@@ -43,6 +43,6 @@ router.get('/alive', () => new Response('Hi Manager!'))
 router.all('*', () => new Response('Not Found.', { status: 404 }))
 
 // attach the router "handle" to the event handler
-addEventListener('fetch', (event) =>
+addEventListener('fetch', (event: any) =>
   event.respondWith(router.handle(event.request).catch(errorHandler)),
 )

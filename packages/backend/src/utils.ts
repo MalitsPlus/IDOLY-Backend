@@ -10,10 +10,14 @@ export function tryJsonParse(s: any): any | null {
   }
 }
 
-export function jsonResponse(s: any): Response {
+export function jsonResponse(
+  s: any,
+  extraHeaders: Record<string, string> = {},
+): Response {
   return json(s, {
     headers: {
       ...CorsHeaders,
+      ...extraHeaders,
     },
   })
 }
