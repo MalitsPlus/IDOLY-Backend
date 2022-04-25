@@ -3,7 +3,7 @@
     "outDir": "./dist",
     "module": "commonjs",
     "target": "esnext",
-    "lib": ["esnext", "dom.iterable"],
+    "lib": ["esnext", "DOM.Iterable"],
     "alwaysStrict": true,
     "strict": true,
     "preserveConstEnums": true,

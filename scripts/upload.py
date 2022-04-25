@@ -78,7 +78,6 @@ def main():
     executor = ThreadPoolExecutor(max_workers=MAX_WORK_THREAD)
     all_tasks = [executor.submit(async_task, file) for file in dir.glob("*.json")]
     wait(all_tasks, return_when=ALL_COMPLETED)
-    requests.post(API_ENDPOINT + "/done", headers=headers)
     console.print(
         f"[bold green]>>> [Succeed][/bold green] Tasks all done.")
 

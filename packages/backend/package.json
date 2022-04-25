@@ -23,7 +23,7 @@
         }
     },
     "devDependencies": {
-        "@cloudflare/workers-types": "^3.0.0",
+        "@cloudflare/workers-types": "^3.7.0",
         "@types/itty-router-extras": "^0.4.0",
         "@types/jest": "27",
         "@types/lodash.pick": "^4.4.7",
