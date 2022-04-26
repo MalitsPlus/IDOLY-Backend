@@ -11,7 +11,24 @@ import type { MusicChart } from './types'
 import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
 
 export type APIMapping = {
-  Card: OnlyOutput<Card[]>
+  Card: OnlyOutput<
+    Pick<
+      Card,
+      | 'id'
+      | 'name'
+      | 'description'
+      | 'type'
+      | 'initialRarity'
+      | 'cardParameterId'
+      | 'vocalRatioPermil'
+      | 'danceRatioPermil'
+      | 'visualRatioPermil'
+      | 'staminaRatioPermil'
+      | 'skillId1'
+      | 'skillId2'
+      | 'skillId3'
+    >[]
+  >
   CardLevel: OnlyOutput<CardLevel[]>
   CardParameter: OnlyOutput<CardParameter[]>
   CardRarity: OnlyOutput<CardRarity[]>
