@@ -2,7 +2,7 @@ import { Router } from '@ovv/itty-router'
 import { join } from 'path-browserify'
 import { APIMapping } from '@outloudvi/hoshimi-types'
 
-import { fnv1aString, jsonResponse } from '../utils'
+import { jsonResponse, xxhash } from '../utils'
 import { Routes } from '../const'
 import CardRoute from './card'
 import CardLevelRoute from './cardLevel'
@@ -50,7 +50,7 @@ export function createRouter(
     const reqBody: Record<string, string | string[]> = parseFromParams(req)
     const ret = await responder(reqBody)
     const response = jsonResponse(ret, {
-      ETag: `"${fnv1aString(JSON.stringify(ret)).toString(36)}"`,
+      ETag: `"${xxhash(JSON.stringify(ret))}"`,
       ...(lastUpdate ? { 'Last-Modified': lastUpdate.toUTCString() } : {}),
     })
     // @ts-expect-error Somehow it does not recognize @cloudflare/workers-types

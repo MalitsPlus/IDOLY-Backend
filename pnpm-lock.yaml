@@ -12,6 +12,7 @@ importers:
       '@types/lodash.pick': ^4.4.7
       '@types/path-browserify': ^1.0.0
       '@types/service-worker-mock': ^2.0.1
+      '@types/xxhashjs': ^0.2.2
       '@typescript-eslint/eslint-plugin': ^4.16.1
       '@typescript-eslint/parser': ^4.16.1
       eslint: ^7.21.0
@@ -28,12 +29,14 @@ importers:
       typescript: ^4.3.2
       webpack: ^5.38.1
       webpack-cli: ^4.7.0
+      xxhashjs: ^0.2.2
     dependencies:
       '@outloudvi/hoshimi-types': link:../types
       '@ovv/itty-router': 2.6.1
       itty-router-extras: 0.4.2
       lodash.pick: 4.4.0
       path-browserify: 1.0.1
+      xxhashjs: 0.2.2
     devDependencies:
       '@cloudflare/workers-types': 3.7.1
       '@types/itty-router-extras': 0.4.0
@@ -41,6 +44,7 @@ importers:
       '@types/lodash.pick': 4.4.7
       '@types/path-browserify': 1.0.0
       '@types/service-worker-mock': 2.0.1
+      '@types/xxhashjs': 0.2.2
       '@typescript-eslint/eslint-plugin': 4.33.0_0c49e12669280545a7ea3f36dba6eb0a
       '@typescript-eslint/parser': 4.33.0_eslint@7.32.0+typescript@4.6.3
       eslint: 7.32.0
@@ -821,6 +825,12 @@ packages:
     resolution: {integrity: sha512-Hl219/BT5fLAaz6NDkSuhzasy49dwQS/DSdu4MdggFB8zcXv7vflBI3xp7FEmkmdDkBUI2bPUNeMttp2knYdxw==}
     dev: true
 
+  /@types/xxhashjs/0.2.2:
+    resolution: {integrity: sha512-+hlk/W1kgnZn0vR22XNhxHk/qIRQYF54i0UTF2MwBAPd0e7xSy+jKOJwSwTdRQrNnOMRVv+vsh8ITV0uyhp2yg==}
+    dependencies:
+      '@types/node': 17.0.24
+    dev: true
+
   /@types/yargs-parser/21.0.0:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
     dev: true
@@ -1503,6 +1513,10 @@ packages:
     dependencies:
       cssom: 0.3.8
     dev: true
+
+  /cuint/0.2.2:
+    resolution: {integrity: sha1-QICG1AlVDCYxFVYZ6fp7ytw7mRs=}
+    dev: false
 
   /data-urls/2.0.0:
     resolution: {integrity: sha512-X5eWTSXO/BJmpdIKCRuKUgSCgAN0OwliVK3yPKbwIWU1Tdw5BRajxlzMidvh+gwko9AfQ9zIj52pzF91Q3YAvQ==}
@@ -3934,6 +3948,12 @@ packages:
   /xmlchars/2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
     dev: true
+
+  /xxhashjs/0.2.2:
+    resolution: {integrity: sha512-AkTuIuVTET12tpsVIQo+ZU6f/qDmKuRUcjaqR+OIvm+aCBsZ95i7UVY5WJ9TMsSaZ0DA2WxoZ4acu0sPH+OKAw==}
+    dependencies:
+      cuint: 0.2.2
+    dev: false
 
   /y18n/5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
