@@ -17,6 +17,7 @@ export type APIMapping = {
       | 'id'
       | 'name'
       | 'description'
+      | 'characterId'
       | 'type'
       | 'initialRarity'
       | 'cardParameterId'

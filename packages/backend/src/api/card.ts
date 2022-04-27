@@ -10,6 +10,7 @@ const responder: APIMapping['Card'] = async () => {
       'name',
       'description',
       'type',
+      'characterId',
       'initialRarity',
       'cardParameterId',
       'vocalRatioPermil',
