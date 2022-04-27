@@ -17,10 +17,11 @@ import { dbGetLastUpdate } from '../db'
 const apiRouter = Router({ base: Routes.Api })
 
 const ApiRoutes: APIMapping = {
-  Card: CardRoute,
+  Card: CardRoute.list,
   CardLevel: CardLevelRoute,
   CardParameter: CardParameterRoute,
   CardRarity: CardRarityRoute,
+  'Card/Id': CardRoute.id,
   Character: CharacterRoute.select,
   'Character/List': CharacterRoute.list,
   MusicChart: MusicChartRoutes.pattern,

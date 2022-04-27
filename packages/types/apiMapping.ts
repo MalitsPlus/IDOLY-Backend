@@ -30,6 +30,19 @@ export type APIMapping = {
       | 'skillId3'
     >[]
   >
+  /**
+   * CCID (Character-Card ID) is a unique ID for a card in the scope of a character.
+   * It shall be as short as possible.
+   */
+  'Card/Id': OnlyOutput<
+    Record<
+      string,
+      {
+        ccid: number
+        cardId: string
+      }[]
+    >
+  >
   CardLevel: OnlyOutput<CardLevel[]>
   CardParameter: OnlyOutput<CardParameter[]>
   CardRarity: OnlyOutput<CardRarity[]>

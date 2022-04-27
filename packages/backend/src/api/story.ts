@@ -1,5 +1,5 @@
 import { APIMapping } from '@outloudvi/hoshimi-types'
-import pick from 'lodash.pick'
+import pick from 'lodash/pick'
 import { dbGet } from '../db'
 
 const responder: APIMapping['Story'] = async ({ id }) => {

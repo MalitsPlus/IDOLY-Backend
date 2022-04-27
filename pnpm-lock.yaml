@@ -9,6 +9,7 @@ importers:
       '@ovv/itty-router': ^2.6.1
       '@types/itty-router-extras': ^0.4.0
       '@types/jest': '27'
+      '@types/lodash': ^4.14.182
       '@types/lodash.pick': ^4.4.7
       '@types/path-browserify': ^1.0.0
       '@types/service-worker-mock': ^2.0.1
@@ -20,7 +21,7 @@ importers:
       eslint-config-typescript: ^3.0.0
       itty-router-extras: ^0.4.2
       jest: ^27.0.1
-      lodash.pick: ^4.4.0
+      lodash: ^4.17.21
       path-browserify: ^1.0.1
       prettier: ^2.3.0
       service-worker-mock: ^2.0.5
@@ -34,13 +35,14 @@ importers:
       '@outloudvi/hoshimi-types': link:../types
       '@ovv/itty-router': 2.6.1
       itty-router-extras: 0.4.2
-      lodash.pick: 4.4.0
+      lodash: 4.17.21
       path-browserify: 1.0.1
       xxhashjs: 0.2.2
     devDependencies:
       '@cloudflare/workers-types': 3.7.1
       '@types/itty-router-extras': 0.4.0
       '@types/jest': 27.4.1
+      '@types/lodash': 4.14.182
       '@types/lodash.pick': 4.4.7
       '@types/path-browserify': 1.0.0
       '@types/service-worker-mock': 2.0.1
@@ -2897,17 +2899,12 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
-  /lodash.pick/4.4.0:
-    resolution: {integrity: sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=}
-    dev: false
-
   /lodash.truncate/4.4.2:
     resolution: {integrity: sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=}
     dev: true
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
-    dev: true
 
   /lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}

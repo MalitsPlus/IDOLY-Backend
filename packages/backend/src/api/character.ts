@@ -1,7 +1,7 @@
 import { APIMapping } from '@outloudvi/hoshimi-types'
 import { dbGet } from '../db'
 import { parseMultiString } from '../utils'
-import pick from 'lodash.pick'
+import pick from 'lodash/pick'
 
 const list: APIMapping['Character/List'] = async () => {
   const ch = await dbGet('Character')
