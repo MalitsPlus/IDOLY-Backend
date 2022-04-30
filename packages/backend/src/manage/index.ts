@@ -2,8 +2,8 @@ import { Router } from '@ovv/itty-router'
 
 import requireAdmin from '../middleware/requireAdmin'
 
-import { Routes, SpecialKey } from '../const'
-import { tryJsonParse } from '../utils'
+import { Routes } from '../const'
+import { UpdateTimeKey } from '../db'
 
 const router = Router({ base: Routes.Manage })
 
@@ -32,32 +32,16 @@ router.put('/write', requireAdmin, async (request) => {
 })
 
 /**
- * POST /manage/setVersion
- *
- * Set current data version.
+ * POST /manage/write/done
  *
  * Authorization: Bearer [ADMINISTRATION TOKEN]
- * body: {"currentVersion":""}
  */
-router.post('/setVersion', requireAdmin, async (request) => {
-  const json: any = await request.json?.()
-  if (!json.currentVersion) {
-    return new Response('No currentVersion found', {
-      status: 400,
-    })
-  }
-  const currVer = json.currentVersion
-  const cardKey = `${DB_PREFIX}_${currVer}_Card`
-  const maybeCards = tryJsonParse(await KV.get(cardKey))
-  if (maybeCards === null && !json.force) {
-    return new Response(
-      `${cardKey} is empty. add {force:true} if you REALLY want to update to this version.`,
-      {
-        status: 400,
-      },
-    )
-  }
-  await KV.put(SpecialKey.CurrentVersion, currVer)
+router.post('/write/done', requireAdmin, async () => {
+  const now = new Date()
+  // A bit of privacy...
+  now.setMinutes(0)
+  now.setSeconds(0)
+  await KV.put(UpdateTimeKey, String(now))
   return new Response('ok')
 })
 
