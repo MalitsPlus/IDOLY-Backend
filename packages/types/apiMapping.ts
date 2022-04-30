@@ -109,4 +109,7 @@ export type APIMapping = {
     { id: string },
     Pick<Story, 'name' | 'id' | 'sectionName' | 'description'>
   >
+  Version: OnlyOutput<{
+    version: string
+  }>
 }

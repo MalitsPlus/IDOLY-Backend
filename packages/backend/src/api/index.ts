@@ -12,6 +12,7 @@ import CharacterRoute from './character'
 import MusicChartRoutes from './musicChart'
 import SkillRoute from './skill'
 import StoryRoute from './story'
+import VersionRoute from './version'
 import { dbGetLastUpdate } from '../db'
 
 const apiRouter = Router({ base: Routes.Api })
@@ -28,7 +29,10 @@ const ApiRoutes: APIMapping = {
   MusicChartList: MusicChartRoutes.list,
   Skill: SkillRoute,
   Story: StoryRoute,
+  Version: VersionRoute,
 }
+
+const NonCachedRoutes: (keyof APIMapping)[] = ['Version']
 
 for (const [name, route] of Object.entries(ApiRoutes)) {
   const path = '/' + name
@@ -44,7 +48,10 @@ export function createRouter(
   const router = Router({ base: join(Routes.Api, path) })
   router.get('/', async (req) => {
     const cachedResponse = await caches.default.match(req)
-    if (cachedResponse) {
+    if (
+      cachedResponse &&
+      !NonCachedRoutes.includes(path.replace(/^\//, '') as any)
+    ) {
       return cachedResponse
     }
     const lastUpdate = await dbGetLastUpdate()
