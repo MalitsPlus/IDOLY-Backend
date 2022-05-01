@@ -10,8 +10,8 @@ from rich.console import Console
 from requests.exceptions import SSLError
 from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 
-API_ENDPOINT = "https://idoly-backend.ipri.workers.dev/manage/write"
-ADMIN_TOKEN = "ADMIN_TOKEN"
+API_ENDPOINT = "{{API_ENDPOINT}}"
+ADMIN_TOKEN = "{{ADMIN_TOKEN}}"
 DATA_PREFIX = "HSM_"
 MAX_RETRY_TIMES = 5
 MAX_WORK_THREAD = 20
@@ -25,7 +25,7 @@ headers = {
 
 def send_request(name: str, data: str, err_count: int = 0):
     try:
-        r = requests.put(API_ENDPOINT, headers=headers, data=data)
+        r = requests.put(API_ENDPOINT, headers=headers, data=data.encode("utf8"))
         if r.status_code == 200:
             console.print(f"[bold green]>>> [Succeed][/bold green] Put '{name}' completed.")
         else:
@@ -50,11 +50,12 @@ def send_request(name: str, data: str, err_count: int = 0):
 
 def async_task(file: Path):
     with file.open(mode="r", encoding="utf8") as fp:
-        name = file.name[0: -5]
+        name = file.name.removesuffix(".json")
         origin = json.load(fp)
         body = {
             "key": DATA_PREFIX + name,
-            "value": origin
+            # KV server side only accepts string values.
+            "value": str(origin)
         }
         compacted = json.dumps(
             body, ensure_ascii=False, separators=separators)
@@ -65,11 +66,12 @@ def main():
     # Single thread test codes
     # for file in dir.glob("*.json"):
     #     with file.open(mode="r", encoding="utf8") as fp:
-    #         name = file.name[0: -5]
+    #         name = file.name.removesuffix(".json")
     #         origin = json.load(fp)
     #         body = {
     #             "key": DATA_PREFIX + name,
-    #             "value": origin
+    #             # KV server side only accepts string values.
+    #             "value": str(origin)
     #         }
     #         compacted = json.dumps(
     #             body, ensure_ascii=False, separators=separators)
