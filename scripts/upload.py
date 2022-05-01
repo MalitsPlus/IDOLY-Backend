@@ -24,38 +24,41 @@ headers = {
 }
 
 def send_request(name: str, data: str, err_count: int = 0):
+    if err_count >= MAX_RETRY_TIMES:
+        console.print(
+            f"[bold red]>>> [Error][/bold red] Maximum retries exceeded, stopping process.")
+        os._exit(-1)
     try:
         r = requests.put(API_ENDPOINT, headers=headers, data=data.encode("utf8"))
         if r.status_code == 200:
             console.print(f"[bold green]>>> [Succeed][/bold green] Put '{name}' completed.")
         else:
-            if err_count < MAX_RETRY_TIMES:
-                err_count += 1
-                console.print(
-                    f"[bold yellow]>>> [Warning][/bold yellow] Put '{name}' failed, status code: {r.status_code}. Retrying({err_count}/{MAX_RETRY_TIMES})...")
-                sleep(1)
-                send_request(name, data, err_count)
-            else:
-                console.print(
-                    f"[bold red]>>> [Error][/bold red] Maximum retries exceeded, stopping process.")
-                os._exit(-1)
+            err_count += 1
+            console.print(
+                f"[bold yellow]>>> [Warning][/bold yellow] Put '{name}' failed, status code: {r.status_code}. Retrying({err_count}/{MAX_RETRY_TIMES})...")
+            sleep(1)
+            send_request(name, data, err_count)
     except SSLError:
         console.print(
             f"[bold red]>>> [Error][/bold red] An SSLError has occured, please check your net work settings.")
         os._exit(-1)
     except:
+        err_count += 1
         console.print(
-            "[bold red]>>> [Error][/bold red] Unexpected error: ", sys.exc_info()[0])
-        os._exit(-1)
+            f"[bold red]>>> [Error][/bold red] Unexpected error while sending {name}: ", sys.exc_info()[0])
+        sleep(5)
+        send_request(name, data, err_count)
 
 def async_task(file: Path):
     with file.open(mode="r", encoding="utf8") as fp:
         name = file.name.removesuffix(".json")
         origin = json.load(fp)
+        origin = json.dumps(
+            origin, ensure_ascii=False, separators=separators)
         body = {
             "key": DATA_PREFIX + name,
             # KV server side only accepts string values.
-            "value": str(origin)
+            "value": origin
         }
         compacted = json.dumps(
             body, ensure_ascii=False, separators=separators)
