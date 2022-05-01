@@ -40,6 +40,7 @@ export type APIMapping = {
       {
         ccid: number
         cardId: string
+        nameJa: string
       }[]
     >
   >

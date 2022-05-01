@@ -33,6 +33,7 @@ const id: APIMapping['Card/Id'] = async () => {
     {
       ccid: number
       cardId: string
+      nameJa: string
     }[]
   > = {}
   for (const charId of charIds) {
@@ -42,6 +43,7 @@ const id: APIMapping['Card/Id'] = async () => {
     ret[charId] = characterCards.map((v, i) => ({
       ccid: i + 1, // starts from 1
       cardId: v.id,
+      nameJa: v.name,
     }))
   }
   return ret
