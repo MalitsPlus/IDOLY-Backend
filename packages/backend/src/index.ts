@@ -6,8 +6,9 @@ import { CorsHeaders, Routes } from './const'
 import ApiRouter from './api'
 import ManageRouter from './manage'
 
-const errorHandler = (error: any) =>
-  json(
+const errorHandler = async (error: any) => {
+  await tellSlack(`${error.message}\n${error.stack}`)
+  return json(
     {
       ok: false,
       error: '[Internal error] ' + error.message ?? 'Unknown Error',
@@ -19,7 +20,7 @@ const errorHandler = (error: any) =>
       status: error.status ?? 500,
     },
   )
-
+}
 const router = Router()
 
 // CORS
@@ -46,3 +47,6 @@ router.all('*', () => new Response('Not Found.', { status: 404 }))
 addEventListener('fetch', (event: any) =>
   event.respondWith(router.handle(event.request).catch(errorHandler)),
 )
+function tellSlack(arg0: string) {
+  throw new Error('Function not implemented.')
+}

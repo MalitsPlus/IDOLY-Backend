@@ -55,3 +55,16 @@ export type UnwrapPromise<T> = T extends Promise<infer U> ? U : never
 export function xxhash(data: string): string {
   return xxh.h32(data, XXHashSeed).toString(36)
 }
+
+async function tellSlack(text: string) {
+  if (!SLACK_REPORT_URL) return
+  return await fetch(SLACK_REPORT_URL, {
+    method: 'POST',
+    body: JSON.stringify({
+      text,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+}
