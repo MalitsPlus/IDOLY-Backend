@@ -3,7 +3,7 @@ import { join } from 'path-browserify'
 import { APIMapping } from '@outloudvi/hoshimi-types'
 
 import { jsonResponse, xxhash } from '../utils'
-import { Routes } from '../const'
+import { CorsHeaders, Routes } from '../const'
 import CardRoute from './card'
 import CardLevelRoute from './cardLevel'
 import CardParameterRoute from './cardParameter'
@@ -32,6 +32,21 @@ const ApiRoutes: APIMapping = {
   Version: VersionRoute,
 }
 
+function validateCache(req: Request, eTag: string, lastUpdate: Date | null) {
+  const reqETag = req.headers.get('If-None-Match')
+  if (reqETag) {
+    return reqETag.replace(/^W\//, '') === eTag.replace(/^W\//, '')
+  }
+  const ims = req.headers.get('If-Modified-Since')
+  if (ims) {
+    const oneDate = new Date(ims)
+    if (Number.isNaN(Number(oneDate))) return false
+    if (!lastUpdate) return false
+    return Number(oneDate) >= Number(lastUpdate)
+  }
+  return false
+}
+
 const NonCachedRoutes: (keyof APIMapping)[] = ['Version']
 
 for (const [name, route] of Object.entries(ApiRoutes)) {
@@ -52,15 +67,36 @@ export function createRouter(
       cachedResponse &&
       !NonCachedRoutes.includes(path.replace(/^\//, '') as any)
     ) {
+      const cc = cachedResponse.headers.get('Cache-Control')
+      if (cc !== 'no-cache') {
+        await caches.default.delete(req as any)
+      }
+      cachedResponse.headers.set('Cache-Control', 'no-cache')
+      // @ts-expect-error Somehow it does not recognize @cloudflare/workers-types
+      await caches.default.put(req, cachedResponse.clone())
+      cachedResponse.headers.set('Sourced-From', 'Cloudflare-Workers')
       return cachedResponse
     }
     const lastUpdate = await dbGetLastUpdate()
     const reqBody: Record<string, string | string[]> = parseFromParams(req)
     const ret = await responder(reqBody)
-    const response = jsonResponse(ret, {
-      ETag: `"${xxhash(JSON.stringify(ret))}"`,
+    const eTag = `"${xxhash(JSON.stringify(ret))}"`
+    const headers = {
+      ETag: eTag,
+      'Cache-Control': 'no-cache',
       ...(lastUpdate ? { 'Last-Modified': lastUpdate.toUTCString() } : {}),
-    })
+    }
+    const response =
+      !NonCachedRoutes.includes(path.replace(/^\//, '') as any) &&
+      validateCache(req, eTag, lastUpdate)
+        ? new Response(null, {
+            status: 304,
+            headers: {
+              ...CorsHeaders,
+              ...headers,
+            },
+          })
+        : jsonResponse(ret, headers)
     // @ts-expect-error Somehow it does not recognize @cloudflare/workers-types
     await caches.default.put(req, response.clone())
     return response
