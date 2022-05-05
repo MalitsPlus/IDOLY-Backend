@@ -21,6 +21,7 @@ const list: APIMapping['Card'] = async () => {
       'skillId1',
       'skillId2',
       'skillId3',
+      'releaseDate',
     ]),
   )
 }
