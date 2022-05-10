@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@cloudflare/workers-types': ^3.7.0
       '@outloudvi/hoshimi-types': link:../types
-      '@ovv/itty-router': ^2.6.1
+      '@ovv/itty-router': 2.6.1-trunk-d99a4c4
       '@types/itty-router-extras': ^0.4.0
       '@types/jest': '27'
       '@types/lodash': ^4.14.182
@@ -33,7 +33,7 @@ importers:
       xxhashjs: ^0.2.2
     dependencies:
       '@outloudvi/hoshimi-types': link:../types
-      '@ovv/itty-router': 2.6.1
+      '@ovv/itty-router': 2.6.1-trunk-d99a4c4
       itty-router-extras: 0.4.2
       lodash: 4.17.21
       path-browserify: 1.0.1
@@ -690,8 +690,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@ovv/itty-router/2.6.1:
-    resolution: {integrity: sha512-Xr34q+oW9sKqrMcZb7AEB+/3aEpRCEuqx5y+5DAHUMT2+D0hpqxXwPQ96GHzfskitb3bkhmsjJZ7MC5J7Puk4g==}
+  /@ovv/itty-router/2.6.1-trunk-d99a4c4:
+    resolution: {integrity: sha512-idR7sAi2aXZUktzPXy5xCUXICSdQIg44nWvsmOKopOOJWktKUwHvNlXq9rVQnnH0j/KHNAn/oOfESpB1cipr7w==}
     dev: false
 
   /@sinonjs/commons/1.8.3:

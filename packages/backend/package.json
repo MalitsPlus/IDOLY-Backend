@@ -47,7 +47,7 @@
     },
     "dependencies": {
         "@outloudvi/hoshimi-types": "link:../types",
-        "@ovv/itty-router": "^2.6.1",
+        "@ovv/itty-router": "2.6.1-trunk-d99a4c4",
         "itty-router-extras": "^0.4.2",
         "lodash": "^4.17.21",
         "path-browserify": "^1.0.1",
