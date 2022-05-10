@@ -27,7 +27,8 @@ const ApiRoutes: APIMapping = {
   'Character/List': CharacterRoute.list,
   MusicChart: MusicChartRoutes.pattern,
   MusicChartList: MusicChartRoutes.list,
-  Skill: SkillRoute,
+  Skill: SkillRoute.list,
+  'Skill/EffectTypes': SkillRoute.effectTypes,
   Story: StoryRoute,
   Version: VersionRoute,
 }

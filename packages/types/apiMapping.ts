@@ -107,6 +107,7 @@ export type APIMapping = {
     },
     Skill[]
   >
+  'Skill/EffectTypes': OnlyOutput<string[]>
   Story: InputAndOutput<
     { id: string },
     Pick<Story, 'name' | 'id' | 'sectionName' | 'description'>
