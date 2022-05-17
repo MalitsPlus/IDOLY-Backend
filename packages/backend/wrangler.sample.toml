@@ -22,4 +22,5 @@ id = "{{KV_ID}}"
 [vars]
 ADMIN_TOKEN = "{{ADMIN_TOKEN}}"
 DB_PREFIX = "{{DB_PREFIX}}"
+READONLY_TOKEN = "{{READONLY_TOKEN}}"
 SLACK_REPORT_URL = "https://hooks.slack.com/services/{{SLACK_REPORT_ENDPOINT}}"

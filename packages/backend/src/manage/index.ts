@@ -1,11 +1,33 @@
 import { Router } from '@ovv/itty-router'
 
 import requireAdmin from '../middleware/requireAdmin'
+import requireReadonly from '../middleware/requireReadonly'
 
 import { Routes } from '../const'
 import { UpdateTimeKey } from '../db'
 
 const router = Router({ base: Routes.Manage })
+
+/**
+ * GET /manage/raw?key=name
+ *
+ * Authorization: Bearer [ADMINISTRATION/READONLY TOKEN]
+ */
+router.get('/raw', requireReadonly, async (request) => {
+  const url = new URL(request.url)
+  const key = url.searchParams.get('key')
+  if (!key) {
+    return new Response('Key should be string', {
+      status: 400,
+    })
+  }
+  const val = await KV.get(key)
+  return new Response(val, {
+    headers: {
+      'Content-Type': 'text/plain',
+    },
+  })
+})
 
 /**
  * PUT /manage/write
