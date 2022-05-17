@@ -56,7 +56,7 @@ export function xxhash(data: string): string {
   return xxh.h32(data, XXHashSeed).toString(36)
 }
 
-async function tellSlack(text: string) {
+export async function tellSlack(text: string): Promise<unknown> {
   if (!SLACK_REPORT_URL) return
   return await fetch(SLACK_REPORT_URL, {
     method: 'POST',

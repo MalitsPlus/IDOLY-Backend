@@ -5,6 +5,7 @@ import { CorsHeaders, Routes } from './const'
 // Subrouters
 import ApiRouter from './api'
 import ManageRouter from './manage'
+import { tellSlack } from './utils'
 
 const errorHandler = async (error: any) => {
   await tellSlack(`${error.message}\n${error.stack}`)
@@ -47,6 +48,3 @@ router.all('*', () => new Response('Not Found.', { status: 404 }))
 addEventListener('fetch', (event: any) =>
   event.respondWith(router.handle(event.request).catch(errorHandler)),
 )
-function tellSlack(arg0: string) {
-  throw new Error('Function not implemented.')
-}
