@@ -1,0 +1,306 @@
+# yaml-language-server: $schema=http://json-schema.org/draft-07/schema
+---
+"$id": https://_schema.outv.im/info-pride/skillx
+"$schema": http://json-schema.org/draft-07/schema
+description: Parsed skills format
+examples:
+  - ef-score_get-2800-chart_dependence:
+      effect:
+        typ: score_get
+        perc: 2800
+      target: chart_dependence
+title: The root mapping
+type: object
+additionalProperties:
+  $ref: "#/$defs/EffectWithTarget"
+$defs:
+  EffectWithTarget:
+    # = EffectItem = EffectDescription
+    oneOf:
+      - $ref: "#/$defs/EffectTargetChart"
+      - $ref: "#/$defs/EffectTargetCharacterWithLen"
+      - $ref: "#/$defs/EffectTargetCharacterWithoutLen"
+  EffectTargetChart:
+    type: object
+    additionalProperties: false
+    required:
+      - effect
+      - target
+    properties:
+      effect:
+        $ref: "#/$defs/EffectChart"
+      target:
+        $ref: "#/$defs/TargetChart"
+  EffectScoreGet:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+      - perc
+    examples:
+      - typ: score_get
+        perc: 2800
+    properties:
+      typ:
+        $ref: "#/$defs/EffectScoreGetTyp"
+      perc:
+        type: number
+  EffectScoreGetByStaEff:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+      - prt
+      - lvl
+    properties:
+      typ:
+        const: score_get_by_status_effect_type_grade
+      prt:
+        $ref: "#/$defs/EffectCharacterLengthLevelTyp"
+      lvl:
+        type: number
+  EffectCharacterLengthLevelTyp:
+    oneOf:
+      - const: vocal_up
+      - const: dance_up
+      - const: visual_up
+      - const: skill_score_up
+      - const: active_skill_score_up
+      - const: passive_skill_score_up
+      - const: special_skill_score_up
+      - const: score_up
+      - const: beat_score_up
+      - const: combo_score_up
+      - const: skill_success_rate_up
+      - const: tension_up
+      - const: critical_rate_up
+      - const: critical_bonus_permil_up
+      - const: stamina_consumption_reduction
+      - const: stamina_consumption_increase
+      - const: audience_amount_reduction
+      - const: audience_amount_increase
+      - const: weakness_effect_prevention
+      - const: vocal_down
+      - const: dance_down
+      - const: visual_down
+  EffectChart:
+    oneOf:
+      - $ref: "#/$defs/EffectScoreGet"
+      - $ref: "#/$defs/EffectScoreGetByStaEff"
+      - $ref: "#/$defs/EffectScoreGetByTrigExtra"
+  TargetChart:
+    const: chart_dependence
+  EffectScoreGetByTrigExtra:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+      - lvl
+      - cond
+      - condLvl
+    properties:
+      typ:
+        const: score_get_by_trigger
+      lvl:
+        type: number
+      cond:
+        $ref: "#/$defs/TriggerCond"
+      condLvl:
+        type: number
+  EffectScoreGetTyp:
+    oneOf:
+      - const: score_get_by_less_fan_amount
+      - const: score_get_by_more_fan_engage
+      - const: score_get_by_more_combo_count
+      - const: score_get_by_skill_activation_count
+      - const: score_get_by_strength_effect_count
+      - const: score_get_by_more_stamina_use
+      - const: score_get_by_more_stamina
+      - const: score_get_by_less_stamina
+      - const: score_get
+  EffectTargetCharacterWithoutLen:
+    type: object
+    additionalProperties: false
+    required:
+      - effect
+      - target
+    properties:
+      effect:
+        $ref: "#/$defs/EffectCharacterWithoutLength"
+      target:
+        $ref: "#/$defs/TargetCharacterWithoutLength"
+  EffectTargetCharacterWithLen:
+    type: object
+    additionalProperties: false
+    required:
+      - effect
+      - target
+    properties:
+      effect:
+        $ref: "#/$defs/EffectCharacterWithLength"
+      target:
+        $ref: "#/$defs/TargetCharacterWithLength"
+      len:
+        type: number
+  TriggerCond:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+      - len
+    properties:
+      typ:
+        const: "combo"
+      len:
+        type: number
+  TargetCharacterWithLength:
+    allOf:
+      - $ref: "#/$defs/TargetCharacter"
+      - type: object
+        required:
+          - cnt
+        properties:
+          cnt:
+            type: number
+  TargetCharacterWithoutLength:
+    $ref: "#/$defs/TargetCharacterWithLength"
+  TargetCharacter:
+    oneOf:
+      - $ref: "#/$defs/TargetCharacterSpecial"
+      - $ref: "#/$defs/TargetCharacterWithProps"
+      - $ref: "#/$defs/TargetCharacterWithType"
+      - $ref: "#/$defs/TargetCharacterTrigger"
+      - $ref: "#/$defs/TargetCharacterWithStatus"
+  TargetCharacterSpecial:
+    type: object
+    required:
+      - typ
+    properties:
+      typ:
+        $ref: "#/$defs/TargetCharacterSpecialType"
+  TargetCharacterWithProps:
+    type: object
+    required:
+      - typ
+    properties:
+      typ:
+        $ref: "#/$defs/TargetChPropsType"
+  TargetCharacterWithType:
+    type: object
+    required:
+      - typ
+      - typ2
+    properties:
+      typ:
+        $ref: "#/$defs/TargetCharacterWithTypeType"
+      typ2:
+        type: number
+  TargetCharacterTrigger:
+    type: object
+    required:
+      - typ
+    properties:
+      typ:
+        const: "trigger"
+  TargetCharacterWithStatus:
+    type: object
+    required:
+      - typ
+      - typ2
+    properties:
+      typ:
+        const: "status"
+      typ2:
+        $ref: "#/$defs/EffectCharacterLengthLevelTyp"
+  TargetCharacterSpecialType:
+    oneOf:
+      - const: self
+      - const: all
+      - const: center
+      - const: neighbor
+      - const: opponent_same_position
+      - const: opponent_center
+  TargetChPropsType:
+    oneOf:
+      - const: vocal_higher
+      - const: dance_higher
+      - const: visual_higher
+      - const: stamina_higher
+      - const: vocal
+      - const: dance
+      - const: visual
+      - const: position_attribute_visual
+      - const: stamina_lower
+  TargetCharacterWithTypeType:
+    oneOf:
+      - const: "character_type"
+      - const: "opponent_character_type"
+  EffectCharacterWithLength:
+    oneOf:
+      - $ref: "#/$defs/EffectCharacterLengthLevel"
+      - $ref: "#/$defs/EffectCharacterLengthOnly"
+  EffectCharacterWithoutLength:
+    oneOf:
+      - $ref: "#/$defs/EffectCharacterLevelOnly"
+      - $ref: "#/$defs/EffectCharacterSimple"
+  EffectCharacterLengthLevel:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+      - lvl
+      - len
+    properties:
+      typ:
+        $ref: "#/$defs/EffectCharacterLengthLevelTyp"
+      lvl:
+        type: number
+      len:
+        # added by EffectTargetCharacterWithLen
+        type: number
+  EffectCharacterLengthOnly:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+      - len
+    properties:
+      typ:
+        $ref: "#/$defs/EffectCharacterLengthOnlyTyp"
+      len:
+        # added by EffectTargetCharacterWithLen
+        type: number
+  EffectCharacterLengthOnlyTyp:
+    oneOf:
+      - const: skill_impossible
+      - const: combo_continuation
+  EffectCharacterLevelOnly:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+      - lvl
+    properties:
+      typ:
+        $ref: "#/$defs/EffectCharacterLevelOnlyTyp"
+      lvl:
+        type: number
+  EffectCharacterSimple:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+    properties:
+      typ:
+        $ref: "#/$defs/EffectCharacterSimpleTyp"
+  EffectCharacterLevelOnlyTyp:
+    oneOf:
+      - const: fix_stamina_recovery
+      - const: target_stamina_recovery
+      - const: cool_time_reduction
+      - const: strength_effect_count_increase
+      - const: strength_effect_value_increase
+  EffectCharacterSimpleTyp:
+    oneOf:
+      - const: weakness_effect_recovery
+      - const: strength_effect_migration_before_special_skill

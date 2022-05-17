@@ -134,3 +134,4 @@ wrangler.toml
 
 # Custom
 /data
+/packages/parser/src/*.json
