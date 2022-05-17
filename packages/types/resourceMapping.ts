@@ -10,6 +10,8 @@ import type {
   Story,
 } from './ProtoMaster'
 
+import { TheRootMapping as SkillxData } from './Skillx'
+
 export type ResourceMapping = {
   Card: Card[]
   CardLevel: CardLevel[]
@@ -19,5 +21,6 @@ export type ResourceMapping = {
   Music: Music[]
   MusicChartPattern: MusicChartPattern[]
   Skill: Skill[]
+  Skillx: SkillxData
   Story: Story[]
 }

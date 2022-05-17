@@ -29,6 +29,7 @@ const ApiRoutes: APIMapping = {
   MusicChartList: MusicChartRoutes.list,
   Skill: SkillRoute.list,
   'Skill/EffectTypes': SkillRoute.effectTypes,
+  'Skill/X': SkillRoute.skillx,
   Story: StoryRoute,
   Version: VersionRoute,
 }

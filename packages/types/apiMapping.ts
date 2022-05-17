@@ -9,6 +9,7 @@ import type {
 } from './ProtoMaster'
 import type { MusicChart } from './types'
 import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
+import { TheRootMapping as SkillxData } from './Skillx'
 
 export type APIMapping = {
   Card: OnlyOutput<
@@ -108,6 +109,7 @@ export type APIMapping = {
     Skill[]
   >
   'Skill/EffectTypes': OnlyOutput<string[]>
+  'Skill/X': OnlyOutput<SkillxData>
   Story: InputAndOutput<
     { id: string },
     Pick<Story, 'name' | 'id' | 'sectionName' | 'description'>
