@@ -47,7 +47,6 @@ export type EffectCharacterLengthLevelTyp =
   | 'vocal_down'
   | 'dance_down'
   | 'visual_down'
-export type TargetChart = 'chart_dependence'
 export type EffectCharacterWithLength =
   | EffectCharacterLengthLevel
   | EffectCharacterLengthOnly
@@ -110,7 +109,7 @@ export interface EffectTargetChart {
 }
 export interface EffectScoreGet {
   typ: EffectScoreGetTyp
-  perc: number
+  typ2: number
 }
 export interface EffectScoreGetByStaEff {
   typ: 'score_get_by_status_effect_type_grade'
@@ -126,6 +125,10 @@ export interface EffectScoreGetByTrigExtra {
 export interface TriggerCond {
   typ: 'combo'
   len: number
+}
+export interface TargetChart {
+  typ: 'chart_dependence'
+  [k: string]: unknown
 }
 export interface EffectTargetCharacterWithLen {
   effect: EffectCharacterWithLength

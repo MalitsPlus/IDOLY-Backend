@@ -7,8 +7,9 @@ examples:
   - ef-score_get-2800-chart_dependence:
       effect:
         typ: score_get
-        perc: 2800
-      target: chart_dependence
+        typ2: 2800
+      target:
+        typ: chart_dependence
 title: The root mapping
 type: object
 additionalProperties:
@@ -39,14 +40,14 @@ $defs:
     additionalProperties: false
     required:
       - typ
-      - perc
+      - typ2
     examples:
       - typ: score_get
-        perc: 2800
+        typ2: 2800
     properties:
       typ:
         $ref: "#/$defs/EffectScoreGetTyp"
-      perc:
+      typ2:
         type: number
   EffectScoreGetByStaEff:
     type: object
@@ -92,7 +93,12 @@ $defs:
       - $ref: "#/$defs/EffectScoreGetByStaEff"
       - $ref: "#/$defs/EffectScoreGetByTrigExtra"
   TargetChart:
-    const: chart_dependence
+    type: object
+    required:
+      - typ
+    properties:
+      typ:
+        const: chart_dependence
   EffectScoreGetByTrigExtra:
     type: object
     additionalProperties: false

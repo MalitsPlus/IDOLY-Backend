@@ -55,8 +55,8 @@ EffectCharacterLengthOnlyTyp = "skill_impossible" / "combo_continuation"
 EffectCharacterSimpleTyp = "weakness_effect_recovery" / "strength_effect_migration_before_special_skill"
 
 EffectScoreGet
-  = typ:EffectScoreGetTyp "-" perc:Number {
-    return {typ, perc}
+  = typ:EffectScoreGetTyp "-" typ2:Number {
+    return {typ, typ2}
   }
 
 EffectScoreGetByStaEff
@@ -79,7 +79,9 @@ EffectScoreGetTyp
   / "score_get_by_more_stamina_use" / "score_get_by_more_stamina" / "score_get_by_less_stamina"
   / "score_get"
 
-TargetChart = "chart_dependence"
+TargetChart = typ:"chart_dependence" {
+  return {typ}
+}
 
 TargetCharacter
   = TargetCharacterSpecial / TargetCharacterWithProps
