@@ -7,7 +7,7 @@ import yaml from 'js-yaml'
 import { compile } from 'json-schema-to-typescript'
 
 // This script does not need arguments.
-// node ./skillSchemaToTSTypes.js > ../../types/Skillx.d.ts
+// node ./skillSchemaToTSTypes.js > ../../types/Skillx.ts
 
 const require = createRequire(import.meta.url)
 
