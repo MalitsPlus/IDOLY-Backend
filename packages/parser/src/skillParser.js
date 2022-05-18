@@ -56,7 +56,10 @@ async function main() {
           effId = effId.replaceAll(k, v)
         }
         try {
-          ret[skd.efficacyId] = parser.parse(effId)
+          ret[skd.efficacyId] = {
+            ...parser.parse(effId),
+            owner: i.id,
+          }
         } catch (e) {
           console.error(e)
           console.error('---------------------------------')

@@ -26,11 +26,14 @@ $defs:
     required:
       - effect
       - target
+      - owner
     properties:
       effect:
         $ref: "#/$defs/EffectChart"
       target:
         $ref: "#/$defs/TargetChart"
+      owner:
+        type: string
   EffectScoreGet:
     type: object
     additionalProperties: false
@@ -124,24 +127,28 @@ $defs:
     required:
       - effect
       - target
+      - owner
     properties:
       effect:
         $ref: "#/$defs/EffectCharacterWithoutLength"
       target:
         $ref: "#/$defs/TargetCharacterWithoutLength"
+      owner:
+        type: string
   EffectTargetCharacterWithLen:
     type: object
     additionalProperties: false
     required:
       - effect
       - target
+      - owner
     properties:
       effect:
         $ref: "#/$defs/EffectCharacterWithLength"
       target:
         $ref: "#/$defs/TargetCharacterWithLength"
-      len:
-        type: number
+      owner:
+        type: string
   TriggerCond:
     type: object
     additionalProperties: false

@@ -106,6 +106,7 @@ export interface TheRootMapping {
 export interface EffectTargetChart {
   effect: EffectChart
   target: TargetChart
+  owner: string
 }
 export interface EffectScoreGet {
   typ: EffectScoreGetTyp
@@ -129,7 +130,7 @@ export interface TriggerCond {
 export interface EffectTargetCharacterWithLen {
   effect: EffectCharacterWithLength
   target: TargetCharacterWithLength
-  len?: number
+  owner: string
 }
 export interface EffectCharacterLengthLevel {
   typ: EffectCharacterLengthLevelTyp
@@ -165,6 +166,7 @@ export interface TargetCharacterWithStatus {
 export interface EffectTargetCharacterWithoutLen {
   effect: EffectCharacterWithoutLength
   target: TargetCharacterWithLength
+  owner: string
 }
 export interface EffectCharacterLevelOnly {
   typ: EffectCharacterLevelOnlyTyp
