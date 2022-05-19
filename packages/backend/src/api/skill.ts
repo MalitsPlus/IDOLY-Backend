@@ -28,6 +28,8 @@ const list: APIMapping['Skill'] = async ({ ids: _ids }) => {
   return allSkills.filter((x) => ids.includes(x.id))
 }
 
+const all: APIMapping['Skill/All'] = async () => dbGet('Skill')
+
 const skillx: APIMapping['Skill/X'] = () => dbGet('Skillx')
 
-export default { list, effectTypes, skillx }
+export default { list, effectTypes, skillx, all }

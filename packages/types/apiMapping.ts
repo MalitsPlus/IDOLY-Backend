@@ -108,6 +108,7 @@ export type APIMapping = {
     },
     Skill[]
   >
+  'Skill/All': OnlyOutput<Skill[]>
   'Skill/EffectTypes': OnlyOutput<string[]>
   'Skill/X': OnlyOutput<SkillxData>
   Story: InputAndOutput<
