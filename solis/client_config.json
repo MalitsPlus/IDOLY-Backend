@@ -1,0 +1,43 @@
+{
+    "firebase": {
+        "Content-Type": "application/json",
+        "X-Android-Package": "game.qualiarts.idolypride",
+        "X-Android-Cert": "381D8CBA5B5B5DAA048B4495EEF678E87FCAE3A6",
+        "Accept-Language": "ja-JP, en-US",
+        "X-Client-Version": "Android/Fallback/X21000003/FirebaseCore-Android",
+        "X-Firebase-GMPID": "1:543065248020:android:05fdc14eecbd124aab3201",
+        "X-Firebase-Client": "H4sIAAAAAAAAAKtWykhNLCpJSk0sKVayio7VUSpLLSrOzM9TslIyUqoFAFyivEQfAAAA",
+        "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 11; GM1910 Build/RKQ1.201022.002)"
+    },
+    "qseed": {
+        "X-Device": "5b60c8be15e69fd6",
+        "X-Ad": "38c81fc2-9955-4e96-8759-6adae0fc3767",
+        "User-Agent": "UnityPlayer/2020.3.18f1 (UnityWebRequest/1.0, libcurl/7.75.0-DEV)",
+        "X-AppVersion": "1.10.0",
+        "X-SeedVersion": "1.0.0",
+        "X-Unity-Version": "2020.3.18f1",
+        "X-App": "game.qualiarts.idolypride"
+    },
+    "octo": {
+        "User-Agent": "UnityPlayer/2020.3.18f1 (UnityWebRequest/1.0, libcurl/7.75.0-DEV)",
+        "Accept": "application/x-protobuf,x-octo-app/212",
+        "X-OCTO-KEY": "xop8c3tqrl8dcgij6mc9y4yf5o7btknt",
+        "X-Unity-Version": "2020.3.18f1"
+    },
+    "grpc": {
+        "x-app-version": "1.10.0",
+        "x-platform": "Android",
+        "x-device": "samsung SM-G988N",
+        "x-os-version": "Android OS 9 / API-28 (PPR1.180720.122/6736742)",
+        "x-ad-id": "38c81fc2-9955-4e96-8759-6adae0fc3767",
+        "x-seed-id": "bd2d0de852dc764b",
+        "x-adjust-adid": "7dc2f55875cca3da7767875817c2379d",
+        "x-ise": "False",
+        "x-isda": "False",
+        "x-isop": "False",
+        "x-isr": "False",
+        "x-s": "a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc",
+        "content-type": "application/grpc",
+        "grpc-timeout": "10S"
+    }
+}

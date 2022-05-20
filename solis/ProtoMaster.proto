@@ -1,0 +1,1894 @@
+syntax = "proto3";
+package master;
+option go_package = "solis/pkg/proto/master";
+option csharp_namespace = "Solis.Common.Proto.Master";
+import "ProtoEnum.proto";
+
+message PhotoContestSection {
+  string id = 1;
+  string name = 2;
+  string theme = 3;
+  string description = 4;
+  string assetId = 5;
+  string backgroundColorCode = 6;
+  string unlockConditionId = 7;
+}
+message Accessory {
+  string id = 1;
+  string assetId = 2;
+  string classification = 3;
+  int32 rarity = 4;
+  string name = 5;
+  ProtoEnum.AccessoryCategoryType categoryType = 6;
+  ProtoEnum.AccessoryParameterType param1Type = 7;
+  int32 param1Permil = 8;
+  int32 param1Value = 9;
+  ProtoEnum.AccessoryParameterType param2Type = 10;
+  int32 param2Permil = 11;
+  int32 param2Value = 12;
+  int32 salePrice = 13;
+  int32 limitBreakPhase = 14;
+  string limitBreakConsumptionId = 15;
+}
+message ActivityFanEvent {
+  string id = 1;
+  string name = 2;
+  ProtoEnum.ActivityFanEventType type = 3;
+  string viewConditionId = 4;
+  string unlockConditionId = 5;
+  int32 order = 6;
+  repeated master.ActivityFanEventLevel levels = 101;
+}
+message ActivityFanEventLevel {
+  int32 level = 1;
+  string name = 2;
+  string unlockConditionId = 5;
+}
+message ActivityPerformance {
+  string id = 1;
+  repeated string costumeTypeIds = 2;
+  string forceCostumeTypeId = 3;
+  string fieldId = 4;
+  bool existBackground = 5;
+  bool existForeground = 6;
+  string backgroundTopColorCode = 7;
+  string backgroundBottomColorCode = 8;
+  int32 fieldSpineNumber = 9;
+  string fieldSpineColorSlotId = 10;
+  int32 fieldSpineColorSlotNumber = 11;
+  bool existProp = 12;
+  string assistantNpcSpineId = 13;
+}
+message ActivityPromotion {
+  string id = 1;
+  string name = 2;
+  string viewConditionId = 3;
+  string unlockConditionId = 4;
+  int32 order = 5;
+  repeated master.ActivityPromotionLevel levels = 101;
+}
+message ActivityPromotionLevel {
+  int32 level = 1;
+  string name = 3;
+  string unlockConditionId = 5;
+}
+message ActivityRefresh {
+  string id = 1;
+  string name = 2;
+  string viewConditionId = 3;
+  string unlockConditionId = 4;
+  int32 order = 5;
+  repeated master.ActivityRefreshLevel levels = 101;
+}
+message ActivityRefreshLevel {
+  int32 level = 1;
+  string name = 3;
+  string viewConditionId = 4;
+  string unlockConditionId = 5;
+}
+message Area {
+  string id = 1;
+  ProtoEnum.AreaType type = 2;
+  string name = 3;
+  string description = 4;
+  int32 order = 5;
+  string areaGroupId = 6;
+  string viewConditionId = 7;
+  string unlockConditionId = 8;
+  int32 dailyLimitCount = 9;
+  ProtoEnum.ItemType dailyTicketItemType = 10;
+  string rewardAssetId = 11;
+  string assetId = 12;
+  string colorCode = 13;
+  repeated string questIds = 100;
+}
+message AreaGroup {
+  string id = 1;
+  string name = 2;
+  int32 order = 3;
+  string assetId = 4;
+  repeated string areaIds = 100;
+}
+message BacksidePanelGoalSetting {
+  string id = 1;
+  string name = 2;
+  string musicId = 3;
+  string musicChartPatternId = 4;
+  string backsideQuestSettingId = 5;
+  string stageId = 6;
+}
+message BacksideQuestSetting {
+  string id = 1;
+  ProtoEnum.AttributeType position1AttributeType = 2;
+  ProtoEnum.AttributeType position2AttributeType = 3;
+  ProtoEnum.AttributeType position3AttributeType = 4;
+  ProtoEnum.AttributeType position4AttributeType = 5;
+  ProtoEnum.AttributeType position5AttributeType = 6;
+  int32 activeSkillWeightPermil = 7;
+  int32 specialSkillWeightPermil = 8;
+  int32 skillStaminaWeightPermil = 9;
+  int32 staminaRecoveryWeightPermil = 10;
+  int32 beatDanceWeightPermil = 11;
+  int32 beatVocalWeightPermil = 12;
+  int32 beatVisualWeightPermil = 13;
+  string questPressureId = 14;
+  string questCharacterAdvantageId = 15;
+  string questAudienceAdvantageId = 16;
+  ProtoEnum.MoodType moodType = 17;
+}
+message BoxGacha {
+  string id = 1;
+  string boxGachaGroupId = 2;
+  string name = 3;
+  string unlockConditionId = 4;
+  int32 requiredResourceAmount = 5;
+  bool canReset = 6;
+  int32 resetLimitCount = 7;
+}
+message Card {
+  string id = 1;
+  string assetId = 2;
+  string name = 3;
+  string description = 4;
+  ProtoEnum.CardType type = 5;
+  string characterId = 6;
+  int32 initialRarity = 7;
+  string cardParameterId = 8;
+  int32 vocalRatioPermil = 9;
+  int32 danceRatioPermil = 10;
+  int32 visualRatioPermil = 11;
+  int32 staminaRatioPermil = 12;
+  string cardLevelReleaseId = 13;
+  string skillId1 = 14;
+  string skillId2 = 15;
+  string skillId3 = 16;
+  string liveAbilityId = 17;
+  string activityAbilityId = 18;
+  int32 order = 19;
+  int64 releaseDate = 20;
+  string rewardCostumeId = 21;
+  ProtoEnum.CardImageType imageType1 = 22;
+  float displayPositionX1 = 23;
+  float displayPositionY1 = 24;
+  float displayScale1 = 25;
+  float highlightDisplayPositionX1 = 26;
+  float highlightDisplayPositionY1 = 27;
+  float highlightDisplayScale1 = 28;
+  ProtoEnum.CardImageType imageType2 = 29;
+  float displayPositionX2 = 30;
+  float displayPositionY2 = 31;
+  float displayScale2 = 32;
+  float highlightDisplayPositionX2 = 33;
+  float highlightDisplayPositionY2 = 34;
+  float highlightDisplayScale2 = 35;
+  string obtainMessage = 36;
+  repeated master.CardStory stories = 101;
+  repeated master.CardMessage messages = 102;
+  repeated master.CardHomeTalk homeTalks = 103;
+}
+message CardDuplicateReward {
+  int32 initialRarity = 1;
+  int32 currentRarity = 2;
+  string rewardId = 3;
+}
+message CardHomeTalk {
+  string homeTalkId = 1;
+}
+message CardMessage {
+  string messageId = 1;
+  string telephoneId = 2;
+}
+message CardStory {
+  string storyId = 1;
+}
+message CardSupportRelease {
+  int32 count = 1;
+  string itemId = 2;
+  int32 itemAmount = 3;
+  int32 stoneAmount = 4;
+}
+message Character {
+  string id = 1;
+  string assetId = 2;
+  string characterGroupId = 3;
+  int32 order = 4;
+  string name = 5;
+  string enName = 6;
+  string cv = 7;
+  string age = 8;
+  string birthday = 9;
+  string height = 10;
+  string weight = 11;
+  string zodiacSign = 12;
+  string hometown = 13;
+  string favorite = 14;
+  string unfavorite = 15;
+  string profile = 16;
+  bool isNpc = 17;
+  repeated string costumeIds = 18;
+  repeated master.CharacterDuplicate altCharacters = 19;
+  string defaultCostumeId = 20;
+  int32 heightCorrectionPermil = 21;
+  string color = 22;
+  repeated master.ActivityFanEventWord activityFanEventWords = 23;
+  string talkArrivalMotionAssetId = 24;
+  string talkArrivalAdditionMotionAssetId = 25;
+  string viewConditionId = 26;
+  ProtoEnum.CharacterPersonalityType personalityType = 27;
+  ProtoEnum.SimpleCharacterPersonalityType simplePersonalityType = 28;
+  ProtoEnum.CharacterSdPersonalityType sdPersonalityType = 29;
+  repeated string costumeMotionAssetIds = 30;
+  repeated string costumeAdditionMotionAssetIds = 31;
+  repeated string costumeVoiceAssetIds = 32;
+  bool isLeftHanded = 33;
+  ProtoEnum.PsylliumColerType psylliumColerType = 34;
+  string shortProfile = 35;
+  string threeSize = 36;
+  string catchphrase = 37;
+  string firstName = 38;
+  string idiom = 39;
+  bool isMemories = 40;
+  string defaultLiveCostumeId = 41;
+}
+message CharacterCostumeGroup {
+  string groupId = 1;
+  string costumeId = 2;
+}
+message CharacterDuplicate {
+  string characterId = 1;
+  int32 priority = 2;
+}
+message CharacterGroup {
+  string id = 1;
+  string assetId = 2;
+  int32 order = 3;
+  string name = 4;
+  string viewConditionId = 5;
+  string color = 6;
+  repeated master.CharacterGroupMapping mappings = 7;
+  bool isMemories = 8;
+}
+message CharacterGroupMapping {
+  string characterId = 1;
+  string description = 2;
+  string assetId = 3;
+  int32 order = 4;
+}
+message ConditionAccessoryAmount {
+  string accessoryId = 1;
+  int64 amountGte = 2;
+}
+message ConditionActivityLevel {
+  string characterId = 1;
+  int32 levelGte = 2;
+  int32 levelLte = 3;
+}
+message ConditionCardLevel {
+  string cardId = 1;
+  int32 levelGte = 2;
+}
+message ConditionCardRarity {
+  string cardId = 1;
+  int32 rarityGte = 2;
+  int32 rarityLte = 3;
+}
+message ConditionCharacterPhotoAmount {
+  string characterId = 1;
+  int64 amountGte = 2;
+}
+message ConditionClearArea {
+  string areaId = 1;
+}
+message ConditionClearMission {
+  string missionId = 1;
+  int64 threshold = 2;
+}
+message ConditionClearQuest {
+  string questId = 1;
+}
+message ConditionContestQuestHighestRank {
+  string questId = 1;
+  int32 rankLte = 2;
+}
+message ConditionDailyAreaClear {
+  string areaId = 1;
+  int32 countGte = 2;
+}
+message ConditionDailyQuestClear {
+  string questId = 1;
+  int32 countGte = 2;
+}
+message ConditionFanAmount {
+  string characterId = 1;
+  int64 amountGte = 2;
+}
+message ConditionFinishedMessage {
+  string messageId = 1;
+}
+message ConditionHierarchyDetailGradeId {
+  string hierarchyDetailGradeId = 1;
+}
+message ConditionItemAmount {
+  string itemId = 1;
+  int64 amountGte = 2;
+}
+message ConditionLiveCharacterHighestScore {
+  string characterId = 1;
+  int64 scoreGte = 2;
+}
+message ConditionMaxQuestScoreRank {
+  string questId = 1;
+  int32 rankGte = 2;
+}
+message ConditionNotSatisfyCondition {
+  string conditionId = 1;
+}
+message ConditionObtainAccessory {
+  string accessoryId = 1;
+}
+message ConditionObtainCard {
+  string cardId = 1;
+}
+message ConditionObtainCharacter {
+  string characterId = 1;
+}
+message ConditionObtainCostume {
+  string costumeId = 1;
+}
+message ConditionObtainEmblem {
+  string emblemId = 1;
+}
+message ConditionObtainItem {
+  string itemId = 1;
+}
+message ConditionOpenGacha {
+  string gachaId = 1;
+}
+message ConditionReadStory {
+  string storyId = 1;
+}
+message ConditionReliability {
+  string characterId = 1;
+  int32 reliabilityGte = 2;
+}
+message ConditionSatisfyCondition {
+  string conditionId = 1;
+}
+message ConditionWearCostume {
+  string costumeId = 1;
+}
+message ConditionWearLiveCostume {
+  string costumeId = 1;
+}
+message Costume {
+  string id = 1;
+  string hairAssetId = 2;
+  string faceAssetId = 3;
+  string bodyAssetId = 4;
+  string characterId = 5;
+  int32 order = 6;
+  string name = 7;
+  int64 releaseDate = 8;
+  string costumeTypeId = 9;
+  string sdAssetId = 10;
+  string motifAssetId = 11;
+  bool isUserUnavailable = 12;
+}
+message Decoration {
+  string id = 1;
+  string name = 2;
+  string assetId = 3;
+  string autoProvideConditionId = 4;
+  int32 order = 5;
+  string description = 6;
+}
+message Emblem {
+  string id = 1;
+  string name = 2;
+  string assetId = 3;
+  string autoProvideConditionId = 4;
+  bool isViewableInInactive = 5;
+  int32 order = 6;
+  string description = 7;
+}
+message EventMission {
+  string id = 1;
+  ProtoEnum.EventMissionType eventMissionType = 2;
+  string assetId = 3;
+  string name = 4;
+  int32 order = 5;
+  string viewConditionId = 6;
+  string unlockConditionId = 7;
+  repeated string missionIds = 100;
+}
+message EventStory {
+  string id = 1;
+  string assetId = 2;
+  string name = 3;
+  string description = 4;
+  int32 order = 5;
+  string viewConditionId = 6;
+  repeated master.EventStoryEpisode episodes = 11;
+}
+message EventStoryEpisode {
+  int32 episode = 1;
+  string assetId = 2;
+  string storyId = 3;
+  string viewConditionId = 4;
+  string unlockConditionId = 5;
+  bool isAppeal = 6;
+}
+message FunctionLock {
+  ProtoEnum.FunctionLockType type = 1;
+  int32 requiredManagerLevel = 2;
+  string unlockConditionId = 3;
+}
+message Gacha {
+  string id = 1;
+  string assetId = 2;
+  string bannerAssetId = 3;
+  string appealAssetId = 4;
+  string movieAssetId = 5;
+  string screenAssetId = 6;
+  string name = 7;
+  string description = 8;
+  string precaution = 9;
+  ProtoEnum.GachaType gachaType = 10;
+  string viewConditionId = 11;
+  string unlockConditionId = 12;
+  repeated string pickupCardIds = 13;
+  ProtoEnum.ResourceType exchangeResourceType = 14;
+  string exchangeResourceId = 15;
+  string exchangeBoothId = 16;
+  int32 order = 17;
+  bool isPeriodDisplay = 18;
+  string appealText = 19;
+  int32 selectPickupAmount = 20;
+  repeated string selectCardIds = 21;
+  repeated string buttonIds = 100;
+  repeated string exchangeIds = 101;
+  repeated master.GachaCardReward cardRewards = 102;
+}
+message GachaButton {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  bool isAnimation = 4;
+  string consumptionId = 5;
+  ProtoEnum.GachaLimitType discountLimitType = 6;
+  int32 discountCount = 7;
+  string discountConsumptionId = 8;
+  int32 drawCount = 9;
+  ProtoEnum.GachaLimitType limitType = 10;
+  int32 limitCount = 11;
+  string bonusRewardId = 12;
+  int32 bonusCount = 13;
+  int32 order = 14;
+  string gachaId = 15;
+}
+message GachaCardReward {
+  string cardId = 1;
+  string rewardId = 2;
+}
+message GachaExchange {
+  string id = 1;
+  string rewardId = 2;
+  int32 exchangeLimit = 3;
+  int64 requiredResourceAmount = 4;
+  int32 order = 5;
+  string gachaId = 6;
+}
+message GuildTopMovie {
+  string assetId = 1;
+  string musicAssetId = 2;
+  string conditionId = 3;
+  int32 order = 4;
+}
+message HierarchyDetailGrade {
+  string id = 1;
+  string hierarchyGradeId = 2;
+  string subName = 3;
+  int64 requiredHierarchyPoint = 4;
+  int32 requiredHierarchyRank = 5;
+  int32 order = 6;
+}
+message HierarchyDivisionReward {
+  string id = 1;
+  string name = 2;
+  string rewardId = 4;
+  int32 order = 5;
+  string detailGradeId = 6;
+}
+message HierarchyReward {
+  string id = 1;
+  ProtoEnum.HierarchyRewardType hierarchyRewardType = 2;
+  int32 order = 3;
+  string name = 4;
+  string conditionId = 5;
+  string rewardId = 6;
+}
+message HomeAction {
+  string homeActionId = 1;
+  string characterId = 2;
+  string motionAssetId = 3;
+  string additionMotionAssetId = 4;
+  string voiceAssetId = 5;
+  string text = 6;
+  ProtoEnum.HomePositionType positionType = 7;
+  string conditionId = 8;
+  int32 weight = 9;
+  ProtoEnum.HomeActionType actionType = 10;
+}
+message HomeBackground {
+  string homeBackgroundId = 1;
+  string name = 2;
+  ProtoEnum.HomePlaceType placeType = 3;
+  string backgroundAssetId = 4;
+  string cameraAssetId = 5;
+  string conditionId = 6;
+  int32 priority = 7;
+  repeated float positions = 8;
+  repeated float angles = 9;
+  string characterCostumeGroupId = 10;
+}
+message HomeDrama {
+  string homeDramaId = 1;
+  int32 weight = 2;
+  ProtoEnum.HomePlaceType placeType = 3;
+  string conditionId = 4;
+  string homeDramaPositionGroupId = 5;
+  repeated string cameraAssetIds = 6;
+  repeated master.HomeDramaDetail details = 7;
+  bool isBreak = 8;
+  ProtoEnum.SimpleCharacterPersonalityType simplePersonalityType = 9;
+}
+message HomeDramaDetail {
+  int32 order = 1;
+  string text = 2;
+  int32 timing = 3;
+  string characterId = 4;
+  string voiceAssetId = 5;
+  string homeDramaPositionId = 6;
+  string idleMotionAssetId = 7;
+  repeated string properties = 8;
+}
+message HomeDramaFree {
+  string homeDramaPositionGroupId = 1;
+  string homeDramaPositionId = 2;
+  int32 number = 3;
+  string characterId = 4;
+  int32 weight = 5;
+  repeated string motionAssetIds = 6;
+  repeated string properties = 7;
+  string voiceAssetId = 8;
+  int32 playStartMillisecond = 9;
+}
+message HomeNavigation {
+  string homeNavigationId = 1;
+  string characterId = 2;
+  string navigationText = 3;
+  string detailText = 4;
+  ProtoEnum.LinkType linkType = 5;
+  string linkDetail = 6;
+  string viewConditionId = 7;
+  int32 order = 8;
+}
+message HomeTalk {
+  string homeTalkId = 1;
+  string characterId = 2;
+  ProtoEnum.HomePlaceType placeType = 3;
+  string conditionId = 4;
+  int32 firstPriority = 5;
+  int32 weight = 6;
+  string callPatternId = 7;
+  string choiceText = 8;
+  string managerText = 9;
+  int32 reliability = 10;
+  repeated master.CharacterTalk characterTalks = 100;
+}
+message HomeTalkCallPattern {
+  string characterId = 1;
+  string patternId = 2;
+  string managerCallText = 3;
+  string characterArrivalText = 4;
+  string characterArrivalVoiceAssetId = 5;
+}
+message LiveAbilityLevel {
+  int32 level = 1;
+  string description = 2;
+  string shortDescription = 3;
+  ProtoEnum.LiveAbilityType type = 4;
+  int32 requiredItemAmount = 5;
+  int32 requiredCardLevel = 6;
+  int32 value = 7;
+  string skillId = 8;
+  ProtoEnum.MoodType moodType = 9;
+  ProtoEnum.LiveAbilityLevelBackgroundRankType backgroundRankType = 10;
+}
+message LiveBonus {
+  string id = 1;
+  string name = 2;
+  string liveAbilityId = 3;
+  int32 liveAbilityLevel = 4;
+}
+message LiveBonusGroup {
+  string groupId = 1;
+  repeated string liveBonusIds = 2;
+}
+message LiveResultAnimation {
+  string id = 1;
+  ProtoEnum.CharacterPersonalityType personalityType = 2;
+  ProtoEnum.LiveResultType resultType = 3;
+  string firstMotionAssetId = 4;
+  string firstVoiceAssetId = 5;
+  string secondMotionAssetId = 6;
+  string secondVoiceAssetId = 7;
+  int32 ratio = 8;
+  string conditionId = 9;
+}
+message LiveStartAnimation {
+  string id = 1;
+  int32 characterAmount = 2;
+  repeated string motionAssetIds = 3;
+  string voiceAssetGroupId = 4;
+  repeated string characterIds = 5;
+  repeated string npcCharacterIds = 6;
+  repeated string npcMotionAssetIds = 7;
+  string layoutMotionAssetId = 8;
+  string cameraMotionAssetId = 9;
+}
+message LiveStartVoiceAssetGroup {
+  string id = 1;
+  string characterId = 2;
+  string voiceAssetId1 = 3;
+  string voiceAssetId2 = 4;
+  string voiceAssetId3 = 5;
+}
+message Loading {
+  string id = 1;
+  ProtoEnum.LoadingType loadingType = 2;
+  repeated ProtoEnum.LoadingDisplayTargetType targets = 3;
+  string viewConditionId = 4;
+  string title = 5;
+  string assetId = 6;
+  string text = 7;
+  bool isDownloading = 8;
+}
+message LoginBonus {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  ProtoEnum.LoginBonusType type = 4;
+  string assetId = 5;
+  string topColorCode = 6;
+  string bottomColorCode = 7;
+  int32 priority = 8;
+  repeated string rewardIds = 9;
+  string openConditionId = 10;
+  string receiveConditionId = 11;
+}
+message LoginBonusText {
+  string id = 1;
+  string costumeId = 2;
+  string text = 3;
+}
+message MarathonBoxGachaSetting {
+  string marathonId = 1;
+  string boxGachaId = 2;
+  int32 order = 3;
+  int32 unlockRequiredPoint = 4;
+  string guageColorCode = 5;
+  string guageName = 6;
+}
+message MarathonLiveBonus {
+  string id = 1;
+  string name = 2;
+  string liveAbilityId = 3;
+  int32 liveAbilityLevel = 4;
+  int32 powerPermil = 5;
+}
+message MarathonLiveBonusGroup {
+  string groupId = 1;
+  string liveBonusId = 2;
+}
+message MarathonQuest {
+  string id = 1;
+  string marathonId = 2;
+  string name = 3;
+  string description = 4;
+  int32 order = 5;
+  string unlockConditionId = 6;
+  repeated string marathonPointBonusCharacterIds = 7;
+  string boxGachaId = 8;
+  string stageId = 9;
+  string musicId = 10;
+  string musicChartPatternId = 11;
+  int32 requiredUnlockItemAmount = 12;
+  int32 requiredStamina = 13;
+  ProtoEnum.AttributeType position1AttributeType = 14;
+  ProtoEnum.AttributeType position2AttributeType = 15;
+  ProtoEnum.AttributeType position3AttributeType = 16;
+  ProtoEnum.AttributeType position4AttributeType = 17;
+  ProtoEnum.AttributeType position5AttributeType = 18;
+  int32 activeSkillWeightPermil = 19;
+  int32 specialSkillWeightPermil = 20;
+  int32 skillStaminaWeightPermil = 21;
+  int32 staminaRecoveryWeightPermil = 22;
+  int32 beatDanceWeightPermil = 23;
+  int32 beatVocalWeightPermil = 24;
+  int32 beatVisualWeightPermil = 25;
+  string questPressureId = 26;
+  string questCharacterAdvantageId = 27;
+  string questAudienceAdvantageId = 28;
+  ProtoEnum.MoodType moodType = 29;
+  int32 maxCapacity = 30;
+  int32 dailyLimitCount = 31;
+  string assetId = 32;
+  string unlockDescription = 33;
+}
+message MarathonQuestDifficulty {
+  string marathonQuestId = 1;
+  int32 difficultyNumber = 2;
+  int32 difficultyLevel = 3;
+  string marathonId = 4;
+  int32 mentalThreshold = 5;
+  int64 clearScore = 6;
+  int32 rewardManagerExp = 7;
+  int32 rewardCardExp = 8;
+  int32 rewardMarathonPoint = 9;
+  string clearRewardId = 10;
+  string rankAdditionalRewardId = 11;
+  string rankSRewardId = 12;
+  string rankARewardId = 13;
+  string rankBRewardId = 14;
+  string rankCRewardId = 15;
+  string unlockConditionId = 16;
+  string liveBonusGroupId = 17;
+}
+message Message {
+  string id = 1;
+  string messageGroupId = 2;
+  string name = 3;
+  ProtoEnum.MessageType type = 4;
+  string characterId = 5;
+  ProtoEnum.MessageInstantType instantType = 6;
+  ProtoEnum.MessageRarityType rarityType = 7;
+  string unlockConditionId = 8;
+  repeated master.MessageDetail details = 9;
+}
+message MessageDetail {
+  string messageDetailId = 1;
+  string characterId = 2;
+  string text = 3;
+  string stampAssetId = 4;
+  string imageAssetId = 5;
+  string telephoneId = 6;
+  string choiceText = 7;
+  int32 delayMinutes = 8;
+  int32 readMinutes = 9;
+  repeated string nextMessageDetailIds = 10;
+  int32 reliability = 11;
+}
+message MessageGroup {
+  string id = 1;
+  string name = 2;
+  string assetId = 3;
+  repeated string characterIds = 4;
+}
+message Mission {
+  string id = 1;
+  ProtoEnum.MissionCategoryType categoryType = 2;
+  ProtoEnum.MissionType missionType = 3;
+  repeated string targetIds = 4;
+  string name = 5;
+  string shortDescription = 6;
+  string longDescription = 7;
+  int32 order = 8;
+  string viewConditionId = 9;
+  ProtoEnum.LinkType linkType = 10;
+  string linkDetail = 11;
+  repeated master.MissionProgress progresses = 12;
+  string eventMissionId = 13;
+}
+message MissionProgress {
+  int64 threshold = 1;
+  string rewardSetId = 2;
+}
+message Music {
+  string id = 1;
+  string assetId = 2;
+  string name = 3;
+  string description = 4;
+  int32 order = 5;
+  string lyricist = 6;
+  string composer = 7;
+  string arranger = 8;
+  string singer = 9;
+  bool is3DAvailable = 10;
+  string comboAdvantageId = 11;
+  repeated int32 volumePermyriads = 12;
+  repeated int32 vocalVolumePermyriads = 13;
+  repeated int32 bars = 14;
+  repeated int32 beats = 15;
+  repeated int32 bpms = 16;
+  int32 chartStartOffsetMillisecond = 17;
+  int32 displayCharacterAmount = 21;
+  string colorVariation = 22;
+  repeated master.MusicDigest digests = 23;
+  int64 releaseTime = 24;
+  repeated string originalCharacterIds = 25;
+  repeated ProtoEnum.StageType notSelectableStageTypes = 26;
+}
+message MusicMasteryReward {
+  string musicId = 1;
+  string characterId = 2;
+  string musicMasteryRewardSetId = 3;
+}
+message MusicMasteryRewardSet {
+  string id = 1;
+  int32 level = 2;
+  string rewardId = 3;
+}
+message PhotoAbility {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  ProtoEnum.PhotoAbilityType abilityType = 4;
+  ProtoEnum.MoodType moodType = 5;
+  string skillId = 6;
+  repeated master.PhotoAbilityLevel photoAbilityLevels = 7;
+  repeated master.PhotoAbilityGrade photoAbilityGrades = 8;
+}
+message PhotoAbilityInfo {
+  string photoAbilityId = 1;
+  int32 effectValue = 2;
+  string missionId = 3;
+  int32 grade = 4;
+}
+message PhotoActivity {
+  string id = 1;
+  string name = 2;
+  ProtoEnum.PhotoShootingActionType type = 3;
+  string thumbAssetId = 4;
+  string stageId = 5;
+  repeated string costumeTypeIds = 6;
+  string forceCostumeTypeId = 7;
+  string photoShootingMotionSetId = 8;
+  bool isDeleteCharacter = 9;
+  int32 order = 10;
+  string viewConditionId = 11;
+  string unlockConditionId = 12;
+}
+message PhotoAllInOne {
+  string id = 1;
+  string assetId = 2;
+  repeated string characterIds = 3;
+  string name = 4;
+  int32 rarity = 5;
+  string placeName = 6;
+  string eventName = 7;
+  int32 level = 8;
+  repeated master.PhotoAbilityInfo abilities = 9;
+  int64 shootingTime = 10;
+  string focusCharacterId = 11;
+}
+message PhotoContestActivity {
+  string id = 1;
+  string name = 2;
+  ProtoEnum.PhotoShootingActionType type = 3;
+  string thumbAssetId = 4;
+  string stageId = 5;
+  repeated string costumeTypeIds = 6;
+  string forceCostumeTypeId = 7;
+  string photoShootingMotionSetId = 8;
+  bool isDeleteCharacter = 9;
+  int32 order = 10;
+  string viewConditionId = 11;
+  string unlockConditionId = 12;
+}
+message PhotoContestQuestMusic {
+  string id = 1;
+  string musicId = 2;
+  string assetId = 3;
+  string name = 4;
+  string description = 5;
+  int32 order = 6;
+  string lyricist = 7;
+  string composer = 8;
+  string arranger = 9;
+  string singer = 10;
+  string viewConditionId = 11;
+  string unlockConditionId = 12;
+}
+message PhotoContestQuestStage {
+  string id = 1;
+  string stageId = 2;
+  string assetId = 3;
+  string name = 4;
+  string description = 5;
+  int32 maxCapacity = 6;
+  int32 order = 7;
+  string viewConditionId = 8;
+  string unlockConditionId = 9;
+}
+message PhotoContestSectionReward {
+  string id = 1;
+  int32 requiredEvaluationPoint = 2;
+  string rewardId = 3;
+}
+message PhotoQuestMusic {
+  string id = 1;
+  string assetId = 2;
+  string name = 3;
+  string description = 4;
+  int32 order = 5;
+  string lyricist = 6;
+  string composer = 7;
+  string arranger = 8;
+  string singer = 9;
+  string viewConditionId = 10;
+  string unlockConditionId = 11;
+}
+message PhotoQuestStage {
+  string id = 1;
+  string assetId = 2;
+  string name = 3;
+  string description = 4;
+  int32 maxCapacity = 5;
+  int32 order = 6;
+  string viewConditionId = 7;
+  string unlockConditionId = 8;
+}
+message PhotoShootingCharacterMotion {
+  string id = 1;
+  string characterId = 2;
+  string motionAssetId = 3;
+  repeated string propAssetIds = 4;
+  repeated float characterPositions = 5;
+  repeated float characterAngles = 6;
+  repeated float cameraPositions = 7;
+  repeated float cameraAngles = 8;
+  float motionDelaySec = 9;
+  float upperLimit = 10;
+  float lowerLimit = 11;
+}
+message PhotoShootingSimplePersonalityMotion {
+  string id = 1;
+  ProtoEnum.SimpleCharacterPersonalityType personalityType = 2;
+  string motionAssetId = 3;
+  repeated string propAssetIds = 4;
+  string photoShootingCharacterMotionId = 5;
+  repeated float characterPositions = 6;
+  repeated float characterAngles = 7;
+  repeated float cameraPositions = 8;
+  repeated float cameraAngles = 9;
+  float motionDelaySec = 10;
+  float upperLimit = 11;
+  float lowerLimit = 12;
+}
+message PhotoSituation {
+  string id = 1;
+  string assetId = 2;
+  repeated string characterIds = 3;
+  string defaultName = 4;
+  string placeName = 5;
+  string eventName = 6;
+  int64 shootingTime = 7;
+  string focusCharacterId = 8;
+}
+message Quest {
+  string id = 1;
+  string areaId = 2;
+  string stageId = 3;
+  string musicId = 4;
+  int32 difficultyLevel = 5;
+  string name = 6;
+  string description = 7;
+  int32 order = 8;
+  ProtoEnum.LiveSkipType skipType = 9;
+  string musicChartPatternId = 10;
+  ProtoEnum.AttributeType position1AttributeType = 11;
+  ProtoEnum.AttributeType position2AttributeType = 12;
+  ProtoEnum.AttributeType position3AttributeType = 13;
+  ProtoEnum.AttributeType position4AttributeType = 14;
+  ProtoEnum.AttributeType position5AttributeType = 15;
+  int32 activeSkillWeightPermil = 16;
+  int32 specialSkillWeightPermil = 17;
+  int32 skillStaminaWeightPermil = 18;
+  int32 staminaRecoveryWeightPermil = 19;
+  int32 beatDanceWeightPermil = 20;
+  int32 beatVocalWeightPermil = 21;
+  int32 beatVisualWeightPermil = 22;
+  int32 maxCapacity = 23;
+  int32 mentalThreshold = 24;
+  string questPressureId = 25;
+  string questCharacterAdvantageId = 26;
+  string questAudienceAdvantageId = 27;
+  ProtoEnum.MoodType moodType = 28;
+  int64 clearScore = 29;
+  int32 rewardManagerExp = 30;
+  int32 rewardCardExp = 31;
+  string clearRewardId = 32;
+  string rankAdditionalRewardId = 33;
+  string rankSRewardId = 34;
+  string rankARewardId = 35;
+  string rankBRewardId = 36;
+  string rankCRewardId = 37;
+  string rankDRewardId = 38;
+  string viewConditionId = 39;
+  string unlockConditionId = 40;
+  int32 dailyLimitCount = 41;
+  int32 ticketAmount = 42;
+  repeated master.QuestAchievedRankReward achievedRankRewards = 43;
+  string liveBonusGroupId = 44;
+}
+message QuestAchievedRankReward {
+  int32 highRank = 1;
+  int32 lowRank = 2;
+  string rewardId = 3;
+}
+message QuestCharacterAdvantage {
+  string id = 1;
+  string characterGroupId = 2;
+  repeated string characterIds = 3;
+  int32 advantagePermil = 4;
+}
+message RaceLiveBonus {
+  string id = 1;
+  int32 level = 2;
+  string liveAbilityId = 3;
+  int32 liveAbilityLevel = 4;
+  int32 powerPermil = 5;
+  int32 requiredRaceMedalAmount = 6;
+  string unlockConditionId = 7;
+}
+message RaceLiveBonusGroup {
+  string groupId = 1;
+  string liveBonusId = 2;
+  int32 order = 3;
+}
+message RacePanel {
+  string raceAreaId = 1;
+  int32 number = 2;
+  ProtoEnum.RacePanelType type = 3;
+  string raceQuestId = 4;
+  int32 eventStoryEpisode = 5;
+  int32 requiredRacePointAmount = 6;
+  string racePanelRewardId = 7;
+}
+message RacePanelReward {
+  string id = 1;
+  string raceId = 2;
+  string rewardId = 3;
+}
+message RaceQuest {
+  string id = 1;
+  string groupId = 2;
+  string name = 3;
+  string description = 4;
+  int32 order = 5;
+  string unlockConditionId = 6;
+  string musicId = 7;
+  string musicChartPatternId = 8;
+  ProtoEnum.AttributeType position1AttributeType = 9;
+  ProtoEnum.AttributeType position2AttributeType = 10;
+  ProtoEnum.AttributeType position3AttributeType = 11;
+  ProtoEnum.AttributeType position4AttributeType = 12;
+  ProtoEnum.AttributeType position5AttributeType = 13;
+  int32 activeSkillWeightPermil = 14;
+  int32 specialSkillWeightPermil = 15;
+  int32 skillStaminaWeightPermil = 16;
+  int32 staminaRecoveryWeightPermil = 17;
+  int32 beatDanceWeightPermil = 18;
+  int32 beatVocalWeightPermil = 19;
+  int32 beatVisualWeightPermil = 20;
+  string questPressureId = 21;
+  string questCharacterAdvantageId = 22;
+  string questAudienceAdvantageId = 23;
+  ProtoEnum.MoodType moodType = 24;
+  ProtoEnum.RaceActivityLessonRewardType activityLessonRewardType = 25;
+}
+message RaceQuestDifficulty {
+  string raceQuestId = 1;
+  int32 difficultyNumber = 2;
+  int32 difficultyLevel = 3;
+  int32 mentalThreshold = 4;
+  int64 clearScore = 5;
+  string unlockConditionId = 6;
+  string unlockDescription = 7;
+  string stageId = 8;
+  int32 maxCapacity = 9;
+  string liveBonusGroupId = 10;
+}
+message RaceRankingReward {
+  string rankGradeId = 1;
+  ProtoEnum.RaceRankingType type = 2;
+  int32 rankFrom = 3;
+  string rewardId = 4;
+}
+message Setting {
+  string id = 1;
+  int32 deckCountMax = 2;
+  int32 accessoryEnhancesRequiredMaterialAmount = 3;
+  int32 characterSecondToRecover = 4;
+  int32 deckCardStaminaBarMax = 5;
+  int32 deckCardParameterBarMax = 6;
+  int32 secondsPerActivityPromotionStep = 7;
+  int32 overallVocalPermil = 8;
+  int32 overallDancePermil = 9;
+  int32 overallVisualPermil = 10;
+  int32 overallStaminaPermil = 11;
+  int32 overallMentalPermil = 12;
+  int32 overallTechniquePermil = 13;
+  int32 deckAdvantagePermil = 14;
+  int32 activityPromotionFetchStepsSize = 15;
+  int32 secondsPerActivityFanEventStep = 16;
+  int32 activityFanEventMinPointCoefficientPermil = 17;
+  int32 activityFanEventIntermediatePointCoefficientPermil = 18;
+  int32 activityFanEventReachMaxPointMilliseconds = 19;
+  int32 activityFanEventKeepMaxPointMilliseconds = 20;
+  int32 liveMaxParameterBonusPermil = 21;
+  string characterMotifAssetId = 22;
+  int32 cardStaminaBarMax = 23;
+  int32 cardParameterBarMax = 24;
+  int32 questRankingDisplayNum = 25;
+  int32 activityFanEventRankingDisplayNum = 26;
+  int32 activityFanEventFetchStepsSize = 27;
+  int32 activityFanEventSaveIntervalStepsSize = 28;
+  int32 secondsPerActivityFanEventBackgroundStep = 29;
+  int32 friendLimit = 30;
+  int32 friendOfferLimit = 31;
+  int32 friendOfferedLimit = 32;
+  int64 accessoryLimit = 33;
+  int32 photoDeleteAmountLimit = 34;
+  string firstMessageDetailId = 35;
+  int32 cardResetStoneAmount = 36;
+  int32 maxHomePromotionRewardAmount = 37;
+  int32 cardSupportLevelLimit = 38;
+  string functionMaintenanceTitle = 40;
+  string twitterUrl = 41;
+  int32 activityFanEventRequiredCheerPoint = 42;
+  int32 secondsPerActivityLessonStep = 43;
+  int32 forumMaxReplyAmount = 44;
+  int32 forumRestrictCreateThreadHours = 45;
+  int32 divisionMoveProhibitionDays = 46;
+  int32 cardDefaultMental = 47;
+  int32 cardDefaultTechnique = 48;
+  string reviewDisplayConditionId = 49;
+  int32 activityLessonPromoteLimitCount = 50;
+  int32 activityLessonPromoteRequiredStoneAmount = 51;
+  int32 activityLessonPromoteEffectHours = 52;
+  int32 activityLessonPromoteFreeLimitCount = 53;
+  string functionMaintenanceMessage = 54;
+  bool pvpLiveSkipAvailable = 55;
+  bool gvgLiveSkipAvailable = 56;
+  bool tourLiveSkipAvailable = 57;
+  int32 gvgChallengeStoneAmount = 58;
+  repeated string trainingCostumeIds = 59;
+  int32 tutorialActivityLessonPromoteMinutes = 60;
+  int32 tutorialActivityLessonRewardGoldPerMinute = 61;
+  int32 tutorialActivityLessonRewardManagerExpPerMinute = 62;
+  int32 tutorialActivityLessonRewardCardEnhanceItemPerMinute = 63;
+  int32 tutorialActivityPromotionRewardGold = 64;
+  int32 tutorialActivityPromotionRewardManagerExp = 65;
+  int32 tutorialActivityPromotionRewardActivityExp = 66;
+  int32 tutorialActivityPromotionRewardCharacterActivityExp = 67;
+  int32 tutorialActivityPromotionRewardCardEnhanceItem = 68;
+  int32 tutorialActivityPromotionRewardFanAmount = 69;
+  string tutorialActivityPromotionPerformanceId = 70;
+  repeated string tutorialActivityPromotionCharacterIds = 71;
+  int32 giftDefaultFetchSize = 72;
+  int32 questRankingLiveReplayableNum = 73;
+  string tutorialPhotoShootingItemId = 74;
+  string tutorialPhotoShootingMusicId = 75;
+  string tutorialPhotoShootingStageId = 76;
+  repeated string tutorialPhotoShootingCharacterIds = 77;
+  int32 activityFanEventCheerEffectValuePermil = 78;
+  repeated int32 photoShootingItemThresholds = 79;
+  string tutorialShortQuestId = 80;
+  string tutorialFullQuestId = 81;
+  string tutorialMessageId = 82;
+  repeated string tutorialActivityFanEventCharacterIds = 83;
+  int32 entrustReductionPermil = 84;
+  int32 forumBlockDays = 85;
+  int32 liveLightFanAmountWeightPermil = 86;
+  int32 liveMiddleFanAmountWeightPermil = 87;
+  int32 liveHeavyFanAmountWeightPermil = 88;
+  string tutorialAdvAssetId = 89;
+  string tutorialAdvTitle = 90;
+  string tutorialAdvSubTitle = 91;
+  int32 liveMinimumGuaranteedAudienceAmount = 92;
+  int64 messageExcludeTimeStart = 93;
+  int64 messageExcludeTimeEnd = 94;
+  int32 deckEntrustSpecialSkillPossessionCoefficientPermil = 95;
+  int32 deckEntrustSpecialSkillPossessionReductionCoefficientPermil = 96;
+  int32 deckEntrustStaminaReductionCoefficientPermil = 97;
+  repeated string tutorialActivityFanEventCostumeIds = 98;
+  int64 goldLimit = 99;
+  int64 itemLimit = 100;
+  int64 freeStoneLimit = 101;
+  int64 paidStoneLimit = 102;
+  int32 cardSupportRemovableMinutes = 103;
+  int32 questDailyTicketLimitUseCount = 105;
+  int32 salaryRemainingDaysLte = 106;
+  int32 activityRefreshOverflowLimitCoefficientPermil = 107;
+  int32 comebackValidHours = 108;
+  int32 photoLimitExtendAmount = 109;
+  int32 photoLimitExtendStone = 110;
+  int32 photoLimitExtendLimit = 111;
+  int32 photoDefaultLimit = 112;
+  repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
+  repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
+  repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
+  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeScoreList = 1101;
+  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeStrengthList = 1102;
+  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeSupportList = 1103;
+  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeWeaknessDownList = 1104;
+  repeated ProtoEnum.SkillEfficacyType skillEfficacyTypeWeaknessOtherList = 1105;
+  int32 backsideRankingDisplayNum = 200;
+  bool backsideLiveSkipAvailable = 201;
+  int32 photoContestRankingDisplayNum = 300;
+  int32 raceRankingDisplayNum = 400;
+  int32 raceDailyRankingDisplayNum = 401;
+  int32 raceSecondsPerActivityLessonStep = 402;
+  int32 tourRankingDisplayNum = 500;
+}
+message SkillDetail {
+  string efficacyId = 1;
+  string triggerId = 2;
+}
+message SkillEfficacy {
+  string id = 1;
+  string name = 2;
+  ProtoEnum.SkillEfficacyType type = 3;
+  string description = 4;
+  string shortDescription = 5;
+  int32 grade = 6;
+  int32 maxGrade = 7;
+  string skillTargetId = 8;
+}
+message SkillLevel {
+  int32 level = 1;
+  string description = 2;
+  string shortDescription = 3;
+  int32 requiredItemAmount = 4;
+  int32 requiredCardLevel = 5;
+  int32 stamina = 6;
+  string triggerId = 7;
+  int32 probabilityPermil = 8;
+  int32 limitCount = 9;
+  int32 coolTime = 10;
+  repeated master.SkillDetail skillDetails = 11;
+}
+message SkillTrigger {
+  string id = 1;
+  ProtoEnum.SkillTriggerType type = 2;
+  repeated string characterIds = 3;
+}
+message StaffLevel {
+  ProtoEnum.ParameterType parameterType = 1;
+  int32 level = 2;
+  int32 requiredMedalAmount = 3;
+  int32 advantage = 4;
+  string unlockConditionId = 5;
+}
+message Story {
+  string id = 1;
+  string advAssetId = 2;
+  string sectionName = 3;
+  string name = 4;
+  string description = 5;
+  string rewardId = 6;
+}
+message StoryEpisode {
+  int32 episode = 1;
+  string assetId = 2;
+  string storyId = 3;
+  string viewConditionId = 4;
+  string unlockConditionId = 5;
+  bool isReleased = 6;
+}
+message StoryPart {
+  string id = 1;
+  string assetId = 2;
+  string name = 3;
+  string subTitle = 4;
+  int32 order = 5;
+  ProtoEnum.StoryPartType type = 6;
+  string viewConditionId = 7;
+  string unlockConditionId = 8;
+  ProtoEnum.PointType pointType = 9;
+  string storyEpisodeConsumptionId = 10;
+  repeated master.StoryChapter chapters = 11;
+}
+message Telephone {
+  string id = 1;
+  string messageGroupId = 2;
+  string characterId = 3;
+  string name = 4;
+  string assetId = 5;
+  string unlockConditionId = 6;
+}
+message TourQuestSetting {
+  string id = 1;
+  ProtoEnum.AttributeType position1AttributeType = 2;
+  ProtoEnum.AttributeType position2AttributeType = 3;
+  ProtoEnum.AttributeType position3AttributeType = 4;
+  ProtoEnum.AttributeType position4AttributeType = 5;
+  ProtoEnum.AttributeType position5AttributeType = 6;
+  int32 activeSkillWeightPermil = 7;
+  int32 specialSkillWeightPermil = 8;
+  int32 skillStaminaWeightPermil = 9;
+  int32 staminaRecoveryWeightPermil = 10;
+  int32 beatDanceWeightPermil = 11;
+  int32 beatVocalWeightPermil = 12;
+  int32 beatVisualWeightPermil = 13;
+  string questPressureId = 14;
+  string questCharacterAdvantageId = 15;
+  string questAudienceAdvantageId = 16;
+  ProtoEnum.MoodType moodType = 17;
+}
+message Tutorial {
+  ProtoEnum.TutorialType type = 1;
+  repeated master.TutorialStep stepInfo = 2;
+  string unlockConditionId = 3;
+}
+message AccessoryEnhancement {
+  int32 rarity = 1;
+  int64 requiredGold = 2;
+}
+message ActivityAbility {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  repeated master.ActivityAbilityLevel levels = 4;
+}
+message AssetDownload {
+  string assetId = 1;
+  ProtoEnum.AssetDownloadType type = 2;
+}
+message BacksideAnimation {
+  ProtoEnum.BacksidePanelType panelType = 1;
+  ProtoEnum.BacksidePanelAttributeType panelAttributeType = 2;
+  int32 panelRank = 3;
+  string backgroundAssetId = 4;
+  string cameraAssetId = 5;
+  string motionAssetId = 6;
+  string additionMotionAssetId = 7;
+  repeated string propAssetIds = 8;
+  string voiceAssetId = 9;
+}
+message BoxGachaGroup {
+  string id = 1;
+  ProtoEnum.ResourceType requiredResourceType = 2;
+  string requiredResourceId = 3;
+}
+message CardDuplicateExp {
+  int32 initialRarity = 1;
+  int32 exp = 2;
+}
+message CardLevel {
+  int32 level = 1;
+  int64 requiredExp = 2;
+}
+message CardLevelRelease {
+  string id = 1;
+  int32 level = 2;
+  repeated master.CardLevelReleaseTarget targets = 3;
+}
+message CardParameter {
+  string id = 1;
+  int32 level = 2;
+  int64 value = 3;
+  int64 staminaValue = 4;
+}
+message CardRarity {
+  int32 rarity = 1;
+  int32 levelLimit = 2;
+  int32 parameterBonusPermil = 3;
+  int32 requiredExp = 4;
+}
+message CharacterActivityLevel {
+  int32 level = 1;
+  int32 requiredExp = 2;
+  int32 maxStamina = 3;
+  int32 baseActivityPoint = 4;
+}
+message ComboAdvantage {
+  string id = 1;
+  int32 comboCount = 2;
+  int32 advantagePermil = 3;
+}
+message Condition {
+  string id = 1;
+  repeated master.ConditionSetting settings = 3;
+}
+message ConditionDescription {
+  string id = 1;
+  string description = 2;
+}
+message Consumption {
+  string id = 1;
+  repeated master.ConsumptionResource resources = 2;
+}
+message CostumeType {
+  string id = 1;
+  string name = 2;
+}
+message DeckEntrustCoefficient {
+  int32 position = 1;
+  int32 appealPermil = 2;
+  int32 technicalPermil = 3;
+  int32 supportPermil = 4;
+}
+message Division {
+  string id = 1;
+  int32 order = 2;
+  string name = 3;
+}
+message Guild {
+  string id = 1;
+  string name = 2;
+  string assetId = 3;
+  int32 order = 4;
+}
+message HelpCategory {
+  string id = 1;
+  ProtoEnum.HelpType type = 2;
+  string title = 3;
+  int32 order = 4;
+  repeated ProtoEnum.HelpDisplayTargetType targetTypes = 5;
+  repeated master.HelpContent contents = 6;
+}
+message HierarchyGrade {
+  string id = 1;
+  string name = 2;
+  int32 order = 3;
+}
+message HomeDramaPosition {
+  string homeDramaPositionId = 1;
+  string name = 2;
+  ProtoEnum.HomePlaceType placeType = 3;
+  repeated float positions = 4;
+  repeated float angles = 5;
+  ProtoEnum.SimpleCharacterPersonalityType simplePersonalityType = 6;
+}
+message HomeDramaPositionGroup {
+  string homeDramaPositionGroupId = 1;
+  string homeDramaPositionId = 2;
+}
+message Item {
+  string id = 1;
+  string name = 2;
+  string assetId = 3;
+  string description = 4;
+  string howToGet = 5;
+  ProtoEnum.ItemType type = 6;
+  int32 value = 7;
+  int32 order = 8;
+  int32 salePrice = 9;
+}
+message LiveAbility {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  repeated master.LiveAbilityLevel levels = 4;
+}
+message LiveTip {
+  string id = 1;
+  ProtoEnum.LiveTipType type = 2;
+  string description = 3;
+  int32 priority = 4;
+}
+message ManagerLevel {
+  int32 level = 1;
+  int64 requiredExp = 2;
+  int32 maxCardLevel = 3;
+  int32 maxPhotoEnhanceLevel = 4;
+  int32 maxPhotoReportLevel = 5;
+}
+message MusicChartPattern {
+  string id = 1;
+  int32 number = 2;
+  ProtoEnum.MusicChartType type = 3;
+  int32 position = 4;
+}
+message MusicMasteryLevel {
+  int32 level = 1;
+  int32 requiredMasteryPoint = 2;
+}
+message PhotoRarityLevel {
+  int32 rarity = 1;
+  int32 level = 2;
+  int32 deleteRewardItem = 3;
+  int32 rerollRequiredItem = 4;
+  int32 enhanceRequiredItem = 5;
+}
+message PhotoShootingMotionSet {
+  string id = 1;
+  ProtoEnum.PhotoShootingMotionType motionType1 = 2;
+  string photoShootingMotionId1 = 3;
+  ProtoEnum.PhotoShootingMotionType motionType2 = 4;
+  string photoShootingMotionId2 = 5;
+  ProtoEnum.PhotoShootingMotionType motionType3 = 6;
+  string photoShootingMotionId3 = 7;
+}
+message QuestAudienceAdvantage {
+  string id = 1;
+  int32 audienceAmount = 2;
+  int32 advantagePermil = 3;
+}
+message QuestPressure {
+  string id = 1;
+  string name = 2;
+  int32 weightPermil = 3;
+}
+message QuestStaminaConsumption {
+  int32 remainStaminaRatioPercent = 1;
+  int32 skillTargetParameterWeightPermil = 2;
+}
+message Reward {
+  string id = 1;
+  repeated master.RewardResource resources = 2;
+}
+message RewardSort {
+  ProtoEnum.RewardSortTargetType rewardSortTargetType = 1;
+  ProtoEnum.RewardSortResourceType rewardSortResourceType = 2;
+  int32 order = 3;
+}
+message Salary {
+  ProtoEnum.SalaryDetailType type = 1;
+  int64 threshold = 2;
+  int32 amount = 3;
+}
+message Skill {
+  string id = 1;
+  string name = 2;
+  ProtoEnum.SkillCategoryType categoryType = 3;
+  repeated master.SkillLevel levels = 5;
+  string assetId = 6;
+}
+message SkillTarget {
+  string id = 1;
+  ProtoEnum.SkillTargetType type = 2;
+  bool isOpponent = 101;
+}
+message StaffTraining {
+  ProtoEnum.ParameterType parameterType = 1;
+  string name = 2;
+}
+message Stage {
+  string id = 1;
+  ProtoEnum.StageType type = 2;
+  string assetId = 3;
+  string thumbnailAssetId = 4;
+  string name = 5;
+  string description = 6;
+  int32 order = 7;
+  string timeDifference = 8;
+}
+message StoreProduct {
+  string productId = 1;
+  ProtoEnum.PlatformType platformType = 2;
+  int32 price = 3;
+  int32 stoneAmount = 4;
+}
+message StoryEpisodeConsumption {
+  string id = 1;
+  int32 releaseCount = 2;
+  int32 requiredStoryPoint = 3;
+}
+message TitleBackground {
+  string id = 1;
+  string assetId = 2;
+  ProtoEnum.TitleBackgroundType type = 3;
+  repeated string voiceAssetIds = 4;
+  string bgmAssetId = 5;
+  int64 startTime = 6;
+  int64 endTime = 7;
+  int32 priority = 8;
+}
+message TotalStaffEnhanceAdvantage {
+  int32 enhanceCount = 1;
+  int32 advantagePermil = 2;
+}
+message Wording {
+  string key = 1;
+  string word = 2;
+}
+message ActivityAbilityLevel {
+  int32 level = 1;
+  string description = 2;
+  string shortDescription = 3;
+  ProtoEnum.ActivityAbilityType type = 4;
+  int32 requiredItemAmount = 5;
+  int32 requiredCardLevel = 6;
+  string targetId = 7;
+  int32 value = 8;
+}
+message CardLevelReleaseTarget {
+  ProtoEnum.CardLevelReleaseType type = 1;
+  int32 number = 2;
+}
+message ActivityFanEventWord {
+  string word = 1;
+  string voiceAssetId = 2;
+}
+message ConditionSetting {
+  master.ConditionSatisfyCondition satisfyCondition = 1;
+  master.ConditionNotSatisfyCondition notSatisfyCondition = 2;
+  master.ConditionStartHours startHours = 3;
+  master.ConditionNotLoginDays notLoginDays = 4;
+  master.ConditionAccumulationLoginDays accumulationLoginDays = 5;
+  master.ConditionManagerLevel managerLevel = 6;
+  master.ConditionDeckMaxOverallValue deckMaxOverallValue = 7;
+  master.ConditionClearQuest clearQuest = 8;
+  master.ConditionMaxQuestScoreRank maxQuestScoreRank = 9;
+  master.ConditionDailyQuestClear dailyQuestClear = 10;
+  master.ConditionDailyAreaClear dailyAreaClear = 11;
+  master.ConditionAnimeStoryPoint animeStoryPoint = 12;
+  master.ConditionGameStoryPoint gameStoryPoint = 13;
+  master.ConditionGroupStoryPoint groupStoryPoint = 14;
+  master.ConditionReadStory readStory = 15;
+  master.ConditionClearMission clearMission = 16;
+  master.ConditionObtainCharacter obtainCharacter = 17;
+  master.ConditionObtainCard obtainCard = 18;
+  master.ConditionObtainCostume obtainCostume = 19;
+  master.ConditionWearCostume wearCostume = 20;
+  master.ConditionCardLevel cardLevel = 21;
+  master.ConditionCardRarity cardRarity = 22;
+  master.ConditionPhotoReportPityTimer photoReportPityTimer = 23;
+  master.ConditionActivityLevel activityLevel = 24;
+  master.ConditionExchangeCount exchangeCount = 25;
+  master.ConditionTerm term = 26;
+  master.ConditionDayOfWeek dayOfWeek = 27;
+  master.ConditionTime time = 28;
+  master.ConditionObtainItem obtainItem = 29;
+  master.ConditionItemAmount itemAmount = 30;
+  master.ConditionGold gold = 31;
+  master.ConditionStone stone = 32;
+  master.ConditionObtainEmblem obtainEmblem = 33;
+  master.ConditionOpenGacha openGacha = 34;
+  master.ConditionDrawGacha drawGacha = 35;
+  master.ConditionPurchaseShop purchaseShop = 36;
+  master.ConditionPlatformType platformType = 37;
+  master.ConditionDivision division = 38;
+  master.ConditionJoinedGuild joinedGuild = 39;
+  master.ConditionActivityFanEventLevel activityFanEventLevel = 40;
+  master.ConditionActivityPromotionLevel activityPromotionLevel = 41;
+  master.ConditionActivityRefreshLevel activityRefreshLevel = 42;
+  master.ConditionContestQuestTotalScore contestQuestTotalScore = 43;
+  master.ConditionClearArea clearArea = 45;
+  master.ConditionReliability reliability = 46;
+  master.ConditionHierarchyDetailGradeId hierarchyDetailGradeId = 47;
+  master.ConditionHierarchyPointGte hierarchyPointGte = 48;
+  master.ConditionDiary diary = 49;
+  master.ConditionStaffTrainTotalCount staffTrainTotalCount = 50;
+  master.ConditionPhotoShootTotalCount photoShootTotalCount = 51;
+  master.ConditionTourAreaProgress tourAreaProgress = 52;
+  master.ConditionActivityFanEventBestScoreRank activityFanEventBestScoreRank = 53;
+  master.ConditionActivityFanEventTotalCount activityFanEventTotalCount = 54;
+  master.ConditionActivityPromotionTotalHours activityPromotionTotalHours = 55;
+  master.ConditionActivityRefreshTotalCount activityRefreshTotalCount = 56;
+  master.ConditionLiveCharacterHighestScore liveCharacterHighestScore = 57;
+  master.ConditionFanAmount fanAmount = 58;
+  master.ConditionHighestSalary highestSalary = 59;
+  master.ConditionCharacterPhotoAmount characterPhotoAmount = 60;
+  master.ConditionTutorialStep tutorialStep = 61;
+  master.ConditionForumCreateReplyCount forumCreateReplyCount = 62;
+  master.ConditionBirthDay birthday = 63;
+  master.ConditionFinishedMessage finishedMessage = 64;
+  master.ConditionPvpOpen pvpOpen = 65;
+  master.ConditionObtainAccessory obtainAccessory = 66;
+  master.ConditionAccessoryAmount accessoryAmount = 67;
+  master.ConditionWearLiveCostume wearLiveCostume = 68;
+  master.ConditionContestQuestHighestRank contestQuestHighestRank = 69;
+  master.ConditionComebackUser comebackUser = 70;
+}
+message ConditionStartHours {
+  int32 hoursLte = 1;
+}
+message ConditionNotLoginDays {
+  int32 daysGte = 1;
+}
+message ConditionAccumulationLoginDays {
+  int32 daysGte = 1;
+}
+message ConditionManagerLevel {
+  int32 levelLte = 1;
+  int32 levelGte = 2;
+}
+message ConditionDeckMaxOverallValue {
+  int32 valueLte = 1;
+  int32 valueGte = 2;
+}
+message ConditionAnimeStoryPoint {
+  int64 pointGte = 1;
+}
+message ConditionGameStoryPoint {
+  int64 pointGte = 1;
+}
+message ConditionGroupStoryPoint {
+  int64 pointGte = 1;
+}
+message ConditionPhotoReportPityTimer {
+  int32 thresholdGte = 1;
+}
+message ConditionExchangeCount {
+  string exchangeId = 1;
+  int32 countGte = 2;
+  int32 countLte = 3;
+}
+message ConditionTerm {
+  int64 nowAfter = 1;
+  int64 nowBefore = 2;
+}
+message ConditionDayOfWeek {
+  ProtoEnum.DayOfWeekType dayOfWeekType = 1;
+}
+message ConditionTime {
+  int64 nowAfter = 1;
+  int64 nowBefore = 2;
+}
+message ConditionGold {
+  int64 goldGte = 1;
+}
+message ConditionStone {
+  int64 stoneGte = 1;
+}
+message ConditionDrawGacha {
+  repeated string gachaButtonIds = 1;
+}
+message ConditionPurchaseShop {
+  string shopItemId = 1;
+}
+message ConditionPlatformType {
+  ProtoEnum.PlatformType platformType = 1;
+}
+message ConditionDivision {
+  int32 divisionOrderGte = 1;
+  int32 divisionOrderLte = 2;
+}
+message ConditionJoinedGuild {
+  ProtoEnum.JoinedGuildType joinedGuildType = 1;
+}
+message ConditionActivityFanEventLevel {
+  string fanEventId = 1;
+  int32 levelGte = 2;
+}
+message ConditionActivityPromotionLevel {
+  string promotionId = 1;
+  int32 levelGte = 2;
+}
+message ConditionActivityRefreshLevel {
+  string refreshId = 1;
+  int32 levelGte = 2;
+}
+message ConditionContestQuestTotalScore {
+  int64 scoreGte = 1;
+}
+message ConditionHierarchyPointGte {
+  int64 hierarchyPointGte = 1;
+}
+message ConditionDiary {
+  bool isReadAllDiary = 1;
+  bool isReadLastDiary = 2;
+}
+message ConditionStaffTrainTotalCount {
+  int32 countGte = 1;
+}
+message ConditionPhotoShootTotalCount {
+  int32 countGte = 1;
+}
+message ConditionTourAreaProgress {
+  string tourId = 1;
+  int32 areaGte = 2;
+}
+message ConditionActivityFanEventBestScoreRank {
+  ProtoEnum.ResultRankType rankType = 1;
+  int32 plus = 2;
+}
+message ConditionActivityFanEventTotalCount {
+  int32 countGte = 1;
+}
+message ConditionActivityPromotionTotalHours {
+  int32 hoursGte = 1;
+}
+message ConditionActivityRefreshTotalCount {
+  int32 countGte = 1;
+}
+message ConditionHighestSalary {
+  int64 highestSalaryGte = 1;
+}
+message ConditionTutorialStep {
+  ProtoEnum.TutorialType tutorialType = 1;
+  int32 stepGte = 2;
+  int32 stepLte = 3;
+}
+message ConditionForumCreateReplyCount {
+  int64 createReplyCount = 1;
+}
+message ConditionBirthDay {
+  bool isBirthDay = 1;
+}
+message ConditionPvpOpen {
+  bool isPvpOpen = 1;
+}
+message ConditionComebackUser {
+  bool isComebackUser = 1;
+}
+message ConsumptionResource {
+  ProtoEnum.ResourceType resourceType = 1;
+  repeated string resourceIds = 2;
+  repeated string subResourceIds = 3;
+  int32 amount = 4;
+}
+message HelpContent {
+  string helpContentId = 1;
+  string title = 2;
+  string text = 3;
+  int32 order = 4;
+  repeated ProtoEnum.HelpDisplayTargetType targetTypes = 5;
+  repeated string assetIds = 6;
+}
+message CharacterTalk {
+  string text = 1;
+  string voiceAssetId = 2;
+  string motionAssetId = 3;
+  string additionMotionAssetId = 4;
+}
+message MusicDigest {
+  int32 startMillisecond = 1;
+  int32 endMillisecond = 2;
+  bool loop = 3;
+}
+message PhotoAbilityLevel {
+  int32 level = 1;
+  int32 value = 2;
+}
+message PhotoAbilityGrade {
+  int32 grade = 1;
+  int32 bonusPermil = 2;
+  int32 bonusValue = 3;
+  ProtoEnum.PhotoAbilityGradeType type = 4;
+}
+message RewardResource {
+  ProtoEnum.ResourceType resourceType = 1;
+  string resourceId = 2;
+  int32 amount = 3;
+}
+message StoryChapter {
+  int32 chapter = 1;
+  int32 route = 2;
+  string name = 3;
+  repeated master.StoryEpisode episodes = 4;
+}
+message TutorialStep {
+  int32 step = 1;
+  int32 subStep = 2;
+  ProtoEnum.TutorialNavigationType navigationType = 3;
+  ProtoEnum.TutorialNavigationPositionType navigationPositionType = 4;
+  repeated string texts = 5;
+  repeated string assetIds = 6;
+}
+
