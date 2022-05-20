@@ -135,3 +135,12 @@ wrangler.toml
 # Custom
 /data
 /packages/parser/src/*.json
+
+# Solis caches
+__pycache__/
+solis/cache/
+solis/masterdata/
+solis/client_cache.json
+solis/*.crt
+solis/*.key
+dump.cs
