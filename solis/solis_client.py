@@ -4,6 +4,11 @@ import grpc
 import jwt
 import time
 import requests
+import upload
+from pathlib import Path
+from bs4 import BeautifulSoup
+import master_manager as master
+import octo_manager as octo
 import ProtoEnum_pb2 as penum
 import ProtoApi_pb2 as apip
 import ProtoApi_grpc as apig
@@ -11,6 +16,7 @@ import ProtoTransaction_pb2 as transp
 import google.protobuf.empty_pb2 as empty
 import rich_console as console
 from cache_manager import set_cache, get_cache
+from google.protobuf.json_format import MessageToDict
 from os import _exit as exit
 
 class ClientBase:
@@ -38,6 +44,7 @@ class SolisClient(ClientBase):
     # _hostname = "localhost"
     # _endpoint = "localhost:8800"
     _endpoint = "api.game-idolypride.jp"
+    _app_store_url = "https://apps.apple.com/jp/app/id1535925293"
     _qseed_endpoint = "https://id.qseed.jp/getId"
     _octo_endpoint = "https://api.octo-cloud.com/v2/pub/a/212/v/205001/list"
     _firebase_endpoint = "https://securetoken.googleapis.com/v1/token?key=AIzaSyCabjC7_mOU21qkcNobnhN1khTi1-1F-kA"
@@ -49,9 +56,11 @@ class SolisClient(ClientBase):
     _metadata_dict: dict[str, str]
     _config: dict
     _login_scenarios: list
+    app_version: str
     master_tag: transp.MasterTag
     octo_cache: bytes
     octo_server_revision: str
+    _notice_list: apip.NoticeListResponse
 
     def _get_metadata_pairs(self) -> list[tuple[str, str]]:
         return list(self._metadata_dict.items())
@@ -79,6 +88,7 @@ class SolisClient(ClientBase):
         self._metadata_dict = self._config["grpc"]
         # self._metadata = list(self._config["grpc"].items())
         self._login_scenarios = [
+            self.get_app_version,
             self.first_system_check,
             self.get_qseed,
             self.system_check,
@@ -97,11 +107,35 @@ class SolisClient(ClientBase):
         ticks = int(time.time() * 10000000 + self._UNIX_1970)
         return ticks
 
-    def update_master(self):
-        pass
+    def generate_notice_json(self):
+        notice_dict = MessageToDict(self._notice_list, use_integers_for_enums=True)
+        with open("cache/notice.json", "w", encoding="utf8") as fp:
+            json.dump(notice_dict, fp, ensure_ascii=False, indent=2)
+
+    def update_master(self, force: bool=False):
+        if master.has_new(self.master_tag) or force:
+            master.generate_data(self.master_tag)
+            master.write_version(self.master_tag.version)
+            set_cache("masterVersion", self.master_tag.version)
+
+    def put_master(self):
+        kv_master_version = get_cache("kvMasterVersion")
+        console.info(f"KV master version: '{kv_master_version}'.")
+        if kv_master_version == self.master_tag.version:
+            console.info("Kv master version is already up-to-date, put operation will not be performed.")
+            return
+        upload.main()
+        set_cache("kvMasterVersion", self.master_tag.version)
+    
+    def put_notice(self):
+        notice_dict = MessageToDict(self._notice_list, use_integers_for_enums=True)
+        notice_json = json.dumps(notice_dict, ensure_ascii=False)
+        upload.send_kv("Notice", notice_json)
 
     def update_octo(self):
-        pass
+        if get_cache("octoCacheRevision") < self.octo_server_revision:
+            octo.update_octo(self.octo_cache)
+            set_cache("octoCacheRevision", self.octo_server_revision)
 
     def _call_rpc(self, func, req_msg, metadata=None):
         if metadata is None:
@@ -126,16 +160,17 @@ class SolisClient(ClientBase):
         elif err_code == penum.ErrorCode.ErrorCode_InFunctionMaintenance.value:
             console.warning("InFunctionMaintenance error.")
         else:
+            console.error(f"Unexpected error {err_code}.")
             err_code = -1
-            console.error("Unexpected error.")
         return err_code
 
     def _is_token_expired(self) -> bool:
         token = get_cache("idToken")
-        payload = jwt.decode(token, options={"verify_signature": False})
-        exp = payload["exp"]
-        if time.time() < exp:
-            return False
+        if token != "":
+            payload = jwt.decode(token, options={"verify_signature": False})
+            exp = payload["exp"]
+            if time.time() < exp:
+                return False
         return True
 
     def run_login_scenarios(self, retries=0):
@@ -151,24 +186,47 @@ class SolisClient(ClientBase):
 
         if err == 0:
             console.succeed("Login succeeded.")
-        elif err == penum.ErrorCode.ErrorCode_OutdatedApp.value:
-            # 爬取商店获取最新 app 版本
-            console.info("Getting the latest app version info from app store.")
-            # TODO: 爬取商店
-            self.run_login_scenarios(retries + 1)
-            pass
-        elif err in [penum.ErrorCode.ErrorCode_OutdatedMasterData.value,
-                     penum.ErrorCode.ErrorCode_DateChanged.value]:
+        elif err in [penum.ErrorCode.ErrorCode_OutdatedMasterData,
+                     penum.ErrorCode.ErrorCode_DateChanged,
+                     penum.ErrorCode.ErrorCode_OutdatedApp]:
             # 重跑即可
-            console.info("Re-running login scenarios.")
+            console.info(f"ErrCode: {err}. Re-running login scenarios.")
             self.run_login_scenarios(retries + 1)
             pass
         else:
+            console.error(f"ErrCode: {err}.")
             console.error("Stopping process.")
             exit(-1)
 
+    def get_app_version(self) -> int:
+        r = requests.get(self._app_store_url)
+        if r.status_code != 200:
+            console.error(r.text)
+            console.error(
+                f"Error while getting app version, status code: {r.status_code}.")
+            version = get_cache("appVersion")
+            if version != "":
+                console.info("Use previous app version instead.")
+            else:
+                console.error("No previous app version cache found, stopping process.")
+                return -1
+        else:
+            parsed = BeautifulSoup(r.text, features="lxml")
+            outter_json = parsed.find(
+                "script", {"id": "shoebox-media-api-cache-apps"}).text
+            outter_dict = json.loads(outter_json)
+            inner_json = list(outter_dict.items())[0][1]
+            inner_dict = json.loads(inner_json)
+            version = inner_dict["d"][0]["attributes"]["platformAttributes"]["ios"]["versionHistory"][0]["versionDisplay"]
+        self.app_version = version
+        self._metadata_dict["x-app-version"] = version
+        self._config["qseed"]["X-AppVersion"] = version
+        set_cache("appVersion", version)
+        return 0
+
     def get_qseed(self) -> int:
         headers = self._config["qseed"]
+
         seed_id = requests.get(self._qseed_endpoint, headers=headers).text
         self._metadata_dict["x-seed-id"] = seed_id
         return 0
@@ -183,6 +241,8 @@ class SolisClient(ClientBase):
         })
         response = requests.post(self._firebase_endpoint, request, headers=headers)
         if response.status_code != 200:
+            console.error(f"Status code: {response.status_code}.")
+            console.error(response.text)
             return -1
         r_dict = dict(json.loads(response.text))
         set_cache("idToken", r_dict["id_token"])
@@ -279,6 +339,8 @@ class SolisClient(ClientBase):
         stub = apig.NoticeStub(self._channel)
         request = empty.Empty()
         response, _, err = self._call_rpc(stub.List.with_call, request)
+        self._notice_list = response
+        self._notice_list.commonResponse.Clear()
         return err
 
 if __name__ == '__main__':

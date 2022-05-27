@@ -1,31 +1,26 @@
-## Solis Client 
+[![CircleCI](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master.svg?style=shield&circle-token=cc6ec2eea021e431785d7d719d53afaf60747f83)](https://circleci.com/gh/MalitsPlus/SolisClient/tree/master) [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
-### Preparations
-1. Create cache directories. 
-```
-> mkdir cache
-> mkdir masterdata
-```
+# Solis Client 
 
-2. Create a `client_cache.json` in this folder, which has the following schema: 
-```
-{
-    "masterVersion": "abcd",
-    "octoCacheRevision": 0,
-    "refreshToken": "abcd",
-    "idToken": "abcd",
-    "firebaseAuthToken": "abcd"
-}
-```
-You can set all string values to empty because they will be automatically updating during the program running except `refreshToken`, which **MUST** be given at the first running. 
+[![CircleCI](https://dl.circleci.com/insights-snapshot/gh/MalitsPlus/SolisClient/master/run-scenarios/badge.svg?window=30d&circle-token=1f1381e10da0c144f199e402339c6fd48308db43)](https://app.circleci.com/insights/github/MalitsPlus/SolisClient/workflows/run-scenarios/overview?branch=master&reporting-window=last-30-days&insights-snapshot=true)
 
-### How to use
+## Usage
 ```
-> python main.py
-```
-That's all. 
+usage: main.py [-h] [-t TOKEN] [-f] [-k] [--kvauth KVAUTH] [--kvurl KVURL]
 
-### Updating
+optional arguments:
+  -h, --help            show this help message and exit
+  -t TOKEN, --token TOKEN
+                        Your firebase refreshToken.
+  -f, --force           Update databases without checking version.
+  -k, --kv              Notify KV server.
+  --kvauth KVAUTH       KV server auth token.
+  --kvurl KVURL         KV server endpoint.
+```
+- `--token`: **Must be given at first running**, can be omitted if `refreshToken` in `cache/client_cache.json` it not empty. If they both exist, the one in `client_cache.json` will be used first. 
+- `-k, --kvauth, --kvurl`: All of them **must be present at the same time**, otherwise they will be ignored. 
+
+## Updating
 If API has been updated, take the following steps to keep the client proto schema up-to-date with server. 
 
 0. Back up your files to avoid unexpected overrides. 
@@ -60,7 +55,7 @@ service Notice {
 }
 ```
 
-4. Run `gen_proto.bat` to generate python code, or run the following commands in orde. 
+4. Run `gen_proto.bat` to generate python code, or run the following commands in order. 
 ```
 > python -m grpc_tools.protoc --proto_path=. ./ProtoEnum.proto ./ProtoMaster.proto ./ProtoTransaction.proto --python_out=.
 > python -m grpc_tools.protoc --proto_path=. ./ProtoApi.proto --python_out=. --grpc_python_out=.

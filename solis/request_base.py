@@ -14,14 +14,14 @@ def send_request(func, url, data=None, headers=None, verify=True, retries=0) -> 
         response = func(url, data=data, headers=headers, verify=verify)
         if response.status_code != 200:
             raise f"Abnormal status code {response.status_code}."
-    except SSLError:
-        console.error("An SSLError has occured, please check your network settings.")
-        console.error("Stopping process.")
-        exit(-1)
-    except ProxyError:
-        console.error("An ProxyError has occured, please check your network settings.")
-        console.error("Stopping process.")
-        exit(-1)
+    # except SSLError:
+    #     console.error("An SSLError has occured, please check your network settings.")
+    #     console.error("Stopping process.")
+    #     exit(-1)
+    # except ProxyError:
+    #     console.error("An ProxyError has occured, please check your network settings.")
+    #     console.error("Stopping process.")
+    #     exit(-1)
     except:
         console.error(f"An error occurred during send request to {url}.")
         console.error(f"ErrInfo: {sys.exc_info()[0]}.")
