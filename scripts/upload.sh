@@ -3,9 +3,9 @@ set -eu
 
 # This file should be run when workdir contains whatever JSON files that need to be uploaded.
 
-API_ENDPOINT="https://idoly-backend.ipri.workers.dev/manage/write"
-ADMIN_TOKEN="ADMIN_TOKEN"
-DATA_PREFIX="Hoshimi_220418_"
+API_ENDPOINT=${API_ENDPOINT:-"https://idoly-backend.ipri.workers.dev/manage/write"}
+ADMIN_TOKEN=${ADMIN_TOKEN:-"ADMIN_TOKEN"}
+DATA_PREFIX=${DATA_PREFIX:-"Hoshimi_220418_"}
 
 for i in *.json; do
     TEMPFILE=$(mktemp)

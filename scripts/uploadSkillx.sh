@@ -7,6 +7,10 @@ API_ENDPOINT_PREFIX=$1
 SKILL_DB_NAME=$2
 READONLY_KEY=$3
 
+WRITE_API_ENDPOINT=$API_ENDPOINT_PREFIX/manage/write
+ADMIN_TOKEN=${4:-""}
+DATA_PREFIX=${5:-""}
+
 HERE=$(dirname $(realpath $0))
 WORKDIR=$HERE/../packages/parser/src
 
@@ -20,5 +24,5 @@ echo "Uploading Skillx.json"
 TEMPDIR=$(mktemp -d)
 cp $WORKDIR/Skillx.json $TEMPDIR
 pushd $TEMPDIR
-bash $HERE/upload.sh
+env API_ENDPOINT=$WRITE_API_ENDPOINT ADMIN_TOKEN=$ADMIN_TOKEN DATA_PREFIX=$ADMIN_TOKEN bash $HERE/upload.sh
 echo "Finished uploading Skillx.json"
