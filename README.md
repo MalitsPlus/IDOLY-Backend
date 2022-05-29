@@ -8,6 +8,7 @@ This repository is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) for all 
 
 * [`@hoshimi/backend`](packages/backend)
 * [`@hoshimi/parser`](packages/parser)
+* [`@hoshimi/validator`](packages/validator)
 
 ### (Privately) published packages
 

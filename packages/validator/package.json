@@ -1,0 +1,12 @@
+{
+    "name": "@hoshimi/validator",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "author": "Outvi V <git@outv.im>",
+    "description": "Data validator.",
+    "dependencies": {
+        "lodash": "^4.17.21",
+        "undici": "^5.2.0"
+    }
+}
