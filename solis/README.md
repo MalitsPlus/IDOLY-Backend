@@ -2,7 +2,7 @@
 
 # Solis Client 
 
-[![CircleCI](https://dl.circleci.com/insights-snapshot/gh/MalitsPlus/SolisClient/master/run-scenarios/badge.svg?window=30d&circle-token=1f1381e10da0c144f199e402339c6fd48308db43)](https://app.circleci.com/insights/github/MalitsPlus/SolisClient/workflows/run-scenarios/overview?branch=master&reporting-window=last-30-days&insights-snapshot=true)
+[![CircleCI](https://dl.circleci.com/insights-snapshot/gh/MalitsPlus/SolisClient/master/run-scenarios/badge.svg?window=24h&circle-token=1f1381e10da0c144f199e402339c6fd48308db43)](https://app.circleci.com/insights/github/MalitsPlus/SolisClient/workflows/run-scenarios/overview?branch=master&reporting-window=last-24-hours&insights-snapshot=true)
 
 ## Usage
 ```

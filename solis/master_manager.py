@@ -1,5 +1,3 @@
-from doctest import master
-import sys
 import json
 import requests
 from pathlib import Path
@@ -45,7 +43,7 @@ def one_task(name: str, key: str, url: str):
             # one_data is a single element tuple 
             one_data = it[0]
             msg = cls.FromString(one_data)
-            jdict = MessageToDict(msg, use_integers_for_enums=True)
+            jdict = MessageToDict(msg, use_integers_for_enums=True, including_default_value_fields=True)
             msg_list.append(jdict)
         # Convert data to json
         with open(f"masterdata/{name}.json", "w", encoding="utf8", errors="ignore") as fp:
@@ -58,7 +56,8 @@ def one_task(name: str, key: str, url: str):
         temp_db_file.unlink(missing_ok=True)
 
 def generate_data(master_tag: transp.MasterTag):
-    tag_dict = MessageToDict(master_tag)
+    tag_dict = MessageToDict(
+        master_tag, use_integers_for_enums=True, including_default_value_fields=True)
     with open("cache/mastertag.json", "w", encoding="utf8") as fp:
         json.dump(tag_dict, fp, indent=4)
 

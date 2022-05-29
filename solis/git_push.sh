@@ -56,7 +56,7 @@ fi
 # checkKeyCache
 
 # Set git configurations
-git -C ${REPO_NAME} config user.name "ServerAccount"
+git -C ${REPO_NAME} config user.name "Anonymous"
 git -C ${REPO_NAME} config user.email "anonymous@e.mail"
 
 echo ">>> Pulling from remote..."
