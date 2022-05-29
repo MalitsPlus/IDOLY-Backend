@@ -24,5 +24,5 @@ echo "Uploading Skillx.json"
 TEMPDIR=$(mktemp -d)
 cp $WORKDIR/Skillx.json $TEMPDIR
 pushd $TEMPDIR
-env API_ENDPOINT=$WRITE_API_ENDPOINT ADMIN_TOKEN=$ADMIN_TOKEN DATA_PREFIX=$ADMIN_TOKEN bash $HERE/upload.sh
+env API_ENDPOINT=$WRITE_API_ENDPOINT ADMIN_TOKEN=$ADMIN_TOKEN DATA_PREFIX=$DATA_PREFIX bash $HERE/upload.sh
 echo "Finished uploading Skillx.json"
