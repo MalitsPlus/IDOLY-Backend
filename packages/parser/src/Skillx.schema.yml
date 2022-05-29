@@ -316,4 +316,6 @@ $defs:
   EffectCharacterSimpleTyp:
     oneOf:
       - const: weakness_effect_recovery
+      - const: weakness_effect_inversion
       - const: strength_effect_migration_before_special_skill
+      - const: strength_effect_migration_before_active_skill

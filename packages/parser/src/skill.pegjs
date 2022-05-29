@@ -52,7 +52,11 @@ EffectCharacterLevelOnlyTyp
 // no num - num (length)
 EffectCharacterLengthOnlyTyp = "skill_impossible" / "combo_continuation"
 // non-non dayo!
-EffectCharacterSimpleTyp = "weakness_effect_recovery" / "strength_effect_migration_before_special_skill"
+EffectCharacterSimpleTyp
+  = "weakness_effect_recovery"
+  / "weakness_effect_inversion"
+  / "strength_effect_migration_before_special_skill"
+  / "strength_effect_migration_before_active_skill"
 
 EffectScoreGet
   = typ:EffectScoreGetTyp "-" typ2:Number {

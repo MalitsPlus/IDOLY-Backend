@@ -94,7 +94,9 @@ export type EffectCharacterLevelOnlyTyp =
   | 'strength_effect_value_increase'
 export type EffectCharacterSimpleTyp =
   | 'weakness_effect_recovery'
+  | 'weakness_effect_inversion'
   | 'strength_effect_migration_before_special_skill'
+  | 'strength_effect_migration_before_active_skill'
 
 /**
  * Parsed skills format
