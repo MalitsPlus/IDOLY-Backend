@@ -25,4 +25,5 @@ jobs:
           READONLY_KEY: ${{ secrets.READONLY_KEY }}
           PREFIX: ${{ secrets.PREFIX }}
         run: |
+          cd packages/validator
           node ./src/index.mjs
