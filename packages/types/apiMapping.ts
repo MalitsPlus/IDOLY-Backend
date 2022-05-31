@@ -10,6 +10,7 @@ import type {
 import type { MusicChart } from './types'
 import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
 import { TheRootMapping as SkillxData } from './Skillx'
+import { NoticeInfo } from './ProtoApi'
 
 export type APIMapping = {
   Card: OnlyOutput<
@@ -101,6 +102,16 @@ export type APIMapping = {
         desc: string
       }[]
     }[]
+  >
+  Notice: InputAndOutput<
+    {
+      limit?: string
+      offset?: string
+    },
+    Pick<
+      NoticeInfo,
+      'id' | 'title' | 'linkType' | 'linkDetail' | 'startTime' | 'listTitle'
+    >[]
   >
   Skill: InputAndOutput<
     {

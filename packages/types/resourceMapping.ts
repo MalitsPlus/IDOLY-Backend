@@ -1,3 +1,4 @@
+import { NoticeInfo } from './ProtoApi'
 import type {
   Card,
   CardLevel,
@@ -20,6 +21,9 @@ export type ResourceMapping = {
   Character: Character[]
   Music: Music[]
   MusicChartPattern: MusicChartPattern[]
+  Notice: {
+    notices: NoticeInfo[]
+  }
   Skill: Skill[]
   Skillx: SkillxData
   Story: Story[]

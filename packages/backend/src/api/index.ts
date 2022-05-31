@@ -10,6 +10,7 @@ import CardParameterRoute from './cardParameter'
 import CardRarityRoute from './cardRarity'
 import CharacterRoute from './character'
 import MusicChartRoutes from './musicChart'
+import NoticeRoute from './notice'
 import SkillRoute from './skill'
 import StoryRoute from './story'
 import VersionRoute from './version'
@@ -27,6 +28,7 @@ const ApiRoutes: APIMapping = {
   'Character/List': CharacterRoute.list,
   MusicChart: MusicChartRoutes.pattern,
   MusicChartList: MusicChartRoutes.list,
+  Notice: NoticeRoute,
   Skill: SkillRoute.list,
   'Skill/All': SkillRoute.all,
   'Skill/EffectTypes': SkillRoute.effectTypes,
