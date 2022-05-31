@@ -9,6 +9,7 @@ import CardLevelRoute from './cardLevel'
 import CardParameterRoute from './cardParameter'
 import CardRarityRoute from './cardRarity'
 import CharacterRoute from './character'
+import MessageRoutes from './message'
 import MusicChartRoutes from './musicChart'
 import NoticeRoute from './notice'
 import SkillRoute from './skill'
@@ -26,6 +27,9 @@ const ApiRoutes: APIMapping = {
   'Card/Id': CardRoute.id,
   Character: CharacterRoute.select,
   'Character/List': CharacterRoute.list,
+  Message: MessageRoutes.list,
+  'Message/Group': MessageRoutes.listByGroup,
+  MessageGroup: MessageRoutes.group,
   MusicChart: MusicChartRoutes.pattern,
   MusicChartList: MusicChartRoutes.list,
   Notice: NoticeRoute,

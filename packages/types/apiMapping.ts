@@ -4,6 +4,8 @@ import type {
   CardParameter,
   CardRarity,
   Character,
+  Message,
+  MessageGroup,
   Skill,
   Story,
 } from './ProtoMaster'
@@ -87,6 +89,15 @@ export type APIMapping = {
       'id' | 'order' | 'characterGroupId' | 'name' | 'enName' | 'color'
     >[]
   >
+  Message: InputAndOutput<
+    { id: string },
+    Omit<Message, 'unlockConditionId' | 'instantType' | 'rarityType'> | null
+  >
+  'Message/Group': InputAndOutput<
+    { messageGroupId: string },
+    { id: string; name: string }[]
+  >
+  MessageGroup: OnlyOutput<MessageGroup[]>
   MusicChart: InputAndOutput<
     {
       chartId: string
