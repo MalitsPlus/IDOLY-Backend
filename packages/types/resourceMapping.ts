@@ -23,6 +23,8 @@ export type ResourceMapping = {
   MusicChartPattern: MusicChartPattern[]
   Notice: {
     notices: NoticeInfo[]
+    malfunctionNotices: NoticeInfo[]
+    prNotices: NoticeInfo[]
   }
   Skill: Skill[]
   Skillx: SkillxData

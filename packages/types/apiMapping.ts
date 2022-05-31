@@ -107,10 +107,11 @@ export type APIMapping = {
     {
       limit?: string
       offset?: string
+      type: 'notices' | 'malfunctionNotices' | 'prNotices'
     },
     Pick<
       NoticeInfo,
-      'id' | 'title' | 'linkType' | 'linkDetail' | 'startTime' | 'listTitle'
+      'id' | 'title' | 'linkDetail' | 'startTime' | 'listTitle'
     >[]
   >
   Skill: InputAndOutput<
