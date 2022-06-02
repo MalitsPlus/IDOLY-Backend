@@ -4,6 +4,8 @@ import type {
   CardParameter,
   CardRarity,
   Character,
+  EventStory,
+  EventStoryEpisode,
   Message,
   MessageGroup,
   Skill,
@@ -88,6 +90,16 @@ export type APIMapping = {
       Character,
       'id' | 'order' | 'characterGroupId' | 'name' | 'enName' | 'color'
     >[]
+  >
+  EventStory: InputAndOutput<
+    { id: string },
+    | (Pick<EventStory, 'id' | 'name' | 'description' | 'order'> & {
+        episodes: Pick<EventStoryEpisode, 'episode' | 'storyId'>[]
+      })
+    | null
+  >
+  'EventStory/List': OnlyOutput<
+    Pick<EventStory, 'id' | 'name' | 'description' | 'order'>[]
   >
   Message: InputAndOutput<
     { id: string },
