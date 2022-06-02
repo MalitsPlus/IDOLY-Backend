@@ -1,6 +1,6 @@
 {
-  "name": "@outloudvi/hoshimi-types",
-  "version": "1.0.25",
+  "name": "hoshimi-types",
+  "version": "1.0.26",
   "description": "Typings for IP data.",
   "repository": {
     "type": "git",
