@@ -11,6 +11,12 @@
         "test": "jest --config jestconfig.json --verbose",
         "publish": "wrangler publish"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/MalitsPlus/IDOLY-Backend.git",
+        "directory": "packages/backend"
+    },
+    "license": "AGPL-3.0-or-later",
     "author": "Outvi V <git@outv.im>",
     "eslintConfig": {
         "root": true,

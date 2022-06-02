@@ -10,11 +10,15 @@ This repository is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) for all 
 * [`@hoshimi/parser`](packages/parser)
 * [`@hoshimi/validator`](packages/validator)
 
-### (Privately) published packages
+### Published packages
 
-* [`@outloudvi/hoshimi-types`](packages/types)
+* [`hoshimi-types`](packages/types)
 
 ## Scripts
 
 * [`upload.py`](scripts/upload.py) / [`upload.sh`](scripts/upload.sh)
   * Used to update data on Workers KV.
+
+## License
+
+Each component may be published with different licenses.

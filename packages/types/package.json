@@ -2,7 +2,12 @@
   "name": "@outloudvi/hoshimi-types",
   "version": "1.0.25",
   "description": "Typings for IP data.",
-  "repository": "https://github.com/outloudvi/hoshimi-packages",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MalitsPlus/IDOLY-Backend.git",
+    "directory": "packages/types"
+  },
+  "license": "AGPL-3.0-or-later",
   "main": "./index.js",
   "types": "./index.d.ts",
   "author": "Outvi V <git@outv.im>",
@@ -10,9 +15,6 @@
     "build": "tsc",
     "bundle": "bash scripts/build.sh",
     "pub": "npm run bundle && npm publish dist/"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
