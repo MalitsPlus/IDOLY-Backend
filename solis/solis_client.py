@@ -4,6 +4,7 @@ import jwt
 import time
 import requests
 import upload
+from pathlib import Path
 from bs4 import BeautifulSoup
 import master_manager as master
 import octo_manager as octo
@@ -131,6 +132,25 @@ class SolisClient(ClientBase):
             self._notice_list, use_integers_for_enums=True, including_default_value_fields=True)
         notice_json = json.dumps(notice_dict, ensure_ascii=False)
         upload.send_kv("Notice", notice_json)
+
+    def put_octo(self):
+        if not get_cache("octoManifestRevision") < self.octo_server_revision:
+            console.info("OctoManifestRevision is already up-to-date, json string won't be put to KV.")
+            return 
+        octo_json = Path("cache/OctoManifest.json").read_text()
+        upload.send_kv("Octo", octo_json)
+        set_cache("octoManifestRevision", self.octo_server_revision)
+
+    def update_octo_manifest(self):
+        pre_revision = get_cache("octoManifestRevision")
+        console.info(f"Previous octo manifest revision: {pre_revision}.")
+        console.info(f"Current octo manifest revision:  {self.octo_server_revision}.")
+        if pre_revision < self.octo_server_revision:
+            console.info(f"Start downloading octo manifest...")
+            octo.update_octo_manifest(self.octo_cache)
+        else:
+            console.info(f"Octo manifest is already up-to-date, thus won't be download this time.")
+            
 
     def update_octo(self):
         if get_cache("octoCacheRevision") < self.octo_server_revision:

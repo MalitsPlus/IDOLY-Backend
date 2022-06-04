@@ -1,3 +1,4 @@
+import json
 import UnityPy
 import requests
 import threading
@@ -7,6 +8,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from request_base import send_request
 import rich_console as console
+from google.protobuf.json_format import MessageToDict
 from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 
 _API_KEY = bytes.fromhex("aa8a30926db9d49410360d0a99aa735d035638dfc09ef99fb575d9c91a8f6cdc")
@@ -137,6 +139,13 @@ def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
         console.succeed(
             f"{_current_count}/{_resouce_count}) Resouce '{data.name}' has been successfully renamed.")
         lock.release()
+
+def update_octo_manifest(raw_cache: bytes):
+    database = decrypt_api_database(raw_cache)
+    octo_dict = MessageToDict(
+        database, use_integers_for_enums=True, including_default_value_fields=True)
+    with open("cache/OctoManifest.json", "w", encoding="utf8") as fp:
+        json.dump(octo_dict, fp, ensure_ascii=False, indent=2)
 
 def update_octo(raw_cache: bytes):
     global _asset_count

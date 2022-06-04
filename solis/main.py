@@ -23,7 +23,8 @@ def restore_cache(refresh_token: str):
             "appVersion": "",
             "masterVersion": "",
             "kvMasterVersion": "",
-            "octoCacheRevision": 1772,
+            "octoCacheRevision": 0,
+            "octoManifestRevision": 0,
             "refreshToken": refresh_token,
             "idToken": "",
             "firebaseAuthToken": ""
@@ -71,6 +72,9 @@ def main():
             # Update notices 
             client.put_master()
             client.put_notice()
+            # Update octo
+            client.update_octo_manifest()
+            client.put_octo()
         # Update octo if new revision is found
         # client.update_octo()
     console.info("Tasks all done.")
