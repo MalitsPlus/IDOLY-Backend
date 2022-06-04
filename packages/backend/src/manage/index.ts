@@ -4,7 +4,7 @@ import requireAdmin from '../middleware/requireAdmin'
 import requireReadonly from '../middleware/requireReadonly'
 
 import { Routes } from '../const'
-import { UpdateTimeKey } from '../db'
+import { dbGet, UpdateTimeKey } from '../db'
 
 const router = Router({ base: Routes.Manage })
 
@@ -25,6 +25,33 @@ router.get('/raw', requireReadonly, async (request) => {
   return new Response(val, {
     headers: {
       'Content-Type': 'text/plain',
+    },
+  })
+})
+
+/**
+ * GET /manage/octo/asset?name=
+ *
+ * Authorization: Bearer [ADMINISTRATION/READONLY TOKEN]
+ */
+router.get('/octo/asset', requireReadonly, async (request) => {
+  const url = new URL(request.url)
+  const name = url.searchParams.get('name')
+  if (!name) {
+    return new Response('ID should be string', {
+      status: 400,
+    })
+  }
+  const octoDb = await dbGet('Octo')
+  const item = octoDb.assetBundleList.filter((x) => x.name === name)?.[0]
+  if (!item) {
+    return new Response(`Asset not found: ${name}`, {
+      status: 404,
+    })
+  }
+  return new Response(JSON.stringify(item), {
+    headers: {
+      'Content-Type': 'application/json',
     },
   })
 })

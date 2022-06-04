@@ -15,6 +15,7 @@ import type {
 } from './ProtoMaster'
 
 import { TheRootMapping as SkillxData } from './Skillx'
+import { OctoData } from './octoData'
 
 export type ResourceMapping = {
   Card: Card[]
@@ -32,6 +33,7 @@ export type ResourceMapping = {
     malfunctionNotices: NoticeInfo[]
     prNotices: NoticeInfo[]
   }
+  Octo: OctoData
   Skill: Skill[]
   Skillx: SkillxData
   Story: Story[]
