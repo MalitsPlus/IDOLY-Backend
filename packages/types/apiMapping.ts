@@ -93,7 +93,7 @@ export type APIMapping = {
   >
   EventStory: InputAndOutput<
     { id: string },
-    | (Pick<EventStory, 'id' | 'name' | 'description' | 'order'> & {
+    | (Pick<EventStory, 'id' | 'name' | 'description' | 'order' | 'assetId'> & {
         episodes: Pick<EventStoryEpisode, 'episode' | 'storyId'>[]
       })
     | null

@@ -13,7 +13,7 @@ const select: APIMapping['EventStory'] = async ({ id }) => {
     ev
       .filter((x) => id === x.id)
       .map((x) => ({
-        ...pick(x, ['id', 'name', 'description', 'order']),
+        ...pick(x, ['id', 'name', 'description', 'order', 'assetId']),
         episodes: x.episodes.map((y) => pick(y, ['episode', 'storyId'])),
       }))?.[0] ?? null
   )
