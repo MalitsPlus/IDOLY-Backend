@@ -63,6 +63,7 @@ const list: APIMapping['MusicChartList'] = async () => {
     ret.push({
       musicId: maybeMusic.id,
       title: maybeMusic.name,
+      assetId: maybeMusic.assetId,
       charts: [
         {
           id: i,

@@ -120,6 +120,7 @@ export type APIMapping = {
     {
       musicId: string
       title: string
+      assetId: string
       charts: {
         id: string
         desc: string
