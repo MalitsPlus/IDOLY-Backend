@@ -1,6 +1,6 @@
 {
   "name": "hoshimi-types",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "Typings for IP data.",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   "scripts": {
     "build": "tsc",
     "bundle": "bash scripts/build.sh",
-    "pub": "npm run bundle && npm publish dist/"
+    "bnp": "npm run bundle && npm publish dist/"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
