@@ -6,5 +6,5 @@ requests==2.26.0
 rich==12.4.4
 sqlcipher3-binary
 UnityPy==1.8.14
-protobuf
+protobuf==4.21.1
 lxml

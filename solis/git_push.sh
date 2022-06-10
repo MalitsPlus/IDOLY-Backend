@@ -61,7 +61,7 @@ git -C ${REPO_NAME} config user.email "anonymous@e.mail"
 
 echo ">>> Pulling from remote..."
 # git -c core.sshCommand="ssh -i ${KEY_CACHE}" -C ${REPO_NAME} pull
-git -C ${REPO_NAME} pull
+git -C ${REPO_NAME} pull --rebase
 
 if [ $? -ne 0 ]; then
   echo ">>> Failed to pull repo."

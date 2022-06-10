@@ -4,7 +4,6 @@ import jwt
 import time
 import requests
 import upload
-from pathlib import Path
 from bs4 import BeautifulSoup
 import master_manager as master
 import octo_manager as octo
