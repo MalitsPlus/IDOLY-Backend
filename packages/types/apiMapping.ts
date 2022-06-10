@@ -21,6 +21,7 @@ export type APIMapping = {
     Pick<
       Card,
       | 'id'
+      | 'assetId'
       | 'name'
       | 'description'
       | 'characterId'

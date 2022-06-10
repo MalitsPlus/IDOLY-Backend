@@ -8,6 +8,7 @@ const list: APIMapping['Card'] = async () => {
   return cards.map((x) =>
     pick(x, [
       'id',
+      'assetId',
       'name',
       'description',
       'type',
