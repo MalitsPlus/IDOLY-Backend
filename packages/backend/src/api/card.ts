@@ -41,7 +41,11 @@ const id: APIMapping['Card/Id'] = async () => {
   for (const charId of charIds) {
     const characterCards = cards
       .filter((x) => x.characterId === charId)
-      .sort((a, b) => a.releaseDate - b.releaseDate || (a.id < b.id ? -1 : 1))
+      .sort(
+        (a, b) =>
+          Number(a.releaseDate) - Number(b.releaseDate) ||
+          (a.id < b.id ? -1 : 1),
+      )
     ret[charId] = characterCards.map((v, i) => ({
       ccid: i + 1, // starts from 1
       cardId: v.id,

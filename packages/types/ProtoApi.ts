@@ -109,7 +109,7 @@ export type ActiveFanEvent = {
   // ProtoMember(4)
   level: number
   // ProtoMember(5)
-  finishTime: number
+  finishTime: string
   // ProtoMember(6)
   currentCheerPoint: number
 }
@@ -123,7 +123,7 @@ export type ActivePromotion = {
   // ProtoMember(4)
   level: number
   // ProtoMember(5)
-  finishTime: number
+  finishTime: string
   // ProtoMember(6)
   campaignEffects: ActivityCampaignEffect[]
 }
@@ -135,7 +135,7 @@ export type ActiveRefresh = {
   // ProtoMember(3)
   subName: string
   // ProtoMember(4)
-  finishTime: number
+  finishTime: string
 }
 export type ActivityCharacterInfo = {
   // ProtoMember(1)
@@ -157,9 +157,9 @@ export type ActivityLessonProgress = {
   // ProtoMember(6)
   rewardCardEnhanceItemAmount: number
   // ProtoMember(7)
-  lastReceiveTime: number
+  lastReceiveTime: string
   // ProtoMember(8)
-  maxRewardTime: number
+  maxRewardTime: string
   // ProtoMember(9)
   dailyPromoteCount: number
   // ProtoMember(10)
@@ -173,7 +173,7 @@ export type BacksideCardLiveAbilityInfo = {
   // ProtoMember(3)
   rarity: number
   // ProtoMember(4)
-  liveAbilityLevel: number
+  liveAbilityLevel: string
   // ProtoMember(5)
   liveAbilityId: string
 }
@@ -191,17 +191,17 @@ export type BacksideDeckCardDetailInfo = {
   // ProtoMember(6)
   rarity: number
   // ProtoMember(7)
-  vocal: number
+  vocal: string
   // ProtoMember(8)
-  dance: number
+  dance: string
   // ProtoMember(9)
-  visual: number
+  visual: string
   // ProtoMember(10)
-  stamina: number
+  stamina: string
   // ProtoMember(11)
-  mental: number
+  mental: string
   // ProtoMember(12)
-  technique: number
+  technique: string
   // ProtoMember(13)
   skillLevel1: number
   // ProtoMember(14)
@@ -235,9 +235,9 @@ export type BacksideDeckCardStaminaInfo = {
   // ProtoMember(1)
   cardId: string
   // ProtoMember(2)
-  currentMaxStamina: number
+  currentMaxStamina: string
   // ProtoMember(3)
-  currentRemainingStamina: number
+  currentRemainingStamina: string
 }
 export type BacksideDifficultyInfo = {
   // ProtoMember(1)
@@ -365,9 +365,9 @@ export type BacksideRankingInfo = {
   // ProtoMember(3)
   managerLevel: number
   // ProtoMember(4)
-  totalPracticeScore: number
+  totalPracticeScore: string
   // ProtoMember(5)
-  finalScore: number
+  finalScore: string
   // ProtoMember(6)
   rank: number
   // ProtoMember(7)
@@ -451,11 +451,11 @@ export type ExchangeBooth = {
   // ProtoMember(6)
   resetTimingType: ResetTimingType
   // ProtoMember(7)
-  nextResetTime: number
+  nextResetTime: string
   // ProtoMember(8)
   unlocked: boolean
   // ProtoMember(9)
-  endTime: number
+  endTime: string
   // ProtoMember(10)
   linkType: LinkType
   // ProtoMember(11)
@@ -489,7 +489,7 @@ export type ExchangeItem = {
   // ProtoMember(4)
   resetTimingType: ResetTimingType
   // ProtoMember(5)
-  nextResetTime: number
+  nextResetTime: string
   // ProtoMember(6)
   unlocked: boolean
   // ProtoMember(7)
@@ -501,7 +501,7 @@ export type ExchangeItem = {
   // ProtoMember(10)
   leftCount: number
   // ProtoMember(11)
-  requiredResourceAmount: number
+  requiredResourceAmount: string
   // ProtoMember(12)
   order: number
   // ProtoMember(13)
@@ -567,7 +567,7 @@ export type FanEventCharacterInfo = {
   // ProtoMember(4)
   completedStep: number
   // ProtoMember(5)
-  finishTime: number
+  finishTime: string
   // ProtoMember(6)
   activityPoint: number
   // ProtoMember(7)
@@ -589,7 +589,7 @@ export type FanEventProgress = {
   // ProtoMember(6)
   characters: FanEventCharacterInfo[]
   // ProtoMember(7)
-  startTime: number
+  startTime: string
   // ProtoMember(8)
   stepConsumptionStamina: number
   // ProtoMember(9)
@@ -615,9 +615,9 @@ export type FanEventProgress = {
 }
 export type FanEventRankingInfo = {
   // ProtoMember(1)
-  rank: number
+  rank: string
   // ProtoMember(2)
-  score: number
+  score: string
   // ProtoMember(3)
   userId: string
   // ProtoMember(4)
@@ -643,7 +643,7 @@ export type GachaButtonInfo = {
   // ProtoMember(3)
   totalCount: number
   // ProtoMember(4)
-  drawTime: number
+  drawTime: string
 }
 export type GachaExchangeInfo = {
   // ProtoMember(1)
@@ -651,13 +651,13 @@ export type GachaExchangeInfo = {
   // ProtoMember(2)
   exchangedCount: number
   // ProtoMember(3)
-  exchangedTime: number
+  exchangedTime: string
 }
 export type GachaHistory = {
   // ProtoMember(1)
   gachaType: GachaType
   // ProtoMember(2)
-  drawTime: number
+  drawTime: string
   // ProtoMember(3)
   gachaId: string
   // ProtoMember(4)
@@ -689,7 +689,7 @@ export type GuildGvgMatchRankInfo = {
   // ProtoMember(2)
   managerLevel: number
   // ProtoMember(3)
-  point: number
+  point: string
   // ProtoMember(4)
   rank: number
   // ProtoMember(5)
@@ -701,9 +701,9 @@ export type GuildGvgSeasonMatchResult = {
   // ProtoMember(2)
   opponentGuildId: string
   // ProtoMember(3)
-  point: number
+  point: string
   // ProtoMember(4)
-  opponentPoint: number
+  opponentPoint: string
   // ProtoMember(5)
   resultType: GvgMatchResultType
   // ProtoMember(6)
@@ -723,13 +723,13 @@ export type GvgCurrentSeasonMatchInfo = {
   // ProtoMember(1)
   matchNumber: number
   // ProtoMember(2)
-  endTime: number
+  endTime: string
   // ProtoMember(3)
   opponentGuildId: string
   // ProtoMember(4)
   opponentRank: number
   // ProtoMember(5)
-  opponentPoint: number
+  opponentPoint: string
   // ProtoMember(6)
   opponentWinCount: number
   // ProtoMember(7)
@@ -759,9 +759,9 @@ export type GvgSeasonInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  startTime: number
+  startTime: string
   // ProtoMember(4)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(5)
   challengeRewardId: string
 }
@@ -771,9 +771,9 @@ export type GvgSeasonMatchInfo = {
   // ProtoMember(2)
   opponentGuildId: string
   // ProtoMember(3)
-  point: number
+  point: string
   // ProtoMember(4)
-  opponentPoint: number
+  opponentPoint: string
   // ProtoMember(5)
   resultType: GvgMatchResultType
   // ProtoMember(6)
@@ -783,7 +783,7 @@ export type GvgSeasonMatchInfo = {
 }
 export type HierarchyChangeInfo = {
   // ProtoMember(1)
-  addHierarchyPoint: number
+  addHierarchyPoint: string
   // ProtoMember(2)
   oldDetailGradeId: string
   // ProtoMember(3)
@@ -829,7 +829,7 @@ export type HierarchyRankUserInfo = {
   // ProtoMember(5)
   currentDetailGradeId: string
   // ProtoMember(6)
-  currentPoint: number
+  currentPoint: string
   // ProtoMember(7)
   emblemId: string
   // ProtoMember(8)
@@ -851,13 +851,13 @@ export type HomeBacksideInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  startTime: number
+  startTime: string
   // ProtoMember(4)
-  endTime: number
+  endTime: string
   // ProtoMember(5)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(6)
-  exchangeEndTime: number
+  exchangeEndTime: string
   // ProtoMember(7)
   assetId: string
   // ProtoMember(8)
@@ -887,7 +887,7 @@ export type HomeEnterResponse = {
   // ProtoMember(7)
   bannerInfo: BannerInfo
   // ProtoMember(8)
-  lastFriendApprovedTime: number
+  lastFriendApprovedTime: string
   // ProtoMember(9)
   gvgInfo: CurrentGvgInfo
   // ProtoMember(10)
@@ -953,11 +953,11 @@ export type HomeMarathonInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  startTime: number
+  startTime: string
   // ProtoMember(4)
-  endTime: number
+  endTime: string
   // ProtoMember(5)
-  exchangeEndTime: number
+  exchangeEndTime: string
   // ProtoMember(6)
   assetId: string
   // ProtoMember(7)
@@ -977,13 +977,13 @@ export type HomePhotoContestInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  startTime: number
+  startTime: string
   // ProtoMember(4)
-  endTime: number
+  endTime: string
   // ProtoMember(5)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(6)
-  exchangeEndTime: number
+  exchangeEndTime: string
   // ProtoMember(7)
   assetId: string
   // ProtoMember(8)
@@ -1001,13 +1001,13 @@ export type HomeTourInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  startTime: number
+  startTime: string
   // ProtoMember(4)
-  endTime: number
+  endTime: string
   // ProtoMember(5)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(6)
-  exchangeEndTime: number
+  exchangeEndTime: string
   // ProtoMember(7)
   assetId: string
   // ProtoMember(8)
@@ -1109,7 +1109,7 @@ export type LiveCardResult = {
   // ProtoMember(1)
   cardId: string
   // ProtoMember(5)
-  totalScore: number
+  totalScore: string
 }
 export type LiveCharacterAssetInfo = {
   // ProtoMember(1)
@@ -1131,19 +1131,19 @@ export type LiveDeckCard = {
   // ProtoMember(6)
   rarity: number
   // ProtoMember(7)
-  vocal: number
+  vocal: string
   // ProtoMember(8)
-  dance: number
+  dance: string
   // ProtoMember(9)
-  visual: number
+  visual: string
   // ProtoMember(10)
-  stamina: number
+  stamina: string
   // ProtoMember(11)
-  startStamina: number
+  startStamina: string
   // ProtoMember(12)
-  mental: number
+  mental: string
   // ProtoMember(13)
-  technique: number
+  technique: string
   // ProtoMember(14)
   skillLevel1: number
   // ProtoMember(15)
@@ -1173,7 +1173,7 @@ export type LiveRankingInfo = {
   // ProtoMember(3)
   managerLevel: number
   // ProtoMember(4)
-  point: number
+  point: string
   // ProtoMember(5)
   rank: number
   // ProtoMember(6)
@@ -1233,11 +1233,11 @@ export type MarathonInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  startTime: number
+  startTime: string
   // ProtoMember(4)
-  endTime: number
+  endTime: string
   // ProtoMember(5)
-  exchangeEndTime: number
+  exchangeEndTime: string
   // ProtoMember(6)
   initialStamina: number
   // ProtoMember(7)
@@ -1267,7 +1267,7 @@ export type MarathonPhotoAbilityInfo = {
   // ProtoMember(1)
   photoAbilityId: string
   // ProtoMember(2)
-  effectValue: number
+  effectValue: string
 }
 export type MarathonQuestInfo = {
   // ProtoMember(1)
@@ -1305,7 +1305,7 @@ export type MarathonQuestStartResponse = {
   // ProtoMember(9)
   highestClearRankType: ResultRankType
   // ProtoMember(10)
-  highestScore: number
+  highestScore: string
   // ProtoMember(11)
   addMarathonPoint: number
   // ProtoMember(9999)
@@ -1353,13 +1353,13 @@ export type PhotoContestInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  startTime: number
+  startTime: string
   // ProtoMember(4)
-  endTime: number
+  endTime: string
   // ProtoMember(5)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(6)
-  exchangeEndTime: number
+  exchangeEndTime: string
   // ProtoMember(7)
   assetId: string
   // ProtoMember(8)
@@ -1369,11 +1369,11 @@ export type PhotoContestInfo = {
   // ProtoMember(10)
   noticeInfo: NoticeInfo
   // ProtoMember(11)
-  totalBestShootEvaluationPoint: number
+  totalBestShootEvaluationPoint: string
   // ProtoMember(12)
-  totalBestShootEvaluationPointTime: number
+  totalBestShootEvaluationPointTime: string
   // ProtoMember(13)
-  rank: number
+  rank: string
   // ProtoMember(14)
   rankingRewardInfos: PhotoContestRankingRewardInfo[]
   // ProtoMember(15)
@@ -1389,7 +1389,7 @@ export type PhotoContestInfo = {
   // ProtoMember(20)
   onceShootingSubmitLimitCount: number
   // ProtoMember(21)
-  currentPhotoAmount: number
+  currentPhotoAmount: string
   // ProtoMember(22)
   submittingItemId: string
 }
@@ -1413,7 +1413,7 @@ export type PhotoContestRankingInfo = {
   // ProtoMember(3)
   managerLevel: number
   // ProtoMember(4)
-  totalBestShootEvaluationPoint: number
+  totalBestShootEvaluationPoint: string
   // ProtoMember(5)
   rank: number
   // ProtoMember(6)
@@ -1435,9 +1435,9 @@ export type PhotoContestSectionInfo = {
   // ProtoMember(3)
   bestShootAssetId: string
   // ProtoMember(4)
-  bestShootEvaluationPoint: number
+  bestShootEvaluationPoint: string
   // ProtoMember(5)
-  totalSectionEvaluationPoint: number
+  totalSectionEvaluationPoint: string
   // ProtoMember(6)
   isUnlocked: boolean
 }
@@ -1451,13 +1451,13 @@ export type PhotoContestSectionRewardInfo = {
 }
 export type PhotoContestSubmitShootingResponse = {
   // ProtoMember(1)
-  evaluationPoint: number
+  evaluationPoint: string
   // ProtoMember(2)
   isBest: boolean
   // ProtoMember(3)
-  totalSectionEvaluationPoint: number
+  totalSectionEvaluationPoint: string
   // ProtoMember(4)
-  totalBestShotEvaluationPoint: number
+  totalBestShotEvaluationPoint: string
   // ProtoMember(5)
   nextPhotoImageId: string
   // ProtoMember(6)
@@ -1465,7 +1465,7 @@ export type PhotoContestSubmitShootingResponse = {
   // ProtoMember(7)
   newCanReceiveSectionRewardIds: string[]
   // ProtoMember(8)
-  rank: number
+  rank: string
   // ProtoMember(9999)
   commonResponse: CommonResponse
 }
@@ -1487,7 +1487,7 @@ export type ProfileFindUserResponse = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  managerExp: number
+  managerExp: string
   // ProtoMember(4)
   managerLevel: number
   // ProtoMember(5)
@@ -1527,7 +1527,7 @@ export type ProfileInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  managerExp: number
+  managerExp: string
   // ProtoMember(4)
   managerLevel: number
   // ProtoMember(5)
@@ -1543,7 +1543,7 @@ export type ProfileInfo = {
   // ProtoMember(10)
   layoutType: ProfileLayoutType
   // ProtoMember(11)
-  lastLoginTime: number
+  lastLoginTime: string
   // ProtoMember(12)
   decorationId: string
 }
@@ -1613,9 +1613,9 @@ export type PromotionProgress = {
   // ProtoMember(6)
   characters: ActivityCharacterInfo[]
   // ProtoMember(7)
-  startTime: number
+  startTime: string
   // ProtoMember(8)
-  finishTime: number
+  finishTime: string
   // ProtoMember(9)
   stepConsumptionStamina: number
   // ProtoMember(10)
@@ -1641,7 +1641,7 @@ export type PromotionProgress = {
   // ProtoMember(20)
   rewards: ActivityPromotionReward[]
   // ProtoMember(21)
-  nextActivityLevelUpTime: number
+  nextActivityLevelUpTime: string
   // ProtoMember(22)
   campaignEffects: ActivityCampaignEffect[]
   // ProtoMember(23)
@@ -1653,7 +1653,7 @@ export type PromotionProgress = {
 }
 export type PvpRewardInfo = {
   // ProtoMember(1)
-  rankFrom: number
+  rankFrom: string
   // ProtoMember(2)
   rankingRewardId: string
   // ProtoMember(3)
@@ -1675,7 +1675,7 @@ export type QuestAreaInfo = {
 }
 export type QuestClearInfo = {
   // ProtoMember(1)
-  score: number
+  score: string
   // ProtoMember(2)
   userName: string
   // ProtoMember(3)
@@ -1697,7 +1697,7 @@ export type QuestContestRankInfo = {
   // ProtoMember(2)
   isNPC: boolean
   // ProtoMember(3)
-  score: number
+  score: string
   // ProtoMember(4)
   userName: string
   // ProtoMember(5)
@@ -1715,7 +1715,7 @@ export type QuestInfo = {
   // ProtoMember(2)
   cleared: boolean
   // ProtoMember(3)
-  highestScore: number
+  highestScore: string
   // ProtoMember(4)
   rankType: ResultRankType
   // ProtoMember(5)
@@ -1745,7 +1745,7 @@ export type QuestRewardCard = {
   // ProtoMember(1)
   cardId: string
   // ProtoMember(2)
-  funAmount: number
+  funAmount: string
   // ProtoMember(3)
   exp: number
   // ProtoMember(4)
@@ -1767,7 +1767,7 @@ export type QuestStartResponse = {
   // ProtoMember(7)
   highestRank: number
   // ProtoMember(8)
-  highestScore: number
+  highestScore: string
   // ProtoMember(9)
   hierarchyChangeInfo: HierarchyChangeInfo
   // ProtoMember(9999)
@@ -1777,7 +1777,7 @@ export type QuestTopResponse = {
   // ProtoMember(1)
   mainAreaGroups: QuestAreaGroupInfo[]
   // ProtoMember(2)
-  contestTotalScore: number
+  contestTotalScore: string
   // ProtoMember(3)
   hasUnplayedContest: boolean
   // ProtoMember(4)
@@ -1877,9 +1877,9 @@ export type RefreshProgress = {
   // ProtoMember(6)
   characters: ActivityCharacterInfo[]
   // ProtoMember(7)
-  startTime: number
+  startTime: string
   // ProtoMember(8)
-  finishTime: number
+  finishTime: string
   // ProtoMember(9)
   requiredMinutes: number
   // ProtoMember(10)
@@ -1923,7 +1923,7 @@ export type ShopInfo = {
   // ProtoMember(11)
   resetTimingType: ResetTimingType
   // ProtoMember(12)
-  nextResetTime: number
+  nextResetTime: string
   // ProtoMember(101)
   isPurchased: boolean
   // ProtoMember(102)
@@ -1961,7 +1961,7 @@ export type ShopItem = {
   // ProtoMember(13)
   resetTimingType: ResetTimingType
   // ProtoMember(14)
-  nextResetTime: number
+  nextResetTime: string
   // ProtoMember(15)
   unlockConditionId: string
   // ProtoMember(16)
@@ -1983,17 +1983,17 @@ export type TimelineInfo = {
   // ProtoMember(1)
   messageGroupId: string
   // ProtoMember(2)
-  timelineId: number
+  timelineId: string
   // ProtoMember(3)
   messageId: string
   // ProtoMember(4)
-  arrivedTime: number
+  arrivedTime: string
   // ProtoMember(5)
   selectMessageDetailIds: string[]
   // ProtoMember(6)
   lastMessageDetailId: string
   // ProtoMember(7)
-  lastMessageDetailTime: number
+  lastMessageDetailTime: string
   // ProtoMember(8)
   finished: boolean
 }
@@ -2033,7 +2033,7 @@ export type TourEffectLive = {
   // ProtoMember(6)
   mentalThreshold: number
   // ProtoMember(7)
-  clearScore: number
+  clearScore: string
   // ProtoMember(8)
   rewardId: string
   // ProtoMember(9)
@@ -2055,7 +2055,7 @@ export type TourEffectPvp = {
   // ProtoMember(6)
   mentalThreshold: number
   // ProtoMember(7)
-  clearScore: number
+  clearScore: string
   // ProtoMember(8)
   opponentInfo: TourOpponentInfo
   // ProtoMember(9)
@@ -2081,7 +2081,7 @@ export type TourRankingInfo = {
   // ProtoMember(3)
   managerLevel: number
   // ProtoMember(4)
-  point: number
+  point: string
   // ProtoMember(5)
   rank: number
   // ProtoMember(6)
@@ -2099,7 +2099,7 @@ export type UserHierarchyInfo = {
   // ProtoMember(2)
   currentRank: number
   // ProtoMember(3)
-  currentPoint: number
+  currentPoint: string
 }
 export type AccessoryEnhanceRequest = {
   // ProtoMember(1)
@@ -2205,9 +2205,9 @@ export type ActivityGetFanEventRankingRequest = {
 }
 export type ActivityGetFanEventRankingResponse = {
   // ProtoMember(1)
-  selfRank: number
+  selfRank: string
   // ProtoMember(2)
-  selfScore: number
+  selfScore: string
   // ProtoMember(3)
   rankInfos: FanEventRankingInfo[]
   // ProtoMember(9999)
@@ -2393,7 +2393,7 @@ export type FanEventStepResult = {
   // ProtoMember(1)
   step: number
   // ProtoMember(2)
-  reductionMilliSeconds: number
+  reductionMilliSeconds: string
   // ProtoMember(3)
   activityPoint: number
 }
@@ -2443,7 +2443,7 @@ export type BacksideRankingResponse = {
   // ProtoMember(1)
   rankingInfos: BacksideRankingInfo[]
   // ProtoMember(2)
-  selfFinalScore: number
+  selfFinalScore: string
   // ProtoMember(3)
   selfRank: number
   // ProtoMember(9999)
@@ -2455,7 +2455,7 @@ export type BacksideStageStartRequest = {
   // ProtoMember(2)
   number: number
   // ProtoMember(3)
-  deckNumber: number
+  deckNumber: string
   // ProtoMember(4)
   difficultyNumber: number
 }
@@ -2567,13 +2567,13 @@ export type BacksideInfo = {
   // ProtoMember(3)
   type: BacksideType
   // ProtoMember(4)
-  startTime: number
+  startTime: string
   // ProtoMember(5)
-  endTime: number
+  endTime: string
   // ProtoMember(6)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(7)
-  exchangeEndTime: number
+  exchangeEndTime: string
   // ProtoMember(8)
   assetId: string
   // ProtoMember(9)
@@ -2589,15 +2589,15 @@ export type BacksideInfo = {
   // ProtoMember(14)
   rankingRewardInfos: BacksideRankingRewardInfo[]
   // ProtoMember(15)
-  realScore: number
+  realScore: string
   // ProtoMember(16)
-  realScoreTime: number
+  realScoreTime: string
   // ProtoMember(17)
-  rank: number
+  rank: string
   // ProtoMember(18)
-  stageStamina: number
+  stageStamina: string
   // ProtoMember(19)
-  stageStaminaUpdatedTime: number
+  stageStaminaUpdatedTime: string
   // ProtoMember(20)
   stageStaminaRecoveryMinutes: number
 }
@@ -2625,7 +2625,7 @@ export type BacksidePracticeStageTotalResultInfo = {
   // ProtoMember(2)
   practiceRankPlus: number
   // ProtoMember(3)
-  practiceScore: number
+  practiceScore: string
   // ProtoMember(4)
   practiceLiveBonusInfos: BacksideLiveBonusInfo[]
 }
@@ -2635,7 +2635,7 @@ export type BacksidePracticeStageResultInfo = {
   // ProtoMember(2)
   practiceRankPlus: number
   // ProtoMember(3)
-  practiceScore: number
+  practiceScore: string
   // ProtoMember(4)
   deckCardInfos: BacksideDeckCardInfo[]
   // ProtoMember(5)
@@ -2647,25 +2647,25 @@ export type BacksideFinalStageResultInfo = {
   // ProtoMember(2)
   totalPracticeRankPlus: number
   // ProtoMember(3)
-  totalPracticeScore: number
+  totalPracticeScore: string
   // ProtoMember(4)
   finalRankType: ResultRankType
   // ProtoMember(5)
   finalRankPlus: number
   // ProtoMember(6)
-  finalScore: number
+  finalScore: string
   // ProtoMember(7)
   deckCardInfos: BacksideDeckCardInfo[]
   // ProtoMember(8)
   allLiveBonusInfos: BacksideLiveBonusInfo[]
   // ProtoMember(9)
-  practiceScore: number
+  practiceScore: string
 }
 export type BacksidePracticeStageHalfwayInfo = {
   // ProtoMember(1)
   passedActionCount: number
   // ProtoMember(2)
-  practiceScore: number
+  practiceScore: string
   // ProtoMember(3)
   deckCardInfos: BacksideDeckCardInfo[]
   // ProtoMember(4)
@@ -2679,9 +2679,9 @@ export type BacksideFinalStageHalfwayInfo = {
   // ProtoMember(3)
   allLiveBonusInfos: BacksideLiveBonusInfo[]
   // ProtoMember(4)
-  practiceScore: number
+  practiceScore: string
   // ProtoMember(5)
-  totalPracticeScore: number
+  totalPracticeScore: string
 }
 export type BacksideLiveBonusInfo = {
   // ProtoMember(1)
@@ -2699,9 +2699,9 @@ export type BacksideStageInfo = {
   // ProtoMember(2)
   scheduleInfos: BacksideScheduleInfo[]
   // ProtoMember(3)
-  nextActionCount: number
+  nextActionCount: string
   // ProtoMember(4)
-  practiceScore: number
+  practiceScore: string
   // ProtoMember(5)
   deckCardDetailInfos: BacksideDeckCardDetailInfo[]
   // ProtoMember(6)
@@ -2713,19 +2713,19 @@ export type BacksideStageInfo = {
   // ProtoMember(9)
   cardLiveAbilityInfos: BacksideCardLiveAbilityInfo[]
   // ProtoMember(10)
-  totalPracticeScore: number
+  totalPracticeScore: string
   // ProtoMember(11)
   deckUserCharacters: UserCharacter[]
   // ProtoMember(12)
-  baseDeckOverallValue: number
+  baseDeckOverallValue: string
 }
 export type BacksideStageProgressInfo = {
   // ProtoMember(1)
   panelInfos: BacksidePanelInfo[]
   // ProtoMember(2)
-  nextActionCount: number
+  nextActionCount: string
   // ProtoMember(3)
-  practiceScore: number
+  practiceScore: string
   // ProtoMember(4)
   deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
   // ProtoMember(5)
@@ -2733,7 +2733,7 @@ export type BacksideStageProgressInfo = {
   // ProtoMember(6)
   execPanelLocationInfo: BacksideExecPanelLocationInfo
   // ProtoMember(7)
-  totalPracticeScore: number
+  totalPracticeScore: string
   // ProtoMember(8)
   deckCardDetailInfos: BacksideDeckCardDetailInfo[]
 }
@@ -2801,7 +2801,7 @@ export type BacksidePracticeStageClearInfo = {
   // ProtoMember(3)
   practiceRankPlus: number
   // ProtoMember(4)
-  practiceScore: number
+  practiceScore: string
   // ProtoMember(5)
   liveBonuses: BacksideLiveBonus[]
   // ProtoMember(6)
@@ -2809,7 +2809,7 @@ export type BacksidePracticeStageClearInfo = {
   // ProtoMember(7)
   lastPracticeRankPlus: number
   // ProtoMember(8)
-  lastPracticeScore: number
+  lastPracticeScore: string
   // ProtoMember(9)
   lastLiveBonuses: BacksideLiveBonus[]
   // ProtoMember(10)
@@ -2827,7 +2827,7 @@ export type BacksideFinalStageClearInfo = {
   // ProtoMember(3)
   finalRankPlus: number
   // ProtoMember(4)
-  finalScore: number
+  finalScore: string
   // ProtoMember(5)
   firstClearRewardResults: RewardResult[]
   // ProtoMember(6)
@@ -2835,11 +2835,11 @@ export type BacksideFinalStageClearInfo = {
   // ProtoMember(7)
   isBest: boolean
   // ProtoMember(8)
-  newRank: number
+  newRank: string
   // ProtoMember(9)
-  practiceScore: number
+  practiceScore: string
   // ProtoMember(10)
-  totalPracticeScore: number
+  totalPracticeScore: string
   // ProtoMember(11)
   loopFinalRankRewardResults: RewardResult[]
   // ProtoMember(12)
@@ -3013,7 +3013,7 @@ export type LiveBeat = {
   // ProtoMember(2)
   cardIndex: number
   // ProtoMember(3)
-  score: number
+  score: string
   // ProtoMember(4)
   isCritical: boolean
 }
@@ -3027,9 +3027,9 @@ export type LiveSkill = {
   // ProtoMember(4)
   activated: boolean
   // ProtoMember(5)
-  stamina: number
+  stamina: string
   // ProtoMember(6)
-  score: number
+  score: string
   // ProtoMember(7)
   isCritical: boolean
   // ProtoMember(8)
@@ -3053,7 +3053,7 @@ export type LiveSkillDetail = {
   // ProtoMember(1)
   efficacyIndex: number
   // ProtoMember(2)
-  value: number
+  value: string
   // ProtoMember(3)
   statusType: StatusEffectType
   // ProtoMember(4)
@@ -3069,19 +3069,19 @@ export type LiveUserStatus = {
   // ProtoMember(2)
   currentComboCount: number
   // ProtoMember(3)
-  totalScore: number
+  totalScore: string
 }
 export type LiveCardStatus = {
   // ProtoMember(1)
   cardIndex: number
   // ProtoMember(2)
-  stamina: number
+  stamina: string
   // ProtoMember(3)
-  dance: number
+  dance: string
   // ProtoMember(4)
-  vocal: number
+  vocal: string
   // ProtoMember(5)
-  visual: number
+  visual: string
   // ProtoMember(6)
   effects: LiveCardStatusEffect[]
   // ProtoMember(7)
@@ -3093,7 +3093,7 @@ export type LiveCardStatusEffect = {
   // ProtoMember(2)
   skillEfficacyType: SkillEfficacyType
   // ProtoMember(3)
-  value: number
+  value: string
   // ProtoMember(4)
   grade: number
   // ProtoMember(5)
@@ -3101,7 +3101,7 @@ export type LiveCardStatusEffect = {
   // ProtoMember(6)
   maxGrade: number
   // ProtoMember(7)
-  value2: number
+  value2: string
 }
 export type LiveSkillStatus = {
   // ProtoMember(1)
@@ -3113,7 +3113,7 @@ export type LiveSkillStatus = {
 }
 export type LiveUserResult = {
   // ProtoMember(1)
-  score: number
+  score: string
   // ProtoMember(2)
   criticalCount: number
   // ProtoMember(3)
@@ -3133,7 +3133,7 @@ export type PvpOpponentInfo = {
   // ProtoMember(3)
   managerLevel: number
   // ProtoMember(4)
-  point: number
+  point: string
   // ProtoMember(5)
   rank: number
   // ProtoMember(6)
@@ -3155,7 +3155,7 @@ export type QuestRankPattern = {
   // ProtoMember(2)
   plus: number
   // ProtoMember(3)
-  thresholdScore: number
+  thresholdScore: string
 }
 export type ActivityPromotionReward = {
   // ProtoMember(1)
@@ -3163,7 +3163,7 @@ export type ActivityPromotionReward = {
   // ProtoMember(2)
   resourceId: string
   // ProtoMember(3)
-  amount: number
+  amount: string
   // ProtoMember(4)
   isRare: boolean
 }
@@ -3195,7 +3195,7 @@ export type NoticeInfo = {
   // ProtoMember(6)
   displayNotification: boolean
   // ProtoMember(7)
-  startTime: number
+  startTime: string
   // ProtoMember(8)
   listTitle: string
 }
@@ -3233,7 +3233,7 @@ export type ActivityCampaignEffect = {
   // ProtoMember(2)
   value: number
   // ProtoMember(3)
-  endTime: number
+  endTime: string
 }
 export type EventStoryEpisodeInfo = {
   // ProtoMember(1)
@@ -3259,11 +3259,11 @@ export type PvpSeasonInfo = {
   // ProtoMember(2)
   name: string
   // ProtoMember(3)
-  startTime: number
+  startTime: string
   // ProtoMember(4)
-  endTime: number
+  endTime: string
   // ProtoMember(5)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(6)
   challengeCount: number
 }
@@ -3671,7 +3671,7 @@ export type ForumThreadInfo = {
   // ProtoMember(4)
   isBookmarked: boolean
   // ProtoMember(5)
-  lastUpdatedTime: number
+  lastUpdatedTime: string
   // ProtoMember(6)
   power: number
 }
@@ -3685,7 +3685,7 @@ export type ForumThreadReplyInfo = {
   // ProtoMember(4)
   userName: string
   // ProtoMember(5)
-  repliedTime: number
+  repliedTime: string
   // ProtoMember(6)
   content: string
   // ProtoMember(7)
@@ -3883,7 +3883,7 @@ export type ProbabilityInfo = {
   // ProtoMember(2)
   resourceId: string
   // ProtoMember(3)
-  amount: number
+  amount: string
   // ProtoMember(4)
   probability: number
   // ProtoMember(5)
@@ -3975,7 +3975,7 @@ export type GuildGvgSeasonResult = {
   // ProtoMember(4)
   seasonDrawCount: number
   // ProtoMember(5)
-  seasonTotalPoint: number
+  seasonTotalPoint: string
 }
 export type GuildTopResponse = {
   // ProtoMember(1)
@@ -3993,13 +3993,13 @@ export type GuildGvgSeasonInfo = {
   // ProtoMember(2)
   matchNumber: number
   // ProtoMember(3)
-  matchEndTime: number
+  matchEndTime: string
   // ProtoMember(4)
   guildRank: number
   // ProtoMember(5)
   ranks: GuildGvgRankInfo[]
   // ProtoMember(6)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(7)
   isAggregate: boolean
   // ProtoMember(8)
@@ -4011,7 +4011,7 @@ export type GuildGvgRankInfo = {
   // ProtoMember(1)
   name: string
   // ProtoMember(2)
-  point: number
+  point: string
   // ProtoMember(3)
   rank: number
 }
@@ -4051,15 +4051,15 @@ export type GvgTopInfo = {
 }
 export type UserGvgSeasonInfo = {
   // ProtoMember(1)
-  points: number[]
+  points: string[]
   // ProtoMember(2)
-  totalPoint: number
+  totalPoint: string
   // ProtoMember(3)
   rankRatePercent: number
   // ProtoMember(4)
   rank: number
   // ProtoMember(5)
-  guildPoint: number
+  guildPoint: string
   // ProtoMember(6)
   guildRank: number
   // ProtoMember(7)
@@ -4089,7 +4089,7 @@ export type GvgListRankingResponse = {
   // ProtoMember(1)
   rankingInfos: LiveRankingInfo[]
   // ProtoMember(2)
-  selfPoint: number
+  selfPoint: string
   // ProtoMember(3)
   selfRank: number
   // ProtoMember(9999)
@@ -4113,9 +4113,9 @@ export type GvgStartResponse = {
   // ProtoMember(1)
   result: LiveResult
   // ProtoMember(2)
-  point: number
+  point: string
   // ProtoMember(3)
-  addPoint: number
+  addPoint: string
   // ProtoMember(4)
   rank: number
   // ProtoMember(5)
@@ -4123,11 +4123,11 @@ export type GvgStartResponse = {
   // ProtoMember(6)
   challengeRewards: RewardResult[]
   // ProtoMember(7)
-  guildPoint: number
+  guildPoint: string
   // ProtoMember(8)
-  addGuildPoint: number
+  addGuildPoint: string
   // ProtoMember(9)
-  totalPoint: number
+  totalPoint: string
   // ProtoMember(10)
   profile: AllProfileInfo
   // ProtoMember(11)
@@ -4278,9 +4278,9 @@ export type PvpRewardResultInfo = {
   // ProtoMember(1)
   name: string
   // ProtoMember(2)
-  point: number
+  point: string
   // ProtoMember(3)
-  rank: number
+  rank: string
   // ProtoMember(4)
   rankingRewards: Reward[]
   // ProtoMember(5)
@@ -4290,7 +4290,7 @@ export type GvgRewardResultInfo = {
   // ProtoMember(1)
   name: string
   // ProtoMember(2)
-  point: number
+  point: string
   // ProtoMember(3)
   rank: number
   // ProtoMember(4)
@@ -4308,7 +4308,7 @@ export type TourRewardResultInfo = {
   // ProtoMember(1)
   name: string
   // ProtoMember(2)
-  score: number
+  score: string
   // ProtoMember(3)
   rank: number
   // ProtoMember(4)
@@ -4318,7 +4318,7 @@ export type BacksideRewardResultInfo = {
   // ProtoMember(1)
   name: string
   // ProtoMember(2)
-  score: number
+  score: string
   // ProtoMember(3)
   rank: number
   // ProtoMember(4)
@@ -4328,7 +4328,7 @@ export type PhotoContestRewardResultInfo = {
   // ProtoMember(1)
   name: string
   // ProtoMember(2)
-  score: number
+  score: string
   // ProtoMember(3)
   rank: number
   // ProtoMember(4)
@@ -4338,7 +4338,7 @@ export type HomeActiveFanEvent = {
   // ProtoMember(1)
   characterIds: string[]
   // ProtoMember(2)
-  finishTime: number
+  finishTime: string
   // ProtoMember(3)
   activityPoint: number
   // ProtoMember(4)
@@ -4352,7 +4352,7 @@ export type HomeActivePromotion = {
   // ProtoMember(1)
   characterIds: string[]
   // ProtoMember(2)
-  finishTime: number
+  finishTime: string
   // ProtoMember(3)
   rewardGoldAmount: number
   // ProtoMember(4)
@@ -4366,7 +4366,7 @@ export type HomeActiveRefresh = {
   // ProtoMember(1)
   characterIds: string[]
   // ProtoMember(2)
-  finishTime: number
+  finishTime: string
 }
 export type FunctionMaintenanceInfo = {
   // ProtoMember(1)
@@ -4428,7 +4428,7 @@ export type ItemSellRequest = {
   // ProtoMember(1)
   itemId: string
   // ProtoMember(2)
-  amount: number
+  amount: string
 }
 export type ItemSellResponse = {
   // ProtoMember(9999)
@@ -4576,7 +4576,7 @@ export type UserMarathonInfo = {
   // ProtoMember(1)
   currentStamina: number
   // ProtoMember(2)
-  staminaUpdatedTime: number
+  staminaUpdatedTime: string
   // ProtoMember(3)
   liveBonusInfos: MarathonLiveBonusInfo[]
 }
@@ -4594,7 +4594,7 @@ export type MarathonQuestDifficultyLevelInfo = {
   // ProtoMember(6)
   unlocked: boolean
   // ProtoMember(7)
-  highestScore: number
+  highestScore: string
 }
 export type MarathonDeckInfo = {
   // ProtoMember(1)
@@ -4602,23 +4602,23 @@ export type MarathonDeckInfo = {
   // ProtoMember(2)
   cardDetailInfo: MarathonDeckCardDetailInfo[]
   // ProtoMember(3)
-  deckOverallValue: number
+  deckOverallValue: string
 }
 export type MarathonDeckCardDetailInfo = {
   // ProtoMember(1)
   position: number
   // ProtoMember(2)
-  vocal: number
+  vocal: string
   // ProtoMember(3)
-  dance: number
+  dance: string
   // ProtoMember(4)
-  visual: number
+  visual: string
   // ProtoMember(5)
-  stamina: number
+  stamina: string
   // ProtoMember(6)
-  mental: number
+  mental: string
   // ProtoMember(7)
-  technique: number
+  technique: string
   // ProtoMember(8)
   accessoryInfos: MarathonAccessoryInfo[]
   // ProtoMember(9)
@@ -4636,7 +4636,7 @@ export type MarketListItemResponse = {
   // ProtoMember(1)
   marketItems: MarketItem[]
   // ProtoMember(2)
-  nextResetTime: number
+  nextResetTime: string
   // ProtoMember(3)
   freeResetRemainCount: number
   // ProtoMember(4)
@@ -4690,7 +4690,7 @@ export type MessageTimelineRequest = {
   // ProtoMember(1)
   messageGroupId: string
   // ProtoMember(2)
-  timelineId: number
+  timelineId: string
 }
 export type MessageTimelineResponse = {
   // ProtoMember(1)
@@ -4712,7 +4712,7 @@ export type MessageSaveRequest = {
   // ProtoMember(1)
   messageGroupId: string
   // ProtoMember(2)
-  timelineId: number
+  timelineId: string
   // ProtoMember(3)
   messageDetailId: string
   // ProtoMember(4)
@@ -4726,7 +4726,7 @@ export type MessageFinishRequest = {
   // ProtoMember(1)
   messageGroupId: string
   // ProtoMember(2)
-  timelineId: number
+  timelineId: string
   // ProtoMember(3)
   selectMessageDetailIds: string[]
 }
@@ -5106,7 +5106,7 @@ export type PhotoContestRankingResponse = {
   // ProtoMember(1)
   rankingInfos: PhotoContestRankingInfo[]
   // ProtoMember(2)
-  selfPoint: number
+  selfPoint: string
   // ProtoMember(3)
   selfRank: number
   // ProtoMember(9999)
@@ -5196,11 +5196,11 @@ export type PhotoContestPhotoInfo = {
   // ProtoMember(2)
   sectionId: string
   // ProtoMember(3)
-  evaluationPoint: number
+  evaluationPoint: string
   // ProtoMember(4)
   isBest: boolean
   // ProtoMember(5)
-  shootingTime: number
+  shootingTime: string
 }
 export type ProfileFindUserRequest = {
   // ProtoMember(1)
@@ -5288,7 +5288,7 @@ export type PvpTopResultInfo = {
   // ProtoMember(4)
   userPvpSeason: UserPvpSeasonInfo
   // ProtoMember(5)
-  rank: number
+  rank: string
   // ProtoMember(6)
   isSkipAvailable: boolean
   // ProtoMember(7)
@@ -5296,7 +5296,7 @@ export type PvpTopResultInfo = {
 }
 export type UserPvpSeasonInfo = {
   // ProtoMember(1)
-  point: number
+  point: string
   // ProtoMember(2)
   challengeCount: number
 }
@@ -5318,7 +5318,7 @@ export type PvpListRankingResponse = {
   // ProtoMember(1)
   rankingInfos: LiveRankingInfo[]
   // ProtoMember(2)
-  selfPoint: number
+  selfPoint: string
   // ProtoMember(3)
   selfRank: number
   // ProtoMember(9999)
@@ -5340,9 +5340,9 @@ export type PvpStartResponse = {
   // ProtoMember(1)
   result: LiveResult
   // ProtoMember(2)
-  point: number
+  point: string
   // ProtoMember(3)
-  addPoint: number
+  addPoint: string
   // ProtoMember(4)
   rank: number
   // ProtoMember(5)
@@ -5420,7 +5420,7 @@ export type QuestListContestRankingResponse = {
   // ProtoMember(1)
   selfHighestRank: number
   // ProtoMember(2)
-  selfScore: number
+  selfScore: string
   // ProtoMember(3)
   ranks: QuestContestRankInfo[]
   // ProtoMember(9999)
@@ -5596,7 +5596,7 @@ export type ShopPurchaseStoneRequest = {
   // ProtoMember(5)
   currencyCode: string
   // ProtoMember(6)
-  localizedPricePermyriad: number
+  localizedPricePermyriad: string
 }
 export type ShopPurchaseStoneResponse = {
   // ProtoMember(1)
@@ -5616,7 +5616,7 @@ export type ShopRecoverPurchaseStoneRequest = {
   // ProtoMember(4)
   currencyCode: string
   // ProtoMember(5)
-  localizedPricePermyriad: number
+  localizedPricePermyriad: string
 }
 export type ShopRecoverPurchaseStoneResponse = {
   // ProtoMember(1)
@@ -5740,9 +5740,9 @@ export type MaintenanceInfo = {
   // ProtoMember(3)
   bottomMessage: string
   // ProtoMember(4)
-  startTime: number
+  startTime: string
   // ProtoMember(5)
-  endTime: number
+  endTime: string
   // ProtoMember(6)
   isBeforeRelease: boolean
   // ProtoMember(7)
@@ -5806,7 +5806,7 @@ export type TourRankingResponse = {
   // ProtoMember(1)
   rankingInfos: TourRankingInfo[]
   // ProtoMember(2)
-  selfPoint: number
+  selfPoint: string
   // ProtoMember(3)
   selfRank: number
   // ProtoMember(9999)
@@ -5982,13 +5982,13 @@ export type TourInfo = {
   // ProtoMember(4)
   enemyType: TourEnemyType
   // ProtoMember(5)
-  startTime: number
+  startTime: string
   // ProtoMember(6)
-  endTime: number
+  endTime: string
   // ProtoMember(7)
-  aggregateEndTime: number
+  aggregateEndTime: string
   // ProtoMember(8)
-  exchangeEndTime: number
+  exchangeEndTime: string
   // ProtoMember(9)
   assetId: string
   // ProtoMember(10)
@@ -6016,11 +6016,11 @@ export type UserTourInfo = {
   // ProtoMember(1)
   areaStamina: number
   // ProtoMember(2)
-  staminaUpdatedTime: number
+  staminaUpdatedTime: string
   // ProtoMember(3)
-  highestScore: number
+  highestScore: string
   // ProtoMember(4)
-  highestScoreTime: number
+  highestScoreTime: string
   // ProtoMember(5)
   mostProgressArea: number
   // ProtoMember(6)
@@ -6028,13 +6028,13 @@ export type UserTourInfo = {
   // ProtoMember(7)
   life: number
   // ProtoMember(8)
-  currentScore: number
+  currentScore: string
   // ProtoMember(9)
   currentArea: number
   // ProtoMember(10)
   currentAreaName: string
   // ProtoMember(11)
-  rank: number
+  rank: string
   // ProtoMember(13)
   isRetired: boolean
   // ProtoMember(14)
@@ -6058,11 +6058,11 @@ export type TourAreaInfo = {
   // ProtoMember(1)
   areaStamina: number
   // ProtoMember(2)
-  staminaUpdatedTime: number
+  staminaUpdatedTime: string
   // ProtoMember(3)
-  highestScore: number
+  highestScore: string
   // ProtoMember(4)
-  highestScoreTime: number
+  highestScoreTime: string
   // ProtoMember(5)
   mostProgressArea: number
   // ProtoMember(6)
@@ -6070,7 +6070,7 @@ export type TourAreaInfo = {
   // ProtoMember(7)
   life: number
   // ProtoMember(8)
-  score: number
+  score: string
   // ProtoMember(9)
   area: number
   // ProtoMember(10)
@@ -6080,7 +6080,7 @@ export type TourAreaInfo = {
   // ProtoMember(12)
   position: number
   // ProtoMember(13)
-  areaScore: number
+  areaScore: string
   // ProtoMember(14)
   isAreaCleared: boolean
   // ProtoMember(15)
@@ -6174,17 +6174,17 @@ export type TourScoutInfo = {
   // ProtoMember(6)
   rarity: number
   // ProtoMember(7)
-  dance: number
+  dance: string
   // ProtoMember(8)
-  vocal: number
+  vocal: string
   // ProtoMember(9)
-  visual: number
+  visual: string
   // ProtoMember(10)
-  stamina: number
+  stamina: string
   // ProtoMember(11)
-  mental: number
+  mental: string
   // ProtoMember(12)
-  technique: number
+  technique: string
   // ProtoMember(13)
   skillLevel1: number
   // ProtoMember(14)
@@ -6210,19 +6210,19 @@ export type TourAreaClearInfo = {
   // ProtoMember(2)
   firstClearRewards: Reward[]
   // ProtoMember(3)
-  score: number
+  score: string
   // ProtoMember(4)
-  areaScore: number
+  areaScore: string
   // ProtoMember(5)
-  rank: number
+  rank: string
   // ProtoMember(6)
   isBest: boolean
 }
 export type TourResultInfo = {
   // ProtoMember(1)
-  score: number
+  score: string
   // ProtoMember(2)
-  rank: number
+  rank: string
   // ProtoMember(3)
   isBest: boolean
 }

@@ -11,13 +11,15 @@ const PEGJS_FILE_NAME = 'class.pegjs'
 const Here = dirname(fileURLToPath(import.meta.url))
 const PegjsFilePath = join(Here, PEGJS_FILE_NAME)
 
+// https://developers.google.com/protocol-buffers/docs/proto3#other
+// https://developers.google.com/protocol-buffers/docs/proto3#json
 const CSharpTSTypeMapping = {
-  long: 'number',
-  int: 'number',
-  double: 'number',
-  float: 'number',
-  string: 'string',
-  bool: 'boolean',
+  long: 'string', // as PB int64/sint64/sfixed64
+  int: 'number', // as PB int32/sint32/sfixed32
+  double: 'number', // as PB double
+  float: 'number', // as PB float
+  string: 'string', // as PB string
+  bool: 'boolean', // as PB bool
 }
 
 function parseType(typ) {

@@ -364,7 +364,7 @@ export type Card = {
   // ProtoMember(19)
   order: number
   // ProtoMember(20)
-  releaseDate: number
+  releaseDate: string
   // ProtoMember(21)
   rewardCostumeId: string
   // ProtoMember(22)
@@ -564,7 +564,7 @@ export type ConditionAccessoryAmount = {
   // ProtoMember(1)
   accessoryId: string
   // ProtoMember(2)
-  amountGte: number
+  amountGte: string
 }
 export type ConditionActivityLevel = {
   // ProtoMember(1)
@@ -592,7 +592,7 @@ export type ConditionCharacterPhotoAmount = {
   // ProtoMember(1)
   characterId: string
   // ProtoMember(2)
-  amountGte: number
+  amountGte: string
 }
 export type ConditionClearArea = {
   // ProtoMember(1)
@@ -602,7 +602,7 @@ export type ConditionClearMission = {
   // ProtoMember(1)
   missionId: string
   // ProtoMember(2)
-  threshold: number
+  threshold: string
 }
 export type ConditionClearQuest = {
   // ProtoMember(1)
@@ -630,7 +630,7 @@ export type ConditionFanAmount = {
   // ProtoMember(1)
   characterId: string
   // ProtoMember(2)
-  amountGte: number
+  amountGte: string
 }
 export type ConditionFinishedMessage = {
   // ProtoMember(1)
@@ -644,13 +644,13 @@ export type ConditionItemAmount = {
   // ProtoMember(1)
   itemId: string
   // ProtoMember(2)
-  amountGte: number
+  amountGte: string
 }
 export type ConditionLiveCharacterHighestScore = {
   // ProtoMember(1)
   characterId: string
   // ProtoMember(2)
-  scoreGte: number
+  scoreGte: string
 }
 export type ConditionMaxQuestScoreRank = {
   // ProtoMember(1)
@@ -728,7 +728,7 @@ export type Costume = {
   // ProtoMember(7)
   name: string
   // ProtoMember(8)
-  releaseDate: number
+  releaseDate: string
   // ProtoMember(9)
   costumeTypeId: string
   // ProtoMember(10)
@@ -918,7 +918,7 @@ export type GachaExchange = {
   // ProtoMember(3)
   exchangeLimit: number
   // ProtoMember(4)
-  requiredResourceAmount: number
+  requiredResourceAmount: string
   // ProtoMember(5)
   order: number
   // ProtoMember(6)
@@ -942,7 +942,7 @@ export type HierarchyDetailGrade = {
   // ProtoMember(3)
   subName: string
   // ProtoMember(4)
-  requiredHierarchyPoint: number
+  requiredHierarchyPoint: string
   // ProtoMember(5)
   requiredHierarchyRank: number
   // ProtoMember(6)
@@ -1380,7 +1380,7 @@ export type MarathonQuestDifficulty = {
   // ProtoMember(5)
   mentalThreshold: number
   // ProtoMember(6)
-  clearScore: number
+  clearScore: string
   // ProtoMember(7)
   rewardManagerExp: number
   // ProtoMember(8)
@@ -1488,7 +1488,7 @@ export type Mission = {
 }
 export type MissionProgress = {
   // ProtoMember(1)
-  threshold: number
+  threshold: string
   // ProtoMember(2)
   rewardSetId: string
 }
@@ -1534,7 +1534,7 @@ export type Music = {
   // ProtoMember(23)
   digests: MusicDigest[]
   // ProtoMember(24)
-  releaseTime: number
+  releaseTime: string
   // ProtoMember(25)
   originalCharacterIds: string[]
 }
@@ -1628,7 +1628,7 @@ export type PhotoAllInOne = {
   // ProtoMember(9)
   abilities: PhotoAbilityInfo[]
   // ProtoMember(10)
-  shootingTime: number
+  shootingTime: string
   // ProtoMember(11)
   focusCharacterId: string
 }
@@ -1818,7 +1818,7 @@ export type PhotoSituation = {
   // ProtoMember(6)
   eventName: string
   // ProtoMember(7)
-  shootingTime: number
+  shootingTime: string
   // ProtoMember(8)
   focusCharacterId: string
 }
@@ -1880,7 +1880,7 @@ export type Quest = {
   // ProtoMember(28)
   moodType: MoodType
   // ProtoMember(29)
-  clearScore: number
+  clearScore: string
   // ProtoMember(30)
   rewardManagerExp: number
   // ProtoMember(31)
@@ -1996,7 +1996,7 @@ export type Setting = {
   // ProtoMember(32)
   friendOfferedLimit: number
   // ProtoMember(33)
-  accessoryLimit: number
+  accessoryLimit: string
   // ProtoMember(34)
   photoDeleteAmountLimit: number
   // ProtoMember(35)
@@ -2114,9 +2114,9 @@ export type Setting = {
   // ProtoMember(92)
   liveMinimumGuaranteedAudienceAmount: number
   // ProtoMember(93)
-  messageExcludeTimeStart: number
+  messageExcludeTimeStart: string
   // ProtoMember(94)
-  messageExcludeTimeEnd: number
+  messageExcludeTimeEnd: string
   // ProtoMember(95)
   deckEntrustSpecialSkillPossessionCoefficientPermil: number
   // ProtoMember(96)
@@ -2126,13 +2126,13 @@ export type Setting = {
   // ProtoMember(98)
   tutorialActivityFanEventCostumeIds: string[]
   // ProtoMember(99)
-  goldLimit: number
+  goldLimit: string
   // ProtoMember(100)
-  itemLimit: number
+  itemLimit: string
   // ProtoMember(101)
-  freeStoneLimit: number
+  freeStoneLimit: string
   // ProtoMember(102)
-  paidStoneLimit: number
+  paidStoneLimit: string
   // ProtoMember(103)
   cardSupportRemovableMinutes: number
   // ProtoMember(105)
@@ -2344,7 +2344,7 @@ export type AccessoryEnhancement = {
   // ProtoMember(1)
   rarity: number
   // ProtoMember(2)
-  requiredGold: number
+  requiredGold: string
 }
 export type ActivityAbility = {
   // ProtoMember(1)
@@ -2400,7 +2400,7 @@ export type CardLevel = {
   // ProtoMember(1)
   level: number
   // ProtoMember(2)
-  requiredExp: number
+  requiredExp: string
 }
 export type CardLevelRelease = {
   // ProtoMember(1)
@@ -2416,9 +2416,9 @@ export type CardParameter = {
   // ProtoMember(2)
   level: number
   // ProtoMember(3)
-  value: number
+  value: string
   // ProtoMember(4)
-  staminaValue: number
+  staminaValue: string
 }
 export type CardRarity = {
   // ProtoMember(1)
@@ -2586,7 +2586,7 @@ export type ManagerLevel = {
   // ProtoMember(1)
   level: number
   // ProtoMember(2)
-  requiredExp: number
+  requiredExp: string
   // ProtoMember(3)
   maxCardLevel: number
   // ProtoMember(4)
@@ -2678,7 +2678,7 @@ export type Salary = {
   // ProtoMember(1)
   type: SalaryDetailType
   // ProtoMember(2)
-  threshold: number
+  threshold: string
   // ProtoMember(3)
   amount: number
 }
@@ -2756,9 +2756,9 @@ export type TitleBackground = {
   // ProtoMember(5)
   bgmAssetId: string
   // ProtoMember(6)
-  startTime: number
+  startTime: string
   // ProtoMember(7)
-  endTime: number
+  endTime: string
   // ProtoMember(8)
   priority: number
 }
@@ -2968,15 +2968,15 @@ export type ConditionDeckMaxOverallValue = {
 }
 export type ConditionAnimeStoryPoint = {
   // ProtoMember(1)
-  pointGte: number
+  pointGte: string
 }
 export type ConditionGameStoryPoint = {
   // ProtoMember(1)
-  pointGte: number
+  pointGte: string
 }
 export type ConditionGroupStoryPoint = {
   // ProtoMember(1)
-  pointGte: number
+  pointGte: string
 }
 export type ConditionPhotoReportPityTimer = {
   // ProtoMember(1)
@@ -2992,9 +2992,9 @@ export type ConditionExchangeCount = {
 }
 export type ConditionTerm = {
   // ProtoMember(1)
-  nowAfter: number
+  nowAfter: string
   // ProtoMember(2)
-  nowBefore: number
+  nowBefore: string
 }
 export type ConditionDayOfWeek = {
   // ProtoMember(1)
@@ -3002,17 +3002,17 @@ export type ConditionDayOfWeek = {
 }
 export type ConditionTime = {
   // ProtoMember(1)
-  nowAfter: number
+  nowAfter: string
   // ProtoMember(2)
-  nowBefore: number
+  nowBefore: string
 }
 export type ConditionGold = {
   // ProtoMember(1)
-  goldGte: number
+  goldGte: string
 }
 export type ConditionStone = {
   // ProtoMember(1)
-  stoneGte: number
+  stoneGte: string
 }
 export type ConditionDrawGacha = {
   // ProtoMember(1)
@@ -3056,11 +3056,11 @@ export type ConditionActivityRefreshLevel = {
 }
 export type ConditionContestQuestTotalScore = {
   // ProtoMember(1)
-  scoreGte: number
+  scoreGte: string
 }
 export type ConditionHierarchyPointGte = {
   // ProtoMember(1)
-  hierarchyPointGte: number
+  hierarchyPointGte: string
 }
 export type ConditionDiary = {
   // ProtoMember(1)
@@ -3102,7 +3102,7 @@ export type ConditionActivityRefreshTotalCount = {
 }
 export type ConditionHighestSalary = {
   // ProtoMember(1)
-  highestSalaryGte: number
+  highestSalaryGte: string
 }
 export type ConditionTutorialStep = {
   // ProtoMember(1)
@@ -3114,7 +3114,7 @@ export type ConditionTutorialStep = {
 }
 export type ConditionForumCreateReplyCount = {
   // ProtoMember(1)
-  createReplyCount: number
+  createReplyCount: string
 }
 export type ConditionBirthDay = {
   // ProtoMember(1)
