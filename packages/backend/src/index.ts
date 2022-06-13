@@ -22,6 +22,7 @@ const errorHandler = async (error: any) => {
     },
   )
 }
+
 const router = Router()
 
 // CORS

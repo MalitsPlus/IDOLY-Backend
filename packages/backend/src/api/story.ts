@@ -8,7 +8,7 @@ const responder: APIMapping['Story'] = async ({ id }) => {
   if (!ret) {
     throw Error(`Story not found: ${id}`)
   }
-  return pick(ret, ['id', 'name', 'sectionName', 'description'])
+  return pick(ret, ['id', 'name', 'sectionName', 'advAssetId', 'description'])
 }
 
 export default responder
