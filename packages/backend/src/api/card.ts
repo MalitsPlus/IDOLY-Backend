@@ -3,28 +3,30 @@ import pick from 'lodash/pick'
 import uniq from 'lodash/uniq'
 import { dbGet } from '../db'
 
-const list: APIMapping['Card'] = async () => {
+const list: APIMapping['Card'] = async ({ id }) => {
   const cards = await dbGet('Card')
-  return cards.map((x) =>
-    pick(x, [
-      'id',
-      'assetId',
-      'name',
-      'description',
-      'type',
-      'characterId',
-      'initialRarity',
-      'cardParameterId',
-      'vocalRatioPermil',
-      'danceRatioPermil',
-      'visualRatioPermil',
-      'staminaRatioPermil',
-      'skillId1',
-      'skillId2',
-      'skillId3',
-      'releaseDate',
-    ]),
-  )
+  return cards
+    .filter((x) => (id ? x.id === id : true))
+    .map((x) =>
+      pick(x, [
+        'id',
+        'assetId',
+        'name',
+        'description',
+        'type',
+        'characterId',
+        'initialRarity',
+        'cardParameterId',
+        'vocalRatioPermil',
+        'danceRatioPermil',
+        'visualRatioPermil',
+        'staminaRatioPermil',
+        'skillId1',
+        'skillId2',
+        'skillId3',
+        'releaseDate',
+      ]),
+    )
 }
 
 const id: APIMapping['Card/Id'] = async () => {

@@ -17,7 +17,8 @@ import { TheRootMapping as SkillxData } from './Skillx'
 import { NoticeInfo } from './ProtoApi'
 
 export type APIMapping = {
-  Card: OnlyOutput<
+  Card: InputAndOutput<
+    { id?: string },
     Pick<
       Card,
       | 'id'
