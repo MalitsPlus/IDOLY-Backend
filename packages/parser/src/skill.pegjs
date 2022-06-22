@@ -94,12 +94,12 @@ TargetCharacter
 
 TargetCharacterWithLength
   = chr:TargetCharacter x:("-" cnt:Number &("-" Number))? {
-    return {...chr, ...(x?.[1] ? ({cnt: x[1]}) : undefined)}
+    return {...chr, cnt: x?.[1] ?? 1}
   }
 
 TargetCharacterWithoutLength
   = chr:TargetCharacter x:("-" cnt:Number)? {
-    return {...chr, ...(x?.[1] ? ({cnt: x[1]}) : undefined)}
+    return {...chr, cnt: x?.[1] ?? 1}
   }
 
 TargetCharacterSpecial
