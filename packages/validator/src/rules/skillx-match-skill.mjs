@@ -1,6 +1,5 @@
 import { fromBackendRaw } from '../utils.mjs'
-import lodash from 'lodash'
-const { flattenDepth } = lodash
+import flattenDepth from 'lodash/flattenDepth.js'
 
 export default async () => {
   const skillX = JSON.parse(await fromBackendRaw('Skillx'))
