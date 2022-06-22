@@ -138,7 +138,7 @@ $defs:
       effect:
         $ref: "#/$defs/EffectCharacterWithoutLength"
       target:
-        $ref: "#/$defs/TargetCharacterWithoutLength"
+        $ref: "#/$defs/TargetCharacterWithCount"
       owner:
         type: string
   EffectTargetCharacterWithLen:
@@ -152,7 +152,7 @@ $defs:
       effect:
         $ref: "#/$defs/EffectCharacterWithLength"
       target:
-        $ref: "#/$defs/TargetCharacterWithLength"
+        $ref: "#/$defs/TargetCharacterWithCount"
       owner:
         type: string
   TriggerCond:
@@ -166,7 +166,7 @@ $defs:
         const: "combo"
       len:
         type: number
-  TargetCharacterWithLength:
+  TargetCharacterWithCount:
     allOf:
       - $ref: "#/$defs/TargetCharacter"
       - type: object
@@ -175,8 +175,6 @@ $defs:
         properties:
           cnt:
             type: number
-  TargetCharacterWithoutLength:
-    $ref: "#/$defs/TargetCharacterWithLength"
   TargetCharacter:
     oneOf:
       - $ref: "#/$defs/TargetCharacterSpecial"

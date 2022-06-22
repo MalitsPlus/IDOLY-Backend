@@ -53,7 +53,7 @@ export type EffectCharacterWithLength =
 export type EffectCharacterLengthOnlyTyp =
   | 'skill_impossible'
   | 'combo_continuation'
-export type TargetCharacterWithLength = TargetCharacter & {
+export type TargetCharacterWithCount = TargetCharacter & {
   cnt: number
   [k: string]: unknown
 }
@@ -134,7 +134,7 @@ export interface TargetChart {
 }
 export interface EffectTargetCharacterWithLen {
   effect: EffectCharacterWithLength
-  target: TargetCharacterWithLength
+  target: TargetCharacterWithCount
   owner: string
 }
 export interface EffectCharacterLengthLevel {
@@ -170,7 +170,7 @@ export interface TargetCharacterWithStatus {
 }
 export interface EffectTargetCharacterWithoutLen {
   effect: EffectCharacterWithoutLength
-  target: TargetCharacterWithLength
+  target: TargetCharacterWithCount
   owner: string
 }
 export interface EffectCharacterLevelOnly {
