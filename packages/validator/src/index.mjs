@@ -24,6 +24,7 @@ async function main() {
   } else {
     console.log('>>> ❎ Some validations failed:')
     console.log(errs.join('\n'))
+    process.exit(1)
   }
 }
 
