@@ -47,7 +47,7 @@ EffectCharacterLengthLevelTyp
 // num (level) - no num
 EffectCharacterLevelOnlyTyp
   = "fix_stamina_recovery" / "target_stamina_recovery"
-  / "cool_time_reduction"
+  / "cool_time_reduction" / "stamina_consumption"
   / "strength_effect_count_increase" / "strength_effect_value_increase" 
 // no num - num (length)
 EffectCharacterLengthOnlyTyp = "skill_impossible" / "combo_continuation"

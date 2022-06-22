@@ -92,6 +92,7 @@ export type EffectCharacterLevelOnlyTyp =
   | 'cool_time_reduction'
   | 'strength_effect_count_increase'
   | 'strength_effect_value_increase'
+  | 'stamina_consumption'
 export type EffectCharacterSimpleTyp =
   | 'weakness_effect_recovery'
   | 'weakness_effect_inversion'

@@ -311,6 +311,7 @@ $defs:
       - const: cool_time_reduction
       - const: strength_effect_count_increase
       - const: strength_effect_value_increase
+      - const: stamina_consumption
   EffectCharacterSimpleTyp:
     oneOf:
       - const: weakness_effect_recovery
