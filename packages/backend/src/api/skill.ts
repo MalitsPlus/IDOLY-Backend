@@ -3,6 +3,7 @@ import { dbGet } from '../db'
 import { parseMultiString } from '../utils'
 
 import flattenDepth from 'lodash/flattenDepth'
+import fromPairs from 'lodash/fromPairs'
 
 const dedup = (x: any[]) => [...new Set(x)]
 
@@ -30,6 +31,11 @@ const list: APIMapping['Skill'] = async ({ ids: _ids }) => {
 
 const all: APIMapping['Skill/All'] = async () => dbGet('Skill')
 
-const skillx: APIMapping['Skill/X'] = () => dbGet('Skillx')
+const skillx: APIMapping['Skill/X'] = async ({ ids: _ids }) => {
+  const records = await dbGet('Skillx')
+  if (!_ids) return records
+  const ids = parseMultiString(_ids)
+  return fromPairs(Object.entries(records).filter((x) => ids.includes(x[0])))
+}
 
 export default { list, effectTypes, skillx, all }

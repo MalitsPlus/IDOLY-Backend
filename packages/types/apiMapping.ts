@@ -148,7 +148,7 @@ export type APIMapping = {
   >
   'Skill/All': OnlyOutput<Skill[]>
   'Skill/EffectTypes': OnlyOutput<string[]>
-  'Skill/X': OnlyOutput<SkillxData>
+  'Skill/X': InputAndOutput<{ ids?: MultiString }, SkillxData>
   Story: InputAndOutput<
     { id: string },
     Pick<Story, 'name' | 'id' | 'sectionName' | 'advAssetId' | 'description'>
