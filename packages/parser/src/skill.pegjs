@@ -81,6 +81,7 @@ EffectScoreGetTyp
   = "score_get_by_less_fan_amount" / "score_get_by_more_fan_engage"
   / "score_get_by_more_combo_count" / "score_get_by_skill_activation_count" / "score_get_by_strength_effect_count"
   / "score_get_by_more_stamina_use" / "score_get_by_more_stamina" / "score_get_by_less_stamina"
+  / "score_get_and_stamina_consumption_by_more_stamina_use"
   / "score_get"
 
 TargetChart = typ:"chart_dependence" {

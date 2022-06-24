@@ -23,6 +23,7 @@ export type EffectScoreGetTyp =
   | 'score_get_by_more_stamina_use'
   | 'score_get_by_more_stamina'
   | 'score_get_by_less_stamina'
+  | 'score_get_and_stamina_consumption_by_more_stamina_use'
   | 'score_get'
 export type EffectCharacterLengthLevelTyp =
   | 'vocal_up'
