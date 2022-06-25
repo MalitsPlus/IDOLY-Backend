@@ -100,6 +100,8 @@ message Area {
   string rewardAssetId = 11;
   string assetId = 12;
   string colorCode = 13;
+  string dailySpecialTicketItemId = 14;
+  string dailyRewardName = 15;
   repeated string questIds = 100;
 }
 message AreaGroup {
@@ -249,6 +251,12 @@ message Character {
   string idiom = 39;
   bool isMemories = 40;
   string defaultLiveCostumeId = 41;
+  float facePositionX = 42;
+  float facePositionY = 43;
+  float groupPositionX = 44;
+  float groupPositionY = 45;
+  string catchphraseColor = 46;
+  string unlockConditionId = 47;
 }
 message CharacterCostumeGroup {
   string groupId = 1;
@@ -267,6 +275,8 @@ message CharacterGroup {
   string color = 6;
   repeated master.CharacterGroupMapping mappings = 7;
   bool isMemories = 8;
+  string backgroundColor = 9;
+  string textColor = 10;
 }
 message CharacterGroupMapping {
   string characterId = 1;
@@ -465,6 +475,7 @@ message Gacha {
   string appealText = 19;
   int32 selectPickupAmount = 20;
   repeated string selectCardIds = 21;
+  string shopId = 22;
   repeated string buttonIds = 100;
   repeated string exchangeIds = 101;
   repeated master.GachaCardReward cardRewards = 102;
@@ -612,6 +623,15 @@ message HomeTalkCallPattern {
   string managerCallText = 3;
   string characterArrivalText = 4;
   string characterArrivalVoiceAssetId = 5;
+}
+message InviteSetting {
+  string id = 1;
+  string guestRewardId = 2;
+  int32 guestCodeEnterAllowDays = 3;
+  int32 hostRewardAmountLimit = 4;
+  int32 hostGuestLimit = 5;
+  ProtoEnum.ResourceType hostRewardResourceType = 6;
+  string hostRewardResourceId = 7;
 }
 message LiveAbilityLevel {
   int32 level = 1;
@@ -838,6 +858,7 @@ message Music {
   int64 releaseTime = 24;
   repeated string originalCharacterIds = 25;
   repeated ProtoEnum.StageType notSelectableStageTypes = 26;
+  string mvAssetId = 27;
 }
 message MusicMasteryReward {
   string musicId = 1;
@@ -858,12 +879,22 @@ message PhotoAbility {
   string skillId = 6;
   repeated master.PhotoAbilityLevel photoAbilityLevels = 7;
   repeated master.PhotoAbilityGrade photoAbilityGrades = 8;
+  string abilityTargetId = 9;
+  ProtoEnum.CardType conditionCardType = 10;
+  ProtoEnum.LiveType conditionLiveType = 11;
+  ProtoEnum.StatusEffectType statusEffectType = 12;
 }
 message PhotoAbilityInfo {
   string photoAbilityId = 1;
   int32 effectValue = 2;
   string missionId = 3;
   int32 grade = 4;
+}
+message PhotoAbilitySet {
+  string id = 1;
+  repeated string photoAbilityIds = 2;
+  int32 photoRarity = 3;
+  bool limited = 4;
 }
 message PhotoActivity {
   string id = 1;
@@ -958,6 +989,26 @@ message PhotoQuestStage {
   int32 order = 6;
   string viewConditionId = 7;
   string unlockConditionId = 8;
+}
+message PhotoRecipe {
+  string id = 1;
+  string name = 2;
+  string assetId = 3;
+  string description = 4;
+  int32 level = 5;
+  string photoAbilitySetId = 6;
+  string retouchConsumptionId = 7;
+  string saleRewardId = 8;
+  string photoRetouchEnhanceGroupId = 9;
+  repeated string characterIds = 10;
+  int32 order = 11;
+  int32 minPhotoLevel = 100;
+  int32 maxPhotoLevel = 101;
+}
+message PhotoRetouchEnhance {
+  string groupId = 1;
+  int32 photoLevel = 2;
+  string consumptionId = 3;
 }
 message PhotoShootingCharacterMotion {
   string id = 1;
@@ -1237,6 +1288,8 @@ message Setting {
   int32 photoLimitExtendStone = 110;
   int32 photoLimitExtendLimit = 111;
   int32 photoDefaultLimit = 112;
+  int64 photoRecipeLimit = 113;
+  int32 photoRecipeSaleAmountLimit = 114;
   repeated ProtoEnum.StatusEffectType statusEffectTypeStrengthList = 1001;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessDownList = 1002;
   repeated ProtoEnum.StatusEffectType statusEffectTypeWeaknessOtherList = 1003;
@@ -1252,6 +1305,7 @@ message Setting {
   int32 raceDailyRankingDisplayNum = 401;
   int32 raceSecondsPerActivityLessonStep = 402;
   int32 tourRankingDisplayNum = 500;
+  int32 buddyRentalDailyLimit = 600;
 }
 message SkillDetail {
   string efficacyId = 1;
@@ -1279,6 +1333,7 @@ message SkillLevel {
   int32 limitCount = 9;
   int32 coolTime = 10;
   repeated master.SkillDetail skillDetails = 11;
+  int32 staminaPermil = 12;
 }
 message SkillTrigger {
   string id = 1;
@@ -1320,6 +1375,7 @@ message StoryPart {
   ProtoEnum.PointType pointType = 9;
   string storyEpisodeConsumptionId = 10;
   repeated master.StoryChapter chapters = 11;
+  string noteText = 12;
 }
 message Telephone {
   string id = 1;
@@ -1477,6 +1533,11 @@ message HomeDramaPositionGroup {
   string homeDramaPositionGroupId = 1;
   string homeDramaPositionId = 2;
 }
+message InviteHostReward {
+  string id = 1;
+  int32 clearQuestMainAreaCount = 2;
+  int32 resourceAmount = 3;
+}
 message Item {
   string id = 1;
   string name = 2;
@@ -1517,6 +1578,11 @@ message MusicMasteryLevel {
   int32 level = 1;
   int32 requiredMasteryPoint = 2;
 }
+message PhotoAbilityTarget {
+  string id = 1;
+  ProtoEnum.PhotoAbilityTargetType type = 2;
+  string targetId = 3;
+}
 message PhotoRarityLevel {
   int32 rarity = 1;
   int32 level = 2;
@@ -1537,6 +1603,10 @@ message QuestAudienceAdvantage {
   string id = 1;
   int32 audienceAmount = 2;
   int32 advantagePermil = 3;
+}
+message QuestContestRankingSeason {
+  string id = 1;
+  int64 startTime = 2;
 }
 message QuestPressure {
   string id = 1;
@@ -1704,6 +1774,7 @@ message ConditionSetting {
   master.ConditionWearLiveCostume wearLiveCostume = 68;
   master.ConditionContestQuestHighestRank contestQuestHighestRank = 69;
   master.ConditionComebackUser comebackUser = 70;
+  master.ConditionGameStartTerm gameStartTerm = 71;
 }
 message ConditionStartHours {
   int32 hoursLte = 1;
@@ -1742,6 +1813,10 @@ message ConditionExchangeCount {
 message ConditionTerm {
   int64 nowAfter = 1;
   int64 nowBefore = 2;
+}
+message ConditionGameStartTerm {
+  int64 gameStartDatetimeAfter = 1;
+  int64 gameStartDatetimeBefore = 2;
 }
 message ConditionDayOfWeek {
   ProtoEnum.DayOfWeekType dayOfWeekType = 1;

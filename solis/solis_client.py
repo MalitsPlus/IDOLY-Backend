@@ -1,9 +1,11 @@
 import json
+from typing import Tuple
 import grpc
 import jwt
 import time
 import requests
 import upload
+from pathlib import Path
 from bs4 import BeautifulSoup
 import master_manager as master
 import octo_manager as octo
@@ -94,7 +96,7 @@ class SolisClient(ClientBase):
             self.auth_login,
             self.master_get,
             self.user_get,
-            self.get_octo,
+            self.get_full_octo,
             self.home_login,
             self.dokan_list,
             self.home_enter,
@@ -150,11 +152,13 @@ class SolisClient(ClientBase):
         else:
             console.info(f"Octo manifest is already up-to-date, thus won't be download this time.")
             
-
-    def update_octo(self):
-        if get_cache("octoCacheRevision") < self.octo_server_revision:
-            octo.update_octo(self.octo_cache)
-            set_cache("octoCacheRevision", self.octo_server_revision)
+    def update_octo(self, dl_all: bool=False) -> bool:
+        revision, content = self.get_octo(dl_all)
+        if dl_all or get_cache("octoCacheRevision") < revision:
+            octo.update_octo(content)
+            set_cache("octoCacheRevision", revision)
+            return True
+        return False
 
     def _call_rpc(self, func, req_msg, metadata=None):
         if metadata is None:
@@ -274,10 +278,9 @@ class SolisClient(ClientBase):
         set_cache("refreshToken", r_dict["refresh_token"])
         return 0
 
-    def get_octo(self) -> int:
+    def get_full_octo(self) -> int:
         headers = self._config["octo"]
-        pre_revision = get_cache("octoCacheRevision")
-        url = f"{self._octo_endpoint}/{pre_revision}"
+        url = f"{self._octo_endpoint}/0"
         response = requests.get(url, headers=headers)
         if response.status_code != 200:
             return -1
@@ -285,6 +288,19 @@ class SolisClient(ClientBase):
         self.octo_cache = response.content
         self.octo_server_revision = int(etag.split(".")[-1])
         return 0
+
+    def get_octo(self, dl_all: bool=False) -> Tuple[int, bytes]:
+        headers = self._config["octo"]
+        if dl_all:
+            pre_revision = 0
+        else:
+            pre_revision = get_cache("octoCacheRevision")
+        url = f"{self._octo_endpoint}/{pre_revision}"
+        response = requests.get(url, headers=headers)
+        if response.status_code != 200:
+            return -1
+        etag = response.headers["ETag"].strip("\"")
+        return int(etag.split(".")[-1]), response.content
 
     def first_system_check(self) -> int:
         stub = apig.SystemStub(self._channel)

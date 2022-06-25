@@ -194,6 +194,7 @@ enum DokanTargetType {
   DokanTargetType_Marathon = 5;
   DokanTargetType_PhotoContest = 6;
   DokanTargetType_Race = 7;
+  DokanTargetType_Ladder = 8;
 }
 enum DokanType {
   DokanType_Unknown = 0;
@@ -246,6 +247,9 @@ enum ErrorCode {
   ErrorCode_TwitterDailyStatusUpdateLimit = 3027;
   ErrorCode_AlreadyMaximumStamina = 3028;
   ErrorCode_NotInCoolTime = 3029;
+  ErrorCode_InviteWrongCode = 3030;
+  ErrorCode_InviteHostGuestLimit = 3031;
+  ErrorCode_InviteEnterCodeNotAllowed = 3032;
 }
 enum EventMissionType {
   EventMissionType_Unknown = 0;
@@ -282,6 +286,10 @@ enum FunctionLockType {
   FunctionLockType_Diary = 18;
   FunctionLockType_AccessoryLimitBreak = 19;
   FunctionLockType_QuestSubTower = 20;
+  FunctionLockType_Invite = 21;
+  FunctionLockType_PhotoRetouch = 22;
+  FunctionLockType_InviteHost = 23;
+  FunctionLockType_BuddyUse = 24;
 }
 enum FunctionMaintenanceType {
   FunctionMaintenanceType_Unknown = 0;
@@ -301,6 +309,12 @@ enum GachaAnimationEmbeddedType {
   GachaAnimationEmbeddedType_Single1 = 101;
   GachaAnimationEmbeddedType_Single2 = 102;
 }
+enum GachaContinuousResultType {
+  GachaContinuousResultType_Unknown = 0;
+  GachaContinuousResultType_Continue = 1;
+  GachaContinuousResultType_ContinueWithEffect = 2;
+  GachaContinuousResultType_Finish = 3;
+}
 enum GachaLimitType {
   GachaLimitType_Unknown = 0;
   GachaLimitType_Total = 1;
@@ -317,6 +331,7 @@ enum GachaType {
   GachaType_Normal = 1;
   GachaType_Item = 2;
   GachaType_Premium = 3;
+  GachaType_Continuous = 4;
 }
 enum GiftFilterType {
   GiftFilterType_Unknown = 0;
@@ -494,6 +509,13 @@ enum HelpDisplayTargetType {
   HelpDisplayTargetType_RaceLiveDeckSelect = 139;
   HelpDisplayTargetType_RaceVenusLiveDeckSelect = 140;
   HelpDisplayTargetType_PremiumGacha = 141;
+  HelpDisplayTargetType_LadderTop = 142;
+  HelpDisplayTargetType_PhotoRetouch = 143;
+  HelpDisplayTargetType_FriendCardEdit = 144;
+  HelpDisplayTargetType_DeckFriendCardEdit = 145;
+  HelpDisplayTargetType_FriendSearch = 146;
+  HelpDisplayTargetType_FriendTop = 147;
+  HelpDisplayTargetType_FriendCode = 148;
 }
 enum HelpType {
   HelpType_Unknown = 0;
@@ -541,6 +563,7 @@ enum ItemType {
   ItemType_CardSupportRelease = 12;
   ItemType_PhotoShootingLevelChange = 13;
   ItemType_AccessoryLimitBreak = 14;
+  ItemType_PhotoInk = 15;
   ItemType_ActivityRefreshShorten = 1001;
   ItemType_ActivityPromotionShorten = 1002;
   ItemType_ActivityFanEventSuperMode = 1003;
@@ -551,6 +574,7 @@ enum ItemType {
   ItemType_QuestDailyPhotoTicketTicket = 2003;
   ItemType_QuestContestTicket = 2004;
   ItemType_PvpTicket = 2005;
+  ItemType_QuestDailySpecialTicket = 2006;
   ItemType_EventMedal = 3001;
   ItemType_BoxGachaPoint = 4001;
   ItemType_MarathonStaminaRecovery = 5001;
@@ -559,11 +583,17 @@ enum ItemType {
   ItemType_PhotoContestCreating = 6002;
   ItemType_RacePoint = 7001;
   ItemType_RaceLiveBonusReset = 7002;
+  ItemType_LadderPoint = 8001;
 }
 enum JoinedGuildType {
   JoinedGuildType_Unknown = 0;
   JoinedGuildType_Join = 1;
   JoinedGuildType_NotJoin = 2;
+}
+enum LadderPanelType {
+  LadderPanelType_Unknown = 0;
+  LadderPanelType_Reward = 1;
+  LadderPanelType_Message = 2;
 }
 enum LinkType {
   LinkType_Unknown = 0;
@@ -610,6 +640,7 @@ enum LinkType {
   LinkType_Marathon = 103;
   LinkType_PhotoContest = 104;
   LinkType_Race = 105;
+  LinkType_Ladder = 106;
   LinkType_WebView = 999;
   LinkType_ExternalWebPage = 1000;
 }
@@ -672,6 +703,11 @@ enum LiveTipType {
   LiveTipType_LevelShortage = 8;
   LiveTipType_DeckUnbalance = 9;
   LiveTipType_Other = 10;
+}
+enum LiveType {
+  LiveType_Unknown = 0;
+  LiveType_Score = 1;
+  LiveType_Battle = 2;
 }
 enum LoadingDisplayTargetType {
   LoadingDisplayTargetType_Unknown = 0;
@@ -808,6 +844,8 @@ enum MissionType {
   MissionType_AccessoryLimitBreakCount = 50;
   MissionType_AccessoryLimitBreakPhaseAchievement = 51;
   MissionType_QuestSubTowerClearCount = 52;
+  MissionType_PhotoRetouchCount = 53;
+  MissionType_PhotoRetouchTotalCount = 54;
   MissionType_TourAreaClearCount = 1001;
   MissionType_TourRivalClearCount = 1002;
   MissionType_TourBossClearCountWithCharacter = 1003;
@@ -823,6 +861,9 @@ enum MissionType {
   MissionType_RacePanelClearCount = 1301;
   MissionType_RaceQuestClearCount = 1302;
   MissionType_RaceEnhanceLiveBonusAchievement = 1303;
+  MissionType_LadderPanelReachedCount = 1401;
+  MissionType_LadderConsumptionPointAmount = 1402;
+  MissionType_LadderReachedStep = 1403;
 }
 enum MoodType {
   MoodType_Unknown = 0;
@@ -874,6 +915,15 @@ enum PhotoAbilityGradeType {
   PhotoAbilityGradeType_Silver = 2;
   PhotoAbilityGradeType_Gold = 3;
 }
+enum PhotoAbilityTargetType {
+  PhotoAbilityTargetType_Unknown = 0;
+  PhotoAbilityTargetType_Self = 1;
+  PhotoAbilityTargetType_All = 2;
+  PhotoAbilityTargetType_Center = 3;
+  PhotoAbilityTargetType_Neighbor = 4;
+  PhotoAbilityTargetType_Character = 5;
+  PhotoAbilityTargetType_CharacterGroup = 6;
+}
 enum PhotoAbilityType {
   PhotoAbilityType_Unknown = 0;
   PhotoAbilityType_DanceAdd = 1;
@@ -900,6 +950,13 @@ enum PhotoAbilityType {
   PhotoAbilityType_SpecialSkillScoreMultiply = 22;
   PhotoAbilityType_CriticalScoreMultiply = 23;
   PhotoAbilityType_AudienceAmountUp = 24;
+  PhotoAbilityType_ReceivedStrengthEffectValueIncrease = 27;
+  PhotoAbilityType_ReceivedStrengthEffectCountIncrease = 28;
+  PhotoAbilityType_AffectStrengthEffectValueIncrease = 29;
+  PhotoAbilityType_AffectStrengthEffectCountIncrease = 30;
+  PhotoAbilityType_CoolTimeReductionSkill1 = 31;
+  PhotoAbilityType_CoolTimeReductionSkill2 = 32;
+  PhotoAbilityType_CoolTimeReductionSkill3 = 33;
 }
 enum PhotoContestBaseEvaluationType {
   PhotoContestBaseEvaluationType_Unknown = 0;
@@ -1069,6 +1126,7 @@ enum ResourceType {
   ResourceType_CardRarityExp = 24;
   ResourceType_CardRarityExpLimitChange = 25;
   ResourceType_Decoration = 26;
+  ResourceType_PhotoRecipe = 27;
   ResourceType_Set = 999;
 }
 enum ResultRankType {
@@ -1136,6 +1194,10 @@ enum RewardSortResourceType {
   RewardSortResourceType_ItemPhotoContestSubmitting = 53;
   RewardSortResourceType_ItemRacePoint = 54;
   RewardSortResourceType_ItemRaceLiveBonusReset = 55;
+  RewardSortResourceType_ItemQuestDailySpecialTicket = 56;
+  RewardSortResourceType_ItemLadderPoint = 57;
+  RewardSortResourceType_PhotoRecipe = 58;
+  RewardSortResourceType_ItemPhotoInk = 59;
 }
 enum RewardSortTargetType {
   RewardSortTargetType_Unknown = 0;
@@ -1283,6 +1345,23 @@ enum SkillEfficacyType {
   SkillEfficacyType_ScoreGetByDeckSupporter = 47;
   SkillEfficacyType_ScoreGetByDeckBuffer = 48;
   SkillEfficacyType_StaminaConsumption = 49;
+  SkillEfficacyType_CoolTimeIncrease = 50;
+  SkillEfficacyType_StrengthEffectErasing = 51;
+  SkillEfficacyType_StrengthEffectAssignment = 52;
+  SkillEfficacyType_LiveAbilityCoolTimeReduction = 53;
+  SkillEfficacyType_ScoreGetBySkillSuccessRateUp = 54;
+  SkillEfficacyType_ScoreGetAndStaminaConsumptionByMoreStaminaUse = 55;
+  SkillEfficacyType_VocalBoost = 56;
+  SkillEfficacyType_DanceBoost = 57;
+  SkillEfficacyType_VisualBoost = 58;
+  SkillEfficacyType_SpecialScoreMultiplierAdd = 59;
+  SkillEfficacyType_ActiveScoreMultiplierAdd = 60;
+  SkillEfficacyType_PassiveScoreMultiplierAdd = 61;
+  SkillEfficacyType_StaminaContinuousRecovery = 62;
+  SkillEfficacyType_StaminaContinuousConsumption = 63;
+  SkillEfficacyType_ActiveSkillChanceAssignment = 64;
+  SkillEfficacyType_StrengthEffectErasingAll = 65;
+  SkillEfficacyType_StrengthEffectAssignmentAll = 66;
 }
 enum SkillFailureType {
   SkillFailureType_Unknown = 0;
@@ -1357,6 +1436,17 @@ enum SkillTriggerType {
   SkillTriggerType_CenterStatus = 24;
   SkillTriggerType_CardTypeStatus = 25;
   SkillTriggerType_SomeoneRecovered = 26;
+  SkillTriggerType_AllAttributeType = 27;
+  SkillTriggerType_MostLeft = 28;
+  SkillTriggerType_MostRight = 29;
+  SkillTriggerType_SecondFromLeft = 30;
+  SkillTriggerType_SecondFromRight = 31;
+  SkillTriggerType_AllStatus = 32;
+  SkillTriggerType_ComboLessEqual = 33;
+  SkillTriggerType_SkillFailure = 34;
+  SkillTriggerType_MoreThanPositionCardTypeCount = 35;
+  SkillTriggerType_BeforeActiveSkill = 36;
+  SkillTriggerType_BeforeSpecialSkill = 37;
 }
 enum SpecialSkillCameraOrientationType {
   SpecialSkillCameraOrientationType_Unknown = 0;
@@ -1406,12 +1496,21 @@ enum StatusEffectType {
   StatusEffectType_WeaknessEffectPrevention = 15;
   StatusEffectType_ComboScoreUp = 16;
   StatusEffectType_PassiveSkillScoreUp = 17;
+  StatusEffectType_VocalBoost = 18;
+  StatusEffectType_DanceBoost = 19;
+  StatusEffectType_VisualBoost = 20;
+  StatusEffectType_SpecialScoreMultiplierAdd = 21;
+  StatusEffectType_ActiveScoreMultiplierAdd = 22;
+  StatusEffectType_PassiveScoreMultiplierAdd = 23;
+  StatusEffectType_StaminaContinuousRecovery = 24;
+  StatusEffectType_ActiveSkillChanceAssignment = 25;
   StatusEffectType_DanceDown = 1001;
   StatusEffectType_VocalDown = 1002;
   StatusEffectType_VisualDown = 1003;
   StatusEffectType_SkillImpossible = 1004;
   StatusEffectType_StaminaConsumptionIncrease = 1005;
   StatusEffectType_AudienceAmountReduction = 1006;
+  StatusEffectType_StaminaContinuousConsumption = 1007;
 }
 enum StoryPartType {
   StoryPartType_Unknown = 0;
@@ -1506,5 +1605,7 @@ enum TutorialType {
   TutorialType_Marathon = 25;
   TutorialType_AccessoryLimitBreak = 26;
   TutorialType_Race = 27;
+  TutorialType_Ladder = 28;
+  TutorialType_PhotoRetouch = 29;
 }
 

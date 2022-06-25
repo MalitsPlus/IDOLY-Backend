@@ -101,7 +101,7 @@ def analyze_common(common_ptn: str) -> str:
                             "value": value, "type": type_, "name": name_})
             txt += gen_common(name, ppts)
     if common_ptn == api_ptn:
-        imports = 'package api;\noption go_package = "solis/pkg/proto/api";\noption csharp_namespace = "Solis.Common.Proto.Api";\nimport "ProtoEnum.proto";\nimport "ProtoMaster.proto";\nimport "ProtoTransaction.proto";\n'
+        imports = 'package api;\noption go_package = "solis/pkg/proto/api";\noption csharp_namespace = "Solis.Common.Proto.Api";\nimport "ProtoEnum.proto";\nimport "ProtoMaster.proto";\nimport "ProtoTransaction.proto";\nimport "google/protobuf/empty.proto";\n'
     elif common_ptn == master_ptn:
         imports = 'package master;\noption go_package = "solis/pkg/proto/master";\noption csharp_namespace = "Solis.Common.Proto.Master";\nimport "ProtoEnum.proto";\n'
     elif common_ptn == transaction_ptn:

@@ -6,6 +6,7 @@ from pathlib import Path
 import rich_console as console
 import upload
 from solis_client import SolisClient
+import octo_manager as octo
 
 _CACHE_DIR = "cache"
 _ARTIFACT_DIR = "masterdata"
@@ -42,11 +43,12 @@ def main():
     parser.add_argument("-t", "--token", type=str, default="", help="Your firebase refreshToken.")
     parser.add_argument("-f", "--force", action="store_true", help="Update databases without checking version.")
     parser.add_argument("-k", "--kv", action="store_true", help="Notify KV server.")
+    parser.add_argument("-a", "--asset-mode", type=str, default="", help="Enable asset decryption mode. Can be either (all | diff).")
     parser.add_argument("--kvauth", type=str, default="", help="KV server auth token.")
     parser.add_argument("--kvurl", type=str, default="", help="KV server endpoint.")
     args = parser.parse_args()
 
-    # Restore caches
+    # Restore caches 
     restore_cache(args.token)
 
     # For network testing
@@ -76,7 +78,9 @@ def main():
             client.update_octo_manifest()
             client.put_octo()
         # Update octo if new revision is found
-        # client.update_octo()
+        if args.asset_mode:
+            if client.update_octo(args.asset_mode == "all"):
+                octo.scale_with_esrgan()
     console.info("Tasks all done.")
 
 if __name__ == "__main__":

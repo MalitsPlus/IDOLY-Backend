@@ -1,3 +1,4 @@
+import sys
 import json
 import UnityPy
 import requests
@@ -11,7 +12,8 @@ import rich_console as console
 from google.protobuf.json_format import MessageToDict
 from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 
-_API_KEY = bytes.fromhex("aa8a30926db9d49410360d0a99aa735d035638dfc09ef99fb575d9c91a8f6cdc")
+_API_KEY = bytes.fromhex(
+    "aa8a30926db9d49410360d0a99aa735d035638dfc09ef99fb575d9c91a8f6cdc")
 _API_IV = bytes.fromhex("9ce1286f5481bb3d92eb8529bc35962c")
 _FILE_KEY = bytes.fromhex("db3cf044ca27e0fbe672bc4c507bda5b")
 _FILE_IV = bytes.fromhex("1c6e6f9255c0e5412712f4010225e378")
@@ -19,22 +21,27 @@ _SIGNATURE = b"\x55\x6e\x69\x74\x79"
 
 _asset_path = "cache/asset"
 _image_path = "cache/image"
+_image_out_path = "cache/esrgan"
 _asset_count = 0
 _resouce_count = 0
 _current_count = 0
 lock = threading.Lock()
 
+
 def decrypt(enc_data: bytes, key: bytes, iv: bytes, offset: int) -> bytes:
     cipher = AES.new(key, AES.MODE_CBC, iv)
-    dec_data = unpad(cipher.decrypt(enc_data[offset:]), block_size=16, style="pkcs7")
+    dec_data = unpad(cipher.decrypt(
+        enc_data[offset:]), block_size=16, style="pkcs7")
     return dec_data
 
-def decrypt_api_database(cache: bytes, key: bytes=_API_KEY, iv: bytes=_API_IV, offset: int=0) -> octop.Database:
+
+def decrypt_api_database(cache: bytes, key: bytes = _API_KEY, iv: bytes = _API_IV, offset: int = 0) -> octop.Database:
     dec_data = decrypt(cache, key, iv, offset)
     database = octop.Database.FromString(dec_data[16:])
     # database = octop.Database()
     # database.FromString(dec_data)
     return database
+
 
 def string_to_mask_bytes(mask_string: str, mask_string_length: int, bytes_length: int) -> bytes:
     mask_bytes = bytearray(bytes_length)
@@ -73,17 +80,21 @@ def string_to_mask_bytes(mask_string: str, mask_string_length: int, bytes_length
                 b += 1
     return bytes(mask_bytes)
 
+
 def crypt_by_string(input: bytes, mask_string: str, offset: int, stream_pos: int, header_length: int) -> bytes:
     input_length = input.__len__()
     mask_string_length = mask_string.__len__()
     bytes_length = mask_string_length << 1
     buffer = bytearray(input)
-    mask_bytes = string_to_mask_bytes(mask_string, mask_string_length, bytes_length)
+    mask_bytes = string_to_mask_bytes(
+        mask_string, mask_string_length, bytes_length)
     i = 0
     while stream_pos + i < header_length:
-        buffer[offset + i] ^= mask_bytes[stream_pos + i - int((stream_pos + i) / bytes_length) * bytes_length]
+        buffer[offset + i] ^= mask_bytes[stream_pos + i -
+                                         int((stream_pos + i) / bytes_length) * bytes_length]
         i += 1
     return bytes(buffer)
+
 
 def unpack_to_image(asset_bytes: bytes, dest: str):
     env = UnityPy.load(asset_bytes)
@@ -97,7 +108,8 @@ def unpack_to_image(asset_bytes: bytes, dest: str):
                 img.save(dest_path)
             except:
                 console.error(f"Failed to convert '{data.name}' to image.")
-        
+
+
 def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
     global _current_count
     url = url_format.replace("{v}", str(data.uploadVersionId))\
@@ -117,9 +129,11 @@ def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
             with open(f"{_asset_path}/{data.name}.unity3d", "wb") as fp:
                 fp.write(asset_bytes)
             if asset_bytes[0: 5] != _SIGNATURE:
-                console.error(f"'{data.name}' '{data.md5}' is not a unity asset.")
+                console.error(
+                    f"'{data.name}' '{data.md5}' is not a unity asset.")
                 raise
-            unpack_to_image(asset_bytes, f"{_image_path}/{revision}")
+            # Converts an image asset to png, does nothing if asset is not texture2d
+            unpack_to_image(asset_bytes, f"{_image_path}")
             lock.acquire()
             _current_count += 1
             console.succeed(
@@ -130,6 +144,7 @@ def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
             _current_count += 1
             console.error(
                 f"{_current_count}/{_asset_count}) Failed to unobfuscate '{data.name}'.")
+            console.error(sys.exc_info()[0])
             lock.release()
     elif _type == "resources":
         with open(f"{_asset_path}/{data.name}", "wb") as fp:
@@ -140,6 +155,7 @@ def one_task(data: octop.Data, _type: str, revision: int, url_format: str):
             f"{_current_count}/{_resouce_count}) Resouce '{data.name}' has been successfully renamed.")
         lock.release()
 
+
 def update_octo_manifest(raw_cache: bytes):
     database = decrypt_api_database(raw_cache)
     octo_dict = MessageToDict(
@@ -147,18 +163,32 @@ def update_octo_manifest(raw_cache: bytes):
     with open("cache/OctoManifest.json", "w", encoding="utf8") as fp:
         json.dump(octo_dict, fp, ensure_ascii=False, indent=2)
 
+
 def update_octo(raw_cache: bytes):
     global _asset_count
     global _resouce_count
     global _current_count
     database = decrypt_api_database(raw_cache)
+    octo_dict = MessageToDict(
+        database, use_integers_for_enums=True, including_default_value_fields=True)
+    with open("cache/OctoDiff.json", "w", encoding="utf8") as fp:
+        json.dump(octo_dict, fp, ensure_ascii=False, indent=2)
+
     revision = database.revision
+
+    Path(_asset_path).mkdir(exist_ok=True)
+    Path(_image_path).mkdir(exist_ok=True)
 
     _asset_count = len(database.assetBundleList)
     _resouce_count = len(database.resourceList)
 
     executor = ThreadPoolExecutor(max_workers=20)
     _current_count = 0
+
+    # for single thread debug
+    # for it in database.assetBundleList:
+    #     one_task(it, "assetbundle", revision, database.urlFormat)
+
     asset_tasks = [executor.submit(one_task, it, "assetbundle", revision, database.urlFormat)
                    for it in database.assetBundleList]
     wait(asset_tasks, return_when=ALL_COMPLETED)
@@ -170,6 +200,17 @@ def update_octo(raw_cache: bytes):
     wait(resouce_tasks, return_when=ALL_COMPLETED)
     console.succeed("All resources has been successfully processed.")
 
+
+def scale_with_esrgan():
+    from image_converter import convert_one
+    with open("cache/OctoDiff.json") as fp:
+        octo_diff: dict = json.load(fp)
+    for one_asset in octo_diff["assetBundleList"]:
+        name = one_asset["name"]
+        if name.startswith("img_card_full_1_") or \
+            (name.startswith("img_ui_hero_") and not name.startswith("img_ui_hero_event")):
+            file = f"{_image_path}/{name}.png"
+            convert_one(file, _image_out_path, to_size=True, c_size=(2560, 1440))
+
 if __name__ == "__main__":
-    data = Path("cache/octo.bin").read_bytes()
-    database = octop.Database.FromString(data)
+    scale_with_esrgan()

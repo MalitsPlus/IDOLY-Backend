@@ -53,6 +53,8 @@ message User {
   int64 tutorialClearedTime = 20;
   int64 comebackStartTime = 21;
   int32 photoLimitExtendedCount = 22;
+  string inviteHostUserId = 23;
+  string buddyCardId = 24;
   int32 managerLevel = 100;
   int32 cardSupportMaxNumber = 101;
 }
@@ -206,6 +208,7 @@ message UserPhoto {
   repeated transaction.UserPhotoAbility abilities = 12;
   int64 shootingTime = 13;
   string focusCharacterId = 14;
+  string photoRecipeId = 15;
 }
 message UserPhotoAbility {
   string photoAbilityId = 1;
@@ -214,25 +217,9 @@ message UserPhotoAbility {
   int32 grade = 4;
   bool isAvailable = 5;
 }
-message UserPhotoGift {
-  string photoId = 1;
-  string assetId = 2;
-  ProtoEnum.PhotoImageType imageType = 3;
-  repeated string characterIds = 4;
-  string name = 5;
-  int32 rarity = 6;
-  string placeName = 7;
-  string eventName = 8;
-  int32 level = 9;
-  repeated transaction.UserPhotoGiftAbility abilities = 10;
-  int64 shootingTime = 11;
-  string focusCharacterId = 12;
-}
-message UserPhotoGiftAbility {
-  string photoAbilityId = 1;
-  int32 effectValue = 2;
-  string missionId = 3;
-  int32 grade = 4;
+message UserPhotoRecipe {
+  string photoRecipeId = 1;
+  int64 amount = 2;
 }
 message UserProfile {
   string favoriteCardId = 1;
@@ -258,6 +245,7 @@ message UserQuest {
   int64 currentRankingHighestScore = 7;
   int64 currentRankingHighestScoreTime = 8;
   int64 currentRankingHighestRank = 9;
+  string currentRankingSeasonID = 10;
   ProtoEnum.ResultRankType highestScoreRank = 100;
 }
 message UserStory {
@@ -310,6 +298,9 @@ message UserBalance {
   int32 freeBalance = 1;
   int32 paidBalance = 2;
 }
+message UserBuddy {
+  int64 dailyRentalAmount = 1;
+}
 message UserCardSupport {
   int32 number = 1;
   string cardId = 2;
@@ -360,6 +351,10 @@ message UserGiftHistory {
 message PhotoGiftHistory {
   string name = 1;
 }
+message UserInvite {
+  string inviteCode = 1;
+  int64 receivedHostRewardTotalAmount = 2;
+}
 message UserNotification {
   ProtoEnum.NotificationType notificationType = 1;
   bool valid = 2;
@@ -397,6 +392,7 @@ message UserTotalCount {
   int64 activityPromotionMinutes = 10;
   int64 activityRefreshCount = 11;
   int64 guildCheckInCount = 12;
+  int64 photoRetouchCount = 13;
 }
 message UserTutorial {
   ProtoEnum.TutorialType tutorialType = 1;

@@ -2,11 +2,13 @@
 
 # Solis Client 
 
+A component of [IDOLY-Backend](https://github.com/MalitsPlus/IDOLY-Backend). This repo is responsible for running CI independently against original repo. 
+
 [![CircleCI](https://dl.circleci.com/insights-snapshot/gh/MalitsPlus/SolisClient/master/run-scenarios/badge.svg?window=24h&circle-token=1f1381e10da0c144f199e402339c6fd48308db43)](https://app.circleci.com/insights/github/MalitsPlus/SolisClient/workflows/run-scenarios/overview?branch=master&reporting-window=last-24-hours&insights-snapshot=true)
 
 ## Usage
 ```
-usage: main.py [-h] [-t TOKEN] [-f] [-k] [--kvauth KVAUTH] [--kvurl KVURL]
+usage: main.py [-h] [-t TOKEN] [-f] [-k] [-a ASSET_MODE] [--kvauth KVAUTH] [--kvurl KVURL]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -14,6 +16,8 @@ optional arguments:
                         Your firebase refreshToken.
   -f, --force           Update databases without checking version.
   -k, --kv              Notify KV server.
+  -a ASSET_MODE, --asset-mode ASSET_MODE
+                        Enable asset decryption mode. Can be either (all | diff).
   --kvauth KVAUTH       KV server auth token.
   --kvurl KVURL         KV server endpoint.
 ```
@@ -55,9 +59,12 @@ service Notice {
 }
 ```
 
-4. Run `gen_proto.bat` to generate python code, or run the following commands in order. 
-```
-> python -m grpc_tools.protoc --proto_path=. ./ProtoEnum.proto ./ProtoMaster.proto ./ProtoTransaction.proto --python_out=.
-> python -m grpc_tools.protoc --proto_path=. ./ProtoApi.proto --python_out=. --grpc_python_out=.
-> python gen_grpc_aftermath.py
+4. Run `gen_proto.bat` to generate python code, or run the following commands by hand. 
+```sh
+$ python proto_analyzer_meta.py
+$ python proto_analyzer_ts.py
+$ protoc -I=./cache --python_out=./cache ProtoEnum.proto ProtoApi.proto ProtoMaster.proto ProtoTransaction.proto
+# gRPC services 
+$ python -m grpc_tools.protoc --proto_path=./cache ./ProtoApi.proto --grpc_python_out=./cache
+$ python gen_grpc_aftermath.py
 ```

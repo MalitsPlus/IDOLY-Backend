@@ -1,13 +1,11 @@
 syntax = "proto3";
-
 package api;
 option go_package = "solis/pkg/proto/api";
 option csharp_namespace = "Solis.Common.Proto.Api";
-
-import "google/protobuf/empty.proto";
 import "ProtoEnum.proto";
 import "ProtoMaster.proto";
 import "ProtoTransaction.proto";
+import "google/protobuf/empty.proto";
 
 service System {
   rpc Check(SystemCheckRequest) returns (SystemCheckResponse);
@@ -32,6 +30,18 @@ service Notice {
   rpc List(google.protobuf.Empty) returns (NoticeListResponse);
 }
 
+message GachaContinuousInfo {
+  int32 totalDrawCount = 1;
+  repeated string cardIds = 2;
+  bool isFinished = 3;
+  api.ExternalRewardInfo externalRewardInfo = 4;
+}
+message GachaContinuousResult {
+  int32 totalDrawCount = 1;
+  repeated string cardIds = 2;
+  ProtoEnum.GachaContinuousResultType resultType = 3;
+  api.ExternalRewardInfo externalRewardInfo = 4;
+}
 message ActiveFanEvent {
   repeated string characterIds = 1;
   string name = 2;
@@ -213,6 +223,11 @@ message BoxGachaItem {
   string assetId = 8;
   string description = 9;
 }
+message BuddyCardInfo {
+  string cardId = 1;
+  int32 rarity = 2;
+  int32 level = 3;
+}
 message DivisionInfo {
   string id = 1;
   int32 levelAvg = 2;
@@ -230,9 +245,9 @@ message DokanInfo {
   string storyId = 10;
 }
 message EventButtonDisplayInfo {
-  string conditionID = 1;
+  string conditionId = 1;
   int32 priority = 2;
-  string assetID = 3;
+  string assetId = 3;
 }
 message EventMissionInfo {
   string id = 1;
@@ -280,6 +295,11 @@ message ExchangeItem {
   int32 order = 12;
   string viewConditionId = 13;
   string unlockConditionId = 14;
+}
+message ExternalRewardInfo {
+  string externalRewardId = 1;
+  string rewardId = 2;
+  bool isReceived = 3;
 }
 message FanEvent {
   string id = 1;
@@ -377,6 +397,7 @@ message GachaInfo {
   api.NoticeInfo noticeInfo = 6;
   repeated string selectedCardIds = 7;
   api.GachaPremiumInfo premiumInfo = 8;
+  api.GachaContinuousInfo continuousInfo = 9;
 }
 message GachaPremiumInfo {
   int32 fixedPremiumRewardRequiredDrawCount = 1;
@@ -389,6 +410,19 @@ message GuildGvgMatchRankInfo {
   int64 point = 3;
   int32 rank = 4;
   string emblemId = 5;
+}
+message GuildGvgSeasonInfo {
+  string name = 1;
+  int32 matchNumber = 2;
+  int64 matchEndTime = 3;
+  int32 guildRank = 4;
+  repeated api.GuildGvgRankInfo ranks = 5;
+  int64 aggregateEndTime = 6;
+  bool isAggregate = 7;
+  api.GuildGvgSeasonMatchResult preMatchResult = 8;
+  bool isRemainingChallenge = 9;
+  string winRewardId = 10;
+  bool isCurrentMatchWin = 11;
 }
 message GuildGvgSeasonMatchResult {
   int32 matchNumber = 1;
@@ -432,6 +466,7 @@ message GvgSeasonInfo {
   int64 aggregateEndTime = 4;
   string challengeRewardId = 5;
   string challengeItemId = 6;
+  string winRewardId = 7;
 }
 message GvgSeasonMatchInfo {
   int32 matchNumber = 1;
@@ -525,6 +560,7 @@ message HomeEnterResponse {
   repeated api.PurchasedConditionRewardShopInfo purchasedConditionRewardShopInfo = 28;
   api.LessonInfo lessonInfo = 29;
   repeated api.EventButtonDisplayInfo eventButtonDisplayInfos = 30;
+  bool hasCanReceiveInviteHostRewards = 31;
   api.PvpRewardResultInfo pvpRewardResultInfo = 100;
   api.GvgRewardResultInfo gvgRewardResultInfo = 101;
   repeated api.TourRewardResultInfo tourRewardResultInfos = 102;
@@ -532,11 +568,26 @@ message HomeEnterResponse {
   repeated api.PhotoContestRewardResultInfo photoContestRewardResultInfos = 104;
   repeated api.RaceRewardResultInfo raceRewardResultInfos = 105;
   repeated api.RaceDailyRewardResultInfo raceDailyRewardResultInfos = 106;
+  api.BuddyUsedRewardResultInfo buddyUsedRewardResultInfo = 107;
   api.CommonResponse commonResponse = 9999;
 }
 message HomeEventMissionInfo {
   string id = 1;
   bool unlocked = 2;
+}
+message HomeLadderInfo {
+  string id = 1;
+  string name = 2;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  string assetId = 5;
+  string bannerAssetId = 6;
+  int32 order = 7;
+  string unlockConditionId = 8;
+  bool isUnlocked = 9;
+  string eventMissionId = 10;
+  string messageGroupId = 11;
+  bool hasReachablePanel = 12;
 }
 message HomeMarathonInfo {
   string id = 1;
@@ -594,6 +645,38 @@ message HomeTourInfo {
   string unlockConditionId = 10;
   bool isUnlocked = 11;
   string eventMissionId = 12;
+}
+message InviteGuestInfo {
+  string userId = 1;
+  string name = 2;
+  repeated string receivedHostRewardIds = 3;
+  api.BuddyCardInfo buddyCardInfo = 4;
+  int64 clearQuestMainAreaCount = 5;
+  int64 invitedTime = 6;
+}
+message LadderInfo {
+  string id = 1;
+  string name = 2;
+  int64 startTime = 3;
+  int64 endTime = 4;
+  api.EventMissionInfo eventMissionInfo = 5;
+  string messageGroupId = 6;
+  repeated string costumeIds = 7;
+  string ladderPointItemId = 8;
+  string assetId = 10;
+  string topColorCode = 11;
+  string bottomColorCode = 12;
+  string bgmAssetId = 13;
+}
+message LadderPanel {
+  ProtoEnum.LadderPanelType type = 1;
+  string messageId = 2;
+  string rewardId = 3;
+  int32 requiredPointItemAmount = 4;
+  string unlockConditionId = 5;
+  bool unlocked = 6;
+  bool reached = 7;
+  bool reachable = 8;
 }
 message LastCardInfo {
   int32 position = 1;
@@ -673,6 +756,8 @@ message LiveDeckCard {
   int32 skillLevel3 = 16;
   int32 audienceAmount = 17;
   repeated api.LiveDeckCardSkill skills = 18;
+  bool isBuddy = 19;
+  bool isFriendBuddy = 20;
 }
 message LiveDeckCardSkill {
   int32 index = 1;
@@ -681,6 +766,7 @@ message LiveDeckCardSkill {
   ProtoEnum.SkillPossessionType possessionType = 4;
   string liveAbilityId = 5;
   int32 liveAbilityLevel = 6;
+  repeated string rewrittenEfficacyIds = 1001;
 }
 message LiveRankingInfo {
   string userId = 1;
@@ -915,6 +1001,7 @@ message ProfileInfo {
   string decorationId = 12;
   ProtoEnum.ProfileInformationType informationType = 13;
   ProtoEnum.ProfileColorType colorType = 14;
+  api.BuddyCardInfo buddyCardInfo = 15;
 }
 message ProfileTopResponse {
   string hierarchyCurrentDetailGradeId = 1;
@@ -1041,6 +1128,7 @@ message QuestStartResponse {
   int32 highestRank = 7;
   int64 highestScore = 8;
   api.HierarchyChangeInfo hierarchyChangeInfo = 9;
+  api.FriendApplyToBuddyInfo friendApplyToBuddyInfo = 10;
   api.CommonResponse commonResponse = 9999;
 }
 message QuestTopResponse {
@@ -1105,6 +1193,7 @@ message RaceInfo {
   repeated api.RaceRankGradeInfo raceRankGradeInfos = 16;
   int32 livePanelDifficultyNumber = 17;
   int32 cardCoolTimeMinutes = 18;
+  string raceLiveBonusGroupId = 19;
 }
 message RaceLiveBonusInfo {
   string liveBonusId = 1;
@@ -1592,8 +1681,28 @@ message BacksideStageSurpriseFinishResponse {
 message BacksideStageDeckPositionChangeRequest {
   string backsideId = 1;
   repeated api.BacksideDeckPositionInfo deckPositionInfos = 2;
+  int32 pieceNumber = 3;
+  int32 radiusNumber = 4;
+  int32 panelNumber = 5;
 }
 message BacksideStageDeckPositionChangeResponse {
+  repeated api.BacksideDeckCardDetailInfo deckCardDetailInfos = 1;
+  repeated api.BacksideDeckCardStaminaInfo deckCardStaminaInfos = 2;
+  repeated transaction.UserCharacter deckUserCharacters = 3;
+  int64 baseDeckOverallValue = 4;
+  api.CommonResponse commonResponse = 9999;
+}
+message BacksideStageDeckGetRequest {
+  string backsideId = 1;
+  int32 pieceNumber = 2;
+  int32 radiusNumber = 3;
+  int32 panelNumber = 4;
+}
+message BacksideStageDeckGetResponse {
+  repeated api.BacksideDeckCardDetailInfo deckCardDetailInfos = 1;
+  repeated api.BacksideDeckCardStaminaInfo deckCardStaminaInfos = 2;
+  repeated transaction.UserCharacter deckUserCharacters = 3;
+  int64 baseDeckOverallValue = 4;
   api.CommonResponse commonResponse = 9999;
 }
 message BacksideInfo {
@@ -2030,6 +2139,7 @@ message HomeEventInfo {
   repeated api.HomeMarathonInfo marathonInfos = 4;
   repeated api.HomePhotoContestInfo photoContestInfos = 5;
   repeated api.HomeRaceInfo raceInfos = 6;
+  repeated api.HomeLadderInfo ladderInfos = 7;
 }
 message QuestReward {
   repeated transaction.RewardResult clearRewards = 1;
@@ -2057,6 +2167,7 @@ message UserDeckPosition {
   string part2AccessoryId = 5;
   repeated string photoIds = 6;
   string costumeId = 7;
+  string buddyUserId = 8;
 }
 message CommonResponse {
   api.UpdatedData updatedData = 1;
@@ -2096,6 +2207,9 @@ message UpdatedData {
   repeated transaction.UserHomePosition homePositions = 31;
   repeated transaction.UserMusic musics = 32;
   repeated transaction.UserDecoration decorations = 33;
+  repeated transaction.UserPhotoRecipe photoRecipes = 34;
+  transaction.UserBuddy buddy = 35;
+  transaction.UserInvite invite = 36;
 }
 message DeletedData {
   repeated transaction.UserItem items = 1;
@@ -2106,6 +2220,7 @@ message DeletedData {
   repeated transaction.UserPoint points = 6;
   repeated transaction.UserMessageSchedule messageSchedules = 7;
   repeated transaction.UserStory stories = 9;
+  repeated transaction.UserPhotoRecipe photoRecipes = 10;
 }
 message CostumeSetRequest {
   string costumeId = 1;
@@ -2140,6 +2255,16 @@ message DeckDeleteRequest {
 }
 message DeckDeleteResponse {
   api.CommonResponse commonResponse = 9999;
+}
+message DeckBuddyListResponse {
+  repeated api.DeckBuddyUserCardInfo friendBuddyUserCardInfos = 1;
+  repeated api.DeckBuddyUserCardInfo notFriendBuddyUserCardInfos = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message DeckBuddyUserCardInfo {
+  string userId = 1;
+  transaction.UserCard userCard = 2;
+  string managerName = 3;
 }
 message DiaryGetInfosResponse {
   repeated api.DiaryInfo infos = 1;
@@ -2315,6 +2440,9 @@ message FriendCancelRequest {
 message FriendCancelResponse {
   api.CommonResponse commonResponse = 9999;
 }
+message FriendCancelAllResponse {
+  api.CommonResponse commonResponse = 9999;
+}
 message FriendRejectRequest {
   string userId = 1;
 }
@@ -2327,6 +2455,10 @@ message FriendListApplyingResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message FriendListAppliedResponse {
+  repeated api.ProfileInfo profiles = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message FriendSearchResponse {
   repeated api.ProfileInfo profiles = 1;
   api.CommonResponse commonResponse = 9999;
 }
@@ -2347,6 +2479,7 @@ message GachaDrawResponse {
   repeated transaction.Reward bonusRewards = 6;
   api.GachaMovie gachaMovie = 9;
   repeated transaction.Reward cardRewards = 10;
+  api.GachaContinuousResult continuousResult = 11;
   api.CommonResponse commonResponse = 9999;
 }
 message GachaExchangeRequest {
@@ -2461,17 +2594,6 @@ message GuildTopResponse {
   string exchangeBoothId = 3;
   api.CommonResponse commonResponse = 9999;
 }
-message GuildGvgSeasonInfo {
-  string name = 1;
-  int32 matchNumber = 2;
-  int64 matchEndTime = 3;
-  int32 guildRank = 4;
-  repeated api.GuildGvgRankInfo ranks = 5;
-  int64 aggregateEndTime = 6;
-  bool isAggregate = 7;
-  api.GuildGvgSeasonMatchResult preMatchResult = 8;
-  bool isRemainingChallenge = 9;
-}
 message GuildGvgRankInfo {
   string name = 1;
   int64 point = 2;
@@ -2509,6 +2631,7 @@ message UserGvgSeasonInfo {
   int32 winCount = 8;
   int32 loseCount = 9;
   int32 drawCount = 10;
+  bool isCurrentMatchWin = 11;
 }
 message GvgListOpponentRequest {
   string gvgSeasonId = 1;
@@ -2547,6 +2670,7 @@ message GvgStartResponse {
   int64 totalPoint = 9;
   api.AllProfileInfo profile = 10;
   api.AllProfileInfo opponentProfile = 11;
+  repeated transaction.RewardResult winRewards = 12;
   api.CommonResponse commonResponse = 9999;
 }
 message GvgListAssetRequest {
@@ -2688,6 +2812,10 @@ message RaceDailyRewardResultInfo {
   repeated api.RaceDailyRankingUserInfo rankingUserInfos = 4;
   int32 days = 5;
 }
+message BuddyUsedRewardResultInfo {
+  int64 usedCount = 1;
+  repeated transaction.Reward rewards = 2;
+}
 message HomeActiveFanEvent {
   repeated string characterIds = 1;
   int64 finishTime = 2;
@@ -2719,6 +2847,7 @@ message BannerInfo {
   repeated api.Banner messageBanners = 2;
   repeated api.Banner boardBanners = 3;
   repeated api.Banner questBanners = 4;
+  repeated api.Banner inviteBanners = 5;
 }
 message FanEventInfo {
   repeated api.FanEvent fanEvents = 1;
@@ -2743,12 +2872,61 @@ message PurchasedConditionRewardShopInfo {
   api.ShopInfo shopInfo = 1;
   api.ConditionRewardPackageItem conditionRewardPackageItem = 2;
 }
+message InviteTopResponse {
+  string inviteCode = 1;
+  repeated api.InviteGuestInfo guestInfos = 2;
+  api.NoticeInfo noticeInfo = 3;
+  int64 receivedHostRewardTotalAmount = 4;
+  string exchangeBoothId = 5;
+  api.CommonResponse commonResponse = 9999;
+}
+message InviteReceiveHostRewardsRequest {
+  repeated string userIds = 1;
+}
+message InviteReceiveHostRewardsResponse {
+  repeated transaction.RewardResult results = 1;
+  api.CommonResponse commonResponse = 9999;
+}
+message InviteEnterCodeRequest {
+  string inviteCode = 1;
+}
+message InviteEnterCodeResponse {
+  api.CommonResponse commonResponse = 9999;
+}
 message ItemSellRequest {
   string itemId = 1;
   int64 amount = 2;
 }
 message ItemSellResponse {
   api.CommonResponse commonResponse = 9999;
+}
+message LadderTopRequest {
+  string ladderId = 1;
+}
+message LadderTopResponse {
+  api.LadderInfo ladderInfo = 1;
+  api.LadderProgressInfo progressInfo = 2;
+  repeated api.DokanInfo dokanInfos = 3;
+  api.CommonResponse commonResponse = 9999;
+}
+message LadderPanelReachRequest {
+  string ladderId = 1;
+  int32 step = 2;
+  int32 lane = 3;
+}
+message LadderPanelReachResponse {
+  repeated transaction.RewardResult rewardResults = 1;
+  api.LadderProgressInfo progressInfo = 2;
+  api.CommonResponse commonResponse = 9999;
+}
+message LadderProgressInfo {
+  repeated api.LadderStep steps = 1;
+}
+message LadderStep {
+  int32 step = 1;
+  api.LadderPanel lane1Panel = 2;
+  api.LadderPanel lane2Panel = 3;
+  api.LadderPanel lane3Panel = 4;
 }
 message LoginBonusListResponse {
   repeated api.LoginBonusInfo infos = 1;
@@ -2809,6 +2987,8 @@ message MarathonUseQuestStaminaRecoveryItemResponse {
 }
 message MarathonListDeckRequest {
   string marathonId = 1;
+  string marathonQuestId = 2;
+  int32 marathonQuestDifficultyNumber = 3;
 }
 message MarathonListDeckResponse {
   repeated api.MarathonDeckInfo deckInfos = 1;
@@ -2818,6 +2998,7 @@ message MarathonDeckSaveRequest {
   int32 number = 2;
   string name = 3;
   repeated transaction.UserDeckPosition userDeckPositions = 4;
+  int32 marathonQuestDifficultyNumber = 5;
 }
 message MarathonDeckSaveResponse {
   api.MarathonDeckInfo deckInfo = 1;
@@ -3098,6 +3279,7 @@ message PhotoDeleteRequest {
   repeated string photoIds = 1;
 }
 message PhotoDeleteResponse {
+  repeated transaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoEnhanceRequest {
@@ -3111,6 +3293,13 @@ message PhotoRerollRequest {
   string photoId = 1;
 }
 message PhotoRerollResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoRetouchRequest {
+  string photoRecipeId = 1;
+  string photoId = 2;
+}
+message PhotoRetouchResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoUpdateRequest {
@@ -3170,6 +3359,13 @@ message PhotoListShootingResponse {
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoExtendLimitResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message PhotoSaleRecipeRequest {
+  repeated string photoRecipeIds = 1;
+}
+message PhotoSaleRecipeResponse {
+  repeated transaction.RewardResult rewardResults = 1;
   api.CommonResponse commonResponse = 9999;
 }
 message PhotoContestTopRequest {
@@ -3311,6 +3507,12 @@ message ProfileUpdateLayoutResponse {
 message ProfileClearTwitterMissionResponse {
   api.CommonResponse commonResponse = 9999;
 }
+message ProfileUpdateBuddyCardRequest {
+  string cardId = 1;
+}
+message ProfileUpdateBuddyCardResponse {
+  api.CommonResponse commonResponse = 9999;
+}
 message PvpTopResponse {
   api.PvpTopResultInfo topResult = 1;
   repeated api.PvpOpponentInfo opponentInfos = 2;
@@ -3395,6 +3597,8 @@ message QuestStartRequest {
   bool useDailyTicket = 3;
   bool isSkip = 4;
   int32 playCount = 5;
+  repeated transaction.UserDeckPosition userBuddyDeckPositions = 6;
+  string buddyDeckName = 7;
 }
 message QuestListTowerRankingRequest {
   string areaId = 1;
@@ -3418,6 +3622,8 @@ message QuestListLatestClearResponse {
 message QuestListAssetRequest {
   string questId = 1;
   int32 deckNumber = 2;
+  repeated transaction.UserDeckPosition userBuddyDeckPositions = 3;
+  string buddyDeckName = 4;
 }
 message QuestListAssetResponse {
   repeated api.LiveCharacterAssetInfo characterAssets = 1;
@@ -3451,6 +3657,10 @@ message QuestTopPvpInfo {
   int32 remainingChallengeCount = 6;
   api.PvpSeasonInfo latestPvpSeason = 9;
 }
+message FriendApplyToBuddyInfo {
+  bool isActive = 1;
+  bool isAlreadyOffered = 2;
+}
 message RaceTopRequest {
   string raceId = 1;
 }
@@ -3458,10 +3668,11 @@ message RaceTopResponse {
   api.RaceInfo raceInfo = 1;
   api.UserRaceInfo userRaceInfo = 2;
   repeated api.RaceLiveQuestInfo liveQuestInfos = 3;
-  bool isLoggedForFirstTimeToday = 4;
   bool isInitialLogin = 5;
   repeated api.DokanInfo dokanInfos = 6;
   repeated api.RaceOpponentProgressInfo opponentProgressInfos = 7;
+  bool isFirstLoginInDailyAggregationPeriod = 8;
+  int64 nextDailyAggregationTime = 9;
   api.CommonResponse commonResponse = 9999;
 }
 message RaceMovePanelRequest {
@@ -3535,6 +3746,8 @@ message RaceQuestListAssetResponse {
 }
 message RaceListDeckRequest {
   string raceId = 1;
+  string raceQuestId = 2;
+  int32 difficultyNumber = 3;
 }
 message RaceListDeckResponse {
   repeated api.RaceDeckInfo deckInfos = 1;
@@ -3544,6 +3757,8 @@ message RaceSaveDeckRequest {
   int32 number = 2;
   string name = 3;
   repeated transaction.UserDeckPosition userDeckPositions = 4;
+  string raceQuestId = 5;
+  int32 difficultyNumber = 6;
 }
 message RaceSaveDeckResponse {
   api.RaceDeckInfo deckInfo = 1;
@@ -4149,12 +4364,21 @@ message UserGetResponse {
   repeated transaction.UserHomePosition homePositions = 31;
   repeated transaction.UserMusic musics = 32;
   repeated transaction.UserDecoration decorations = 33;
+  repeated transaction.UserPhotoRecipe photoRecipes = 34;
+  transaction.UserBuddy buddy = 35;
+  transaction.UserInvite invite = 36;
   transaction.UserPublic userPublic = 999;
 }
 message UserUpdateRequest {
   string name = 1;
 }
 message UserUpdateResponse {
+  api.CommonResponse commonResponse = 9999;
+}
+message UserProvideExternalRewardRequest {
+  string externalRewardId = 1;
+}
+message UserProvideExternalRewardResponse {
   api.CommonResponse commonResponse = 9999;
 }
 
