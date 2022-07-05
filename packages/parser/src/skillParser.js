@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { readFileSync, writeFileSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -17,9 +17,9 @@ const skillFixMap = {
 }
 
 async function main() {
-  if (process.argv.length < 5) {
+  if (process.argv.length !== 3 && process.argv.length !== 5) {
     console.log(
-      'Usage: node ./index.js API_ENDPOINT SKILL_DB_NAME READONLY_KEY'
+      'Usage: node ./index.js API_ENDPOINT/FILE_PATH SKILL_DB_NAME READONLY_KEY'
     )
     return
   }
@@ -30,20 +30,27 @@ async function main() {
   // 1. Fetch the latest skills
   // const filename = process.argv[2]
   // const skillsJson = JSON.parse(readFileSync(filename, 'utf-8')) // remove BOM
-  const apiEndpoint = process.argv[2]
+  const src = process.argv[2]
   const skillDbName = process.argv[3]
   const readonlyKey = process.argv[4]
-  const skillsJson = await request(
-    `${apiEndpoint}/manage/raw?key=${skillDbName}`,
-    {
+  let skillsJson = ''
+  if (existsSync(src)) {
+    // It's a file
+    skillsJson = JSON.parse(readFileSync(src, 'utf-8'))
+  } else if (src.match(/$https?:\/\//) !== null) {
+    // It's a site
+    skillsJson = await request(`${src}/manage/raw?key=${skillDbName}`, {
       headers: {
         authorization: `Bearer ${readonlyKey}`,
       },
-    }
-  )
-    .then((x) => x.body)
-    .then((x) => x.json())
-  writeFileSync(join(Here, 'Skill.json'), JSON.stringify(skillsJson))
+    })
+      .then((x) => x.body)
+      .then((x) => x.json())
+    writeFileSync(join(Here, 'Skill.json'), JSON.stringify(skillsJson))
+  } else {
+    console.error(`Unrecognized path/url: ${src}`)
+    process.exit(1)
+  }
 
   // 2. Parse the skills
   const ret = {}
