@@ -42,12 +42,14 @@ export type EffectCharacterLengthLevelTyp =
   | 'critical_bonus_permil_up'
   | 'stamina_consumption_reduction'
   | 'stamina_consumption_increase'
+  | 'stamina_continuous_recovery'
   | 'audience_amount_reduction'
   | 'audience_amount_increase'
   | 'weakness_effect_prevention'
   | 'vocal_down'
   | 'dance_down'
   | 'visual_down'
+  | 'visual_boost'
 export type EffectCharacterWithLength =
   | EffectCharacterLengthLevel
   | EffectCharacterLengthOnly
@@ -79,6 +81,7 @@ export type TargetChPropsType =
   | 'vocal'
   | 'dance'
   | 'visual'
+  | 'position_attribute_vocal'
   | 'position_attribute_visual'
   | 'stamina_lower'
 export type TargetCharacterWithTypeType =
@@ -99,6 +102,7 @@ export type EffectCharacterSimpleTyp =
   | 'weakness_effect_inversion'
   | 'strength_effect_migration_before_special_skill'
   | 'strength_effect_migration_before_active_skill'
+  | 'strength_effect_erasing_all'
 
 /**
  * Parsed skills format

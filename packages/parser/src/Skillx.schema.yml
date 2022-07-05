@@ -81,12 +81,14 @@ $defs:
       - const: critical_bonus_permil_up
       - const: stamina_consumption_reduction
       - const: stamina_consumption_increase
+      - const: stamina_continuous_recovery
       - const: audience_amount_reduction
       - const: audience_amount_increase
       - const: weakness_effect_prevention
       - const: vocal_down
       - const: dance_down
       - const: visual_down
+      - const: visual_boost
   EffectChart:
     oneOf:
       - $ref: "#/$defs/EffectScoreGet"
@@ -241,6 +243,7 @@ $defs:
       - const: vocal
       - const: dance
       - const: visual
+      - const: position_attribute_vocal
       - const: position_attribute_visual
       - const: stamina_lower
   TargetCharacterWithTypeType:
@@ -319,3 +322,4 @@ $defs:
       - const: weakness_effect_inversion
       - const: strength_effect_migration_before_special_skill
       - const: strength_effect_migration_before_active_skill
+      - const: strength_effect_erasing_all

@@ -40,10 +40,11 @@ EffectCharacterLengthLevelTyp
   / "score_up" / "beat_score_up" / "combo_score_up"
   / "skill_success_rate_up" / "tension_up"
   / "critical_rate_up" / "critical_bonus_permil_up"
-  / "stamina_consumption_reduction" / "stamina_consumption_increase"
+  / "stamina_consumption_reduction" / "stamina_consumption_increase" / "stamina_continuous_recovery"
   / "audience_amount_reduction" / "audience_amount_increase"
   / "weakness_effect_prevention"
   / "vocal_down" / "dance_down" / "visual_down"
+  / "visual_boost"
 // num (level) - no num
 EffectCharacterLevelOnlyTyp
   = "fix_stamina_recovery" / "target_stamina_recovery"
@@ -57,6 +58,7 @@ EffectCharacterSimpleTyp
   / "weakness_effect_inversion"
   / "strength_effect_migration_before_special_skill"
   / "strength_effect_migration_before_active_skill"
+  / "strength_effect_erasing_all"
 
 EffectScoreGet
   = typ:EffectScoreGetTyp "-" typ2:Number {
@@ -121,7 +123,7 @@ TargetCharacterWithProps
 TargetChPropsType
   = "vocal_higher" / "dance_higher" / "visual_higher" / "stamina_higher"
   / "vocal" / "dance" / "visual"
-  / "position_attribute_visual"
+  / "position_attribute_vocal" / "position_attribute_visual"
   / "stamina_lower"
 
 // "target-character_type-1(-2)"
