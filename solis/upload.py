@@ -62,6 +62,9 @@ def send_kv(name: str, data: str):
     send_request(name, compacted)
 
 def async_task(file: Path):
+    # 220711: ignoring 'Reward.json' due to exceeding of max length
+    if file.name == "Reward.json":
+        return
     with file.open(mode="r", encoding="utf8") as fp:
         name = file.name.removesuffix(".json")
         origin = json.load(fp)

@@ -56,7 +56,7 @@ fi
 # checkKeyCache
 
 # Set git configurations
-git -C ${REPO_NAME} config user.name "Anonymous"
+git -C ${REPO_NAME} config user.name "anonymous"
 git -C ${REPO_NAME} config user.email "anonymous@e.mail"
 
 echo ">>> Pulling from remote..."
@@ -84,7 +84,7 @@ done
 echo ">>> git adding..."
 git -C ${REPO_NAME} add .
 echo ">>> git committing..."
-git -C ${REPO_NAME} commit -m "version: ${cur_ver}"
+git -C ${REPO_NAME} commit -m "${cur_ver}"
 echo ">>> Pushing to remote..."
 # git -c core.sshCommand="ssh -i ${KEY_CACHE}" -C ${REPO_NAME} push
 

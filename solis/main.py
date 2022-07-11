@@ -11,7 +11,7 @@ import octo_manager as octo
 _CACHE_DIR = "cache"
 _ARTIFACT_DIR = "masterdata"
 
-def restore_cache(refresh_token: str):
+def restore_cache(refresh_token: str, overwrite: bool):
     cache_dir = Path(_CACHE_DIR)
     artifact_dir = Path(_ARTIFACT_DIR)
     # mk cache dir
@@ -36,6 +36,9 @@ def restore_cache(refresh_token: str):
     # refreshToken MUST NOT be empty 
     assert client_cache["refreshToken"] != ""
     cache_manager.init()
+    if overwrite:
+        cache_manager.set_cache("refreshToken", refresh_token)
+        cache_manager.set_cache("idToken", "")
 
 def main():
     # Parse args
@@ -44,12 +47,13 @@ def main():
     parser.add_argument("-f", "--force", action="store_true", help="Update databases without checking version.")
     parser.add_argument("-k", "--kv", action="store_true", help="Notify KV server.")
     parser.add_argument("-a", "--asset-mode", type=str, default="", help="Enable asset decryption mode. Can be either (all | diff).")
+    parser.add_argument("-o", "--overwrite", action="store_true", help="Overwrite cached token. If '--token' does not exist, this argument takes no effect.")
     parser.add_argument("--kvauth", type=str, default="", help="KV server auth token.")
     parser.add_argument("--kvurl", type=str, default="", help="KV server endpoint.")
     args = parser.parse_args()
 
     # Restore caches 
-    restore_cache(args.token)
+    restore_cache(args.token, args.overwrite)
 
     # For network testing
     r = requests.get("https://google.co.jp")
