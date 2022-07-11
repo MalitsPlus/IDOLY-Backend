@@ -88,6 +88,8 @@ $defs:
       - const: vocal_down
       - const: dance_down
       - const: visual_down
+      - const: vocal_boost
+      - const: dance_boost
       - const: visual_boost
   EffectChart:
     oneOf:

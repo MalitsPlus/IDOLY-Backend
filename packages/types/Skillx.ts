@@ -49,6 +49,8 @@ export type EffectCharacterLengthLevelTyp =
   | 'vocal_down'
   | 'dance_down'
   | 'visual_down'
+  | 'vocal_boost'
+  | 'dance_boost'
   | 'visual_boost'
 export type EffectCharacterWithLength =
   | EffectCharacterLengthLevel

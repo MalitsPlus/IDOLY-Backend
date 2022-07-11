@@ -44,7 +44,7 @@ EffectCharacterLengthLevelTyp
   / "audience_amount_reduction" / "audience_amount_increase"
   / "weakness_effect_prevention"
   / "vocal_down" / "dance_down" / "visual_down"
-  / "visual_boost"
+  / "vocal_boost" / "dance_boost" / "visual_boost"
 // num (level) - no num
 EffectCharacterLevelOnlyTyp
   = "fix_stamina_recovery" / "target_stamina_recovery"
