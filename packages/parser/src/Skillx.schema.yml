@@ -91,6 +91,7 @@ $defs:
       - const: vocal_boost
       - const: dance_boost
       - const: visual_boost
+      - const: active_score_multiplier_add
   EffectChart:
     oneOf:
       - $ref: "#/$defs/EffectScoreGet"

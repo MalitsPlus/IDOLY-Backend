@@ -52,6 +52,7 @@ export type EffectCharacterLengthLevelTyp =
   | 'vocal_boost'
   | 'dance_boost'
   | 'visual_boost'
+  | 'active_score_multiplier_add'
 export type EffectCharacterWithLength =
   | EffectCharacterLengthLevel
   | EffectCharacterLengthOnly
