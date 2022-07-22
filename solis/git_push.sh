@@ -52,6 +52,10 @@ if [ "${pre_ver}" = "${cur_ver}" ]; then
   exit 0
 fi
 
+# install git lfs
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt-get install git-lfs
+
 # Check ssh key
 # checkKeyCache
 
@@ -94,4 +98,10 @@ GIT_SSH_COMMAND="ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d1
 git config core.sshCommand "ssh -o IdentitiesOnly=yes -i ~/.ssh/id_rsa_b9bb68b85a5390e2c4d102fb972bdf7a"
 
 git -C ${REPO_NAME} push
+
+if [ $? -ne 0 ]; then
+  echo ">>> Failed to push to remote."
+  exit 1
+fi
+
 echo ">>> Done."
