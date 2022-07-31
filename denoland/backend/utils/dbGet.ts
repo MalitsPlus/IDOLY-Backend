@@ -1,13 +1,15 @@
 import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types'
+import { NonExpandedKeys } from './const.ts'
 import kv from './kv.ts'
 
-export async function dbGet<T extends AcceptableDbKey>(
+/**
+ * Use MongoDB-based operation API if possible.
+ */
+export function dbGet<T extends AcceptableDbKey>(
   s: T
 ): Promise<ResourceMapping[T]> {
-  const jsonText = await kv.get(s)
-  if (!jsonText) {
-    throw Error(`Database entry not found: ${s}`)
+  if (NonExpandedKeys.includes(s)) {
+    return kv.getValue(s).then(JSON.parse)
   }
-  const json = JSON.parse(jsonText)
-  return json
+  return kv.get(s) as any
 }

@@ -3,6 +3,7 @@ import jsonResponse, { errorResponse } from '@utils/jsonResponse.ts'
 import { isAdmin } from '@utils/requirePermission.ts'
 import kv from '@utils/kv.ts'
 import tryJsonParse from '@utils/tryJsonParse.ts'
+import { NonExpandedKeys } from '@utils/const.ts'
 
 /**
  * PUT /manage/write
@@ -26,7 +27,8 @@ export const handler: Handlers = {
       })
     }
     const key = json.key
-    const typ = json.type === 'value' ? 'value' : 'array'
+    const typ =
+      json.type === 'value' || NonExpandedKeys.includes(key) ? 'value' : 'array'
     const value = tryJsonParse(json.value)
     if (value === undefined) {
       return errorResponse('Invalid JSON', 400)
@@ -42,7 +44,7 @@ export const handler: Handlers = {
     }
     if (typ === 'value') {
       return await kv
-        .setValue(key, value)
+        .setValue(key, JSON.stringify(value))
         .then((x) => jsonResponse({ ok: true, lines: 1 }))
         .catch((x) => errorResponse(x, 500))
     }
