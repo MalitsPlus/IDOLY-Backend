@@ -1,6 +1,6 @@
 import { Handlers } from 'https://deno.land/x/fresh@1.0.1/server.ts'
 import { errorResponse } from '@utils/jsonResponse.ts'
-import { isAdmin } from '@utils/requirePermission.ts'
+import { isReadonly } from '@utils/requirePermission.ts'
 import kv from '@utils/kv.ts'
 
 /**
@@ -10,7 +10,7 @@ import kv from '@utils/kv.ts'
  */
 export const handler: Handlers = {
   async GET(req) {
-    if (!isAdmin(req)) {
+    if (!isReadonly(req)) {
       return errorResponse('Unauthorized', 403)
     }
     const url = new URL(req.url)
