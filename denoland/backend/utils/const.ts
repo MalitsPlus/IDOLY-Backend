@@ -4,3 +4,5 @@ export const CorsHeaders = {
 } as const
 
 export const UpdateTimeKey = '_UpdateTime'
+
+export const NonExpandedKeys = ['Notice', 'Octo', 'Skillx']
