@@ -1,11 +1,5 @@
-# fresh project
+# INFO PRIDE backend
 
-### Usage
+Backend for [info-pride](https://github.com/outloudvi/info-pride).
 
-Start the project:
-
-```
-deno task start
-```
-
-This will watch the project directory and restart as necessary.
+Running on [Deno Deploy](https://deno.com/deploy) and backed by [Deta Base](https://www.deta.sh/).
