@@ -1,52 +1,109 @@
-import { DETA_PROJECT_ID, DETA_BASE_NAME, DETA_PROJECT_KEY } from './env.ts'
+import easyPost from './easyPost.ts'
+import {
+  MONGODB_API_APPID,
+  MONGODB_API_KEY,
+  MONGODB_DATABASE,
+  MONGODB_DATA_SOURCE,
+} from './env.ts'
+import omit from 'lodash/omit'
 
-const baseUrl = `https://database.deta.sh/v1/${DETA_PROJECT_ID}/${DETA_BASE_NAME}`
+const baseUrl = `https://data.mongodb-api.com/app/${MONGODB_API_APPID}/endpoint/data/v1/action`
 
-type KeyValue = { key: string; value: string }
+const IS_ONLY = { __isOnly: true }
 
-export async function get(key: string): Promise<string | null> {
-  const ret = await fetch(`${baseUrl}/items/${key}`, {
-    method: 'GET',
+export function get(key: string): Promise<any[]> {
+  return easyPost(`${baseUrl}/find`, {
+    method: 'POST',
     headers: {
-      'X-API-Key': DETA_PROJECT_KEY,
+      'api-key': MONGODB_API_KEY,
       'Content-Type': 'application/json',
     },
-  }).then((x) => x.json())
-  return ret.value ?? null
-}
-
-export async function putMany(vs: KeyValue[]): Promise<void> {
-  await fetch(`${baseUrl}/items`, {
-    method: 'PUT',
     body: JSON.stringify({
-      items: vs.map(({ key, value }) => ({
-        key,
-        value,
-      })),
+      collection: key,
+      database: MONGODB_DATABASE,
+      dataSource: MONGODB_DATA_SOURCE,
     }),
-    headers: {
-      'X-API-Key': DETA_PROJECT_KEY,
-      'Content-Type': 'application/json',
-    },
-  })
+  }).then((x) =>
+    x.documents.map((x: Record<string, unknown>) => omit(x, ['_id']))
+  )
 }
 
-export function put(key: string, value: string): Promise<void> {
-  return putMany([{ key, value }])
+export async function put(key: string, values: any[]): Promise<string[]> {
+  await del(key)
+  return await easyPost(`${baseUrl}/insertMany`, {
+    method: 'POST',
+    headers: {
+      'api-key': MONGODB_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      collection: key,
+      database: MONGODB_DATABASE,
+      dataSource: MONGODB_DATA_SOURCE,
+      documents: values,
+    }),
+  }).then((x) => {
+    return x.insertedIds
+  })
 }
 
 export async function del(key: string): Promise<void> {
-  await fetch(`${baseUrl}/items/${key}`, {
-    method: 'DELETE',
+  await easyPost(`${baseUrl}/deleteMany`, {
+    method: 'POST',
     headers: {
-      'X-API-Key': DETA_PROJECT_KEY,
+      'api-key': MONGODB_API_KEY,
       'Content-Type': 'application/json',
     },
+    body: JSON.stringify({
+      collection: key,
+      database: MONGODB_DATABASE,
+      dataSource: MONGODB_DATA_SOURCE,
+      filter: {},
+    }),
   })
+}
+
+export async function setValue(key: string, value: string): Promise<string> {
+  return await easyPost(`${baseUrl}/updateOne`, {
+    method: 'POST',
+    headers: {
+      'api-key': MONGODB_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      collection: key,
+      database: MONGODB_DATABASE,
+      dataSource: MONGODB_DATA_SOURCE,
+      upsert: true,
+      filter: IS_ONLY,
+      update: {
+        value,
+        ...IS_ONLY,
+      },
+    }),
+  }).then((x) => x.insertedId)
+}
+
+export async function getValue(key: string): Promise<string> {
+  return await easyPost(`${baseUrl}/findOne`, {
+    method: 'POST',
+    headers: {
+      'api-key': MONGODB_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      collection: key,
+      database: MONGODB_DATABASE,
+      dataSource: MONGODB_DATA_SOURCE,
+      filter: IS_ONLY,
+    }),
+  }).then((x) => x.document.value)
 }
 
 export default {
   get,
   put,
   del,
+  setValue,
+  getValue,
 }

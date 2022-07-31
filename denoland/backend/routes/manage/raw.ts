@@ -1,5 +1,5 @@
 import { Handlers } from 'https://deno.land/x/fresh@1.0.1/server.ts'
-import { errorResponse } from '@utils/jsonResponse.ts'
+import jsonResponse, { errorResponse } from '@utils/jsonResponse.ts'
 import { isReadonly } from '@utils/requirePermission.ts'
 import kv from '@utils/kv.ts'
 
@@ -21,10 +21,6 @@ export const handler: Handlers = {
       })
     }
     const val = await kv.get(key)
-    return new Response(val, {
-      headers: {
-        'Content-Type': 'text/plain',
-      },
-    })
+    return jsonResponse(val)
   },
 }

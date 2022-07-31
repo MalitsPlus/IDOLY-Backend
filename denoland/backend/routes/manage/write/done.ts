@@ -18,7 +18,7 @@ export const handler: Handlers = {
     // A bit of privacy...
     now.setMinutes(0)
     now.setSeconds(0)
-    await kv.put(UpdateTimeKey, String(now))
+    await kv.setValue(UpdateTimeKey, String(now))
     return jsonResponse({ ok: true })
   },
 }
