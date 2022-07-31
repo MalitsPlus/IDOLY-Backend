@@ -10,6 +10,7 @@ export default function jsonResponse<T>(
   return new Response(JSON.stringify(body), {
     status,
     headers: {
+      'Content-Type': 'application/json',
       ...CorsHeaders,
       ...extraHeaders,
     },
