@@ -7,5 +7,4 @@ export default function checkEnv() {
       throw Error(`Environment variable "${key} not found!"`)
     }
   }
-  console.info(`Cool! The Deta database ID is ${env.DETA_PROJECT_ID}`)
 }

@@ -1,7 +1,9 @@
 import { CorsHeaders } from './const.ts'
 
-export default function jsonResponse(
-  body: Record<string, unknown>,
+type NonString<T> = T extends string ? never : T
+
+export default function jsonResponse<T>(
+  body: NonString<T>,
   extraHeaders: Record<string, string> = {},
   status = 200
 ): Response {
