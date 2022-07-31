@@ -2,14 +2,14 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/api/joke.ts";
+import * as $0 from "./routes/manage/octo/asset.ts";
 import * as $1 from "./routes/manage/raw.ts";
 import * as $2 from "./routes/manage/write.ts";
 import * as $3 from "./routes/manage/write/done.ts";
 
 const manifest = {
   routes: {
-    "./routes/api/joke.ts": $0,
+    "./routes/manage/octo/asset.ts": $0,
     "./routes/manage/raw.ts": $1,
     "./routes/manage/write.ts": $2,
     "./routes/manage/write/done.ts": $3,
