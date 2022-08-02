@@ -1,4 +1,6 @@
-import 'https://deno.land/x/dotenv@v3.2.0/load.ts'
+if (Deno.env.get('DENO_ENV') === 'development') {
+  await import('https://deno.land/x/dotenv@v3.2.0/load.ts')
+}
 
 export const MONGODB_API_APPID = Deno.env.get('MONGODB_API_APPID') ?? ''
 export const MONGODB_DATABASE = Deno.env.get('MONGODB_DATABASE') ?? ''
