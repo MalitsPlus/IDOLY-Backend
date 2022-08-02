@@ -2,10 +2,11 @@
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.0.1/",
     "@utils/": "./utils/",
-    "preact": "https://esm.sh/preact@10.8.2",
-    "preact/": "https://esm.sh/preact@10.8.2/",
-    "preact-render-to-string": "https://esm.sh/preact-render-to-string@5.2.0?deps=preact@10.8.2",
-    "hoshimi-types": "https://esm.sh/hoshimi-types@1.0.41",
-    "lodash/": "https://esm.sh/lodash@4.17.21/"
+    "preact": "https://cdn.skypack.dev/preact@10.10.0",
+    "preact/": "https://cdn.skypack.dev/preact@10.10.0/",
+    "preact-render-to-string": "https://cdn.skypack.dev/preact-render-to-string@5.2.0",
+    "hoshimi-types": "https://cdn.skypack.dev/hoshimi-types@1.0.41",
+    "hoshimi-types/": "https://cdn.skypack.dev/hoshimi-types@1.0.41/",
+    "lodash/": "https://cdn.skypack.dev/lodash@4.17.21/"
   }
 }
