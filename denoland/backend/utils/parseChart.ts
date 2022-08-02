@@ -1,6 +1,6 @@
-import type { MusicChartType } from 'hoshimi-types/ProtoEnum.d.ts?dts'
-import type { MusicChartPattern } from 'hoshimi-types/ProtoMaster.d.ts?dts'
-import type { MusicChart } from 'hoshimi-types/types.d.ts?dts'
+import { MusicChartType } from 'hoshimi-types/ProtoEnum'
+import type { MusicChartPattern } from 'hoshimi-types/ProtoMaster'
+import type { MusicChart } from 'hoshimi-types/types'
 import { UnwrapPromise } from '@utils/types.ts'
 import type { APIMapping } from 'hoshimi-types'
 
