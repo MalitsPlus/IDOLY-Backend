@@ -2,19 +2,27 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/api/Notice.ts";
-import * as $1 from "./routes/manage/octo/asset.ts";
-import * as $2 from "./routes/manage/raw.ts";
-import * as $3 from "./routes/manage/write.ts";
-import * as $4 from "./routes/manage/write/done.ts";
+import * as $0 from "./routes/api/CardLevel.ts";
+import * as $1 from "./routes/api/CardParameter.ts";
+import * as $2 from "./routes/api/CardRarity.ts";
+import * as $3 from "./routes/api/Notice.ts";
+import * as $4 from "./routes/api/Version.ts";
+import * as $5 from "./routes/manage/octo/asset.ts";
+import * as $6 from "./routes/manage/raw.ts";
+import * as $7 from "./routes/manage/write.ts";
+import * as $8 from "./routes/manage/write/done.ts";
 
 const manifest = {
   routes: {
-    "./routes/api/Notice.ts": $0,
-    "./routes/manage/octo/asset.ts": $1,
-    "./routes/manage/raw.ts": $2,
-    "./routes/manage/write.ts": $3,
-    "./routes/manage/write/done.ts": $4,
+    "./routes/api/CardLevel.ts": $0,
+    "./routes/api/CardParameter.ts": $1,
+    "./routes/api/CardRarity.ts": $2,
+    "./routes/api/Notice.ts": $3,
+    "./routes/api/Version.ts": $4,
+    "./routes/manage/octo/asset.ts": $5,
+    "./routes/manage/raw.ts": $6,
+    "./routes/manage/write.ts": $7,
+    "./routes/manage/write/done.ts": $8,
   },
   islands: {},
   baseUrl: import.meta.url,
