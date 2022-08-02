@@ -14,7 +14,10 @@ export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
     async GET(req) {
       const url = new URL(req.url)
       const params = mergeSearchParams(url.searchParams)
-      const result = await f(params)
+      const result = await f(params).catch((e) => ({
+        ok: false,
+        message: String(e),
+      }))
       return jsonResponse(result)
     },
   }
