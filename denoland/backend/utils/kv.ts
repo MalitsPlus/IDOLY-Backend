@@ -14,7 +14,7 @@ const IS_ONLY = { __isOnly: true }
 
 export function get(
   key: string,
-  params: Record<MongoQueryParameterType, any> | undefined = undefined
+  params: Partial<Record<MongoQueryParameterType, any>> | undefined = undefined
 ): Promise<any[]> {
   return easyPost(`${baseUrl}/find`, {
     method: 'POST',
