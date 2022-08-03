@@ -1,3 +1,5 @@
+// deno-lint-ignore-file no-explicit-any
+
 import easyPost from './easyPost.ts'
 import {
   MONGODB_API_APPID,

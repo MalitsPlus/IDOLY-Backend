@@ -1,6 +1,6 @@
 import type { APIMapping } from 'hoshimi-types'
 import { MusicChartType } from 'hoshimi-types/ProtoEnum'
-import { dbAggregate, dbGet, dbGetPlus } from '@utils/dbGet.ts'
+import { dbAggregate, dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import { UnwrapPromise } from '@utils/types.ts'
 import firstMatches from '@utils/firstMatches.ts'

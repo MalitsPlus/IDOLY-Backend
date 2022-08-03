@@ -45,7 +45,7 @@ export const handler: Handlers = {
     if (typ === 'value') {
       return await kv
         .setValue(key, JSON.stringify(value))
-        .then((x) => jsonResponse({ ok: true, lines: 1 }))
+        .then(() => jsonResponse({ ok: true, lines: 1 }))
         .catch((x) => errorResponse(x, 500))
     }
     return errorResponse("Value should be an JSON'd array or an value", 400)

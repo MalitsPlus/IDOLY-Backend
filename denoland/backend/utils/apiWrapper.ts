@@ -1,5 +1,5 @@
 import { Handlers } from '$fresh/server.ts'
-import jsonResponse, { errorResponse } from '@utils/jsonResponse.ts'
+import jsonResponse from '@utils/jsonResponse.ts'
 
 function mergeSearchParams(sp: URLSearchParams): Record<string, string> {
   const ret: Record<string, string> = {}
@@ -9,6 +9,7 @@ function mergeSearchParams(sp: URLSearchParams): Record<string, string> {
   return ret
 }
 
+// deno-lint-ignore no-explicit-any
 export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
   const handler: Handlers = {
     async GET(req) {
