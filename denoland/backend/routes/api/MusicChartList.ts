@@ -1,29 +1,58 @@
 import type { APIMapping } from 'hoshimi-types'
-import { dbGet } from '@utils/dbGet.ts'
+import { MusicChartType } from 'hoshimi-types/ProtoEnum'
+import { dbAggregate, dbGet, dbGetPlus } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
-import parseChart from '@utils/parseChart.ts'
 import { UnwrapPromise } from '@utils/types.ts'
-import dedup from '@utils/dedup.ts'
 import firstMatches from '@utils/firstMatches.ts'
 
 const responder: APIMapping['MusicChartList'] = async () => {
-  const ch = await dbGet('MusicChartPattern')
-  const mu = await dbGet('Music')
-  const chartIds = dedup(ch.map((x) => x.id))
+  const [chartIds, chartACounts, chartSPCounts, musicItems] = await Promise.all(
+    [
+      dbAggregate('MusicChartPattern', [
+        {
+          $group: {
+            _id: '$id',
+          },
+        },
+      ]).then((x) => x.map((y) => y._id)) as Promise<string[]>,
+      dbAggregate('MusicChartPattern', [
+        { $match: { type: MusicChartType.ActiveSkill } },
+        {
+          $group: {
+            _id: '$id',
+            cnt: { $count: {} },
+          },
+        },
+      ]) as Promise<{ _id: string; cnt: number }[]>,
+      dbAggregate('MusicChartPattern', [
+        { $match: { type: MusicChartType.SpecialSkill } },
+        {
+          $group: {
+            _id: '$id',
+            cnt: { $count: {} },
+          },
+        },
+      ]) as Promise<{ _id: string; cnt: number }[]>,
+      dbGet('Music'),
+    ]
+  )
 
   const ret: UnwrapPromise<ReturnType<typeof responder>> = []
 
   for (const i of chartIds) {
     const musicId = i.replace(/^chart-/, 'music-').replace(/-[0-9]+$/, '')
     const maybeChartListItem = firstMatches(ret, 'musicId', musicId)
+    const aCount = chartACounts.find((r) => r._id === i)?.cnt ?? 0
+    const spCount = chartSPCounts.find((r) => r._id === i)?.cnt ?? 0
+    const chartDesc = `${spCount}SP${aCount}A`
     if (maybeChartListItem) {
       maybeChartListItem.charts.push({
         id: i,
-        desc: parseChart(i, ch).desc,
+        desc: chartDesc,
       })
       continue
     }
-    const maybeMusic = firstMatches(mu, 'id', musicId)
+    const maybeMusic = firstMatches(musicItems, 'id', musicId)
     if (maybeMusic === null) continue
     ret.push({
       musicId: maybeMusic.id,
@@ -32,7 +61,7 @@ const responder: APIMapping['MusicChartList'] = async () => {
       charts: [
         {
           id: i,
-          desc: parseChart(i, ch).desc,
+          desc: chartDesc,
         },
       ],
     })

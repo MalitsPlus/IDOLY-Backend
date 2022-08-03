@@ -6,12 +6,16 @@ import {
   MONGODB_DATA_SOURCE,
 } from './env.ts'
 import omit from 'lodash/omit'
+import { MongoQueryParameterType } from './types.ts'
 
 const baseUrl = `https://data.mongodb-api.com/app/${MONGODB_API_APPID}/endpoint/data/v1/action`
 
 const IS_ONLY = { __isOnly: true }
 
-export function get(key: string): Promise<any[]> {
+export function get(
+  key: string,
+  params: Record<MongoQueryParameterType, any> | undefined = undefined
+): Promise<any[]> {
   return easyPost(`${baseUrl}/find`, {
     method: 'POST',
     headers: {
@@ -19,6 +23,7 @@ export function get(key: string): Promise<any[]> {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
+      ...params,
       collection: key,
       database: MONGODB_DATABASE,
       dataSource: MONGODB_DATA_SOURCE,
@@ -103,10 +108,30 @@ export async function getValue(key: string): Promise<string> {
   }).then((x) => x.document.value)
 }
 
+export function aggregate(
+  key: string,
+  pipeline: Record<string, any>[]
+): Promise<any[]> {
+  return easyPost(`${baseUrl}/aggregate`, {
+    method: 'POST',
+    headers: {
+      'api-key': MONGODB_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      collection: key,
+      database: MONGODB_DATABASE,
+      dataSource: MONGODB_DATA_SOURCE,
+      pipeline,
+    }),
+  }).then((x) => x.documents)
+}
+
 export default {
   get,
   put,
   del,
   setValue,
   getValue,
+  aggregate,
 }
