@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "start": "deno run -A --watch=static/,routes/ dev.ts"
+    "dev": "DENO_ENV=development deno run -A --watch=static/,routes/ dev.ts",
+    "deploy": "deployctl deploy --project=idoly-backend ./main.ts --import-map=./import_map.json --prod"
   },
   "importMap": "./import_map.json"
 }
