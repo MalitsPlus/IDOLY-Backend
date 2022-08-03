@@ -30,6 +30,9 @@ export function get(key: string): Promise<any[]> {
 
 export async function put(key: string, values: any[]): Promise<string[]> {
   await del(key)
+  if (values.length === 0) {
+    return []
+  }
   return await easyPost(`${baseUrl}/insertMany`, {
     method: 'POST',
     headers: {
