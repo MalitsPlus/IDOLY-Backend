@@ -1,0 +1,23 @@
+name: Lint (Deno)
+
+on: [push, pull_request]
+
+jobs:
+  lint:
+    if: "(!contains(github.event.commits[0].message, '[skip ci]')) && (!contains(github.event.commits[0].message, '[ci skip]'))"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Setup Deno 🦕
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Lint 🔍
+        run: |
+          cd denoland/backend
+          deno lint
