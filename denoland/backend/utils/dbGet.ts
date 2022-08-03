@@ -17,7 +17,7 @@ export function dbGet<T extends AcceptableDbKey>(
 
 export function dbGetPlus<T extends AcceptableDbKey>(
   s: T,
-  params: Record<MongoQueryParameterType, any>
+  params: Partial<Record<MongoQueryParameterType, any>>
 ): Promise<ResourceMapping[T]> {
   if (NonExpandedKeys.includes(s)) {
     throw Error('Filter cannot be used on plain-text collections.')
