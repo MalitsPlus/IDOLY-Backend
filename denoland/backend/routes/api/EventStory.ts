@@ -1,0 +1,18 @@
+import type { APIMapping } from 'hoshimi-types'
+import { dbGet } from '@utils/dbGet.ts'
+import apiWrapper from '@utils/apiWrapper.ts'
+import pick from 'lodash/pick'
+
+const responder: APIMapping['EventStory'] = async ({ id }) => {
+  const ev = await dbGet('EventStory')
+  return (
+    ev
+      .filter((x) => id === x.id)
+      .map((x) => ({
+        ...pick(x, ['id', 'name', 'description', 'order', 'assetId']),
+        episodes: x.episodes.map((y) => pick(y, ['episode', 'storyId'])),
+      }))?.[0] ?? null
+  )
+}
+
+export const handler = apiWrapper(responder)

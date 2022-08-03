@@ -8,15 +8,18 @@ This repository is a [monorepo](https://en.wikipedia.org/wiki/Monorepo) for all 
 
 ## Packages
 
-### Non-publishing packages
+### Non-publishing packages (Node)
 
-* [`@hoshimi/backend`](packages/backend)
 * [`@hoshimi/parser`](packages/parser)
 * [`@hoshimi/validator`](packages/validator)
 
-### Published packages
+### Published packages (Node)
 
 * [`hoshimi-types`](packages/types)
+
+### Projects (Deno)
+
+* [backend](denoland/backend)
 
 ## Scripts
 
