@@ -1,0 +1,3 @@
+[submodule "solis"]
+	path = solis
+	url = https://github.com/MalitsPlus/SolisClient.git
