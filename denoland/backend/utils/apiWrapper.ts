@@ -1,5 +1,6 @@
 import { Handlers } from '$fresh/server.ts'
-import jsonResponse from '@utils/jsonResponse.ts'
+import jsonResponse, { notModifiedResponse } from '@utils/jsonResponse.ts'
+import xxhash from './xxhash.ts'
 
 function mergeSearchParams(sp: URLSearchParams): Record<string, string> {
   const ret: Record<string, string> = {}
@@ -19,7 +20,41 @@ export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
         ok: false,
         message: String(e),
       }))
-      return jsonResponse(result)
+      // const lastUpdate = await kv
+      //   .getValue(UpdateTimeKey)
+      //   .then((x) => new Date(x).toUTCString())
+      //   .catch((_) => undefined)
+      const eTag = `"${xxhash(JSON.stringify(result))}"`
+      const commonCacheTags = {
+        'Cache-Control': 'max-age=3600, stale-while-revalidate=3600',
+        ETag: `W/${eTag}`,
+        // ...(lastUpdate ? { 'Last-Modified': lastUpdate } : {}),
+      }
+
+      const reqETag = req.headers.get('If-None-Match')
+      if (reqETag) {
+        // Check ETag
+        if (reqETag.replace(/^W\//, '') === eTag.replace(/^W\//, '')) {
+          // ETag matches
+          return notModifiedResponse(commonCacheTags)
+        }
+      }
+
+      // const reqDateStr = req.headers.get('If-Modified-Since')
+      // if (
+      //   reqDateStr &&
+      //   !Number.isNaN(new Date(reqDateStr).getDate()) &&
+      //   lastUpdate
+      // ) {
+      //   // Check lastUpdate
+      //   const reqDate = new Date(reqDateStr)
+      //   if (Number(lastUpdate) <= Number(reqDate)) {
+      //     // Update later
+      //     return notModifiedResponse(commonCacheTags)
+      //   }
+      // }
+
+      return jsonResponse(result, commonCacheTags)
     },
   }
   return handler

@@ -17,6 +17,16 @@ export default function jsonResponse<T>(
   })
 }
 
+export function notModifiedResponse(extraHeaders: Record<string, string> = {}) {
+  return new Response(null, {
+    status: 304,
+    headers: {
+      ...CorsHeaders,
+      ...extraHeaders,
+    },
+  })
+}
+
 export function errorResponse(message: string, status: number): Response {
   return jsonResponse(
     {
