@@ -11,7 +11,6 @@ const responder: APIMapping['Notice'] = async ({
   const limit = parseIntNumber(_limit) ?? 5
   const offset = parseIntNumber(_offset) ?? 0
   const allNotices = await dbGet('Notice')
-  console.log(limit, offset, allNotices)
   return allNotices[type].slice(offset, offset + limit)
 }
 
