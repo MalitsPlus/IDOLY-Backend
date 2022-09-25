@@ -4,12 +4,22 @@ import apiWrapper from '@utils/apiWrapper.ts'
 import pick from 'lodash/pick'
 
 const responder: APIMapping['Story'] = async ({ id }) => {
-  const db = await dbGet('Story')
-  const ret = db.filter((x) => x.id === id)?.[0]
-  if (!ret) {
+  const dbStory = await dbGet('Story')
+  const dbStoryPart = await dbGet('StoryPart')
+  const episode = dbStoryPart
+    .map((x) => x.chapters)
+    .reduce((a, b) => [...a, ...b])
+    .map((x) => x.episodes)
+    .reduce((a, b) => [...a, ...b])
+    .filter((r) => r.storyId === id && r.isReleased)?.[0]
+  const ret = dbStory.filter((x) => x.id === id)?.[0]
+  if (!ret || !episode) {
     throw Error(`Story not found: ${id}`)
   }
-  return pick(ret, ['id', 'name', 'sectionName', 'advAssetId', 'description'])
+  return {
+    ...pick(ret, ['id', 'name', 'sectionName', 'description']),
+    advAssetId: episode.assetId,
+  }
 }
 
 export const handler = apiWrapper(responder)
