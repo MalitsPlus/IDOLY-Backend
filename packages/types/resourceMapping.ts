@@ -12,6 +12,7 @@ import type {
   MusicChartPattern,
   Skill,
   Story,
+  StoryPart,
 } from './ProtoMaster'
 
 import { TheRootMapping as SkillxData } from './Skillx'
@@ -37,4 +38,5 @@ export type ResourceMapping = {
   Skill: Skill[]
   Skillx: SkillxData
   Story: Story[]
+  StoryPart: StoryPart[]
 }
