@@ -40,7 +40,7 @@ export async function put(key: string, values: any[]): Promise<string[]> {
   if (values.length === 0) {
     return []
   }
-  return await easyPost(`${baseUrl}/insertMany`, {
+  return easyPost(`${baseUrl}/insertMany`, {
     method: 'POST',
     headers: {
       'api-key': MONGODB_API_KEY,
@@ -73,8 +73,8 @@ export async function del(key: string): Promise<void> {
   })
 }
 
-export async function setValue(key: string, value: string): Promise<string> {
-  return await easyPost(`${baseUrl}/updateOne`, {
+export function setValue(key: string, value: string): Promise<string> {
+  return easyPost(`${baseUrl}/updateOne`, {
     method: 'POST',
     headers: {
       'api-key': MONGODB_API_KEY,
@@ -94,8 +94,8 @@ export async function setValue(key: string, value: string): Promise<string> {
   }).then((x) => x.insertedId)
 }
 
-export async function getValue(key: string): Promise<string> {
-  return await easyPost(`${baseUrl}/findOne`, {
+export function getValue(key: string): Promise<string> {
+  return easyPost(`${baseUrl}/findOne`, {
     method: 'POST',
     headers: {
       'api-key': MONGODB_API_KEY,
