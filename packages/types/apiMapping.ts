@@ -19,7 +19,7 @@ import { NoticeInfo } from './ProtoApi'
 export type APIMapping = {
   Card: InputAndOutput<
     { id?: string },
-    Pick<
+    (Pick<
       Card,
       | 'id'
       | 'assetId'
@@ -37,7 +37,7 @@ export type APIMapping = {
       | 'skillId2'
       | 'skillId3'
       | 'releaseDate'
-    >[]
+    > & { maxRatioPermil: number })[]
   >
   /**
    * CCID (Character-Card ID) is a unique ID for a card in the scope of a character.

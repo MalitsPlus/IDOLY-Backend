@@ -7,8 +7,8 @@ const responder: APIMapping['Card'] = async ({ id }) => {
   const cards = await dbGet('Card')
   return cards
     .filter((x) => (id ? x.id === id : true))
-    .map((x) =>
-      pick(x, [
+    .map((x) => ({
+      ...pick(x, [
         'id',
         'assetId',
         'name',
@@ -25,8 +25,13 @@ const responder: APIMapping['Card'] = async ({ id }) => {
         'skillId2',
         'skillId3',
         'releaseDate',
-      ])
-    )
+      ]),
+      maxRatioPermil: Math.max(
+        x.vocalRatioPermil,
+        x.danceRatioPermil,
+        x.visualRatioPermil
+      ),
+    }))
 }
 
 export const handler = apiWrapper(responder)
