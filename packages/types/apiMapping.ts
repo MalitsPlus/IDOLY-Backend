@@ -37,7 +37,7 @@ export type APIMapping = {
       | 'skillId2'
       | 'skillId3'
       | 'releaseDate'
-    > & { maxRatioPermil: number })[]
+    > & { maxValue: number })[]
   >
   /**
    * CCID (Character-Card ID) is a unique ID for a card in the scope of a character.
