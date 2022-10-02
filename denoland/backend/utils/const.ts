@@ -8,6 +8,3 @@ export const UpdateTimeKey = '_UpdateTime'
 export const NonExpandedKeys = ['Notice', 'Octo', 'Skillx']
 
 export const XXHashSeed = 0xe2d09373
-
-// See also: frontend:components/cards/CardItem.tsx
-export const MaxLevel = 200
