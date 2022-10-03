@@ -14,6 +14,7 @@
   "scripts": {
     "build": "tsc",
     "bundle": "bash scripts/build.sh",
+    "bundle:deno": "bash scripts/denoify.sh",
     "bnp": "npm run bundle && npm publish dist/"
   },
   "devDependencies": {

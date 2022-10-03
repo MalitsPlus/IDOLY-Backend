@@ -8,6 +8,7 @@
     "hoshimi-types": "https://esm.sh/hoshimi-types@1.1.1",
     "hoshimi-types/": "https://esm.sh/hoshimi-types@1.1.1/",
     "lodash/": "https://cdn.skypack.dev/lodash@4.17.21/",
-    "xxhashjs": "https://cdn.skypack.dev/xxhashjs@0.2.2"
+    "xxhashjs": "https://cdn.skypack.dev/xxhashjs@0.2.2",
+    "@dev/hoshimi-types": "../../packages/types/denodist/index.ts"
   }
 }
