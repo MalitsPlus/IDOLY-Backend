@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 
-rm -r dist/
+rm -rf dist/
 npm run build
 cp package.json dist
 cp README.md dist
