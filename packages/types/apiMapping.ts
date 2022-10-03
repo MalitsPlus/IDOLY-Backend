@@ -53,6 +53,27 @@ export type APIMapping = {
       }[]
     >
   >
+  'Card/List': InputAndOutput<
+    {
+      rarity: string
+      level: string
+    },
+    (Pick<
+      Card,
+      | 'id'
+      | 'assetId'
+      | 'name'
+      | 'characterId'
+      | 'type'
+      | 'initialRarity'
+      | 'releaseDate'
+    > & {
+      vocalPt: number
+      dancePt: number
+      visualPt: number
+      staminaPt: number
+    })[]
+  >
   CardLevel: OnlyOutput<CardLevel[]>
   CardParameter: InputAndOutput<
     {
