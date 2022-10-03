@@ -57,6 +57,7 @@ export type APIMapping = {
   CardParameter: InputAndOutput<
     {
       level?: string
+      id?: string
     },
     CardParameter[]
   >
