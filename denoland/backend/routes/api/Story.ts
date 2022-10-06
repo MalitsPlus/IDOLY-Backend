@@ -13,12 +13,12 @@ const responder: APIMapping['Story'] = async ({ id }) => {
     .reduce((a, b) => [...a, ...b])
     .filter((r) => r.storyId === id && r.isReleased)?.[0]
   const ret = dbStory.filter((x) => x.id === id)?.[0]
-  if (!ret || !episode) {
+  if (!ret) {
     throw Error(`Story not found: ${id}`)
   }
   return {
     ...pick(ret, ['id', 'name', 'sectionName', 'description']),
-    advAssetId: episode.assetId,
+    advAssetId: episode?.assetId ?? ret.advAssetId,
   }
 }
 
