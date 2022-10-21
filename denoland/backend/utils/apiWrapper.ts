@@ -1,5 +1,6 @@
 import { Handlers } from '$fresh/server.ts'
 import jsonResponse, { notModifiedResponse } from '@utils/jsonResponse.ts'
+import ping from './ping.ts'
 import xxhash from './xxhash.ts'
 
 function mergeSearchParams(sp: URLSearchParams): Record<string, string> {
@@ -13,7 +14,8 @@ function mergeSearchParams(sp: URLSearchParams): Record<string, string> {
 // deno-lint-ignore no-explicit-any
 export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
   const handler: Handlers = {
-    async GET(req) {
+    async GET(req, ctx) {
+      ping(req, ctx.remoteAddr as Deno.NetAddr).catch(console.log)
       const url = new URL(req.url)
       const params = mergeSearchParams(url.searchParams)
       const result = await f(params).catch((e) => ({
