@@ -8,6 +8,7 @@ import type {
   EventStoryEpisode,
   Message,
   MessageGroup,
+  Music,
   Skill,
   Story,
 } from './ProtoMaster'
@@ -139,6 +140,12 @@ export type APIMapping = {
     { id: string; name: string }[]
   >
   MessageGroup: OnlyOutput<MessageGroup[]>
+  Music: InputAndOutput<
+    {
+      id: string
+    },
+    Omit<Music, 'volumePermyriads' | 'vocalVolumePermyriads'>
+  >
   MusicChart: InputAndOutput<
     {
       chartId: string

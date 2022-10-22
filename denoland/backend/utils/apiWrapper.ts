@@ -1,6 +1,8 @@
 import { Handlers } from '$fresh/server.ts'
 import jsonResponse, { notModifiedResponse } from '@utils/jsonResponse.ts'
 import ping from './ping.ts'
+import { FieldStatus } from './types.ts'
+import { ErrorWithStatus } from './types.ts'
 import xxhash from './xxhash.ts'
 
 function mergeSearchParams(sp: URLSearchParams): Record<string, string> {
@@ -21,7 +23,12 @@ export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
       const result = await f(params).catch((e) => ({
         ok: false,
         message: String(e),
+        [FieldStatus]: 400,
       }))
+      let status = 200
+      if (FieldStatus in (result as ErrorWithStatus)) {
+        status = result[FieldStatus]
+      }
       // const lastUpdate = await kv
       //   .getValue(UpdateTimeKey)
       //   .then((x) => new Date(x).toUTCString())
@@ -56,7 +63,7 @@ export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
       //   }
       // }
 
-      return jsonResponse(result, commonCacheTags)
+      return jsonResponse(result, commonCacheTags, status)
     },
   }
   return handler
