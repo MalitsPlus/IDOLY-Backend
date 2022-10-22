@@ -2,6 +2,7 @@ import type { APIMapping } from 'hoshimi-types'
 import { dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import pick from 'lodash/pick'
+import createErrStatus from '@utils/createErrStatus.ts'
 import calcPropValue from '../../../utils/calcPropValue.ts'
 
 const responder: APIMapping['Card/List'] = async ({
@@ -17,11 +18,14 @@ const responder: APIMapping['Card/List'] = async ({
   const level = Number.parseInt(_level)
   const rarity = Number.parseInt(_rarity)
   if (Number.isNaN(level) || Number.isNaN(rarity)) {
-    throw Error('Invalid level/rarity')
+    return createErrStatus('Invalid level/rarity')
   }
   const rarityArgs = cardRarity.find((x) => x.rarity === rarity)
   if (!rarityArgs) {
-    throw Error(`CardRarity args not found for rarity ${rarity}`)
+    return createErrStatus(
+      `CardRarity args not found for rarity ${rarity}`,
+      404
+    )
   }
 
   return cards.map((card) => {
@@ -36,8 +40,9 @@ const responder: APIMapping['Card/List'] = async ({
       (x) => x.level === level && x.id === cardParameterId
     )
     if (!paramArgs) {
-      throw Error(
-        `CardParameter args not found for cardParameterId ${cardParameterId}`
+      return createErrStatus(
+        `CardParameter args not found for cardParameterId ${cardParameterId}`,
+        404
       )
     }
     const paramValue = Number(paramArgs.value)
