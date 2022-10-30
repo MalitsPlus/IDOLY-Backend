@@ -7,6 +7,8 @@
     "preact-render-to-string": "https://cdn.skypack.dev/preact-render-to-string@5.2.0",
     "hoshimi-types": "https://esm.sh/hoshimi-types@1.2.0",
     "hoshimi-types/": "https://esm.sh/hoshimi-types@1.2.0/",
+    "@hoshimei/adv": "https://esm.sh/@hoshimei/adv@0.3.0",
+    "@hoshimei/adv/": "https://esm.sh/@hoshimei/adv@0.3.0/",
     "lodash/": "https://cdn.skypack.dev/lodash@4.17.21/",
     "xxhashjs": "https://cdn.skypack.dev/xxhashjs@0.2.2",
     "@dev/hoshimi-types": "../../packages/types/denodist/index.ts"
