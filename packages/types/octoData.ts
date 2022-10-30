@@ -1,5 +1,6 @@
 export type OctoData = {
   assetBundleList: AssetBundle[]
+  resourceList: Resource[]
 }
 
 type AssetBundle = {
@@ -12,5 +13,15 @@ type AssetBundle = {
   size: number
   state: string
   type: string
+  uploadVersionId: number
+}
+
+type Resource = {
+  id: number
+  name: string
+  size: number
+  md5: string
+  objectName: string
+  generation: string
   uploadVersionId: number
 }
