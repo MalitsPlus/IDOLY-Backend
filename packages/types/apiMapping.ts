@@ -185,7 +185,9 @@ export type APIMapping = {
   'Skill/X': InputAndOutput<{ ids?: MultiString }, SkillxData>
   Story: InputAndOutput<
     { id: string },
-    Pick<Story, 'name' | 'id' | 'sectionName' | 'advAssetId' | 'description'>
+    Pick<Story, 'name' | 'id' | 'sectionName' | 'description'> & {
+      advAssetId: string
+    }
   >
   Version: OnlyOutput<{
     version: string

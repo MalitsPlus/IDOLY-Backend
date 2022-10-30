@@ -2234,7 +2234,7 @@ export type Story = {
   // ProtoMember(1)
   id: string
   // ProtoMember(2)
-  advAssetId: string
+  advAssetIds: string[]
   // ProtoMember(3)
   sectionName: string
   // ProtoMember(4)
