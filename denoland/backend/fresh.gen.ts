@@ -26,9 +26,10 @@ import * as $20 from "./routes/api/Skill/X.ts";
 import * as $21 from "./routes/api/Story.ts";
 import * as $22 from "./routes/api/Version.ts";
 import * as $23 from "./routes/manage/octo/asset.ts";
-import * as $24 from "./routes/manage/raw.ts";
-import * as $25 from "./routes/manage/write.ts";
-import * as $26 from "./routes/manage/write/done.ts";
+import * as $24 from "./routes/manage/octo/resource.ts";
+import * as $25 from "./routes/manage/raw.ts";
+import * as $26 from "./routes/manage/write.ts";
+import * as $27 from "./routes/manage/write/done.ts";
 
 const manifest = {
   routes: {
@@ -56,9 +57,10 @@ const manifest = {
     "./routes/api/Story.ts": $21,
     "./routes/api/Version.ts": $22,
     "./routes/manage/octo/asset.ts": $23,
-    "./routes/manage/raw.ts": $24,
-    "./routes/manage/write.ts": $25,
-    "./routes/manage/write/done.ts": $26,
+    "./routes/manage/octo/resource.ts": $24,
+    "./routes/manage/raw.ts": $25,
+    "./routes/manage/write.ts": $26,
+    "./routes/manage/write/done.ts": $27,
   },
   islands: {},
   baseUrl: import.meta.url,
