@@ -17,6 +17,9 @@
     "bundle:deno": "bash scripts/denoify.sh",
     "bnp": "npm run bundle && npm publish dist/"
   },
+  "dependencies": {
+    "@hoshimei/adv": "^0.2.0"
+  },
   "devDependencies": {
     "rimraf": "^3.0.2",
     "typescript": "^4.3.2"

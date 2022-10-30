@@ -80,8 +80,11 @@ importers:
 
   packages/types:
     specifiers:
+      '@hoshimei/adv': ^0.2.0
       rimraf: ^3.0.2
       typescript: ^4.3.2
+    dependencies:
+      '@hoshimei/adv': 0.2.0
     devDependencies:
       rimraf: 3.0.2
       typescript: 4.6.3
@@ -460,6 +463,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@hoshimei/adv/0.2.0:
+    resolution: {integrity: sha512-WGs74YTzWRI3sz6rwyc5Vwgc1Ze7IhfI+zmQZFlzSIPQOuCXsqKbEJQaRLubgaIf0ObJ/VhYMHGk6BEnrFAp9w==}
+    dev: false
 
   /@humanwhocodes/config-array/0.5.0:
     resolution: {integrity: sha512-FagtKFz74XrTl7y6HCzQpwDfXP0yhxe9lHLD1UZxjvZIcbyRz8zTFF/yYNfSfzU414eDwZ1SrO0Qvtyf+wFMQg==}

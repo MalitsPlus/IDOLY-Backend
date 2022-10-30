@@ -16,6 +16,7 @@ import type { MusicChart } from './types'
 import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
 import { TheRootMapping as SkillxData } from './Skillx'
 import { NoticeInfo } from './ProtoApi'
+import { Line } from '@hoshimei/adv/types'
 
 export type APIMapping = {
   Card: InputAndOutput<
@@ -189,6 +190,7 @@ export type APIMapping = {
       advAssetId: string
     }
   >
+  StoryScript: InputAndOutput<{ id: string }, Line[][]>
   Version: OnlyOutput<{
     version: string
   }>
