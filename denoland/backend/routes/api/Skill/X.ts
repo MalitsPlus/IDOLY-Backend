@@ -4,6 +4,7 @@ import apiWrapper from '@utils/apiWrapper.ts'
 import { parseMultiString } from '@utils/parse.ts'
 import fromPairs from 'lodash/fromPairs'
 
+// @ts-expect-error Hard-to-describe type
 const responder: APIMapping['Skill/X'] = async ({ ids: _ids }) => {
   const records = await dbGet('Skillx')
   if (!_ids) return records
