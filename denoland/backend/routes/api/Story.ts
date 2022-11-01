@@ -19,7 +19,7 @@ const responder: APIMapping['Story'] = async ({ id }) => {
   }
   return {
     ...pick(ret, ['id', 'name', 'sectionName', 'description']),
-    advAssetId: episode?.assetId ?? ret.advAssetId,
+    advAssetId: episode?.assetId ?? ret.advAssetIds,
   }
 }
 
