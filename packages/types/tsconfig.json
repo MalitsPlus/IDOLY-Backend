@@ -14,12 +14,6 @@
     "types": [],
     "declaration": true
   },
-  "include": [
-    "index.ts",
-    "ProtoApi.ts",
-    "ProtoEnum.ts",
-    "ProtoMaster.ts",
-    "ProtoTransactiont.ts"
-  ],
+  "include": ["index.ts", "ProtoEnum.ts", "ProtoMaster.ts"],
   "exclude": ["node_modules", "dist", "test"]
 }

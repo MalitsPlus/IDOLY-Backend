@@ -107,7 +107,6 @@ export type APIMapping = {
       | 'favorite'
       | 'unfavorite'
       | 'profile'
-      | 'isNpc'
       | 'altCharacters'
       | 'color'
       | 'isLeftHanded'

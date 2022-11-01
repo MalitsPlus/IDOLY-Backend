@@ -1,6372 +1,5640 @@
-// Generated from ProtoApi.cs
+// Generated from ProtoApi.proto
 
 import type {
-  AccessoryCategoryType,
-  ActivityCampaignEffectType,
-  ActivityFanEventHappeningType,
-  ActivityFanEventType,
-  AttributeType,
-  BacksideAreaType,
-  BacksideDifficultyType,
-  BacksidePanelAttributeType,
-  BacksidePanelType,
-  BacksidePracticeRankType,
-  BacksideStageType,
-  BacksideType,
-  BoxGachaItemType,
-  DeckEditType,
-  DivisionCannotMoveReasonType,
-  DokanType,
-  ErrorCode,
-  ForumListReplyRequestType,
-  FunctionMaintenanceType,
-  GachaAnimationEmbeddedType,
-  GachaRewardPatternType,
-  GachaType,
-  GiftFilterType,
-  GiftSortType,
-  GraphicType,
-  GvgMatchResultType,
-  HomePositionType,
-  ItemType,
+  ResultRankType,
+  LiveSkipType,
   LinkType,
+  BoxGachaItemType,
+  DokanType,
+  ShopType,
+  ResourceType,
+  ResetTimingType,
+  ActivityFanEventType,
+  GachaContinuousResultType,
+  GachaType,
+  GvgMatchResultType,
+  MarathonType,
+  LadderPanelType,
+  AttributeType,
   MoodType,
-  MusicChartType,
-  ParameterType,
-  PhotoImageRequestType,
-  PhotoImageType,
-  PhotoShootingActionType,
+  SkillPossessionType,
+  AccessoryCategoryType,
+  PhotoContestEvaluationRankType,
   ProfileBackgroundType,
   ProfileLayoutType,
-  ProviderType,
-  ResetTimingType,
-  ResourceType,
-  ResultRankType,
+  ProfileInformationType,
+  ProfileColorType,
   ShopConditionRewardStatusType,
-  ShopType,
-  SkillEfficacyType,
+  ActivityFanEventHappeningType,
+  ItemType,
+  BacksideType,
+  BacksideAreaType,
+  BacksideDifficultyType,
+  BacksidePracticeRankType,
+  BacksideStageType,
+  BacksidePanelType,
+  BacksidePanelAttributeType,
+  MusicChartType,
   SkillFailureType,
-  SkillPossessionType,
   StatusEffectType,
-  TourAreaType,
-  TourEnemyType,
-  TourStepType,
+  SkillEfficacyType,
+  PhotoImageType,
+  ActivityCampaignEffectType,
+  DeckEditType,
+  DivisionCannotMoveReasonType,
+  ForumListReplyRequestType,
+  GachaRewardPatternType,
+  GachaAnimationEmbeddedType,
+  GiftSortType,
+  GiftFilterType,
+  GvgChallengeConsumptionType,
+  GraphicType,
+  HomePositionType,
+  FunctionMaintenanceType,
+  MarathonRaidProgressType,
+  RuleType,
+  ProviderType,
+  ErrorCode,
+  PhotoImageRequestType,
+  PhotoShootingActionType,
+  PhotoContestBaseEvaluationType,
+  PhotoContestBaseGuideRankType,
+  ParameterType,
   TourType,
+  TourEnemyType,
+  TourAreaType,
+  TourStepType,
   TutorialType,
 } from './ProtoEnum'
 import type { Accessory, HelpCategory } from './ProtoMaster'
 import type {
-  ConsumptionResult,
-  MasterTag,
-  Payslip,
-  Reward,
+  UserPhoto,
+  UserMission,
   RewardResult,
-  User,
-  UserAccessory,
-  UserArea,
-  UserBalance,
-  UserCard,
-  UserCardSupport,
+  Reward,
+  Payslip,
+  UserPublic,
   UserCharacter,
-  UserCharacterMusic,
+  User,
+  UserItem,
+  UserCard,
   UserCostume,
+  UserAccessory,
   UserDeck,
-  UserDecoration,
+  UserStory,
+  UserPoint,
+  UserStaff,
+  UserMessage,
+  UserTelephone,
+  UserProfile,
   UserEmblem,
+  UserCharacterMusic,
+  UserBalance,
+  UserTotalCount,
+  UserArea,
+  UserQuest,
   UserGachaButton,
+  UserHomeTalk,
+  UserPhotoReport,
+  UserCardSupport,
+  UserMessageSchedule,
+  UserNotification,
+  UserHierarchy,
+  UserTutorial,
+  UserHomePosition,
+  UserMusic,
+  UserDecoration,
+  UserPhotoRecipe,
+  UserBuddy,
+  UserInvite,
+  UserHair,
+  ConsumptionResult,
   UserGift,
   UserGiftHistory,
-  UserHierarchy,
-  UserHomePosition,
-  UserHomeTalk,
-  UserItem,
   UserLoginBonus,
-  UserMessage,
-  UserMessageSchedule,
-  UserMission,
-  UserMusic,
-  UserNotification,
-  UserPhoto,
-  UserPhotoReport,
-  UserPoint,
-  UserProfile,
-  UserPublic,
-  UserQuest,
-  UserStaff,
-  UserStory,
-  UserTelephone,
-  UserTotalCount,
-  UserTutorial,
+  MasterTag,
 } from './ProtoTransaction'
 
 export type ActiveFanEvent = {
-  // ProtoMember(1)
   characterIds: string[]
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   subName: string
-  // ProtoMember(4)
   level: number
-  // ProtoMember(5)
   finishTime: string
-  // ProtoMember(6)
   currentCheerPoint: number
 }
+
 export type ActivePromotion = {
-  // ProtoMember(1)
   characterIds: string[]
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   subName: string
-  // ProtoMember(4)
   level: number
-  // ProtoMember(5)
   finishTime: string
-  // ProtoMember(6)
   campaignEffects: ActivityCampaignEffect[]
 }
+
 export type ActiveRefresh = {
-  // ProtoMember(1)
   characterIds: string[]
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   subName: string
-  // ProtoMember(4)
   finishTime: string
 }
+
 export type ActivityCharacterInfo = {
-  // ProtoMember(1)
   characterId: string
-  // ProtoMember(2)
   costumeId: string
+  hairId: string
 }
+
 export type ActivityLessonProgress = {
-  // ProtoMember(1)
   stepRewardGold: number
-  // ProtoMember(2)
   stepRewardManagerExp: number
-  // ProtoMember(3)
   stepRewardCardEnhanceItem: number
-  // ProtoMember(4)
   rewardGoldAmount: number
-  // ProtoMember(5)
   rewardManagerExpAmount: number
-  // ProtoMember(6)
   rewardCardEnhanceItemAmount: number
-  // ProtoMember(7)
   lastReceiveTime: string
-  // ProtoMember(8)
   maxRewardTime: string
-  // ProtoMember(9)
   dailyPromoteCount: number
-  // ProtoMember(10)
   currentAreaId: string
 }
+
 export type BacksideCardLiveAbilityInfo = {
-  // ProtoMember(1)
   cardId: string
-  // ProtoMember(2)
   level: number
-  // ProtoMember(3)
   rarity: number
-  // ProtoMember(4)
   liveAbilityLevel: string
-  // ProtoMember(5)
   liveAbilityId: string
 }
+
 export type BacksideDeckCardDetailInfo = {
-  // ProtoMember(1)
   position: number
-  // ProtoMember(2)
   cardId: string
-  // ProtoMember(3)
   displayCharacterId: string
-  // ProtoMember(4)
   displayCostumeId: string
-  // ProtoMember(5)
   level: number
-  // ProtoMember(6)
   rarity: number
-  // ProtoMember(7)
   vocal: string
-  // ProtoMember(8)
   dance: string
-  // ProtoMember(9)
   visual: string
-  // ProtoMember(10)
   stamina: string
-  // ProtoMember(11)
   mental: string
-  // ProtoMember(12)
   technique: string
-  // ProtoMember(13)
   skillLevel1: number
-  // ProtoMember(14)
   skillLevel2: number
-  // ProtoMember(15)
   skillLevel3: number
-  // ProtoMember(16)
   liveAbilityLevel: number
-  // ProtoMember(17)
   part1Accessory: Accessory
-  // ProtoMember(18)
   part2Accessory: Accessory
-  // ProtoMember(19)
   photos: UserPhoto[]
-  // ProtoMember(20)
   staminaPermil: number
-  // ProtoMember(21)
   supported: boolean
+  displayHairId: string
 }
+
 export type BacksideDeckCardInfo = {
-  // ProtoMember(1)
   position: number
-  // ProtoMember(2)
   cardId: string
-  // ProtoMember(3)
   level: number
-  // ProtoMember(4)
   rarity: number
 }
+
 export type BacksideDeckCardStaminaInfo = {
-  // ProtoMember(1)
   cardId: string
-  // ProtoMember(2)
   currentMaxStamina: string
-  // ProtoMember(3)
   currentRemainingStamina: string
 }
+
 export type BacksideDifficultyInfo = {
-  // ProtoMember(1)
   backsideDifficultyNumber: number
-  // ProtoMember(2)
   managerLevel: number
-  // ProtoMember(3)
   cleared: boolean
-  // ProtoMember(4)
   unlockConditionId: string
-  // ProtoMember(5)
   unlocked: boolean
-  // ProtoMember(6)
   stageTotalResultInfo: BacksidePracticeStageTotalResultInfo
-  // ProtoMember(7)
   practiceStageInfos: BacksidePracticeStageInfo[]
-  // ProtoMember(8)
   finalStageInfo: BacksideFinalStageInfo
+  rewardReceivedRankType: ResultRankType
+  rewardReceivedRankPlus: number
 }
+
 export type BacksideFinalStageInfo = {
-  // ProtoMember(1)
   number: number
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   maxActionCount: number
-  // ProtoMember(4)
   backsidePanelGoalSettingId: string
-  // ProtoMember(5)
   stageResultInfo: BacksideFinalStageResultInfo
-  // ProtoMember(6)
   stageHalfwayInfo: BacksideFinalStageHalfwayInfo
-  // ProtoMember(7)
   pickupCharacterIDs: string[]
 }
+
 export type BacksideLiveBonus = {
-  // ProtoMember(1)
   liveBonusId: string
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   liveAbilityId: string
-  // ProtoMember(4)
   liveAbilityLevel: number
-  // ProtoMember(5)
   powerPermil: number
 }
+
 export type BacksidePanelGoalInfo = {
-  // ProtoMember(1)
   musicId: string
-  // ProtoMember(2)
   musicChartPatternId: string
-  // ProtoMember(3)
   name: string
-  // ProtoMember(4)
   clearScore: number
-  // ProtoMember(5)
   maxCapacity: number
-  // ProtoMember(6)
   stageId: string
-  // ProtoMember(7)
   backsideQuestSettingId: string
-  // ProtoMember(8)
   mentalThreshold: number
+  liveSkipType: LiveSkipType
 }
+
 export type BacksidePanelLiveInfo = {
-  // ProtoMember(1)
   musicId: string
-  // ProtoMember(2)
   musicChartPatternId: string
-  // ProtoMember(3)
   name: string
-  // ProtoMember(4)
   clearScore: number
-  // ProtoMember(5)
   maxCapacity: number
-  // ProtoMember(6)
   stageId: string
-  // ProtoMember(7)
   backsideQuestSettingId: string
-  // ProtoMember(8)
   mentalThreshold: number
+  liveSkipType: LiveSkipType
 }
+
 export type BacksidePanelPvpInfo = {
-  // ProtoMember(1)
   musicId: string
-  // ProtoMember(2)
   musicChartPatternId: string
-  // ProtoMember(3)
   name: string
-  // ProtoMember(4)
   clearScore: number
-  // ProtoMember(5)
   maxCapacity: number
-  // ProtoMember(6)
   stageId: string
-  // ProtoMember(7)
   opponentInfo: BacksideOpponentInfo
-  // ProtoMember(8)
   backsideQuestSettingId: string
-  // ProtoMember(9)
   mentalThreshold: number
+  liveSkipType: LiveSkipType
 }
+
 export type BacksidePracticeStageInfo = {
-  // ProtoMember(1)
   number: number
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   maxActionCount: number
-  // ProtoMember(4)
   backsidePanelGoalSettingId: string
-  // ProtoMember(5)
   stageResultInfo: BacksidePracticeStageResultInfo
-  // ProtoMember(6)
   stageHalfwayInfo: BacksidePracticeStageHalfwayInfo
-  // ProtoMember(7)
   pickupCharacterIDs: string[]
 }
+
 export type BacksideRankingInfo = {
-  // ProtoMember(1)
   userId: string
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   managerLevel: number
-  // ProtoMember(4)
   totalPracticeScore: string
-  // ProtoMember(5)
   finalScore: string
-  // ProtoMember(6)
   rank: number
-  // ProtoMember(7)
   emblemId: string
-  // ProtoMember(8)
   deckCardInfos: BacksideDeckCardInfo[]
 }
+
 export type BacksideRankingRewardInfo = {
-  // ProtoMember(1)
   rankFrom: number
-  // ProtoMember(2)
   rewardId: string
 }
+
 export type Banner = {
-  // ProtoMember(1)
   id: string
-  // ProtoMember(2)
   assetId: string
-  // ProtoMember(3)
   text: string
-  // ProtoMember(4)
   linkType: LinkType
-  // ProtoMember(5)
   linkDetail: string
-  // ProtoMember(6)
   order: number
-  // ProtoMember(7)
   viewConditionId: string
 }
+
 export type BoxGachaItem = {
-  // ProtoMember(1)
   order: number
-  // ProtoMember(2)
   itemType: BoxGachaItemType
-  // ProtoMember(3)
   rewardId: string
-  // ProtoMember(4)
   liveBonusGroupId: string
-  // ProtoMember(5)
   initialStock: number
-  // ProtoMember(6)
   stock: number
-  // ProtoMember(7)
   isLimited: boolean
-  // ProtoMember(8)
   assetId: string
-  // ProtoMember(9)
   description: string
 }
+
+export type BuddyCardInfo = {
+  cardId: string
+  rarity: number
+  level: number
+}
+
 export type DivisionInfo = {
-  // ProtoMember(1)
   id: string
-  // ProtoMember(2)
   levelAvg: number
 }
-export type EventMissionInfo = {
-  // ProtoMember(1)
+
+export type DokanInfo = {
   id: string
-  // ProtoMember(2)
+  type: DokanType
+  advAssetId: string
+  noticeInfo: NoticeInfo
+  shopItem: ShopItem
+  assetId: string
+  description: string
+  name: string
+  shopType: ShopType
+  storyId: string
+  linkTitle: string
+  linkType: LinkType
+  linkDetail: string
+}
+
+export type EventButtonDisplayInfo = {
+  conditionId: string
+  priority: number
+  assetId: string
+}
+
+export type EventMissionInfo = {
+  id: string
   unlocked: boolean
-  // ProtoMember(8)
   userMissions: UserMission[]
 }
+
 export type EventStoryInfo = {
-  // ProtoMember(1)
   id: string
-  // ProtoMember(2)
   episodes: EventStoryEpisodeInfo[]
 }
+
 export type ExchangeBooth = {
-  // ProtoMember(1)
   id: string
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   bannerAssetId: string
-  // ProtoMember(4)
   requiredResourceType: ResourceType
-  // ProtoMember(5)
   requiredResourceId: string
-  // ProtoMember(6)
   resetTimingType: ResetTimingType
-  // ProtoMember(7)
   nextResetTime: string
-  // ProtoMember(8)
   unlocked: boolean
-  // ProtoMember(9)
   endTime: string
-  // ProtoMember(10)
   linkType: LinkType
-  // ProtoMember(11)
   linkDetail: string
-  // ProtoMember(12)
   order: number
-  // ProtoMember(13)
   limited: boolean
-  // ProtoMember(14)
   colorCode: string
-  // ProtoMember(15)
   backgroundColorCode: string
-  // ProtoMember(16)
   exchanges: ExchangeItem[]
-  // ProtoMember(17)
   costumeId: string
-  // ProtoMember(18)
   iconAssetId: string
-  // ProtoMember(19)
   viewConditionId: string
-  // ProtoMember(20)
   unlockConditionId: string
 }
+
 export type ExchangeItem = {
-  // ProtoMember(1)
   id: string
-  // ProtoMember(2)
   assetId: string
-  // ProtoMember(3)
   rewardId: string
-  // ProtoMember(4)
   resetTimingType: ResetTimingType
-  // ProtoMember(5)
   nextResetTime: string
-  // ProtoMember(6)
   unlocked: boolean
-  // ProtoMember(7)
   name: string
-  // ProtoMember(8)
   description: string
-  // ProtoMember(9)
   exchangeLimit: number
-  // ProtoMember(10)
   leftCount: number
-  // ProtoMember(11)
   requiredResourceAmount: string
-  // ProtoMember(12)
   order: number
-  // ProtoMember(13)
   viewConditionId: string
-  // ProtoMember(14)
   unlockConditionId: string
 }
-export type FanEvent = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  subName: string
-  // ProtoMember(4)
-  type: ActivityFanEventType
-  // ProtoMember(5)
-  unlockConditionId: string
-  // ProtoMember(6)
-  isUnlocked: boolean
-  // ProtoMember(7)
-  activityPerformanceId: string
-  // ProtoMember(8)
-  level: number
-  // ProtoMember(9)
-  exp: number
-  // ProtoMember(10)
-  nextLevelRequiredExp: number
-  // ProtoMember(11)
-  requiredStamina: number
-  // ProtoMember(12)
-  nextLevelUnlockConditionId: string
-  // ProtoMember(13)
-  isNextLevelUnlocked: boolean
-  // ProtoMember(14)
-  stepConsumptionStamina: number
-  // ProtoMember(15)
-  fixedRewardId: string
-  // ProtoMember(16)
-  additionalRewardId: string
-  // ProtoMember(17)
-  rankSRewardId: string
-  // ProtoMember(18)
-  rankARewardId: string
-  // ProtoMember(19)
-  rankBRewardId: string
-  // ProtoMember(20)
-  rankCRewardId: string
-  // ProtoMember(21)
-  rankDRewardId: string
-  // ProtoMember(22)
-  viewConditionId: string
-  // ProtoMember(23)
-  campaignDropRewardIds: string[]
-}
-export type FanEventCharacterInfo = {
-  // ProtoMember(1)
-  characterId: string
-  // ProtoMember(2)
-  costumeId: string
-  // ProtoMember(3)
-  activityStamina: number
-  // ProtoMember(4)
-  completedStep: number
-  // ProtoMember(5)
-  finishTime: string
-  // ProtoMember(6)
-  activityPoint: number
-  // ProtoMember(7)
-  maxStep: number
-  // ProtoMember(8)
-  lastSavedActivityPoint: number
-}
-export type FanEventProgress = {
-  // ProtoMember(1)
-  activityFanEventId: string
-  // ProtoMember(2)
-  activityFanEventName: string
-  // ProtoMember(3)
-  activityFanEventSubName: string
-  // ProtoMember(4)
-  activityFanEventType: ActivityFanEventType
-  // ProtoMember(5)
-  activityFanEventLevel: number
-  // ProtoMember(6)
-  characters: FanEventCharacterInfo[]
-  // ProtoMember(7)
-  startTime: string
-  // ProtoMember(8)
-  stepConsumptionStamina: number
-  // ProtoMember(9)
-  stepActivityPointCoefficientPermil: number
-  // ProtoMember(10)
-  rankPatterns: FanEventRankPattern[]
-  // ProtoMember(11)
-  usedSuperModeItem: boolean
-  // ProtoMember(12)
-  activityPerformanceId: string
-  // ProtoMember(13)
-  maleNpcSpineId: string
-  // ProtoMember(14)
-  femaleNpcSpineId: string
-  // ProtoMember(15)
-  specialFanCheerPoint: number
-  // ProtoMember(16)
-  currentCheerPoint: number
-  // ProtoMember(17)
-  newSpecialFansCount: number
-  // ProtoMember(18)
-  speedRate: number
-}
-export type FanEventRankingInfo = {
-  // ProtoMember(1)
-  rank: string
-  // ProtoMember(2)
-  score: string
-  // ProtoMember(3)
-  userId: string
-  // ProtoMember(4)
-  name: string
-  // ProtoMember(5)
-  managerLevel: number
-  // ProtoMember(6)
-  characterIds: string[]
-  // ProtoMember(7)
-  emblemId: string
-}
-export type FavoriteCardInfo = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  rarity: number
-}
-export type GachaButtonInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  todayCount: number
-  // ProtoMember(3)
-  totalCount: number
-  // ProtoMember(4)
-  drawTime: string
-}
-export type GachaExchangeInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  exchangedCount: number
-  // ProtoMember(3)
-  exchangedTime: string
-}
-export type GachaHistory = {
-  // ProtoMember(1)
-  gachaType: GachaType
-  // ProtoMember(2)
-  drawTime: string
-  // ProtoMember(3)
-  gachaId: string
-  // ProtoMember(4)
-  resourceType: ResourceType
-  // ProtoMember(5)
-  resourceId: string
-  // ProtoMember(6)
-  amount: number
-}
-export type GachaInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  unlocked: boolean
-  // ProtoMember(3)
-  buttons: GachaButtonInfo[]
-  // ProtoMember(4)
-  exchanges: GachaExchangeInfo[]
-  // ProtoMember(5)
-  itemGachaRewards: Reward[]
-  // ProtoMember(6)
-  noticeInfo: NoticeInfo
-  // ProtoMember(7)
-  selectedCardIds: string[]
-}
-export type GuildGvgMatchRankInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  managerLevel: number
-  // ProtoMember(3)
-  point: string
-  // ProtoMember(4)
-  rank: number
-  // ProtoMember(5)
-  emblemId: string
-}
-export type GuildGvgSeasonMatchResult = {
-  // ProtoMember(1)
-  matchNumber: number
-  // ProtoMember(2)
-  opponentGuildId: string
-  // ProtoMember(3)
-  point: string
-  // ProtoMember(4)
-  opponentPoint: string
-  // ProtoMember(5)
-  resultType: GvgMatchResultType
-  // ProtoMember(6)
-  mvpInfo: GuildGvgMatchRankInfo
-}
-export type GuildParam = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  weaknessRank: number
-  // ProtoMember(3)
-  memberAmountRank: number
-  // ProtoMember(4)
-  prevSeasonResult: GuildGvgSeasonResult
-}
-export type GvgCurrentSeasonMatchInfo = {
-  // ProtoMember(1)
-  matchNumber: number
-  // ProtoMember(2)
-  endTime: string
-  // ProtoMember(3)
-  opponentGuildId: string
-  // ProtoMember(4)
-  opponentRank: number
-  // ProtoMember(5)
-  opponentPoint: string
-  // ProtoMember(6)
-  opponentWinCount: number
-  // ProtoMember(7)
-  opponentLoseCount: number
-  // ProtoMember(8)
-  opponentDrawCount: number
-}
-export type GvgGuildRankingRewardInfo = {
-  // ProtoMember(1)
-  rankFrom: number
-  // ProtoMember(2)
-  rewardId: string
-}
-export type GvgRankingRewardInfo = {
-  // ProtoMember(1)
-  order: number
-  // ProtoMember(2)
-  rankRateFromPercent: number
-  // ProtoMember(3)
-  rankFrom: number
-  // ProtoMember(4)
-  rewardId: string
-}
-export type GvgSeasonInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  startTime: string
-  // ProtoMember(4)
-  aggregateEndTime: string
-  // ProtoMember(5)
-  challengeRewardId: string
-}
-export type GvgSeasonMatchInfo = {
-  // ProtoMember(1)
-  matchNumber: number
-  // ProtoMember(2)
-  opponentGuildId: string
-  // ProtoMember(3)
-  point: string
-  // ProtoMember(4)
-  opponentPoint: string
-  // ProtoMember(5)
-  resultType: GvgMatchResultType
-  // ProtoMember(6)
-  memberAmountWeightPermil: number
-  // ProtoMember(7)
-  opponentMemberAmountWeightPermil: number
-}
-export type HierarchyChangeInfo = {
-  // ProtoMember(1)
-  addHierarchyPoint: string
-  // ProtoMember(2)
-  oldDetailGradeId: string
-  // ProtoMember(3)
-  newDetailGradeId: string
-  // ProtoMember(4)
-  currentRank: number
-}
-export type HierarchyDivisionRewardInfo = {
-  // ProtoMember(1)
-  hierarchyDivisionRewardId: string
-  // ProtoMember(2)
-  canReceive: boolean
-  // ProtoMember(3)
-  haveReceived: boolean
-  // ProtoMember(4)
-  firstUserInfo: ProfileInfo
-}
-export type HierarchyNotiInfo = {
-  // ProtoMember(1)
-  rewardIds: string[]
-  // ProtoMember(2)
-  divisionRewardIds: string[]
-  // ProtoMember(3)
-  currentDetailGradeId: string
-  // ProtoMember(4)
-  currentRank: number
-}
-export type HierarchyProfileInfo = {
-  // ProtoMember(1)
-  detailGradeId: string
-  // ProtoMember(2)
-  rank: number
-}
-export type HierarchyRankUserInfo = {
-  // ProtoMember(1)
-  userId: string
-  // ProtoMember(2)
-  currentRank: number
-  // ProtoMember(3)
-  managerName: string
-  // ProtoMember(4)
-  managerLevel: number
-  // ProtoMember(5)
-  currentDetailGradeId: string
-  // ProtoMember(6)
-  currentPoint: string
-  // ProtoMember(7)
-  emblemId: string
-  // ProtoMember(8)
-  deckName: string
-  // ProtoMember(9)
-  cardInfos: LastCardInfo[]
-}
-export type HierarchyRewardInfo = {
-  // ProtoMember(1)
-  hierarchyRewardId: string
-  // ProtoMember(2)
-  canReceive: boolean
-  // ProtoMember(3)
-  haveReceived: boolean
-}
-export type HomeBacksideInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  startTime: string
-  // ProtoMember(4)
-  endTime: string
-  // ProtoMember(5)
-  aggregateEndTime: string
-  // ProtoMember(6)
-  exchangeEndTime: string
-  // ProtoMember(7)
-  assetId: string
-  // ProtoMember(8)
-  bannerAssetId: string
-  // ProtoMember(9)
-  order: number
-  // ProtoMember(10)
-  unlockConditionId: string
-  // ProtoMember(11)
-  isUnlocked: boolean
-  // ProtoMember(12)
-  eventMissionId: string
-}
-export type HomeEnterResponse = {
-  // ProtoMember(1)
-  gachaInfos: GachaInfo[]
-  // ProtoMember(2)
-  fanEventInfo: FanEventInfo
-  // ProtoMember(3)
-  promotionInfo: PromotionInfo
-  // ProtoMember(4)
-  refreshInfo: RefreshInfo
-  // ProtoMember(5)
-  lessonProgress: ActivityLessonProgress
-  // ProtoMember(6)
-  functionMaintenanceInfos: FunctionMaintenanceInfo[]
-  // ProtoMember(7)
-  bannerInfo: BannerInfo
-  // ProtoMember(8)
-  lastFriendApprovedTime: string
-  // ProtoMember(9)
-  gvgInfo: CurrentGvgInfo
-  // ProtoMember(10)
-  shopIds: string[]
-  // ProtoMember(11)
-  exchangeBoothIds: string[]
-  // ProtoMember(12)
-  isRemainingDiary: boolean
-  // ProtoMember(13)
-  notiStoneShopItem: NotiShopItem
-  // ProtoMember(14)
-  notiNormalShopItem: NotiShopItem
-  // ProtoMember(15)
-  payslip: Payslip
-  // ProtoMember(16)
-  currentMainAreaId: string
-  // ProtoMember(17)
-  eventInfo: HomeEventInfo
-  // ProtoMember(18)
-  pvpInfo: HomePvpInfo
-  // ProtoMember(19)
-  hierarchyNotiInfo: HierarchyNotiInfo
-  // ProtoMember(20)
-  isDailyQuestPlayable: boolean
-  // ProtoMember(21)
-  currentTowerQuestId: string
-  // ProtoMember(22)
-  hasUnplayedContest: boolean
-  // ProtoMember(23)
-  eventStoryInfos: EventStoryInfo[]
-  // ProtoMember(24)
-  photoActivities: PhotoActivity[]
-  // ProtoMember(25)
-  photoMusics: PhotoMusic[]
-  // ProtoMember(26)
-  photoStages: PhotoStage[]
-  // ProtoMember(27)
-  friendAppliedCount: number
-  // ProtoMember(28)
-  purchasedConditionRewardShopInfo: PurchasedConditionRewardShopInfo[]
-  // ProtoMember(100)
-  pvpRewardResultInfo: PvpRewardResultInfo
-  // ProtoMember(101)
-  gvgRewardResultInfo: GvgRewardResultInfo
-  // ProtoMember(102)
-  tourRewardResultInfos: TourRewardResultInfo[]
-  // ProtoMember(103)
-  backsideRewardResultInfos: BacksideRewardResultInfo[]
-  // ProtoMember(104)
-  photoContestRewardResultInfos: PhotoContestRewardResultInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HomeEventMissionInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  unlocked: boolean
-}
-export type HomeMarathonInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  startTime: string
-  // ProtoMember(4)
-  endTime: string
-  // ProtoMember(5)
-  exchangeEndTime: string
-  // ProtoMember(6)
-  assetId: string
-  // ProtoMember(7)
-  bannerAssetId: string
-  // ProtoMember(8)
-  order: number
-  // ProtoMember(9)
-  unlockConditionId: string
-  // ProtoMember(10)
-  isUnlocked: boolean
-  // ProtoMember(11)
-  eventMissionId: string
-}
-export type HomePhotoContestInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  startTime: string
-  // ProtoMember(4)
-  endTime: string
-  // ProtoMember(5)
-  aggregateEndTime: string
-  // ProtoMember(6)
-  exchangeEndTime: string
-  // ProtoMember(7)
-  assetId: string
-  // ProtoMember(8)
-  bannerAssetId: string
-  // ProtoMember(9)
-  order: number
-  // ProtoMember(10)
-  unlockConditionId: string
-  // ProtoMember(11)
-  isUnlocked: boolean
-}
-export type HomeTourInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  startTime: string
-  // ProtoMember(4)
-  endTime: string
-  // ProtoMember(5)
-  aggregateEndTime: string
-  // ProtoMember(6)
-  exchangeEndTime: string
-  // ProtoMember(7)
-  assetId: string
-  // ProtoMember(8)
-  bannerAssetId: string
-  // ProtoMember(9)
-  order: number
-  // ProtoMember(10)
-  unlockConditionId: string
-  // ProtoMember(11)
-  isUnlocked: boolean
-  // ProtoMember(12)
-  eventMissionId: string
-}
-export type LastCardInfo = {
-  // ProtoMember(1)
+
+export type ExerciseDeckPosition = {
   position: number
-  // ProtoMember(2)
   cardId: string
-  // ProtoMember(3)
-  level: number
-  // ProtoMember(4)
-  rarity: number
+  part1AccessoryId: string
+  part2AccessoryId: string
+  photoAllInOneIds: string[]
 }
-export type LiveBattleCardInfo = {
-  // ProtoMember(1)
-  position: number
-  // ProtoMember(2)
-  cardId: string
-  // ProtoMember(3)
-  level: number
-  // ProtoMember(4)
-  rarity: number
-  // ProtoMember(5)
-  lightFanAmount: number
-  // ProtoMember(6)
-  middleFanAmount: number
-  // ProtoMember(7)
-  heavyFanAmount: number
-}
-export type LiveBattleQuestInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  stageId: string
-  // ProtoMember(3)
-  musicId: string
-  // ProtoMember(4)
-  musicChartPatternId: string
-  // ProtoMember(5)
-  position1AttributeType: AttributeType
-  // ProtoMember(6)
-  position2AttributeType: AttributeType
-  // ProtoMember(7)
-  position3AttributeType: AttributeType
-  // ProtoMember(8)
-  position4AttributeType: AttributeType
-  // ProtoMember(9)
-  position5AttributeType: AttributeType
-  // ProtoMember(10)
-  activeSkillWeightPermil: number
-  // ProtoMember(11)
-  specialSkillWeightPermil: number
-  // ProtoMember(12)
-  skillStaminaWeightPermil: number
-  // ProtoMember(13)
-  staminaRecoveryWeightPermil: number
-  // ProtoMember(14)
-  beatDanceWeightPermil: number
-  // ProtoMember(15)
-  beatVocalWeightPermil: number
-  // ProtoMember(16)
-  beatVisualWeightPermil: number
-  // ProtoMember(17)
-  maxCapacity: number
-  // ProtoMember(18)
-  mentalThreshold: number
-  // ProtoMember(19)
-  questPressureId: string
-  // ProtoMember(20)
-  questCharacterAdvantageId: string
-  // ProtoMember(21)
-  questAudienceAdvantageId: string
-  // ProtoMember(22)
-  moodType: MoodType
-  // ProtoMember(23)
-  liveBonusGroupId: string
-}
-export type LiveCardInfo = {
-  // ProtoMember(1)
-  position: number
-  // ProtoMember(2)
-  cardId: string
-  // ProtoMember(3)
-  level: number
-  // ProtoMember(4)
-  rarity: number
-}
-export type LiveCardResult = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(5)
-  totalScore: string
-}
-export type LiveCharacterAssetInfo = {
-  // ProtoMember(1)
-  characterId: string
-  // ProtoMember(2)
-  costumeId: string
-}
-export type LiveDeckCard = {
-  // ProtoMember(1)
-  index: number
-  // ProtoMember(2)
-  cardId: string
-  // ProtoMember(3)
-  displayCharacterId: string
-  // ProtoMember(4)
-  displayCostumeId: string
-  // ProtoMember(5)
-  level: number
-  // ProtoMember(6)
-  rarity: number
-  // ProtoMember(7)
-  vocal: string
-  // ProtoMember(8)
-  dance: string
-  // ProtoMember(9)
-  visual: string
-  // ProtoMember(10)
-  stamina: string
-  // ProtoMember(11)
-  startStamina: string
-  // ProtoMember(12)
-  mental: string
-  // ProtoMember(13)
-  technique: string
-  // ProtoMember(14)
-  skillLevel1: number
-  // ProtoMember(15)
-  skillLevel2: number
-  // ProtoMember(16)
-  skillLevel3: number
-  // ProtoMember(17)
-  audienceAmount: number
-  // ProtoMember(18)
-  skills: LiveDeckCardSkill[]
-}
-export type LiveDeckCardSkill = {
-  // ProtoMember(1)
-  index: number
-  // ProtoMember(2)
-  skillId: string
-  // ProtoMember(3)
-  skillLevel: number
-  // ProtoMember(4)
-  possessionType: SkillPossessionType
-}
-export type LiveRankingInfo = {
-  // ProtoMember(1)
-  userId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  managerLevel: number
-  // ProtoMember(4)
-  point: string
-  // ProtoMember(5)
-  rank: number
-  // ProtoMember(6)
-  cardInfos: LiveCardInfo[]
-  // ProtoMember(7)
-  emblemId: string
-  // ProtoMember(8)
-  deckName: string
-}
-export type LiveUserInfo = {
-  // ProtoMember(1)
-  index: number
-  // ProtoMember(2)
-  userId: string
-  // ProtoMember(3)
-  name: string
-  // ProtoMember(4)
-  emblemId: string
-  // ProtoMember(5)
-  userDeck: LiveUserDeck
-  // ProtoMember(6)
-  userResult: LiveUserResult
-  // ProtoMember(7)
-  isNpc: boolean
-}
-export type MarathonAccessoryInfo = {
-  // ProtoMember(1)
-  accessoryId: string
-  // ProtoMember(2)
-  categoryType: AccessoryCategoryType
-  // ProtoMember(3)
-  param1Permil: number
-  // ProtoMember(4)
-  param1Value: number
-  // ProtoMember(5)
-  param2Permil: number
-  // ProtoMember(6)
-  param2Value: number
-}
-export type MarathonBoxGachaInfo = {
-  // ProtoMember(1)
-  boxGachaId: string
-  // ProtoMember(2)
-  boxGachaItems: BoxGachaItem[]
-  // ProtoMember(3)
-  isFull: boolean
-  // ProtoMember(4)
-  currentMarathonPoint: number
-  // ProtoMember(5)
+
+export type ExerciseInfo = {
+  exerciseId: string
   unlocked: boolean
-  // ProtoMember(6)
-  remainResetCount: number
-}
-export type MarathonInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  startTime: string
-  // ProtoMember(4)
-  endTime: string
-  // ProtoMember(5)
-  exchangeEndTime: string
-  // ProtoMember(6)
-  initialStamina: number
-  // ProtoMember(7)
-  staminaRecoveryMinutes: number
-  // ProtoMember(8)
-  assetId: string
-  // ProtoMember(9)
-  boxGachaGroupId: string
-  // ProtoMember(10)
-  eventStoryInfo: EventStoryInfo
-  // ProtoMember(11)
-  eventMissionInfo: EventMissionInfo
-  // ProtoMember(12)
-  noticeInfo: NoticeInfo
-  // ProtoMember(13)
-  staminaRecoveryItemId: string
-  // ProtoMember(14)
-  questUnlockItemId: string
-}
-export type MarathonLiveBonusInfo = {
-  // ProtoMember(1)
-  liveBonusId: string
-  // ProtoMember(2)
-  amount: number
-}
-export type MarathonPhotoAbilityInfo = {
-  // ProtoMember(1)
-  photoAbilityId: string
-  // ProtoMember(2)
-  effectValue: string
-}
-export type MarathonQuestInfo = {
-  // ProtoMember(1)
-  marathonQuestId: string
-  // ProtoMember(2)
-  unlocked: boolean
-  // ProtoMember(3)
-  difficultyLevelInfos: MarathonQuestDifficultyLevelInfo[]
-  // ProtoMember(4)
-  lastChallengeDifficultyNumber: number
-  // ProtoMember(5)
-  isUnlockable: boolean
-  // ProtoMember(6)
-  isPlayable: boolean
-  // ProtoMember(7)
-  playableCount: number
-}
-export type MarathonQuestStartResponse = {
-  // ProtoMember(1)
-  marathonId: string
-  // ProtoMember(2)
-  marathonQuestId: string
-  // ProtoMember(3)
-  marathonQuestDifficultyNumber: number
-  // ProtoMember(4)
-  result: LiveResult
-  // ProtoMember(5)
-  reward: QuestReward
-  // ProtoMember(6)
-  rankType: ResultRankType
-  // ProtoMember(7)
-  rankPlus: number
-  // ProtoMember(8)
-  rankPatterns: QuestRankPattern[]
-  // ProtoMember(9)
-  highestClearRankType: ResultRankType
-  // ProtoMember(10)
-  highestScore: string
-  // ProtoMember(11)
-  addMarathonPoint: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarketItem = {
-  // ProtoMember(1)
-  number: number
-  // ProtoMember(2)
-  consumptionResourceType: ResourceType
-  // ProtoMember(3)
-  baseAmount: number
-  // ProtoMember(4)
-  discountAmount: number
-  // ProtoMember(5)
-  rewardId: string
-  // ProtoMember(6)
-  discountRatePermil: number
-  // ProtoMember(7)
-  soldOut: boolean
-  // ProtoMember(8)
-  unlockConditionId: string
-}
-export type MessageGroupInfo = {
-  // ProtoMember(1)
-  messageGroupId: string
-  // ProtoMember(2)
-  latestTimelineInfo: TimelineInfo
-}
-export type PhotoActivity = {
-  // ProtoMember(1)
-  photoActivityId: string
-  // ProtoMember(2)
-  isUnlocked: boolean
-}
-export type PhotoContestActivity = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  isUnlocked: boolean
-}
-export type PhotoContestInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  startTime: string
-  // ProtoMember(4)
-  endTime: string
-  // ProtoMember(5)
-  aggregateEndTime: string
-  // ProtoMember(6)
-  exchangeEndTime: string
-  // ProtoMember(7)
-  assetId: string
-  // ProtoMember(8)
-  eventStoryInfo: EventStoryInfo
-  // ProtoMember(9)
-  eventExchangeBoothInfo: EventExchangeBoothInfo
-  // ProtoMember(10)
-  noticeInfo: NoticeInfo
-  // ProtoMember(11)
-  totalBestShootEvaluationPoint: string
-  // ProtoMember(12)
-  totalBestShootEvaluationPointTime: string
-  // ProtoMember(13)
-  rank: string
-  // ProtoMember(14)
-  rankingRewardInfos: PhotoContestRankingRewardInfo[]
-  // ProtoMember(15)
-  sectionInfos: PhotoContestSectionInfo[]
-  // ProtoMember(16)
-  activities: PhotoContestActivity[]
-  // ProtoMember(17)
-  musics: PhotoContestQuestMusic[]
-  // ProtoMember(18)
-  stages: PhotoContestQuestStage[]
-  // ProtoMember(19)
-  dailyRewardResults: RewardResult[]
-  // ProtoMember(20)
-  onceShootingSubmitLimitCount: number
-  // ProtoMember(21)
-  currentPhotoAmount: string
-  // ProtoMember(22)
-  submittingItemId: string
-}
-export type PhotoContestQuestMusic = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  isUnlocked: boolean
-}
-export type PhotoContestQuestStage = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  isUnlocked: boolean
-}
-export type PhotoContestRankingInfo = {
-  // ProtoMember(1)
-  userId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  managerLevel: number
-  // ProtoMember(4)
-  totalBestShootEvaluationPoint: string
-  // ProtoMember(5)
-  rank: number
-  // ProtoMember(6)
-  emblemId: string
-  // ProtoMember(7)
-  bestPhotoInfos: PhotoContestPhotoInfo[]
-}
-export type PhotoContestRankingRewardInfo = {
-  // ProtoMember(1)
-  rankFrom: number
-  // ProtoMember(2)
-  rewardId: string
-}
-export type PhotoContestSectionInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  sectionRewardInfos: PhotoContestSectionRewardInfo[]
-  // ProtoMember(3)
-  bestShootAssetId: string
-  // ProtoMember(4)
-  bestShootEvaluationPoint: string
-  // ProtoMember(5)
-  totalSectionEvaluationPoint: string
-  // ProtoMember(6)
-  isUnlocked: boolean
-}
-export type PhotoContestSectionRewardInfo = {
-  // ProtoMember(1)
-  sectionRewardId: string
-  // ProtoMember(2)
-  canReceive: boolean
-  // ProtoMember(3)
-  haveReceived: boolean
-}
-export type PhotoContestSubmitShootingResponse = {
-  // ProtoMember(1)
-  evaluationPoint: string
-  // ProtoMember(2)
-  isBest: boolean
-  // ProtoMember(3)
-  totalSectionEvaluationPoint: string
-  // ProtoMember(4)
-  totalBestShotEvaluationPoint: string
-  // ProtoMember(5)
-  nextPhotoImageId: string
-  // ProtoMember(6)
-  tipDescription: string
-  // ProtoMember(7)
-  newCanReceiveSectionRewardIds: string[]
-  // ProtoMember(8)
-  rank: string
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoMusic = {
-  // ProtoMember(1)
-  musicId: string
-  // ProtoMember(2)
-  isUnlocked: boolean
-}
-export type PhotoStage = {
-  // ProtoMember(1)
-  stageId: string
-  // ProtoMember(2)
-  isUnlocked: boolean
-}
-export type ProfileFindUserResponse = {
-  // ProtoMember(1)
-  userId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  managerExp: string
-  // ProtoMember(4)
-  managerLevel: number
-  // ProtoMember(5)
-  divisionId: string
-  // ProtoMember(6)
-  guildId: string
-  // ProtoMember(7)
-  emblemId: string
-  // ProtoMember(8)
-  favoriteCard: FavoriteCardInfo
-  // ProtoMember(9)
-  favoritePhoto: FavoritePhotoInfo
-  // ProtoMember(10)
-  favoriteCharacterIds: string[]
-  // ProtoMember(11)
-  message: string
-  // ProtoMember(12)
-  birthMonth: number
-  // ProtoMember(13)
-  birthDay: number
-  // ProtoMember(14)
-  backgroundType: ProfileBackgroundType
-  // ProtoMember(15)
-  layoutType: ProfileLayoutType
-  // ProtoMember(16)
-  hierarchyCurrentDetailGradeId: string
-  // ProtoMember(17)
-  hierarchyCurrentRank: number
-  // ProtoMember(18)
-  decorationId: string
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ProfileInfo = {
-  // ProtoMember(1)
-  userId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  managerExp: string
-  // ProtoMember(4)
-  managerLevel: number
-  // ProtoMember(5)
-  emblemId: string
-  // ProtoMember(6)
-  favoriteCard: FavoriteCardInfo
-  // ProtoMember(7)
-  favoritePhoto: FavoritePhotoInfo
-  // ProtoMember(8)
-  favoriteCharacterIds: string[]
-  // ProtoMember(9)
-  backgroundType: ProfileBackgroundType
-  // ProtoMember(10)
-  layoutType: ProfileLayoutType
-  // ProtoMember(11)
-  lastLoginTime: string
-  // ProtoMember(12)
-  decorationId: string
-}
-export type ProfileTopResponse = {
-  // ProtoMember(1)
-  hierarchyCurrentDetailGradeId: string
-  // ProtoMember(2)
-  hierarchyCurrentRank: number
-  // ProtoMember(3)
-  friendProfiles: ProfileInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type Promotion = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  subName: string
-  // ProtoMember(5)
-  unlockConditionId: string
-  // ProtoMember(6)
-  isUnlocked: boolean
-  // ProtoMember(7)
-  activityPerformanceId: string
-  // ProtoMember(8)
-  level: number
-  // ProtoMember(9)
-  exp: number
-  // ProtoMember(10)
-  nextLevelRequiredExp: number
-  // ProtoMember(11)
-  requiredStamina: number
-  // ProtoMember(12)
-  nextLevelUnlockConditionId: string
-  // ProtoMember(13)
-  isNextLevelUnlocked: boolean
-  // ProtoMember(14)
-  stepConsumptionStamina: number
-  // ProtoMember(15)
-  stepRewardGold: number
-  // ProtoMember(16)
-  stepRewardCardEnhanceItem: number
-  // ProtoMember(17)
-  stepAdditionalRewardId: string
-  // ProtoMember(18)
-  multiStepRewardId: string
-  // ProtoMember(19)
-  maxFanAmount: number
-  // ProtoMember(20)
-  viewConditionId: string
-  // ProtoMember(21)
-  subGenre: string
-  // ProtoMember(22)
-  multiStepCampaignDropRewardIds: string[]
-}
-export type PromotionProgress = {
-  // ProtoMember(1)
-  activityPromotionId: string
-  // ProtoMember(2)
-  activityPromotionName: string
-  // ProtoMember(3)
-  activityPromotionSubName: string
-  // ProtoMember(5)
-  activityPromotionLevel: number
-  // ProtoMember(6)
-  characters: ActivityCharacterInfo[]
-  // ProtoMember(7)
-  startTime: string
-  // ProtoMember(8)
-  finishTime: string
-  // ProtoMember(9)
-  stepConsumptionStamina: number
-  // ProtoMember(10)
-  completedStep: number
-  // ProtoMember(11)
-  stepRewardGold: number
-  // ProtoMember(12)
-  stepRewardManagerExp: number
-  // ProtoMember(13)
-  stepRewardActivityExp: number
-  // ProtoMember(14)
-  stepRewardCharacterActivityExp: number
-  // ProtoMember(15)
-  stepAdditionalRewardId: string
-  // ProtoMember(16)
-  multiStepRewardId: string
-  // ProtoMember(17)
-  stepRewardCardEnhanceItem: number
-  // ProtoMember(18)
-  rewardGoldAmount: number
-  // ProtoMember(19)
-  rewardCardEnhanceItemAmount: number
-  // ProtoMember(20)
-  rewards: ActivityPromotionReward[]
-  // ProtoMember(21)
-  nextActivityLevelUpTime: string
-  // ProtoMember(22)
-  campaignEffects: ActivityCampaignEffect[]
-  // ProtoMember(23)
-  activityPerformanceId: string
-  // ProtoMember(24)
-  subGenre: string
-  // ProtoMember(25)
-  multiStepCampaignDropRewardIds: string[]
-}
-export type PvpRewardInfo = {
-  // ProtoMember(1)
-  rankFrom: string
-  // ProtoMember(2)
-  rankingRewardId: string
-  // ProtoMember(3)
-  challengeRewardId: string
-}
-export type QuestAreaGroupInfo = {
-  // ProtoMember(1)
-  areaGroupId: string
-  // ProtoMember(2)
-  areas: QuestAreaInfo[]
-}
-export type QuestAreaInfo = {
-  // ProtoMember(1)
-  areaId: string
-  // ProtoMember(2)
-  unlocked: boolean
-  // ProtoMember(3)
-  quests: QuestInfo[]
-}
-export type QuestClearInfo = {
-  // ProtoMember(1)
-  score: string
-  // ProtoMember(2)
-  userName: string
-  // ProtoMember(3)
-  deckName: string
-  // ProtoMember(4)
-  cards: LiveCardInfo[]
-  // ProtoMember(5)
-  emblemId: string
-  // ProtoMember(6)
-  userId: string
-  // ProtoMember(7)
-  rankType: ResultRankType
-  // ProtoMember(8)
-  plus: number
-}
-export type QuestContestRankInfo = {
-  // ProtoMember(1)
-  rank: number
-  // ProtoMember(2)
-  isNPC: boolean
-  // ProtoMember(3)
-  score: string
-  // ProtoMember(4)
-  userName: string
-  // ProtoMember(5)
-  deckName: string
-  // ProtoMember(6)
-  cards: LiveCardInfo[]
-  // ProtoMember(7)
-  emblemId: string
-  // ProtoMember(8)
-  userId: string
-}
-export type QuestInfo = {
-  // ProtoMember(1)
-  questId: string
-  // ProtoMember(2)
-  cleared: boolean
-  // ProtoMember(3)
-  highestScore: string
-  // ProtoMember(4)
-  rankType: ResultRankType
-  // ProtoMember(5)
-  plus: number
-  // ProtoMember(6)
-  highestRank: number
-  // ProtoMember(7)
-  isPlayable: boolean
-  // ProtoMember(8)
-  playableCount: number
-  // ProtoMember(9)
+  positions: ExerciseDeckPosition[]
   opponentInfo: QuestOpponentInfo
 }
-export type QuestListTowerRankingResponse = {
-  // ProtoMember(1)
-  selfHighestRank: number
-  // ProtoMember(2)
-  selfQuestId: string
-  // ProtoMember(3)
-  ranks: QuestTowerRankInfo[]
-  // ProtoMember(4)
-  totalQuestNum: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestRewardCard = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  funAmount: string
-  // ProtoMember(3)
-  exp: number
-  // ProtoMember(4)
-  isExpTruncated: boolean
-}
-export type QuestStartResponse = {
-  // ProtoMember(1)
+
+export type ExerciseStartResponse = {
   questId: string
-  // ProtoMember(2)
   result: LiveResult
-  // ProtoMember(3)
-  reward: QuestReward
-  // ProtoMember(4)
   rankType: ResultRankType
-  // ProtoMember(5)
   rankPlus: number
-  // ProtoMember(6)
   rankPatterns: QuestRankPattern[]
-  // ProtoMember(7)
-  highestRank: number
-  // ProtoMember(8)
-  highestScore: string
-  // ProtoMember(9)
-  hierarchyChangeInfo: HierarchyChangeInfo
-  // ProtoMember(9999)
+  clearRewards: RewardResult[]
   commonResponse: CommonResponse
 }
-export type QuestTopResponse = {
-  // ProtoMember(1)
-  mainAreaGroups: QuestAreaGroupInfo[]
-  // ProtoMember(2)
-  contestTotalScore: string
-  // ProtoMember(3)
-  hasUnplayedContest: boolean
-  // ProtoMember(4)
-  pvpInfo: QuestTopPvpInfo
-  // ProtoMember(5)
-  currentTowerQuestId: string
-  // ProtoMember(6)
-  isDailyPlayable: boolean
-  // ProtoMember(7)
-  gvgInfo: CurrentGvgInfo
-  // ProtoMember(8)
-  hierarchyNotiInfo: HierarchyNotiInfo
-  // ProtoMember(9)
-  dailyAreas: QuestAreaInfo[]
-  // ProtoMember(10)
-  towerArea: QuestAreaInfo
-  // ProtoMember(11)
-  contestArea: QuestAreaInfo
-  // ProtoMember(12)
-  isTowerTopUnlocked: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestTowerAreaInfo = {
-  // ProtoMember(1)
-  area: QuestAreaInfo
-  // ProtoMember(2)
-  currentTowerQuestId: string
-}
-export type QuestTowerRankInfo = {
-  // ProtoMember(1)
-  rank: number
-  // ProtoMember(2)
-  questId: string
-  // ProtoMember(3)
-  userName: string
-  // ProtoMember(4)
-  deckName: string
-  // ProtoMember(5)
-  cards: LiveCardInfo[]
-  // ProtoMember(6)
-  emblemId: string
-  // ProtoMember(7)
-  userId: string
-}
-export type Refresh = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  requiredMinutes: number
-  // ProtoMember(4)
-  unlockConditionId: string
-  // ProtoMember(5)
-  isUnlocked: boolean
-  // ProtoMember(6)
-  level: number
-  // ProtoMember(7)
-  exp: number
-  // ProtoMember(8)
-  nextLevelRequiredExp: number
-  // ProtoMember(9)
-  levels: RefreshLevel[]
-  // ProtoMember(10)
-  viewConditionId: string
-}
-export type RefreshLevel = {
-  // ProtoMember(1)
-  level: number
-  // ProtoMember(3)
-  name: string
-  // ProtoMember(4)
-  requiredGold: number
-  // ProtoMember(5)
-  unlockConditionId: string
-  // ProtoMember(6)
-  isUnlocked: boolean
-  // ProtoMember(7)
-  activityPerformanceId: string
-  // ProtoMember(8)
-  recoveryAmount: number
-  // ProtoMember(9)
-  viewConditionId: string
-  // ProtoMember(10)
-  subGenre: string
-}
-export type RefreshProgress = {
-  // ProtoMember(1)
-  activityRefreshId: string
-  // ProtoMember(2)
-  activityRefreshName: string
-  // ProtoMember(3)
-  activityRefreshSubName: string
-  // ProtoMember(4)
-  activityRefreshLevel: number
-  // ProtoMember(6)
-  characters: ActivityCharacterInfo[]
-  // ProtoMember(7)
-  startTime: string
-  // ProtoMember(8)
-  finishTime: string
-  // ProtoMember(9)
-  requiredMinutes: number
-  // ProtoMember(10)
-  recoveryAmount: number
-  // ProtoMember(11)
-  activityPerformanceId: string
-  // ProtoMember(12)
-  subGenre: string
-}
-export type ShopConditionReward = {
-  // ProtoMember(1)
-  number: number
-  // ProtoMember(2)
-  conditionId: string
-  // ProtoMember(3)
+
+export type ExternalRewardInfo = {
+  externalRewardId: string
   rewardId: string
-  // ProtoMember(4)
-  statusType: ShopConditionRewardStatusType
-}
-export type ShopInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  type: ShopType
-  // ProtoMember(4)
-  order: number
-  // ProtoMember(5)
-  colorCode: string
-  // ProtoMember(6)
-  backgroundColorCode: string
-  // ProtoMember(7)
-  noticeInfo: NoticeInfo
-  // ProtoMember(8)
-  viewConditionId: string
-  // ProtoMember(9)
-  thumbnailAssetId: string
-  // ProtoMember(10)
-  costumeId: string
-  // ProtoMember(11)
-  resetTimingType: ResetTimingType
-  // ProtoMember(12)
-  nextResetTime: string
-  // ProtoMember(101)
-  isPurchased: boolean
-  // ProtoMember(102)
-  progress: number
-  // ProtoMember(103)
-  maxProgress: number
-  // ProtoMember(104)
-  bannerAssetId: string
-}
-export type ShopItem = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  description: string
-  // ProtoMember(4)
-  productId: string
-  // ProtoMember(5)
-  consumptionId: string
-  // ProtoMember(6)
-  rewardId: string
-  // ProtoMember(7)
-  thumbnailAssetId: string
-  // ProtoMember(8)
-  purchaseLimit: number
-  // ProtoMember(9)
-  leftCount: number
-  // ProtoMember(10)
-  order: number
-  // ProtoMember(11)
-  viewConditionId: string
-  // ProtoMember(12)
-  pushSegment: string
-  // ProtoMember(13)
-  resetTimingType: ResetTimingType
-  // ProtoMember(14)
-  nextResetTime: string
-  // ProtoMember(15)
-  unlockConditionId: string
-  // ProtoMember(16)
-  unlocked: boolean
-  // ProtoMember(100)
-  colorCode: string
-  // ProtoMember(101)
-  backgroundColorCode: string
-}
-export type ShopLoginBonus = {
-  // ProtoMember(1)
-  day: number
-  // ProtoMember(2)
-  rewardId: string
-  // ProtoMember(3)
   isReceived: boolean
 }
-export type TimelineInfo = {
-  // ProtoMember(1)
-  messageGroupId: string
-  // ProtoMember(2)
-  timelineId: string
-  // ProtoMember(3)
-  messageId: string
-  // ProtoMember(4)
-  arrivedTime: string
-  // ProtoMember(5)
-  selectMessageDetailIds: string[]
-  // ProtoMember(6)
-  lastMessageDetailId: string
-  // ProtoMember(7)
-  lastMessageDetailTime: string
-  // ProtoMember(8)
-  finished: boolean
-}
-export type TourDifficultyInfo = {
-  // ProtoMember(1)
-  tourDifficultyId: string
-  // ProtoMember(2)
-  tourDifficultyNumber: number
-  // ProtoMember(3)
-  managerLevel: number
-  // ProtoMember(4)
+
+export type FanEvent = {
+  id: string
+  name: string
+  subName: string
+  type: ActivityFanEventType
   unlockConditionId: string
-  // ProtoMember(5)
-  unlocked: boolean
-}
-export type TourEffectActivity = {
-  // ProtoMember(1)
-  itemId: string
-  // ProtoMember(2)
-  amount: number
-  // ProtoMember(3)
+  isUnlocked: boolean
   activityPerformanceId: string
-  // ProtoMember(5)
-  activityPromotionSubGenre: string
+  level: number
+  exp: number
+  nextLevelRequiredExp: number
+  requiredStamina: number
+  nextLevelUnlockConditionId: string
+  isNextLevelUnlocked: boolean
+  stepConsumptionStamina: number
+  fixedRewardId: string
+  additionalRewardId: string
+  rankSRewardId: string
+  rankARewardId: string
+  rankBRewardId: string
+  rankCRewardId: string
+  rankDRewardId: string
+  viewConditionId: string
+  campaignDropRewardIds: string[]
 }
-export type TourEffectLive = {
-  // ProtoMember(1)
-  musicId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  stageId: string
-  // ProtoMember(4)
-  musicChartPatternId: string
-  // ProtoMember(5)
-  maxCapacity: number
-  // ProtoMember(6)
-  mentalThreshold: number
-  // ProtoMember(7)
-  clearScore: string
-  // ProtoMember(8)
-  rewardId: string
-  // ProtoMember(9)
-  difficultyLevel: number
-  // ProtoMember(10)
-  tourQuestSettingId: string
+
+export type FanEventCharacterInfo = {
+  characterId: string
+  costumeId: string
+  activityStamina: number
+  completedStep: number
+  finishTime: string
+  activityPoint: number
+  maxStep: number
+  lastSavedActivityPoint: number
+  hairId: string
 }
-export type TourEffectPvp = {
-  // ProtoMember(1)
-  musicId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  stageId: string
-  // ProtoMember(4)
-  musicChartPatternId: string
-  // ProtoMember(5)
-  maxCapacity: number
-  // ProtoMember(6)
-  mentalThreshold: number
-  // ProtoMember(7)
-  clearScore: string
-  // ProtoMember(8)
-  opponentInfo: TourOpponentInfo
-  // ProtoMember(9)
-  scoutInfo: TourScoutInfo
-  // ProtoMember(10)
-  rewardId: string
-  // ProtoMember(11)
-  tourQuestSettingId: string
-}
-export type TourEffectRefresh = {
-  // ProtoMember(1)
-  amountPermil: number
-  // ProtoMember(2)
+
+export type FanEventProgress = {
+  activityFanEventId: string
+  activityFanEventName: string
+  activityFanEventSubName: string
+  activityFanEventType: ActivityFanEventType
+  activityFanEventLevel: number
+  characters: FanEventCharacterInfo[]
+  startTime: string
+  stepConsumptionStamina: number
+  stepActivityPointCoefficientPermil: number
+  rankPatterns: FanEventRankPattern[]
+  usedSuperModeItem: boolean
   activityPerformanceId: string
-  // ProtoMember(4)
-  activityRefreshSubGenre: string
+  maleNpcSpineId: string
+  femaleNpcSpineId: string
+  specialFanCheerPoint: number
+  currentCheerPoint: number
+  newSpecialFansCount: number
+  speedRate: number
 }
-export type TourRankingInfo = {
-  // ProtoMember(1)
+
+export type FanEventRankingInfo = {
+  rank: string
+  score: string
   userId: string
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
   managerLevel: number
-  // ProtoMember(4)
-  point: string
-  // ProtoMember(5)
-  rank: number
-  // ProtoMember(6)
+  characterIds: string[]
   emblemId: string
 }
-export type TourRankingRewardInfo = {
-  // ProtoMember(1)
+
+export type FavoriteCardInfo = {
+  cardId: string
+  rarity: number
+}
+
+export type GachaButtonInfo = {
+  id: string
+  todayCount: number
+  totalCount: number
+  drawTime: string
+}
+
+export type GachaContinuousInfo = {
+  totalDrawCount: number
+  cardIds: string[]
+  isFinished: boolean
+  externalRewardInfo: ExternalRewardInfo
+}
+
+export type GachaContinuousResult = {
+  totalDrawCount: number
+  cardIds: string[]
+  resultType: GachaContinuousResultType
+  externalRewardInfo: ExternalRewardInfo
+}
+
+export type GachaExchangeInfo = {
+  id: string
+  exchangedCount: number
+  exchangedTime: string
+}
+
+export type GachaHistory = {
+  gachaType: GachaType
+  drawTime: string
+  gachaId: string
+  resourceType: ResourceType
+  resourceId: string
+  amount: number
+}
+
+export type GachaInfo = {
+  id: string
+  unlocked: boolean
+  buttons: GachaButtonInfo[]
+  exchanges: GachaExchangeInfo[]
+  itemGachaRewards: Reward[]
+  noticeInfo: NoticeInfo
+  selectedCardIds: string[]
+  premiumInfo: GachaPremiumInfo
+  continuousInfo: GachaContinuousInfo
+  stampInfo: GachaStampInfo
+}
+
+export type GachaPremiumInfo = {
+  fixedPremiumRewardRequiredDrawCount: number
+  premiumRewardIds: string[]
+  featuredRewards: Reward[]
+}
+
+export type GuildGvgMatchRankInfo = {
+  name: string
+  managerLevel: number
+  point: string
+  rank: number
+  emblemId: string
+}
+
+export type GuildGvgSeasonInfo = {
+  name: string
+  matchNumber: number
+  matchEndTime: string
+  guildRank: number
+  ranks: GuildGvgRankInfo[]
+  aggregateEndTime: string
+  isAggregate: boolean
+  preMatchResult: GuildGvgSeasonMatchResult
+  isRemainingChallenge: boolean
+  winRewardId: string
+  isCurrentMatchWin: boolean
+}
+
+export type GuildGvgSeasonMatchResult = {
+  matchNumber: number
+  opponentGuildId: string
+  point: string
+  opponentPoint: string
+  resultType: GvgMatchResultType
+  mvpInfo: GuildGvgMatchRankInfo
+}
+
+export type GuildParam = {
+  id: string
+  weaknessRank: number
+  memberAmountRank: number
+  prevSeasonResult: GuildGvgSeasonResult
+}
+
+export type GvgCurrentSeasonMatchInfo = {
+  matchNumber: number
+  endTime: string
+  opponentGuildId: string
+  opponentRank: number
+  opponentPoint: string
+  opponentWinCount: number
+  opponentLoseCount: number
+  opponentDrawCount: number
+}
+
+export type GvgGuildRankingRewardInfo = {
   rankFrom: number
-  // ProtoMember(2)
   rewardId: string
 }
-export type UserHierarchyInfo = {
-  // ProtoMember(1)
-  currentDetailGradeId: string
-  // ProtoMember(2)
+
+export type GvgRankingRewardInfo = {
+  order: number
+  rankRateFromPercent: number
+  rankFrom: number
+  rewardId: string
+  hierarchyVariablePoint: string
+}
+
+export type GvgSeasonInfo = {
+  id: string
+  name: string
+  startTime: string
+  aggregateEndTime: string
+  challengeRewardId: string
+  challengeItemId: string
+  winRewardId: string
+}
+
+export type GvgSeasonMatchInfo = {
+  matchNumber: number
+  opponentGuildId: string
+  point: string
+  opponentPoint: string
+  resultType: GvgMatchResultType
+  memberAmountWeightPermil: number
+  opponentMemberAmountWeightPermil: number
+}
+
+export type HierarchyChangeInfo = {
+  addHierarchyPoint: string
+  oldDetailGradeId: string
+  newDetailGradeId: string
   currentRank: number
-  // ProtoMember(3)
+}
+
+export type HierarchyDivisionRewardInfo = {
+  hierarchyDivisionRewardId: string
+  canReceive: boolean
+  haveReceived: boolean
+  firstUserInfo: ProfileInfo
+}
+
+export type HierarchyNotiInfo = {
+  rewardIds: string[]
+  divisionRewardIds: string[]
+  currentDetailGradeId: string
+  currentRank: number
+}
+
+export type HierarchyProfileInfo = {
+  detailGradeId: string
+  rank: number
+}
+
+export type HierarchyRankUserInfo = {
+  userId: string
+  currentRank: number
+  managerName: string
+  managerLevel: number
+  currentDetailGradeId: string
   currentPoint: string
-}
-export type AccessoryEnhanceRequest = {
-  // ProtoMember(1)
-  accessoryId: string
-  // ProtoMember(2)
-  count: number
-}
-export type AccessoryEnhanceResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type AccessoryLimitBreakRequest = {
-  // ProtoMember(1)
-  accessoryId: string
-  // ProtoMember(2)
-  isInUse: boolean
-}
-export type AccessoryLimitBreakResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type AccessorySellRequest = {
-  // ProtoMember(1)
-  accessoryId: string
-  // ProtoMember(2)
-  count: number
-}
-export type AccessorySellResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityStartFanEventRequest = {
-  // ProtoMember(1)
-  activityFanEventId: string
-  // ProtoMember(2)
-  characterIds: string[]
-  // ProtoMember(3)
-  costumeIds: string[]
-  // ProtoMember(4)
-  itemIds: string[]
-}
-export type ActivityStartFanEventResponse = {
-  // ProtoMember(1)
-  progress: FanEventProgress
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityLoadFanEventResponse = {
-  // ProtoMember(1)
-  progress: FanEventProgress
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityFetchFanEventStepsRequest = {
-  // ProtoMember(1)
-  steps: number[]
-}
-export type ActivityFetchFanEventStepsResponse = {
-  // ProtoMember(1)
-  characterSteps: FanEventCharacterSteps[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivitySaveFanEventRequest = {
-  // ProtoMember(1)
-  characterResults: FanEventCharacterResult[]
-  // ProtoMember(2)
-  useItemId: string
-  // ProtoMember(3)
-  execCheer: boolean
-}
-export type ActivitySaveFanEventResponse = {
-  // ProtoMember(1)
-  characterSteps: FanEventCharacterSteps[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityFinishFanEventResponse = {
-  // ProtoMember(1)
-  activityPoint: number
-  // ProtoMember(2)
-  rankType: ResultRankType
-  // ProtoMember(3)
-  plus: number
-  // ProtoMember(4)
-  rewards: Reward[]
-  // ProtoMember(5)
-  rankPatterns: FanEventRankPattern[]
-  // ProtoMember(6)
-  activityLevelProgress: ActivityLevelProgress
-  // ProtoMember(7)
-  characters: ActivityCharacterInfo[]
-  // ProtoMember(8)
-  campaignEffects: ActivityCampaignEffect[]
-  // ProtoMember(9)
-  campaignDropRewards: Reward[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityGetFanEventRankingRequest = {
-  // ProtoMember(1)
-  activityFanEventId: string
-}
-export type ActivityGetFanEventRankingResponse = {
-  // ProtoMember(1)
-  selfRank: string
-  // ProtoMember(2)
-  selfScore: string
-  // ProtoMember(3)
-  rankInfos: FanEventRankingInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityStartPromotionRequest = {
-  // ProtoMember(1)
-  activityPromotionId: string
-  // ProtoMember(2)
-  characterIds: string[]
-  // ProtoMember(3)
-  costumeIds: string[]
-}
-export type ActivityStartPromotionResponse = {
-  // ProtoMember(1)
-  progress: PromotionProgress
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityLoadPromotionResponse = {
-  // ProtoMember(1)
-  progress: PromotionProgress
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityUsePromotionItemRequest = {
-  // ProtoMember(1)
-  itemId: string
-  // ProtoMember(2)
-  amount: number
-}
-export type ActivityUsePromotionItemResponse = {
-  // ProtoMember(1)
-  progress: PromotionProgress
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityReceivePromotionRewardResponse = {
-  // ProtoMember(1)
-  rewards: Reward[]
-  // ProtoMember(2)
-  bonusRewards: Reward[]
-  // ProtoMember(3)
-  completedStep: number
-  // ProtoMember(4)
-  progress: PromotionProgress
-  // ProtoMember(5)
-  activityLevelProgress: ActivityLevelProgress
-  // ProtoMember(6)
-  campaignEffects: ActivityCampaignEffect[]
-  // ProtoMember(7)
-  campaignDropRewards: Reward[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityFetchPromotionStepsRequest = {
-  // ProtoMember(1)
-  step: number
-}
-export type ActivityFetchPromotionStepsResponse = {
-  // ProtoMember(1)
-  steps: PromotionStep[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityFinishPromotionResponse = {
-  // ProtoMember(1)
-  rewards: Reward[]
-  // ProtoMember(2)
-  bonusRewards: Reward[]
-  // ProtoMember(3)
-  activityLevelProgress: ActivityLevelProgress
-  // ProtoMember(4)
-  totalSteps: number
-  // ProtoMember(5)
-  characters: ActivityCharacterInfo[]
-  // ProtoMember(6)
-  campaignEffects: ActivityCampaignEffect[]
-  // ProtoMember(7)
-  campaignDropRewards: Reward[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityStartRefreshRequest = {
-  // ProtoMember(1)
-  activityRefreshId: string
-  // ProtoMember(2)
-  activityRefreshLevel: number
-  // ProtoMember(3)
-  characterIds: string[]
-  // ProtoMember(4)
-  costumeIds: string[]
-}
-export type ActivityStartRefreshResponse = {
-  // ProtoMember(1)
-  progress: RefreshProgress
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityLoadRefreshResponse = {
-  // ProtoMember(1)
-  progress: RefreshProgress
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityUseRefreshItemRequest = {
-  // ProtoMember(1)
-  itemId: string
-  // ProtoMember(2)
-  amount: number
-}
-export type ActivityUseRefreshItemResponse = {
-  // ProtoMember(1)
-  progress: RefreshProgress
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityFinishRefreshResponse = {
-  // ProtoMember(1)
-  activityLevelProgress: ActivityLevelProgress
-  // ProtoMember(2)
-  characters: ActivityCharacterInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityReceiveLessonRewardResponse = {
-  // ProtoMember(1)
-  rewards: Reward[]
-  // ProtoMember(2)
-  progress: ActivityLessonProgress
-  // ProtoMember(3)
-  campaignEffects: ActivityCampaignEffect[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ActivityPromoteLessonRequest = {
-  // ProtoMember(1)
-  isFree: boolean
-}
-export type ActivityPromoteLessonResponse = {
-  // ProtoMember(1)
-  rewards: Reward[]
-  // ProtoMember(2)
-  progress: ActivityLessonProgress
-  // ProtoMember(3)
-  campaignEffects: ActivityCampaignEffect[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type FanEventCharacterSteps = {
-  // ProtoMember(1)
-  characterId: string
-  // ProtoMember(2)
-  steps: FanEventStep[]
-}
-export type FanEventStep = {
-  // ProtoMember(1)
-  step: number
-  // ProtoMember(2)
-  happenings: FanEventHappening[]
-  // ProtoMember(3)
-  itemEffects: FanEventItemEffect[]
-}
-export type FanEventHappening = {
-  // ProtoMember(1)
-  type: ActivityFanEventHappeningType
-  // ProtoMember(2)
-  characterId: string
-}
-export type FanEventItemEffect = {
-  // ProtoMember(1)
-  type: ItemType
-  // ProtoMember(2)
-  value: number
-}
-export type FanEventCharacterResult = {
-  // ProtoMember(1)
-  characterId: string
-  // ProtoMember(2)
-  stepResults: FanEventStepResult[]
-}
-export type FanEventStepResult = {
-  // ProtoMember(1)
-  step: number
-  // ProtoMember(2)
-  reductionMilliSeconds: string
-  // ProtoMember(3)
-  activityPoint: number
-}
-export type PromotionStep = {
-  // ProtoMember(1)
-  step: number
-  // ProtoMember(2)
-  rewards: ActivityPromotionReward[]
-}
-export type AuthCreateRequest = {
-  // ProtoMember(1)
-  firebaseUID: string
-}
-export type AuthCreateResponse = {
-  // ProtoMember(1)
-  firebaseCustomToken: string
-}
-export type AuthLoginRequest = {
-  // ProtoMember(1)
-  firebaseIDToken: string
-}
-export type AuthLoginResponse = {
-  // ProtoMember(1)
-  gameAuthToken: string
-  // ProtoMember(2)
-  userPublic: UserPublic
-  // ProtoMember(3)
-  requiredFirebaseReauthenticate: boolean
-}
-export type BacksideTopRequest = {
-  // ProtoMember(1)
-  backsideId: string
-}
-export type BacksideTopResponse = {
-  // ProtoMember(1)
-  backsideInfo: BacksideInfo
-  // ProtoMember(2)
-  dokanInfos: DokanInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideRankingRequest = {
-  // ProtoMember(1)
-  backsideId: string
-}
-export type BacksideRankingResponse = {
-  // ProtoMember(1)
-  rankingInfos: BacksideRankingInfo[]
-  // ProtoMember(2)
-  selfFinalScore: string
-  // ProtoMember(3)
-  selfRank: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideStageStartRequest = {
-  // ProtoMember(1)
-  backsideId: string
-  // ProtoMember(2)
-  number: number
-  // ProtoMember(3)
-  deckNumber: string
-  // ProtoMember(4)
-  difficultyNumber: number
-}
-export type BacksideStageStartResponse = {
-  // ProtoMember(1)
-  stageInfo: BacksideStageInfo
-  // ProtoMember(2)
-  execPanelLocationInfo: BacksideExecPanelLocationInfo
-  // ProtoMember(3)
-  halfwayLiveBonusChoices: BacksideLiveBonus[]
-  // ProtoMember(4)
-  halfwaySurpriseInfo: BacksideSurpriseInfo
-  // ProtoMember(5)
-  halfwayPracticeClearInfo: BacksidePracticeStageClearInfo
-  // ProtoMember(6)
-  isForceRetired: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideStageActionRequest = {
-  // ProtoMember(1)
-  backsideId: string
-  // ProtoMember(2)
-  pieceNumber: number
-  // ProtoMember(3)
-  radiusNumber: number
-  // ProtoMember(4)
-  panelNumber: number
-  // ProtoMember(5)
-  isSkip: boolean
-}
-export type BacksideStageActionResponse = {
-  // ProtoMember(1)
-  stageProgressInfo: BacksideStageProgressInfo
-  // ProtoMember(2)
-  liveBonusChoices: BacksideLiveBonus[]
-  // ProtoMember(3)
-  isScheduled: boolean
-  // ProtoMember(4)
-  liveInfo: BacksideLiveInfo
-  // ProtoMember(5)
-  practiceClearInfo: BacksidePracticeStageClearInfo
-  // ProtoMember(6)
-  finalClearInfo: BacksideFinalStageClearInfo
-  // ProtoMember(7)
-  surpriseInfo: BacksideSurpriseInfo
-  // ProtoMember(8)
-  isForceRetired: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideStageLiveBonusRequest = {
-  // ProtoMember(1)
-  backsideId: string
-  // ProtoMember(2)
-  liveBonusId: string
-}
-export type BacksideStageLiveBonusResponse = {
-  // ProtoMember(1)
-  stageProgressInfo: BacksideStageProgressInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideStagePracticeUpdateRequest = {
-  // ProtoMember(1)
-  backsideId: string
-  // ProtoMember(2)
-  isUpdate: boolean
-}
-export type BacksideStagePracticeUpdateResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideStageResetRequest = {
-  // ProtoMember(1)
-  backsideId: string
-  // ProtoMember(2)
-  isInGame: boolean
-}
-export type BacksideStageResetResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideStageSurpriseFinishRequest = {
-  // ProtoMember(1)
-  backsideId: string
-}
-export type BacksideStageSurpriseFinishResponse = {
-  // ProtoMember(1)
-  stageProgressInfo: BacksideStageProgressInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideStageDeckPositionChangeRequest = {
-  // ProtoMember(1)
-  backsideId: string
-  // ProtoMember(2)
-  deckPositionInfos: BacksideDeckPositionInfo[]
-}
-export type BacksideStageDeckPositionChangeResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type BacksideInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  type: BacksideType
-  // ProtoMember(4)
-  startTime: string
-  // ProtoMember(5)
-  endTime: string
-  // ProtoMember(6)
-  aggregateEndTime: string
-  // ProtoMember(7)
-  exchangeEndTime: string
-  // ProtoMember(8)
-  assetId: string
-  // ProtoMember(9)
-  eventStoryInfo: EventStoryInfo
-  // ProtoMember(10)
-  eventMissionInfo: EventMissionInfo
-  // ProtoMember(11)
-  eventExchangeBoothInfo: EventExchangeBoothInfo
-  // ProtoMember(12)
-  noticeInfo: NoticeInfo
-  // ProtoMember(13)
-  areaInfo: BacksideAreaInfo
-  // ProtoMember(14)
-  rankingRewardInfos: BacksideRankingRewardInfo[]
-  // ProtoMember(15)
-  realScore: string
-  // ProtoMember(16)
-  realScoreTime: string
-  // ProtoMember(17)
-  rank: string
-  // ProtoMember(18)
-  stageStamina: string
-  // ProtoMember(19)
-  stageStaminaUpdatedTime: string
-  // ProtoMember(20)
-  stageStaminaRecoveryMinutes: number
-}
-export type BacksideAreaInfo = {
-  // ProtoMember(1)
-  areaId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  type: BacksideAreaType
-  // ProtoMember(4)
-  assetId: string
-  // ProtoMember(10)
-  backsideDifficultyInfos: BacksideDifficultyInfo[]
-  // ProtoMember(11)
-  currentDifficultyNumber: number
-  // ProtoMember(12)
-  lastChallengeDifficultyNumber: number
-  // ProtoMember(13)
-  difficultyType: BacksideDifficultyType
-}
-export type BacksidePracticeStageTotalResultInfo = {
-  // ProtoMember(1)
-  practiceRankType: BacksidePracticeRankType
-  // ProtoMember(2)
-  practiceRankPlus: number
-  // ProtoMember(3)
-  practiceScore: string
-  // ProtoMember(4)
-  practiceLiveBonusInfos: BacksideLiveBonusInfo[]
-}
-export type BacksidePracticeStageResultInfo = {
-  // ProtoMember(1)
-  practiceRankType: BacksidePracticeRankType
-  // ProtoMember(2)
-  practiceRankPlus: number
-  // ProtoMember(3)
-  practiceScore: string
-  // ProtoMember(4)
-  deckCardInfos: BacksideDeckCardInfo[]
-  // ProtoMember(5)
-  liveBonuses: BacksideLiveBonus[]
-}
-export type BacksideFinalStageResultInfo = {
-  // ProtoMember(1)
-  totalPracticeRankType: BacksidePracticeRankType
-  // ProtoMember(2)
-  totalPracticeRankPlus: number
-  // ProtoMember(3)
-  totalPracticeScore: string
-  // ProtoMember(4)
-  finalRankType: ResultRankType
-  // ProtoMember(5)
-  finalRankPlus: number
-  // ProtoMember(6)
-  finalScore: string
-  // ProtoMember(7)
-  deckCardInfos: BacksideDeckCardInfo[]
-  // ProtoMember(8)
-  allLiveBonusInfos: BacksideLiveBonusInfo[]
-  // ProtoMember(9)
-  practiceScore: string
-}
-export type BacksidePracticeStageHalfwayInfo = {
-  // ProtoMember(1)
-  passedActionCount: number
-  // ProtoMember(2)
-  practiceScore: string
-  // ProtoMember(3)
-  deckCardInfos: BacksideDeckCardInfo[]
-  // ProtoMember(4)
-  liveBonuses: BacksideLiveBonus[]
-}
-export type BacksideFinalStageHalfwayInfo = {
-  // ProtoMember(1)
-  passedActionCount: number
-  // ProtoMember(2)
-  deckCardInfos: BacksideDeckCardInfo[]
-  // ProtoMember(3)
-  allLiveBonusInfos: BacksideLiveBonusInfo[]
-  // ProtoMember(4)
-  practiceScore: string
-  // ProtoMember(5)
-  totalPracticeScore: string
-}
-export type BacksideLiveBonusInfo = {
-  // ProtoMember(1)
-  stageNumber: number
-  // ProtoMember(2)
-  stageType: BacksideStageType
-  // ProtoMember(3)
-  stageName: string
-  // ProtoMember(4)
-  liveBonuses: BacksideLiveBonus[]
-}
-export type BacksideStageInfo = {
-  // ProtoMember(1)
-  panelInfos: BacksidePanelInfo[]
-  // ProtoMember(2)
-  scheduleInfos: BacksideScheduleInfo[]
-  // ProtoMember(3)
-  nextActionCount: string
-  // ProtoMember(4)
-  practiceScore: string
-  // ProtoMember(5)
-  deckCardDetailInfos: BacksideDeckCardDetailInfo[]
-  // ProtoMember(6)
-  deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
-  // ProtoMember(7)
-  liveBonuses: BacksideLiveBonus[]
-  // ProtoMember(8)
-  allLiveBonusInfos: BacksideLiveBonusInfo[]
-  // ProtoMember(9)
-  cardLiveAbilityInfos: BacksideCardLiveAbilityInfo[]
-  // ProtoMember(10)
-  totalPracticeScore: string
-  // ProtoMember(11)
-  deckUserCharacters: UserCharacter[]
-  // ProtoMember(12)
-  baseDeckOverallValue: string
-}
-export type BacksideStageProgressInfo = {
-  // ProtoMember(1)
-  panelInfos: BacksidePanelInfo[]
-  // ProtoMember(2)
-  nextActionCount: string
-  // ProtoMember(3)
-  practiceScore: string
-  // ProtoMember(4)
-  deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
-  // ProtoMember(5)
-  liveBonuses: BacksideLiveBonus[]
-  // ProtoMember(6)
-  execPanelLocationInfo: BacksideExecPanelLocationInfo
-  // ProtoMember(7)
-  totalPracticeScore: string
-  // ProtoMember(8)
-  deckCardDetailInfos: BacksideDeckCardDetailInfo[]
-}
-export type BacksidePanelInfo = {
-  // ProtoMember(1)
-  pieceNumber: number
-  // ProtoMember(2)
-  radiusNumber: number
-  // ProtoMember(3)
-  panelNumber: number
-  // ProtoMember(4)
-  panelType: BacksidePanelType
-  // ProtoMember(5)
-  panelAttributeType: BacksidePanelAttributeType
-  // ProtoMember(6)
-  panelRank: number
-  // ProtoMember(7)
-  panelGoalInfo: BacksidePanelGoalInfo
-  // ProtoMember(8)
-  panelLiveInfo: BacksidePanelLiveInfo
-  // ProtoMember(9)
-  panelPvpInfo: BacksidePanelPvpInfo
-  // ProtoMember(10)
-  panelStaminaInfo: BacksidePanelStaminaInfo
-  // ProtoMember(11)
-  haveExecuted: boolean
-  // ProtoMember(12)
-  canAction: boolean
-}
-export type BacksideOpponentInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  managerLevel: number
-  // ProtoMember(3)
-  cardInfos: LiveBattleCardInfo[]
-}
-export type BacksidePanelStaminaInfo = {
-  // ProtoMember(1)
-  staminaConsumptionAmount: number
-  // ProtoMember(2)
-  staminaRecoveryAmount: number
-}
-export type BacksideScheduleInfo = {
-  // ProtoMember(1)
-  actionCount: number
-  // ProtoMember(2)
-  panelType: BacksidePanelType
-}
-export type BacksideLiveInfo = {
-  // ProtoMember(1)
-  result: LiveResult
-  // ProtoMember(2)
-  rankType: ResultRankType
-  // ProtoMember(3)
-  rankPlus: number
-  // ProtoMember(4)
-  rankPatterns: QuestRankPattern[]
-}
-export type BacksidePracticeStageClearInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  practiceRankType: BacksidePracticeRankType
-  // ProtoMember(3)
-  practiceRankPlus: number
-  // ProtoMember(4)
-  practiceScore: string
-  // ProtoMember(5)
-  liveBonuses: BacksideLiveBonus[]
-  // ProtoMember(6)
-  lastPracticeRankType: BacksidePracticeRankType
-  // ProtoMember(7)
-  lastPracticeRankPlus: number
-  // ProtoMember(8)
-  lastPracticeScore: string
-  // ProtoMember(9)
-  lastLiveBonuses: BacksideLiveBonus[]
-  // ProtoMember(10)
-  firstClearRewardResults: RewardResult[]
-  // ProtoMember(11)
-  firstPracticeRankRewardResults: RewardResult[]
-  // ProtoMember(12)
-  loopPracticeRankRewardResults: RewardResult[]
-}
-export type BacksideFinalStageClearInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  finalRankType: ResultRankType
-  // ProtoMember(3)
-  finalRankPlus: number
-  // ProtoMember(4)
-  finalScore: string
-  // ProtoMember(5)
-  firstClearRewardResults: RewardResult[]
-  // ProtoMember(6)
-  firstFinalRankRewardResults: RewardResult[]
-  // ProtoMember(7)
-  isBest: boolean
-  // ProtoMember(8)
-  newRank: string
-  // ProtoMember(9)
-  practiceScore: string
-  // ProtoMember(10)
-  totalPracticeScore: string
-  // ProtoMember(11)
-  loopFinalRankRewardResults: RewardResult[]
-  // ProtoMember(12)
-  difficultyAreaRewardResults: RewardResult[]
-}
-export type BacksideSurpriseInfo = {
-  // ProtoMember(1)
-  advAssetId: string
-  // ProtoMember(2)
-  liveBonus: BacksideLiveBonus
-}
-export type BacksideExecPanelLocationInfo = {
-  // ProtoMember(1)
-  pieceNumber: number
-  // ProtoMember(2)
-  radiusNumber: number
-  // ProtoMember(3)
-  panelNumber: number
-}
-export type BacksideDeckPositionInfo = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  newPosition: number
-}
-export type CardEnhanceRequest = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  level: number
-}
-export type CardEnhanceResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CardLimitBreakRequest = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  rarity: number
-}
-export type CardLimitBreakResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CardSkillEnhanceRequest = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  skillId: string
-}
-export type CardSkillEnhanceResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CardLiveAbilityEnhanceRequest = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  abilityId: string
-}
-export type CardLiveAbilityEnhanceResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CardActivityAbilityEnhanceRequest = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  abilityId: string
-}
-export type CardActivityAbilityEnhanceResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CardResetRequest = {
-  // ProtoMember(1)
-  cardId: string
-}
-export type CardResetResponse = {
-  // ProtoMember(1)
-  rewards: Reward[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CardSetSupportRequest = {
-  // ProtoMember(1)
-  number: number
-  // ProtoMember(2)
-  cardId: string
-}
-export type CardSetSupportResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CardRemoveSupportRequest = {
-  // ProtoMember(1)
-  number: number
-}
-export type CardRemoveSupportResponse = {
-  // ProtoMember(1)
-  rewards: Reward[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CardReleaseSupportRequest = {
-  // ProtoMember(1)
-  useStone: boolean
-}
-export type CardReleaseSupportResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type LoginBonusPackageItem = {
-  // ProtoMember(1)
-  shopItem: ShopItem
-  // ProtoMember(2)
-  loginBonuses: ShopLoginBonus[]
-  // ProtoMember(3)
-  isPurchased: boolean
-}
-export type ConditionRewardPackageItem = {
-  // ProtoMember(1)
-  shopItem: ShopItem
-  // ProtoMember(2)
-  conditionRewards: ShopConditionReward[]
-  // ProtoMember(3)
-  isPurchased: boolean
-}
-export type LiveResult = {
-  // ProtoMember(1)
-  userInfos: LiveUserInfo[]
-  // ProtoMember(2)
-  activatedPassiveSkills: LiveSkill[]
-  // ProtoMember(3)
-  charts: LiveChart[]
-  // ProtoMember(4)
-  totalAudienceAmount: number
-  // ProtoMember(5)
-  cleared: boolean
-}
-export type LiveUserDeck = {
-  // ProtoMember(1)
+  emblemId: string
   deckName: string
-  // ProtoMember(2)
-  cards: LiveDeckCard[]
-  // ProtoMember(3)
-  bonusSkills: LiveDeckCardSkill[]
+  cardInfos: LastCardInfo[]
 }
-export type LiveChart = {
-  // ProtoMember(1)
-  number: number
-  // ProtoMember(2)
-  chartType: MusicChartType
-  // ProtoMember(3)
-  attributeType: AttributeType
-  // ProtoMember(4)
-  beats: LiveBeat[]
-  // ProtoMember(5)
-  activatedSkill: LiveSkill
-  // ProtoMember(6)
-  activatedPassiveSkills: LiveSkill[]
-  // ProtoMember(7)
-  userStatuses: LiveUserStatus[]
-  // ProtoMember(8)
-  cardStatuses: LiveCardStatus[]
+
+export type HierarchyRewardInfo = {
+  hierarchyRewardId: string
+  canReceive: boolean
+  haveReceived: boolean
 }
-export type LiveBeat = {
-  // ProtoMember(1)
-  order: number
-  // ProtoMember(2)
-  cardIndex: number
-  // ProtoMember(3)
-  score: string
-  // ProtoMember(4)
-  isCritical: boolean
-}
-export type LiveSkill = {
-  // ProtoMember(1)
-  order: number
-  // ProtoMember(2)
-  cardIndex: number
-  // ProtoMember(3)
-  skillIndex: number
-  // ProtoMember(4)
-  activated: boolean
-  // ProtoMember(5)
-  stamina: string
-  // ProtoMember(6)
-  score: string
-  // ProtoMember(7)
-  isCritical: boolean
-  // ProtoMember(8)
-  details: LiveSkillDetail[]
-  // ProtoMember(9)
-  failures: LiveSkillFailure[]
-  // ProtoMember(10)
-  isComboBreak: boolean
-  // ProtoMember(1001)
-  descriptions: LiveLogDescription[]
-}
-export type LiveSkillFailure = {
-  // ProtoMember(1)
-  cardIndex: number
-  // ProtoMember(2)
-  type: SkillFailureType
-  // ProtoMember(3)
-  eachFailureTypes: SkillFailureType[]
-}
-export type LiveSkillDetail = {
-  // ProtoMember(1)
-  efficacyIndex: number
-  // ProtoMember(2)
-  value: string
-  // ProtoMember(3)
-  statusType: StatusEffectType
-  // ProtoMember(4)
-  targetCardIndexes: number[]
-}
-export type LiveLogDescription = {
-  // ProtoMember(1)
-  message: string
-}
-export type LiveUserStatus = {
-  // ProtoMember(1)
-  userIndex: number
-  // ProtoMember(2)
-  currentComboCount: number
-  // ProtoMember(3)
-  totalScore: string
-}
-export type LiveCardStatus = {
-  // ProtoMember(1)
-  cardIndex: number
-  // ProtoMember(2)
-  stamina: string
-  // ProtoMember(3)
-  dance: string
-  // ProtoMember(4)
-  vocal: string
-  // ProtoMember(5)
-  visual: string
-  // ProtoMember(6)
-  effects: LiveCardStatusEffect[]
-  // ProtoMember(7)
-  skillStatuses: LiveSkillStatus[]
-}
-export type LiveCardStatusEffect = {
-  // ProtoMember(1)
-  statusType: StatusEffectType
-  // ProtoMember(2)
-  skillEfficacyType: SkillEfficacyType
-  // ProtoMember(3)
-  value: string
-  // ProtoMember(4)
-  grade: number
-  // ProtoMember(5)
-  remainEffectedChartCount: number
-  // ProtoMember(6)
-  maxGrade: number
-  // ProtoMember(7)
-  value2: string
-}
-export type LiveSkillStatus = {
-  // ProtoMember(1)
-  skillIndex: number
-  // ProtoMember(2)
-  remainCount: number
-  // ProtoMember(3)
-  coolTime: number
-}
-export type LiveUserResult = {
-  // ProtoMember(1)
-  score: string
-  // ProtoMember(2)
-  criticalCount: number
-  // ProtoMember(3)
-  hitCount: number
-  // ProtoMember(4)
-  missCount: number
-  // ProtoMember(5)
-  maxComboCount: number
-  // ProtoMember(6)
-  cardResults: LiveCardResult[]
-}
-export type PvpOpponentInfo = {
-  // ProtoMember(1)
-  opponentId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  managerLevel: number
-  // ProtoMember(4)
-  point: string
-  // ProtoMember(5)
-  rank: number
-  // ProtoMember(6)
-  cardInfos: LiveBattleCardInfo[]
-}
-export type GvgOpponentInfo = {
-  // ProtoMember(1)
-  opponentId: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  managerLevel: number
-  // ProtoMember(4)
-  cardInfos: LiveBattleCardInfo[]
-}
-export type QuestRankPattern = {
-  // ProtoMember(1)
-  rankType: ResultRankType
-  // ProtoMember(2)
-  plus: number
-  // ProtoMember(3)
-  thresholdScore: string
-}
-export type ActivityPromotionReward = {
-  // ProtoMember(1)
-  resourceType: ResourceType
-  // ProtoMember(2)
-  resourceId: string
-  // ProtoMember(3)
-  amount: string
-  // ProtoMember(4)
-  isRare: boolean
-}
-export type AllProfileInfo = {
-  // ProtoMember(1)
-  profile: ProfileInfo
-  // ProtoMember(2)
-  hierarchy: HierarchyProfileInfo
-}
-export type FavoritePhotoInfo = {
-  // ProtoMember(1)
-  photoId: string
-  // ProtoMember(2)
-  assetId: string
-  // ProtoMember(3)
-  imageType: PhotoImageType
-}
-export type NoticeInfo = {
-  // ProtoMember(1)
+
+export type HomeBacksideInfo = {
   id: string
-  // ProtoMember(2)
-  title: string
-  // ProtoMember(3)
-  bannerAssetId: string
-  // ProtoMember(4)
-  linkType: LinkType
-  // ProtoMember(5)
-  linkDetail: string
-  // ProtoMember(6)
-  displayNotification: boolean
-  // ProtoMember(7)
+  name: string
   startTime: string
-  // ProtoMember(8)
-  listTitle: string
-}
-export type PaidJpy = {
-  // ProtoMember(1)
-  amount: number
-}
-export type FanEventRankPattern = {
-  // ProtoMember(1)
-  rankType: ResultRankType
-  // ProtoMember(2)
-  plus: number
-  // ProtoMember(3)
-  thresholdPoint: number
-}
-export type ActivityLevelProgress = {
-  // ProtoMember(1)
-  maxActivityLevel: number
-  // ProtoMember(2)
-  before: ActivityLevelInfo
-  // ProtoMember(3)
-  after: ActivityLevelInfo
-}
-export type ActivityLevelInfo = {
-  // ProtoMember(1)
-  exp: number
-  // ProtoMember(2)
-  level: number
-  // ProtoMember(3)
-  nextLevelLocked: boolean
-}
-export type ActivityCampaignEffect = {
-  // ProtoMember(1)
-  type: ActivityCampaignEffectType
-  // ProtoMember(2)
-  value: number
-  // ProtoMember(3)
   endTime: string
-}
-export type EventStoryEpisodeInfo = {
-  // ProtoMember(1)
-  episode: number
-  // ProtoMember(2)
-  unlocked: boolean
-}
-export type EventExchangeBoothInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
+  aggregateEndTime: string
+  exchangeEndTime: string
+  assetId: string
   bannerAssetId: string
-  // ProtoMember(4)
-  requiredResourceType: ResourceType
-  // ProtoMember(5)
-  requiredResourceId: string
-}
-export type PvpSeasonInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  startTime: string
-  // ProtoMember(4)
-  endTime: string
-  // ProtoMember(5)
-  aggregateEndTime: string
-  // ProtoMember(6)
-  challengeCount: number
-}
-export type CurrentGvgInfo = {
-  // ProtoMember(1)
-  gvgSeason: GvgSeasonInfo
-  // ProtoMember(2)
-  isRemainingChallenge: boolean
-}
-export type HomeEventInfo = {
-  // ProtoMember(1)
-  eventMissionInfos: HomeEventMissionInfo[]
-  // ProtoMember(2)
-  tourInfos: HomeTourInfo[]
-  // ProtoMember(3)
-  backsideInfos: HomeBacksideInfo[]
-  // ProtoMember(4)
-  marathonInfos: HomeMarathonInfo[]
-  // ProtoMember(5)
-  photoContestInfos: HomePhotoContestInfo[]
-}
-export type QuestReward = {
-  // ProtoMember(1)
-  clearRewards: RewardResult[]
-  // ProtoMember(2)
-  scoreRankRewards: RewardResult[]
-  // ProtoMember(3)
-  scoreRankAdditionalRewards: RewardResult[]
-  // ProtoMember(4)
-  musicMasteryRewards: Reward[]
-  // ProtoMember(5)
-  achievedRankRewards: Reward[]
-  // ProtoMember(6)
-  rewardCards: QuestRewardCard[]
-  // ProtoMember(7)
-  campaignDropRewards: RewardResult[]
-}
-export type QuestOpponentInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  managerLevel: number
-  // ProtoMember(3)
-  cardInfos: LiveBattleCardInfo[]
-}
-export type BoxGachaDrawResult = {
-  // ProtoMember(1)
-  itemType: BoxGachaItemType
-  // ProtoMember(2)
-  rewards: Reward[]
-  // ProtoMember(3)
-  liveBonusId: string
-}
-export type DokanInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  type: DokanType
-  // ProtoMember(3)
-  advAssetId: string
-  // ProtoMember(4)
-  noticeInfo: NoticeInfo
-  // ProtoMember(5)
-  shopItem: ShopItem
-  // ProtoMember(6)
-  assetId: string
-  // ProtoMember(7)
-  description: string
-  // ProtoMember(8)
-  name: string
-  // ProtoMember(9)
-  shopType: ShopType
-}
-export type UserDeckPosition = {
-  // ProtoMember(2)
-  position: number
-  // ProtoMember(3)
-  cardId: string
-  // ProtoMember(4)
-  part1AccessoryId: string
-  // ProtoMember(5)
-  part2AccessoryId: string
-  // ProtoMember(6)
-  photoIds: string[]
-  // ProtoMember(7)
-  costumeId: string
-}
-export type CommonResponse = {
-  // ProtoMember(1)
-  updatedData: UpdatedData
-  // ProtoMember(2)
-  deletedData: DeletedData
-}
-export type UpdatedData = {
-  // ProtoMember(1)
-  user: User
-  // ProtoMember(2)
-  items: UserItem[]
-  // ProtoMember(3)
-  cards: UserCard[]
-  // ProtoMember(4)
-  characters: UserCharacter[]
-  // ProtoMember(5)
-  costumes: UserCostume[]
-  // ProtoMember(6)
-  accessories: UserAccessory[]
-  // ProtoMember(7)
-  photos: UserPhoto[]
-  // ProtoMember(8)
-  decks: UserDeck[]
-  // ProtoMember(9)
-  deckPositions: UserDeckPosition[]
-  // ProtoMember(10)
-  stories: UserStory[]
-  // ProtoMember(11)
-  points: UserPoint[]
-  // ProtoMember(12)
-  staffs: UserStaff[]
-  // ProtoMember(13)
-  messages: UserMessage[]
-  // ProtoMember(14)
-  telephones: UserTelephone[]
-  // ProtoMember(15)
-  missions: UserMission[]
-  // ProtoMember(16)
-  profile: UserProfile
-  // ProtoMember(17)
-  emblems: UserEmblem[]
-  // ProtoMember(18)
-  characterMusics: UserCharacterMusic[]
-  // ProtoMember(19)
-  balance: UserBalance
-  // ProtoMember(20)
-  totalCount: UserTotalCount
-  // ProtoMember(21)
-  areas: UserArea[]
-  // ProtoMember(22)
-  quests: UserQuest[]
-  // ProtoMember(23)
-  gachaButtons: UserGachaButton[]
-  // ProtoMember(24)
-  homeTalks: UserHomeTalk[]
-  // ProtoMember(25)
-  photoReport: UserPhotoReport
-  // ProtoMember(26)
-  cardSupports: UserCardSupport[]
-  // ProtoMember(27)
-  messageSchedules: UserMessageSchedule[]
-  // ProtoMember(28)
-  notifications: UserNotification[]
-  // ProtoMember(29)
-  hierarchy: UserHierarchy
-  // ProtoMember(30)
-  tutorials: UserTutorial[]
-  // ProtoMember(31)
-  homePositions: UserHomePosition[]
-  // ProtoMember(32)
-  musics: UserMusic[]
-  // ProtoMember(33)
-  decorations: UserDecoration[]
-}
-export type DeletedData = {
-  // ProtoMember(1)
-  items: UserItem[]
-  // ProtoMember(2)
-  accessories: UserAccessory[]
-  // ProtoMember(3)
-  photos: UserPhoto[]
-  // ProtoMember(4)
-  decks: UserDeck[]
-  // ProtoMember(5)
-  deckPositions: UserDeckPosition[]
-  // ProtoMember(6)
-  points: UserPoint[]
-  // ProtoMember(7)
-  messageSchedules: UserMessageSchedule[]
-  // ProtoMember(9)
-  stories: UserStory[]
-}
-export type CostumeSetRequest = {
-  // ProtoMember(1)
-  costumeId: string
-}
-export type CostumeSetResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CostumeLiveSetRequest = {
-  // ProtoMember(1)
-  costumeId: string
-}
-export type CostumeLiveSetResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type CostumeCheckRequest = {
-  // ProtoMember(1)
-  costumeId: string
-}
-export type CostumeCheckResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type DeckSaveRequest = {
-  // ProtoMember(1)
-  number: number
-  // ProtoMember(2)
-  name: string
-  // ProtoMember(3)
-  userDeckPositions: UserDeckPosition[]
-  // ProtoMember(4)
-  deckEditType: DeckEditType
-  // ProtoMember(5)
-  questId: string
-}
-export type DeckSaveResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type DeckDeleteRequest = {
-  // ProtoMember(1)
-  number: number
-}
-export type DeckDeleteResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type DiaryGetInfosResponse = {
-  // ProtoMember(1)
-  infos: DiaryInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type DiaryReadRequest = {
-  // ProtoMember(1)
-  diaryIds: string[]
-}
-export type DiaryReadResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type DiaryInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  year: number
-  // ProtoMember(3)
-  month: number
-  // ProtoMember(4)
-  day: number
-  // ProtoMember(5)
-  assetId: string
-  // ProtoMember(6)
-  isRead: boolean
-}
-export type DivisionListResponse = {
-  // ProtoMember(1)
-  divisions: DivisionInfo[]
-  // ProtoMember(2)
-  reasonType: DivisionCannotMoveReasonType
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type DivisionMoveRequest = {
-  // ProtoMember(1)
-  divisionId: string
-}
-export type DivisionMoveResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type DokanListResponse = {
-  // ProtoMember(1)
-  dokanInfos: DokanInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type DokanSetWatchedRequest = {
-  // ProtoMember(1)
-  dokanIds: string[]
-  // ProtoMember(2)
-  skippedDokanIds: string[]
-}
-export type DokanSetWathcedResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ExchangeListResponse = {
-  // ProtoMember(1)
-  booths: ExchangeBooth[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ExchangeExecuteRequest = {
-  // ProtoMember(1)
-  exchangeId: string
-  // ProtoMember(2)
-  count: number
-}
-export type ExchangeExecuteResponse = {
-  // ProtoMember(1)
-  results: RewardResult[]
-  // ProtoMember(2)
-  afterExchangeItem: ExchangeItem
-  // ProtoMember(3)
-  booth: ExchangeBooth
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumListThreadReplyRequest = {
-  // ProtoMember(1)
-  threadId: string
-  // ProtoMember(2)
-  requestType: ForumListReplyRequestType
-  // ProtoMember(3)
-  replyId: number
-}
-export type ForumCreateThreadRequest = {
-  // ProtoMember(1)
-  title: string
-  // ProtoMember(2)
-  firstReplyContent: string
-}
-export type ForumSendThreadReplyRequest = {
-  // ProtoMember(1)
-  threadId: string
-  // ProtoMember(2)
-  replyContent: string
-}
-export type ForumLikeReplyRequest = {
-  // ProtoMember(1)
-  threadId: string
-  // ProtoMember(2)
-  replyId: number
-}
-export type ForumDislikeReplyRequest = {
-  // ProtoMember(1)
-  threadId: string
-  // ProtoMember(2)
-  replyId: number
-}
-export type ForumBookmarkThreadRequest = {
-  // ProtoMember(1)
-  threadId: string
-}
-export type ForumUnbookmarkThreadRequest = {
-  // ProtoMember(1)
-  threadId: string
-}
-export type ForumBlockUserRequest = {
-  // ProtoMember(1)
-  userId: string
-}
-export type ForumListThreadResponse = {
-  // ProtoMember(1)
-  threads: ForumThreadInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumListThreadReplyResponse = {
-  // ProtoMember(1)
-  threadReplies: ForumThreadReplyInfo[]
-  // ProtoMember(2)
-  thread: ForumThreadInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumCreateThreadResponse = {
-  // ProtoMember(1)
-  threadId: string
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumSendThreadReplyResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumLikeReplyResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumDislikeReplyResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumBookmarkThreadResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumUnbookmarkThreadResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumBlockUserResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ForumThreadInfo = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  title: string
-  // ProtoMember(3)
-  replyCount: number
-  // ProtoMember(4)
-  isBookmarked: boolean
-  // ProtoMember(5)
-  lastUpdatedTime: string
-  // ProtoMember(6)
-  power: number
-}
-export type ForumThreadReplyInfo = {
-  // ProtoMember(1)
-  id: number
-  // ProtoMember(2)
-  threadId: string
-  // ProtoMember(3)
-  userId: string
-  // ProtoMember(4)
-  userName: string
-  // ProtoMember(5)
-  repliedTime: string
-  // ProtoMember(6)
-  content: string
-  // ProtoMember(7)
-  likeCount: number
-  // ProtoMember(8)
-  isLiked: boolean
-  // ProtoMember(9)
-  isBlocked: boolean
-  // ProtoMember(10)
-  isDeleted: boolean
-}
-export type FriendListResponse = {
-  // ProtoMember(1)
-  profiles: ProfileInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type FriendDeleteRequest = {
-  // ProtoMember(1)
-  userIds: string[]
-}
-export type FriendDeleteResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type FriendApplyRequest = {
-  // ProtoMember(1)
-  userId: string
-}
-export type FriendApplyResponse = {
-  // ProtoMember(1)
-  isTargetOfferedLimit: boolean
-  // ProtoMember(2)
-  isAlreadyFriend: boolean
-  // ProtoMember(3)
-  isAlreadyOffering: boolean
-  // ProtoMember(4)
-  isAlreadyOffered: boolean
-  // ProtoMember(5)
-  isAccountBan: boolean
-  // ProtoMember(6)
-  applied: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type FriendApproveRequest = {
-  // ProtoMember(1)
-  userId: string
-}
-export type FriendApproveResponse = {
-  // ProtoMember(1)
-  isFriendLimit: boolean
-  // ProtoMember(2)
-  isTargetFriendLimit: boolean
-  // ProtoMember(3)
-  isOfferDeleted: boolean
-  // ProtoMember(4)
-  isAccountBan: boolean
-  // ProtoMember(5)
-  approved: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type FriendCancelRequest = {
-  // ProtoMember(1)
-  userId: string
-}
-export type FriendCancelResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type FriendRejectRequest = {
-  // ProtoMember(1)
-  userId: string
-}
-export type FriendRejectResponse = {
-  // ProtoMember(1)
-  isOfferDeleted: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type FriendListApplyingResponse = {
-  // ProtoMember(1)
-  profiles: ProfileInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type FriendListAppliedResponse = {
-  // ProtoMember(1)
-  profiles: ProfileInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GachaListResponse = {
-  // ProtoMember(1)
-  gachas: GachaInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GachaDrawRequest = {
-  // ProtoMember(1)
-  gachaButtonId: string
-  // ProtoMember(2)
-  execCount: number
-}
-export type GachaDrawResponse = {
-  // ProtoMember(1)
-  button: GachaButtonInfo
-  // ProtoMember(2)
-  rewards: Reward[]
-  // ProtoMember(3)
-  consumptionResults: ConsumptionResult[]
-  // ProtoMember(4)
-  rewardResults: RewardResult[]
-  // ProtoMember(5)
-  drawRewardResults: RewardResult[]
-  // ProtoMember(6)
-  bonusRewards: Reward[]
-  // ProtoMember(9)
-  gachaMovie: GachaMovie
-  // ProtoMember(10)
-  cardRewards: Reward[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GachaExchangeRequest = {
-  // ProtoMember(1)
-  gachaExchangeId: string
-  // ProtoMember(2)
-  count: number
-}
-export type GachaExchangeResponse = {
-  // ProtoMember(1)
-  exchange: GachaExchangeInfo
-  // ProtoMember(2)
-  rewardResults: RewardResult[]
-  // ProtoMember(3)
-  consumptionResults: ConsumptionResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GachaProbabilityRequest = {
-  // ProtoMember(1)
-  gachaId: string
-}
-export type GachaProbabilityResponse = {
-  // ProtoMember(1)
-  rarityProbabilityInfos: RarityProbabilityInfo[]
-  // ProtoMember(2)
-  fixProbabilityInfos: FixProbabilityInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GachaHistoryRequest = {
-  // ProtoMember(1)
-  gachaType: GachaType
-}
-export type GachaHistoryResponse = {
-  // ProtoMember(1)
-  histories: GachaHistory[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GachaSelectCardRequest = {
-  // ProtoMember(1)
-  gachaId: string
-  // ProtoMember(2)
-  selectedCardIds: string[]
-}
-export type GachaSelectCardResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type RarityProbabilityInfo = {
-  // ProtoMember(1)
-  rarity: number
-  // ProtoMember(2)
-  probability: number
-  // ProtoMember(3)
-  probabilityInfos: ProbabilityInfo[]
-  // ProtoMember(4)
-  gachaRewardPatternType: GachaRewardPatternType
-  // ProtoMember(5)
-  individualProbability: number
-}
-export type FixProbabilityInfo = {
-  // ProtoMember(1)
-  gachaButtonId: string
-  // ProtoMember(2)
-  rarityProbabilityInfos: RarityProbabilityInfo[]
-}
-export type ProbabilityInfo = {
-  // ProtoMember(1)
-  resourceType: ResourceType
-  // ProtoMember(2)
-  resourceId: string
-  // ProtoMember(3)
-  amount: string
-  // ProtoMember(4)
-  probability: number
-  // ProtoMember(5)
-  isRatioUp: boolean
-}
-export type GachaAnimation = {
-  // ProtoMember(1)
-  id: string
-  // ProtoMember(2)
-  embeddedType: GachaAnimationEmbeddedType
-  // ProtoMember(3)
-  assetId: string
-}
-export type GachaMovie = {
-  // ProtoMember(1)
-  assetId: string
-  // ProtoMember(2)
-  bgmAssetId: string
-  // ProtoMember(3)
-  isForce: boolean
-}
-export type GiftListRequest = {
-  // ProtoMember(1)
-  offset: number
-  // ProtoMember(3)
-  sortType: GiftSortType
-  // ProtoMember(4)
-  filters: GiftFilterType[]
-  // ProtoMember(5)
-  desc: boolean
-}
-export type GiftListResponse = {
-  // ProtoMember(1)
-  gifts: UserGift[]
-  // ProtoMember(2)
-  hasNext: boolean
-  // ProtoMember(3)
-  count: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GiftCountRequest = {
-  // ProtoMember(1)
-  filters: GiftFilterType[]
-}
-export type GiftCountResponse = {
-  // ProtoMember(1)
-  count: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GiftReceiveRequest = {
-  // ProtoMember(1)
-  giftIds: string[]
-}
-export type GiftReceiveResponse = {
-  // ProtoMember(1)
-  results: RewardResult[]
-  // ProtoMember(2)
-  hasUnreceivedGift: boolean
-  // ProtoMember(3)
-  receivedGiftIds: string[]
-  // ProtoMember(4)
-  unreceivedGiftIds: string[]
-  // ProtoMember(5)
-  hierarchyChangeInfo: HierarchyChangeInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GiftHistoryListResponse = {
-  // ProtoMember(1)
-  gifts: UserGiftHistory[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GuildListResponse = {
-  // ProtoMember(1)
-  guilds: GuildParam[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GuildGvgSeasonResult = {
-  // ProtoMember(1)
-  seasonRank: number
-  // ProtoMember(2)
-  seasonWinCount: number
-  // ProtoMember(3)
-  seasonLoseCount: number
-  // ProtoMember(4)
-  seasonDrawCount: number
-  // ProtoMember(5)
-  seasonTotalPoint: string
-}
-export type GuildTopResponse = {
-  // ProtoMember(1)
-  rewardGuildMedalAmount: number
-  // ProtoMember(2)
-  gvgSeasonInfo: GuildGvgSeasonInfo
-  // ProtoMember(3)
-  exchangeBoothId: string
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GuildGvgSeasonInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  matchNumber: number
-  // ProtoMember(3)
-  matchEndTime: string
-  // ProtoMember(4)
-  guildRank: number
-  // ProtoMember(5)
-  ranks: GuildGvgRankInfo[]
-  // ProtoMember(6)
-  aggregateEndTime: string
-  // ProtoMember(7)
-  isAggregate: boolean
-  // ProtoMember(8)
-  preMatchResult: GuildGvgSeasonMatchResult
-  // ProtoMember(9)
-  isRemainingChallenge: boolean
-}
-export type GuildGvgRankInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  point: string
-  // ProtoMember(3)
-  rank: number
-}
-export type GuildJoinRequest = {
-  // ProtoMember(1)
-  guildId: string
-  // ProtoMember(2)
-  isRecommended: boolean
-}
-export type GuildJoinResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GvgTopResponse = {
-  // ProtoMember(1)
-  topResult: GvgTopInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GvgTopInfo = {
-  // ProtoMember(1)
-  gvgSeason: GvgSeasonInfo
-  // ProtoMember(2)
-  currentMatch: GvgCurrentSeasonMatchInfo
-  // ProtoMember(3)
-  seasonMatches: GvgSeasonMatchInfo[]
-  // ProtoMember(4)
-  rankingRewards: GvgRankingRewardInfo[]
-  // ProtoMember(5)
-  guildRankingRewards: GvgGuildRankingRewardInfo[]
-  // ProtoMember(6)
-  gvgQuest: LiveBattleQuestInfo
-  // ProtoMember(7)
-  userGvgSeason: UserGvgSeasonInfo
-  // ProtoMember(8)
-  isSkipAvailable: boolean
-}
-export type UserGvgSeasonInfo = {
-  // ProtoMember(1)
-  points: string[]
-  // ProtoMember(2)
-  totalPoint: string
-  // ProtoMember(3)
-  rankRatePercent: number
-  // ProtoMember(4)
-  rank: number
-  // ProtoMember(5)
-  guildPoint: string
-  // ProtoMember(6)
-  guildRank: number
-  // ProtoMember(7)
-  hasChallenged: boolean
-  // ProtoMember(8)
-  winCount: number
-  // ProtoMember(9)
-  loseCount: number
-  // ProtoMember(10)
-  drawCount: number
-}
-export type GvgListOpponentRequest = {
-  // ProtoMember(1)
-  gvgSeasonId: string
-}
-export type GvgListOpponentResponse = {
-  // ProtoMember(1)
-  opponentInfos: GvgOpponentInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GvgListRankingRequest = {
-  // ProtoMember(1)
-  gvgSeasonId: string
-}
-export type GvgListRankingResponse = {
-  // ProtoMember(1)
-  rankingInfos: LiveRankingInfo[]
-  // ProtoMember(2)
-  selfPoint: string
-  // ProtoMember(3)
-  selfRank: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GvgStartRequest = {
-  // ProtoMember(1)
-  gvgSeasonId: string
-  // ProtoMember(2)
-  opponentId: string
-  // ProtoMember(3)
-  deckNumber: number
-  // ProtoMember(4)
-  useStone: boolean
-  // ProtoMember(5)
-  isSkip: boolean
-  // ProtoMember(6)
-  matchNumber: number
-}
-export type GvgStartResponse = {
-  // ProtoMember(1)
-  result: LiveResult
-  // ProtoMember(2)
-  point: string
-  // ProtoMember(3)
-  addPoint: string
-  // ProtoMember(4)
-  rank: number
-  // ProtoMember(5)
-  musicMasteryRewards: Reward[]
-  // ProtoMember(6)
-  challengeRewards: RewardResult[]
-  // ProtoMember(7)
-  guildPoint: string
-  // ProtoMember(8)
-  addGuildPoint: string
-  // ProtoMember(9)
-  totalPoint: string
-  // ProtoMember(10)
-  profile: AllProfileInfo
-  // ProtoMember(11)
-  opponentProfile: AllProfileInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type GvgListAssetRequest = {
-  // ProtoMember(1)
-  gvgSeasonId: string
-  // ProtoMember(2)
-  opponentId: string
-  // ProtoMember(3)
-  deckNumber: number
-  // ProtoMember(4)
-  matchNumber: number
-}
-export type GvgListAssetResponse = {
-  // ProtoMember(1)
-  characterAssets: LiveCharacterAssetInfo[]
-  // ProtoMember(2)
-  opponentCharacterAssets: LiveCharacterAssetInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HealthCheckRequest = {
-  // ProtoMember(1)
-  service: string
-}
-export type HealthCheckResponse = {}
-export type HierarchyRewardsReceiveRequest = {
-  // ProtoMember(1)
-  hierarchyRewardIds: string[]
-}
-export type HierarchyDivisionRewardsReceiveRequest = {
-  // ProtoMember(1)
-  hierarchyDivisionRewardIds: string[]
-}
-export type HierarchyTopResponse = {
-  // ProtoMember(1)
-  userHierarchyInfo: UserHierarchyInfo
-  // ProtoMember(2)
-  rewardInfos: HierarchyRewardInfo[]
-  // ProtoMember(3)
-  divisionRewardInfos: HierarchyDivisionRewardInfo[]
-  // ProtoMember(4)
-  highestGradeUserNames: string[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HierarchyRankingResponse = {
-  // ProtoMember(1)
-  rankUserInfos: HierarchyRankUserInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HierarchyRewardsReceiveResponse = {
-  // ProtoMember(1)
-  results: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HierarchyDivisionRewardsReceiveResponse = {
-  // ProtoMember(1)
-  results: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HomeEnterRequest = {
-  // ProtoMember(1)
-  skipUpdate: boolean
-}
-export type NotiShopItem = {
-  // ProtoMember(1)
-  shopId: string
-  // ProtoMember(2)
-  shopItemIds: string[]
-}
-export type HomeLoginRequest = {
-  // ProtoMember(1)
-  settingInfo: SettingInfo
-}
-export type SettingInfo = {
-  // ProtoMember(1)
-  soundBgm: number
-  // ProtoMember(2)
-  soundEffect: number
-  // ProtoMember(3)
-  soundVoice: number
-  // ProtoMember(4)
-  graphicType: GraphicType
-  // ProtoMember(5)
-  frameRate: number
-  // ProtoMember(6)
-  activityFinishNotification: boolean
-  // ProtoMember(7)
-  messageNotification: boolean
-  // ProtoMember(8)
-  nightMode: boolean
-  // ProtoMember(9)
-  notLoginNotification: boolean
-}
-export type HomeLoginResponse = {
-  // ProtoMember(1)
-  paidJpy: PaidJpy
-  // ProtoMember(2)
-  purchasedLoginBonusShopInfos: PurchasedLoginBonusShopInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HomeReadTalkRequest = {
-  // ProtoMember(1)
-  homeTalkId: string
-}
-export type HomeReadTalkResponse = {
-  // ProtoMember(1)
-  isReliabilityUp: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HomeSetReviewResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HomeSetCharacterPositionRequest = {
-  // ProtoMember(1)
-  positions: HomeCharacterPosition[]
-}
-export type HomeCharacterPosition = {
-  // ProtoMember(1)
-  type: HomePositionType
-  // ProtoMember(2)
-  characterId: string
-}
-export type HomeSetCharacterPositionResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type HomePvpInfo = {
-  // ProtoMember(1)
-  pvpSeason: PvpSeasonInfo
-  // ProtoMember(2)
-  remainingChallengeCount: number
-  // ProtoMember(3)
-  nextPvpSeason: PvpSeasonInfo
-}
-export type PvpRewardResultInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  point: string
-  // ProtoMember(3)
-  rank: string
-  // ProtoMember(4)
-  rankingRewards: Reward[]
-  // ProtoMember(5)
-  hierarchyChangeInfo: HierarchyChangeInfo
-}
-export type GvgRewardResultInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  point: string
-  // ProtoMember(3)
-  rank: number
-  // ProtoMember(4)
-  rankRate: number
-  // ProtoMember(5)
-  guildRank: number
-  // ProtoMember(6)
-  rankingRewards: Reward[]
-  // ProtoMember(7)
-  guildRankingRewards: Reward[]
-  // ProtoMember(8)
-  hierarchyChangeInfo: HierarchyChangeInfo
-}
-export type TourRewardResultInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  score: string
-  // ProtoMember(3)
-  rank: number
-  // ProtoMember(4)
-  rankingRewards: Reward[]
-}
-export type BacksideRewardResultInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  score: string
-  // ProtoMember(3)
-  rank: number
-  // ProtoMember(4)
-  rankingRewards: Reward[]
-}
-export type PhotoContestRewardResultInfo = {
-  // ProtoMember(1)
-  name: string
-  // ProtoMember(2)
-  score: string
-  // ProtoMember(3)
-  rank: number
-  // ProtoMember(4)
-  rankingRewards: Reward[]
-}
-export type HomeActiveFanEvent = {
-  // ProtoMember(1)
-  characterIds: string[]
-  // ProtoMember(2)
-  finishTime: string
-  // ProtoMember(3)
-  activityPoint: number
-  // ProtoMember(4)
-  rankType: ResultRankType
-  // ProtoMember(5)
-  rankPlus: number
-  // ProtoMember(6)
-  currentCheerPoint: number
-}
-export type HomeActivePromotion = {
-  // ProtoMember(1)
-  characterIds: string[]
-  // ProtoMember(2)
-  finishTime: string
-  // ProtoMember(3)
-  rewardGoldAmount: number
-  // ProtoMember(4)
-  rewardCardEnhanceItemAmount: number
-  // ProtoMember(5)
-  rewards: ActivityPromotionReward[]
-  // ProtoMember(6)
-  hasMoreRewards: boolean
-}
-export type HomeActiveRefresh = {
-  // ProtoMember(1)
-  characterIds: string[]
-  // ProtoMember(2)
-  finishTime: string
-}
-export type FunctionMaintenanceInfo = {
-  // ProtoMember(1)
-  type: FunctionMaintenanceType
-  // ProtoMember(2)
-  targetIds: string[]
-  // ProtoMember(3)
-  isTwitter: boolean
-  // ProtoMember(4)
-  websiteUrl: string
-}
-export type BannerInfo = {
-  // ProtoMember(1)
-  menuBanners: Banner[]
-  // ProtoMember(2)
-  messageBanners: Banner[]
-  // ProtoMember(3)
-  boardBanners: Banner[]
-  // ProtoMember(4)
-  questBanners: Banner[]
-}
-export type FanEventInfo = {
-  // ProtoMember(1)
-  fanEvents: FanEvent[]
-  // ProtoMember(2)
-  activeFanEvent: ActiveFanEvent
-  // ProtoMember(3)
-  campaignEffects: ActivityCampaignEffect[]
-}
-export type PromotionInfo = {
-  // ProtoMember(1)
-  promotions: Promotion[]
-  // ProtoMember(2)
-  activePromotion: ActivePromotion
-  // ProtoMember(3)
-  campaignEffects: ActivityCampaignEffect[]
-}
-export type RefreshInfo = {
-  // ProtoMember(1)
-  refreshes: Refresh[]
-  // ProtoMember(2)
-  activeRefresh: ActiveRefresh
-  // ProtoMember(3)
-  campaignEffects: ActivityCampaignEffect[]
-}
-export type PurchasedLoginBonusShopInfo = {
-  // ProtoMember(1)
-  shopInfo: ShopInfo
-  // ProtoMember(2)
-  loginBonusPackageItem: LoginBonusPackageItem
-}
-export type PurchasedConditionRewardShopInfo = {
-  // ProtoMember(1)
-  shopInfo: ShopInfo
-  // ProtoMember(2)
-  conditionRewardPackageItem: ConditionRewardPackageItem
-}
-export type ItemSellRequest = {
-  // ProtoMember(1)
-  itemId: string
-  // ProtoMember(2)
-  amount: string
-}
-export type ItemSellResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type LoginBonusListResponse = {
-  // ProtoMember(1)
-  infos: LoginBonusInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type LoginBonusReceiveRequest = {
-  // ProtoMember(1)
-  loginBonusId: string
-}
-export type LoginBonusReceiveResponse = {
-  // ProtoMember(1)
-  userLoginBonus: UserLoginBonus
-  // ProtoMember(2)
-  rewards: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type LoginBonusInfo = {
-  // ProtoMember(1)
-  userLoginBonus: UserLoginBonus
-  // ProtoMember(2)
-  noticeInfo: NoticeInfo
-}
-export type MarathonTopRequest = {
-  // ProtoMember(1)
-  marathonId: string
-}
-export type MarathonTopResponse = {
-  // ProtoMember(1)
-  marathonInfo: MarathonInfo
-  // ProtoMember(2)
-  userMarathonInfo: UserMarathonInfo
-  // ProtoMember(3)
-  questInfos: MarathonQuestInfo[]
-  // ProtoMember(4)
-  boxGachaInfos: MarathonBoxGachaInfo[]
-  // ProtoMember(5)
-  dokanInfos: DokanInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarathonQuestUnlockRequest = {
-  // ProtoMember(1)
-  marathonQuestId: string
-}
-export type MarathonQuestUnlockResponse = {
-  // ProtoMember(1)
-  unlockedQuestInfo: MarathonQuestInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarathonQuestStartRequest = {
-  // ProtoMember(1)
-  marathonQuestId: string
-  // ProtoMember(2)
-  marathonQuestDifficultyNumber: number
-  // ProtoMember(3)
-  deckNumber: number
-  // ProtoMember(4)
-  isSkip: boolean
-  // ProtoMember(5)
-  execCount: number
-}
-export type MarathonQuestListAssetRequest = {
-  // ProtoMember(1)
-  marathonQuestId: string
-  // ProtoMember(2)
-  deckNumber: number
-}
-export type MarathonQuestListAssetResponse = {
-  // ProtoMember(1)
-  characterAssets: LiveCharacterAssetInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarathonUseQuestStaminaRecoveryItemRequest = {
-  // ProtoMember(1)
-  marathonId: string
-  // ProtoMember(2)
-  amount: number
-}
-export type MarathonUseQuestStaminaRecoveryItemResponse = {
-  // ProtoMember(1)
-  userMarathonInfo: UserMarathonInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarathonListDeckRequest = {
-  // ProtoMember(1)
-  marathonId: string
-}
-export type MarathonListDeckResponse = {
-  // ProtoMember(1)
-  deckInfos: MarathonDeckInfo[]
-}
-export type MarathonDeckSaveRequest = {
-  // ProtoMember(1)
-  marathonQuestId: string
-  // ProtoMember(2)
-  number: number
-  // ProtoMember(3)
-  name: string
-  // ProtoMember(4)
-  userDeckPositions: UserDeckPosition[]
-}
-export type MarathonDeckSaveResponse = {
-  // ProtoMember(1)
-  deckInfo: MarathonDeckInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarathonBoxGachaDrawRequest = {
-  // ProtoMember(1)
-  marathonId: string
-  // ProtoMember(2)
-  boxGachaId: string
-  // ProtoMember(3)
-  execCount: number
-}
-export type MarathonBoxGachaDrawResponse = {
-  // ProtoMember(1)
-  drawResults: BoxGachaDrawResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarathonBoxGachaResetRequest = {
-  // ProtoMember(1)
-  marathonId: string
-  // ProtoMember(2)
-  boxGachaId: string
-}
-export type MarathonBoxGachaResetResponse = {
-  // ProtoMember(1)
-  boxGachaInfo: MarathonBoxGachaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type UserMarathonInfo = {
-  // ProtoMember(1)
-  currentStamina: number
-  // ProtoMember(2)
-  staminaUpdatedTime: string
-  // ProtoMember(3)
-  liveBonusInfos: MarathonLiveBonusInfo[]
-}
-export type MarathonQuestDifficultyLevelInfo = {
-  // ProtoMember(1)
-  marathonQuestDifficultyNumber: number
-  // ProtoMember(2)
-  cleared: boolean
-  // ProtoMember(3)
-  rankType: ResultRankType
-  // ProtoMember(4)
-  plus: number
-  // ProtoMember(5)
-  opponentInfo: QuestOpponentInfo
-  // ProtoMember(6)
-  unlocked: boolean
-  // ProtoMember(7)
-  highestScore: string
-}
-export type MarathonDeckInfo = {
-  // ProtoMember(1)
-  number: number
-  // ProtoMember(2)
-  cardDetailInfo: MarathonDeckCardDetailInfo[]
-  // ProtoMember(3)
-  deckOverallValue: string
-}
-export type MarathonDeckCardDetailInfo = {
-  // ProtoMember(1)
-  position: number
-  // ProtoMember(2)
-  vocal: string
-  // ProtoMember(3)
-  dance: string
-  // ProtoMember(4)
-  visual: string
-  // ProtoMember(5)
-  stamina: string
-  // ProtoMember(6)
-  mental: string
-  // ProtoMember(7)
-  technique: string
-  // ProtoMember(8)
-  accessoryInfos: MarathonAccessoryInfo[]
-  // ProtoMember(9)
-  photoInfos: MarathonPhotoInfo[]
-}
-export type MarathonPhotoInfo = {
-  // ProtoMember(1)
-  photoId: string
-  // ProtoMember(2)
-  level: number
-  // ProtoMember(3)
-  abilities: MarathonPhotoAbilityInfo[]
-}
-export type MarketListItemResponse = {
-  // ProtoMember(1)
-  marketItems: MarketItem[]
-  // ProtoMember(2)
-  nextResetTime: string
-  // ProtoMember(3)
-  freeResetRemainCount: number
-  // ProtoMember(4)
-  resetRemainCount: number
-  // ProtoMember(5)
-  requiredResetStoneAmount: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarketResetRequest = {
-  // ProtoMember(1)
-  isFree: boolean
-}
-export type MarketResetResponse = {
-  // ProtoMember(1)
-  marketItems: MarketItem[]
-  // ProtoMember(2)
-  freeResetRemainCount: number
-  // ProtoMember(3)
-  resetRemainCount: number
-  // ProtoMember(4)
-  requiredResetStoneAmount: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MarketPurchaseRequest = {
-  // ProtoMember(1)
-  number: number
-}
-export type MarketPurchaseResponse = {
-  // ProtoMember(1)
-  marketItems: MarketItem[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MasterGetResponse = {
-  // ProtoMember(1)
-  masterTag: MasterTag
-}
-export type MasterFaqResponse = {
-  // ProtoMember(1)
-  helpCategories: HelpCategory[]
-}
-export type MessageListGroupResponse = {
-  // ProtoMember(1)
-  infos: MessageGroupInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MessageTimelineRequest = {
-  // ProtoMember(1)
-  messageGroupId: string
-  // ProtoMember(2)
-  timelineId: string
-}
-export type MessageTimelineResponse = {
-  // ProtoMember(1)
-  infos: TimelineInfo[]
-  // ProtoMember(2)
-  hasNext: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MessageReceiveRequest = {
-  // ProtoMember(1)
-  messageIds: string[]
-}
-export type MessageReceiveResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MessageSaveRequest = {
-  // ProtoMember(1)
-  messageGroupId: string
-  // ProtoMember(2)
-  timelineId: string
-  // ProtoMember(3)
-  messageDetailId: string
-  // ProtoMember(4)
-  selectMessageDetailIds: string[]
-}
-export type MessageSaveResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MessageFinishRequest = {
-  // ProtoMember(1)
-  messageGroupId: string
-  // ProtoMember(2)
-  timelineId: string
-  // ProtoMember(3)
-  selectMessageDetailIds: string[]
-}
-export type MessageFinishResponse = {
-  // ProtoMember(1)
-  isReliabilityUp: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MessageSaveHistoryRequest = {
-  // ProtoMember(1)
-  messageId: string
-  // ProtoMember(2)
-  selectMessageDetailIds: string[]
-}
-export type MessageSaveHistoryResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MigrationListResponse = {
-  // ProtoMember(1)
-  apple: boolean
-  // ProtoMember(2)
-  google: boolean
-  // ProtoMember(3)
-  facebook: boolean
-  // ProtoMember(4)
-  twitter: boolean
-  // ProtoMember(5)
-  password: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MigrationExecuteRequest = {
-  // ProtoMember(1)
-  onetimeToken: string
-}
-export type MigrationExecuteResponse = {
-  // ProtoMember(1)
-  token: string
-}
-export type MigrationSetPasswordRequest = {
-  // ProtoMember(1)
-  password: string
-}
-export type MigrationSetPasswordResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MigrationMigratePasswordRequest = {
-  // ProtoMember(1)
-  userId: string
-  // ProtoMember(2)
-  password: string
-}
-export type MigrationProviderAppleInfo = {
-  // ProtoMember(1)
-  idToken: string
-}
-export type MigrationLinkAppleRequest = {
-  // ProtoMember(1)
-  info: MigrationProviderAppleInfo
-}
-export type MigrationMigrateAppleRequest = {
-  // ProtoMember(1)
-  info: MigrationProviderAppleInfo
-}
-export type MigrationProviderGoogleInfo = {
-  // ProtoMember(1)
-  idToken: string
-}
-export type MigrationLinkGoogleRequest = {
-  // ProtoMember(1)
-  info: MigrationProviderGoogleInfo
-}
-export type MigrationMigrateGoogleRequest = {
-  // ProtoMember(1)
-  info: MigrationProviderGoogleInfo
-}
-export type RequestTwitterOAuthTokenRequest = {
-  // ProtoMember(1)
-  bundleId: string
-}
-export type RequestTwitterOAuthTokenResponse = {
-  // ProtoMember(1)
-  oauthToken: string
-}
-export type MigrationProviderTwitterInfo = {
-  // ProtoMember(1)
-  oauthToken: string
-  // ProtoMember(2)
-  oauthVerifier: string
-}
-export type MigrationLinkTwitterRequest = {
-  // ProtoMember(1)
-  info: MigrationProviderTwitterInfo
-}
-export type MigrationMigrateTwitterRequest = {
-  // ProtoMember(1)
-  info: MigrationProviderTwitterInfo
-}
-export type MigrationLinkResponse = {
-  // ProtoMember(1)
-  success: boolean
-  // ProtoMember(2)
-  linkedUserId: string
-  // ProtoMember(3)
-  linkedUser: User
-  // ProtoMember(4)
-  onetimeToken: string
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MigrationMigrateResponse = {
-  // ProtoMember(1)
-  success: boolean
-  // ProtoMember(2)
-  linkedUserId: string
-  // ProtoMember(3)
-  linkedUser: User
-  // ProtoMember(4)
-  onetimeToken: string
-}
-export type MigrationUnlinkRequest = {
-  // ProtoMember(1)
-  providerType: ProviderType
-}
-export type MigrationUnlinkResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MissionListResponse = {
-  // ProtoMember(1)
-  userMissions: UserMission[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MissionReceiveRequest = {
-  // ProtoMember(1)
-  missionIds: string[]
-}
-export type MissionReceiveResponse = {
-  // ProtoMember(1)
-  results: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MissionURLTransitionRequest = {
-  // ProtoMember(1)
-  url: string
-}
-export type MissionURLTransitionResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type MissionEventRequest = {
-  // ProtoMember(1)
+  order: number
+  unlockConditionId: string
+  isUnlocked: boolean
   eventMissionId: string
 }
-export type MissionEventResponse = {
-  // ProtoMember(1)
-  info: EventMissionInfo
-  // ProtoMember(9999)
+
+export type HomeEnterResponse = {
+  gachaInfos: GachaInfo[]
+  fanEventInfo: FanEventInfo
+  promotionInfo: PromotionInfo
+  refreshInfo: RefreshInfo
+  lessonProgress: ActivityLessonProgress
+  functionMaintenanceInfos: FunctionMaintenanceInfo[]
+  bannerInfo: BannerInfo
+  lastFriendApprovedTime: string
+  gvgInfo: CurrentGvgInfo
+  shopIds: string[]
+  exchangeBoothIds: string[]
+  isRemainingDiary: boolean
+  notiStoneShopItem: NotiShopItem
+  notiNormalShopItem: NotiShopItem
+  payslip: Payslip
+  currentMainAreaId: string
+  eventInfo: HomeEventInfo
+  pvpInfo: HomePvpInfo
+  hierarchyNotiInfo: HierarchyNotiInfo
+  isDailyQuestPlayable: boolean
+  currentTowerQuestId: string
+  hasUnplayedContest: boolean
+  eventStoryInfos: EventStoryInfo[]
+  photoActivities: PhotoActivity[]
+  photoMusics: PhotoMusic[]
+  photoStages: PhotoStage[]
+  friendAppliedCount: number
+  purchasedConditionRewardShopInfo: PurchasedConditionRewardShopInfo[]
+  lessonInfo: LessonInfo
+  eventButtonDisplayInfos: EventButtonDisplayInfo[]
+  hasCanReceiveInviteHostRewards: boolean
+  existsUnclearedExercise: boolean
+  pvpRewardResultInfo: PvpRewardResultInfo
+  gvgRewardResultInfo: GvgRewardResultInfo
+  tourRewardResultInfos: TourRewardResultInfo[]
+  backsideRewardResultInfos: BacksideRewardResultInfo[]
+  photoContestRewardResultInfos: PhotoContestRewardResultInfo[]
+  raceRewardResultInfos: RaceRewardResultInfo[]
+  raceDailyRewardResultInfos: RaceDailyRewardResultInfo[]
+  buddyUsedRewardResultInfo: BuddyUsedRewardResultInfo
   commonResponse: CommonResponse
 }
-export type CheckOption = {
-  // ProtoMember(1)
-  disableGameAuthToken: boolean
-  // ProtoMember(2)
-  disableMasterVersion: boolean
-  // ProtoMember(3)
-  enableResponseCache: boolean
-  // ProtoMember(4)
-  enableBodyHash: boolean
-  // ProtoMember(5)
-  disableCheckLoginToday: boolean
-  // ProtoMember(6)
-  disableCheckMaintenance: boolean
-  // ProtoMember(7)
-  disableCheckAppVersion: boolean
+
+export type HomeEventMissionInfo = {
+  id: string
+  unlocked: boolean
 }
-export type ErrorOption = {
-  // ProtoMember(1)
-  errorCodes: ErrorCode[]
-}
-export type NoticeListResponse = {
-  // ProtoMember(1)
-  notices: NoticeInfo[]
-  // ProtoMember(2)
-  malfunctionNotices: NoticeInfo[]
-  // ProtoMember(3)
-  prNotices: NoticeInfo[]
-  // ProtoMember(4)
-  noticeHasNext: boolean
-  // ProtoMember(5)
-  malfunctionNoticeHasNext: boolean
-  // ProtoMember(6)
-  prNoticeHasNext: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type NoticeFetchRequest = {
-  // ProtoMember(1)
-  noticeCategoryType: number
-  // ProtoMember(2)
-  offset: number
-}
-export type NoticeFetchResponse = {
-  // ProtoMember(1)
-  notices: NoticeInfo[]
-  // ProtoMember(2)
-  hasNext: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type NoticeGetRequest = {
-  // ProtoMember(1)
-  noticeId: string
-}
-export type NoticeGetResponse = {
-  // ProtoMember(1)
-  notice: NoticeInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoSwitchLockRequest = {
-  // ProtoMember(1)
-  photoIds: string[]
-}
-export type PhotoSwitchLockResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoDeleteRequest = {
-  // ProtoMember(1)
-  photoIds: string[]
-}
-export type PhotoDeleteResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoEnhanceRequest = {
-  // ProtoMember(1)
-  photoId: string
-  // ProtoMember(2)
-  level: number
-}
-export type PhotoEnhanceResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoRerollRequest = {
-  // ProtoMember(1)
-  photoId: string
-}
-export type PhotoRerollResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoUpdateRequest = {
-  // ProtoMember(1)
-  photoId: string
-  // ProtoMember(2)
+
+export type HomeLadderInfo = {
+  id: string
   name: string
-}
-export type PhotoUpdateResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoReportResponse = {
-  // ProtoMember(1)
-  isGift: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoGetImageUrlRequest = {
-  // ProtoMember(1)
-  type: PhotoImageRequestType
-  // ProtoMember(2)
-  assetIds: string[]
-}
-export type PhotoGetImageUrlResponse = {
-  // ProtoMember(1)
-  urlList: PhotoImageUrl[]
-}
-export type PhotoImageUrl = {
-  // ProtoMember(1)
+  startTime: string
+  endTime: string
   assetId: string
-  // ProtoMember(2)
-  origUrl: string
-  // ProtoMember(3)
-  tmbUrl: string
+  bannerAssetId: string
+  order: number
+  unlockConditionId: string
+  isUnlocked: boolean
+  eventMissionId: string
+  messageGroupId: string
+  reachablePanelCount: number
 }
-export type PhotoCheckShootingRequest = {
-  // ProtoMember(1)
-  actionType: PhotoShootingActionType
-  // ProtoMember(2)
-  photoActivityId: string
-  // ProtoMember(3)
-  photoMusicId: string
-  // ProtoMember(4)
-  photoStageId: string
-  // ProtoMember(5)
-  characterIds: string[]
-  // ProtoMember(6)
-  costumeIds: string[]
-}
-export type PhotoCheckShootingResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoCreateShootingRequest = {
-  // ProtoMember(1)
-  itemId: string
-  // ProtoMember(2)
-  actionType: PhotoShootingActionType
-  // ProtoMember(3)
-  photoActivityId: string
-  // ProtoMember(4)
-  photoMusicId: string
-  // ProtoMember(5)
-  photoStageId: string
-  // ProtoMember(6)
-  mainCharacterId: string
-  // ProtoMember(7)
-  characterIds: string[]
-  // ProtoMember(8)
-  costumeIds: string[]
-  // ProtoMember(9)
-  manualCount: number
-}
-export type PhotoCreateShootingResponse = {
-  // ProtoMember(1)
-  photo: UserPhoto
-  // ProtoMember(2)
-  isGift: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoListShootingResponse = {
-  // ProtoMember(1)
-  activities: PhotoActivity[]
-  // ProtoMember(2)
-  musics: PhotoMusic[]
-  // ProtoMember(3)
-  stages: PhotoStage[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoContestTopRequest = {
-  // ProtoMember(1)
-  photoContestId: string
-}
-export type PhotoContestTopResponse = {
-  // ProtoMember(1)
-  photoContestInfo: PhotoContestInfo
-  // ProtoMember(2)
-  dokanInfos: DokanInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoContestListPhotoRequest = {
-  // ProtoMember(1)
-  photoContestId: string
-}
-export type PhotoContestListPhotoResponse = {
-  // ProtoMember(1)
-  photoInfos: PhotoContestPhotoInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoContestRankingRequest = {
-  // ProtoMember(1)
-  photoContestId: string
-}
-export type PhotoContestRankingResponse = {
-  // ProtoMember(1)
-  rankingInfos: PhotoContestRankingInfo[]
-  // ProtoMember(2)
-  selfPoint: string
-  // ProtoMember(3)
-  selfRank: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoContestReceiveSectionRewardsRequest = {
-  // ProtoMember(1)
-  photoContestId: string
-  // ProtoMember(2)
-  sectionRewardIds: string[]
-  // ProtoMember(3)
-  sectionId: string
-}
-export type PhotoContestReceiveSectionRewardsResponse = {
-  // ProtoMember(1)
-  results: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoContestCheckShootingRequest = {
-  // ProtoMember(1)
-  photoContestId: string
-  // ProtoMember(2)
-  actionType: PhotoShootingActionType
-  // ProtoMember(3)
-  photoContestActivityId: string
-  // ProtoMember(4)
-  photoContestQuestMusicId: string
-  // ProtoMember(5)
-  photoContestQuestStageId: string
-  // ProtoMember(6)
-  selectedCharacterIds: string[]
-  // ProtoMember(7)
-  selectedCostumeIds: string[]
-  // ProtoMember(8)
-  sectionId: string
-}
-export type PhotoContestCheckShootingResponse = {
-  // ProtoMember(1)
-  nextPhotoImageId: string
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PhotoContestSubmitShootingRequest = {
-  // ProtoMember(1)
-  photoContestId: string
-  // ProtoMember(2)
-  sectionId: string
-  // ProtoMember(3)
-  itemId: string
-  // ProtoMember(4)
-  actionType: PhotoShootingActionType
-  // ProtoMember(5)
-  photoContestActivityId: string
-  // ProtoMember(6)
-  photoContestQuestMusicId: string
-  // ProtoMember(7)
-  photoContestQuestStageId: string
-  // ProtoMember(8)
-  mainCharacterId: string
-  // ProtoMember(9)
-  characterIds: string[]
-  // ProtoMember(10)
-  costumeIds: string[]
-  // ProtoMember(11)
-  elapsedMilliSeconds: number
-  // ProtoMember(12)
-  sizeFullPermil: number
-  // ProtoMember(13)
-  sizeUpperPermil: number
-  // ProtoMember(14)
-  directionFrontPermil: number
-  // ProtoMember(15)
-  directionSidePermil: number
-  // ProtoMember(16)
-  positionPermil: number
-  // ProtoMember(17)
-  shootingMotionId: string
-  // ProtoMember(18)
-  selectedCharacterIds: string[]
-  // ProtoMember(19)
-  selectedCostumeIds: string[]
-}
-export type PhotoContestPhotoInfo = {
-  // ProtoMember(1)
+
+export type HomeMarathonInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  exchangeEndTime: string
   assetId: string
-  // ProtoMember(2)
-  sectionId: string
-  // ProtoMember(3)
-  evaluationPoint: string
-  // ProtoMember(4)
-  isBest: boolean
-  // ProtoMember(5)
-  shootingTime: string
+  bannerAssetId: string
+  order: number
+  unlockConditionId: string
+  isUnlocked: boolean
+  eventMissionId: string
+  isMaxStamina: boolean
+  isRaidStaminaOverThreshold: boolean
+  hasFinishedRaidQuest: boolean
+  isRaidHostEnable: boolean
+  reachableLadderPanelCount: number
+  type: MarathonType
 }
-export type ProfileFindUserRequest = {
-  // ProtoMember(1)
+
+export type HomePhotoContestInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  aggregateEndTime: string
+  exchangeEndTime: string
+  assetId: string
+  bannerAssetId: string
+  order: number
+  unlockConditionId: string
+  isUnlocked: boolean
+  hasReceivableSectionReward: boolean
+}
+
+export type HomeRaceInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  aggregateEndTime: string
+  exchangeEndTime: string
+  assetId: string
+  bannerAssetId: string
+  order: number
+  unlockConditionId: string
+  isUnlocked: boolean
+  eventMissionId: string
+  isLessenRewardMax: boolean
+}
+
+export type HomeTourInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  aggregateEndTime: string
+  exchangeEndTime: string
+  assetId: string
+  bannerAssetId: string
+  order: number
+  unlockConditionId: string
+  isUnlocked: boolean
+  eventMissionId: string
+}
+
+export type InviteGuestInfo = {
+  userId: string
+  name: string
+  receivedHostRewardIds: string[]
+  buddyCardInfo: BuddyCardInfo
+  clearQuestMainAreaCount: string
+  invitedTime: string
+}
+
+export type LadderInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  eventMissionInfo: EventMissionInfo
+  messageGroupId: string
+  costumeIds: string[]
+  ladderPointItemId: string
+  assetId: string
+  topColorCode: string
+  bottomColorCode: string
+  bgmAssetId: string
+  backgroundAssetId: string
+}
+
+export type LadderPanel = {
+  type: LadderPanelType
+  messageId: string
+  rewardId: string
+  requiredPointItemAmount: number
+  unlockConditionId: string
+  unlocked: boolean
+  reached: boolean
+  reachable: boolean
+}
+
+export type LastCardInfo = {
+  position: number
+  cardId: string
+  level: number
+  rarity: number
+}
+
+export type LessonInfo = {
+  lessonProgress: ActivityLessonProgress
+  campaignEffects: ActivityCampaignEffect[]
+  campaignDropRewardIds: string[]
+}
+
+export type LiveBattleCardInfo = {
+  position: number
+  cardId: string
+  level: number
+  rarity: number
+  lightFanAmount: number
+  middleFanAmount: number
+  heavyFanAmount: number
+}
+
+export type LiveBattleQuestInfo = {
+  id: string
+  stageId: string
+  musicId: string
+  musicChartPatternId: string
+  position1AttributeType: AttributeType
+  position2AttributeType: AttributeType
+  position3AttributeType: AttributeType
+  position4AttributeType: AttributeType
+  position5AttributeType: AttributeType
+  activeSkillWeightPermil: number
+  specialSkillWeightPermil: number
+  skillStaminaWeightPermil: number
+  staminaRecoveryWeightPermil: number
+  beatDanceWeightPermil: number
+  beatVocalWeightPermil: number
+  beatVisualWeightPermil: number
+  maxCapacity: number
+  mentalThreshold: number
+  questPressureId: string
+  questCharacterAdvantageId: string
+  questAudienceAdvantageId: string
+  moodType: MoodType
+  liveBonusGroupId: string
+  liveSkipType: LiveSkipType
+}
+
+export type LiveCardInfo = {
+  position: number
+  cardId: string
+  level: number
+  rarity: number
+}
+
+export type LiveCardResult = {
+  cardId: string
+  totalScore: string
+}
+
+export type LiveCharacterAssetInfo = {
+  characterId: string
+  costumeId: string
+  hairId: string
+}
+
+export type LiveDeckCard = {
+  index: number
+  cardId: string
+  displayCharacterId: string
+  displayCostumeId: string
+  level: number
+  rarity: number
+  vocal: string
+  dance: string
+  visual: string
+  stamina: string
+  startStamina: string
+  mental: string
+  technique: string
+  skillLevel1: number
+  skillLevel2: number
+  skillLevel3: number
+  audienceAmount: number
+  skills: LiveDeckCardSkill[]
+  isBuddy: boolean
+  isFriendBuddy: boolean
+  displayHairId: string
+  isTourScout: boolean
+}
+
+export type LiveDeckCardSkill = {
+  index: number
+  skillId: string
+  skillLevel: number
+  possessionType: SkillPossessionType
+  liveAbilityId: string
+  liveAbilityLevel: number
+  rewrittenEfficacyIds: string[]
+}
+
+export type LiveRankingInfo = {
+  userId: string
+  name: string
+  managerLevel: number
+  point: string
+  rank: number
+  cardInfos: LiveCardInfo[]
+  emblemId: string
+  deckName: string
+}
+
+export type LiveUserInfo = {
+  index: number
+  userId: string
+  name: string
+  emblemId: string
+  userDeck: LiveUserDeck
+  userResult: LiveUserResult
+  isNpc: boolean
+}
+
+export type MarathonAccessoryInfo = {
+  accessoryId: string
+  categoryType: AccessoryCategoryType
+  param1Permil: number
+  param1Value: number
+  param2Permil: number
+  param2Value: number
+}
+
+export type MarathonBoxGachaInfo = {
+  boxGachaId: string
+  boxGachaItems: BoxGachaItem[]
+  isFull: boolean
+  currentMarathonPoint: number
+  unlocked: boolean
+  remainResetCount: number
+}
+
+export type MarathonInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  exchangeEndTime: string
+  initialStamina: number
+  staminaRecoveryMinutes: number
+  assetId: string
+  boxGachaGroupId: string
+  eventStoryInfo: EventStoryInfo
+  eventMissionInfo: EventMissionInfo
+  noticeInfo: NoticeInfo
+  staminaRecoveryItemId: string
+  questUnlockItemId: string
+  type: MarathonType
+  raidStaminaRecoveryItemId: string
+  initialRaidStamina: number
+  raidStaminaRecoveryMinutes: number
+  raidQuest: MarathonRaidQuest
+  raidRequiredPointFriendDiscountRatePermil: number
+  raidLimitHours: number
+  ladderInfo: LadderInfo
+}
+
+export type MarathonLiveBonusInfo = {
+  liveBonusId: string
+  amount: number
+}
+
+export type MarathonPhotoAbilityInfo = {
+  photoAbilityId: string
+  effectValue: string
+}
+
+export type MarathonQuestInfo = {
+  marathonQuestId: string
+  unlocked: boolean
+  difficultyLevelInfos: MarathonQuestDifficultyLevelInfo[]
+  lastChallengeDifficultyNumber: number
+  isUnlockable: boolean
+  isPlayable: boolean
+  playableCount: number
+}
+
+export type MarathonQuestStartResponse = {
+  marathonId: string
+  marathonQuestId: string
+  marathonQuestDifficultyNumber: number
+  result: LiveResult
+  reward: QuestReward
+  rankType: ResultRankType
+  rankPlus: number
+  rankPatterns: QuestRankPattern[]
+  highestClearRankType: ResultRankType
+  highestScore: string
+  addMarathonPoint: number
+  friendApplyToBuddyInfo: FriendApplyToBuddyInfo
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidHostUser = {
+  name: string
+  isFriend: boolean
+  favoriteCard: FavoriteCardInfo
+  favoritePhoto: FavoritePhotoInfo
+  decorationId: string
   userId: string
 }
-export type ProfileUpdateNameRequest = {
-  // ProtoMember(1)
+
+export type MarathonRaidQuest = {
+  id: string
+  stageId: string
   name: string
+  description: string
+  unlockConditionId: string
+  unlockDescription: string
+  musicId: string
+  musicChartPatternId: string
+  position1AttributeType: AttributeType
+  position2AttributeType: AttributeType
+  position3AttributeType: AttributeType
+  position4AttributeType: AttributeType
+  position5AttributeType: AttributeType
+  activeSkillWeightPermil: number
+  specialSkillWeightPermil: number
+  skillStaminaWeightPermil: number
+  staminaRecoveryWeightPermil: number
+  beatDanceWeightPermil: number
+  beatVocalWeightPermil: number
+  beatVisualWeightPermil: number
+  questPressureId: string
+  questCharacterAdvantageId: string
+  questAudienceAdvantageId: string
+  moodType: MoodType
+  maxCapacity: number
+  liveBonusGroupId: string
+  unlocked: boolean
+  difficulties: MarathonRaidQuestDifficulty[]
 }
-export type ProfileUpdateNameResponse = {
-  // ProtoMember(9999)
+
+export type MarathonRaidQuestDifficulty = {
+  raidQuestId: string
+  difficultyNumber: number
+  difficultyLevel: number
+  mentalThreshold: number
+  clearScore: string
+  requiredRaidStamina: number
+  hostRewardId: string
+  joinRewardId: string
+  mvpRewardId: string
+  unlockConditionId: string
+  rewardManagerExp: number
+  rewardCardExp: number
+  cleared: boolean
+  unlocked: boolean
+  liveSkipType: LiveSkipType
+}
+
+export type MarathonRaidRankedUser = {
+  rank: number
+  userName: string
+  managerLevel: number
+  score: string
+  emblemId: string
+  userId: string
+}
+
+export type MarketItem = {
+  number: number
+  consumptionResourceType: ResourceType
+  baseAmount: number
+  discountAmount: number
+  rewardId: string
+  discountRatePermil: number
+  soldOut: boolean
+  unlockConditionId: string
+}
+
+export type MessageGroupInfo = {
+  messageGroupId: string
+  latestTimelineInfo: TimelineInfo
+}
+
+export type PhotoActivity = {
+  photoActivityId: string
+  isUnlocked: boolean
+}
+
+export type PhotoContestActivity = {
+  id: string
+  isUnlocked: boolean
+}
+
+export type PhotoContestInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  aggregateEndTime: string
+  exchangeEndTime: string
+  assetId: string
+  eventStoryInfo: EventStoryInfo
+  eventExchangeBoothInfo: EventExchangeBoothInfo
+  noticeInfo: NoticeInfo
+  totalBestShootEvaluationPoint: string
+  totalBestShootEvaluationPointTime: string
+  rank: string
+  rankingRewardInfos: PhotoContestRankingRewardInfo[]
+  sectionInfos: PhotoContestSectionInfo[]
+  activities: PhotoContestActivity[]
+  musics: PhotoContestQuestMusic[]
+  stages: PhotoContestQuestStage[]
+  dailyRewardResults: RewardResult[]
+  onceShootingSubmitLimitCount: number
+  currentPhotoAmount: string
+  submittingItemId: string
+  creatingItemId: string
+}
+
+export type PhotoContestPhotoInfo = {
+  assetId: string
+  sectionId: string
+  evaluationPoint: string
+  isBest: boolean
+  shootingTime: string
+  fixedCreatePhotoRarity: string
+  evaluationRankType: PhotoContestEvaluationRankType
+}
+
+export type PhotoContestQuestMusic = {
+  id: string
+  isUnlocked: boolean
+}
+
+export type PhotoContestQuestStage = {
+  id: string
+  isUnlocked: boolean
+}
+
+export type PhotoContestRankingInfo = {
+  userId: string
+  name: string
+  managerLevel: number
+  totalBestShootEvaluationPoint: string
+  rank: number
+  emblemId: string
+  bestPhotoInfos: PhotoContestPhotoInfo[]
+}
+
+export type PhotoContestRankingRewardInfo = {
+  rankFrom: number
+  rewardId: string
+}
+
+export type PhotoContestSectionInfo = {
+  id: string
+  sectionRewardInfos: PhotoContestSectionRewardInfo[]
+  bestShootAssetId: string
+  bestShootEvaluationPoint: string
+  totalSectionEvaluationPoint: string
+  isUnlocked: boolean
+  advanceGuideInfos: PhotoContestSectionAdvanceGuideInfo[]
+}
+
+export type PhotoContestSectionRewardInfo = {
+  sectionRewardId: string
+  canReceive: boolean
+  haveReceived: boolean
+}
+
+export type PhotoContestSubmitShootingResponse = {
+  evaluationPoint: string
+  isBest: boolean
+  totalSectionEvaluationPoint: string
+  totalBestShotEvaluationPoint: string
+  nextPhotoImageId: string
+  newCanReceiveSectionRewardIds: string[]
+  rank: string
+  evaluationRankType: PhotoContestEvaluationRankType
+  baseGuideInfos: PhotoContestSectionBaseGuideInfo[]
+  advanceGuideInfos: PhotoContestSectionAdvanceGuideInfo[]
+  fixedCreatePhotoRarity: string
   commonResponse: CommonResponse
 }
-export type ProfileUpdateMessageRequest = {
-  // ProtoMember(1)
-  message: string
+
+export type PhotoMusic = {
+  musicId: string
+  isUnlocked: boolean
 }
-export type ProfileUpdateMessageResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
+
+export type PhotoStage = {
+  stageId: string
+  isUnlocked: boolean
 }
-export type ProfileUpdateBackgroundRequest = {
-  // ProtoMember(1)
-  backgroundType: ProfileBackgroundType
-  // ProtoMember(2)
-  favoriteCardId: string
-  // ProtoMember(3)
-  favoritePhotoId: string
-}
-export type ProfileUpdateBackgroundResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ProfileUpdateFavoriteCharactersRequest = {
-  // ProtoMember(1)
+
+export type ProfileFindUserResponse = {
+  userId: string
+  name: string
+  managerExp: string
+  managerLevel: number
+  divisionId: string
+  guildId: string
+  emblemId: string
+  favoriteCard: FavoriteCardInfo
+  favoritePhoto: FavoritePhotoInfo
   favoriteCharacterIds: string[]
-}
-export type ProfileUpdateFavoriteCharactersResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ProfileUpdateDecorationRequest = {
-  // ProtoMember(1)
+  message: string
+  birthMonth: number
+  birthDay: number
+  backgroundType: ProfileBackgroundType
+  layoutType: ProfileLayoutType
+  hierarchyCurrentDetailGradeId: string
+  hierarchyCurrentRank: number
   decorationId: string
-}
-export type ProfileUpdateDecorationResponse = {
-  // ProtoMember(9999)
+  informationType: ProfileInformationType
+  colorType: ProfileColorType
   commonResponse: CommonResponse
 }
-export type ProfileUpdateEmblemRequest = {
-  // ProtoMember(1)
+
+export type ProfileInfo = {
+  userId: string
+  name: string
+  managerExp: string
+  managerLevel: number
+  emblemId: string
+  favoriteCard: FavoriteCardInfo
+  favoritePhoto: FavoritePhotoInfo
+  favoriteCharacterIds: string[]
+  backgroundType: ProfileBackgroundType
+  layoutType: ProfileLayoutType
+  lastLoginTime: string
+  decorationId: string
+  informationType: ProfileInformationType
+  colorType: ProfileColorType
+  buddyCardInfo: BuddyCardInfo
+}
+
+export type ProfileTopResponse = {
+  hierarchyCurrentDetailGradeId: string
+  hierarchyCurrentRank: number
+  friendProfiles: ProfileInfo[]
+  commonResponse: CommonResponse
+}
+
+export type Promotion = {
+  id: string
+  name: string
+  subName: string
+  unlockConditionId: string
+  isUnlocked: boolean
+  activityPerformanceId: string
+  level: number
+  exp: number
+  nextLevelRequiredExp: number
+  requiredStamina: number
+  nextLevelUnlockConditionId: string
+  isNextLevelUnlocked: boolean
+  stepConsumptionStamina: number
+  stepRewardGold: number
+  stepRewardCardEnhanceItem: number
+  stepAdditionalRewardId: string
+  multiStepRewardId: string
+  maxFanAmount: number
+  viewConditionId: string
+  subGenre: string
+  multiStepCampaignDropRewardIds: string[]
+}
+
+export type PromotionProgress = {
+  activityPromotionId: string
+  activityPromotionName: string
+  activityPromotionSubName: string
+  activityPromotionLevel: number
+  characters: ActivityCharacterInfo[]
+  startTime: string
+  finishTime: string
+  stepConsumptionStamina: number
+  completedStep: number
+  stepRewardGold: number
+  stepRewardManagerExp: number
+  stepRewardActivityExp: number
+  stepRewardCharacterActivityExp: number
+  stepAdditionalRewardId: string
+  multiStepRewardId: string
+  stepRewardCardEnhanceItem: number
+  rewardGoldAmount: number
+  rewardCardEnhanceItemAmount: number
+  rewards: ActivityPromotionReward[]
+  nextActivityLevelUpTime: string
+  campaignEffects: ActivityCampaignEffect[]
+  activityPerformanceId: string
+  subGenre: string
+  multiStepCampaignDropRewardIds: string[]
+}
+
+export type PvpRewardInfo = {
+  rankFrom: string
+  rankingRewardId: string
+  challengeRewardId: string
+  hierarchyVariablePoint: string
+}
+
+export type QuestAreaGroupInfo = {
+  areaGroupId: string
+  areas: QuestAreaInfo[]
+}
+
+export type QuestAreaInfo = {
+  areaId: string
+  unlocked: boolean
+  quests: QuestInfo[]
+}
+
+export type QuestBulkDailyDeckPositionInfo = {
+  position: number
+  cardId: string
+}
+
+export type QuestBulkDailyInfo = {
+  questId: string
+  deckPositions: QuestBulkDailyDeckPositionInfo[]
+  rankType: ResultRankType
+  rankPlus: number
+}
+
+export type QuestBulkDailyResultInfo = {
+  questId: string
+  playCount: number
+  deckPositions: QuestBulkDailyDeckPositionInfo[]
+  reward: QuestReward
+  rankType: ResultRankType
+  rankPlus: number
+}
+
+export type QuestClearInfo = {
+  score: string
+  userName: string
+  deckName: string
+  cards: LiveCardInfo[]
+  emblemId: string
+  userId: string
+  rankType: ResultRankType
+  plus: number
+}
+
+export type QuestContestRankInfo = {
+  rank: number
+  isNPC: boolean
+  score: string
+  userName: string
+  deckName: string
+  cards: LiveCardInfo[]
+  emblemId: string
+  userId: string
+}
+
+export type QuestInfo = {
+  questId: string
+  cleared: boolean
+  highestScore: string
+  rankType: ResultRankType
+  plus: number
+  highestRank: number
+  isPlayable: boolean
+  playableCount: number
+  opponentInfo: QuestOpponentInfo
+  campaignDropRewardIds: string[]
+}
+
+export type QuestListTowerRankingResponse = {
+  selfHighestRank: number
+  selfQuestId: string
+  ranks: QuestTowerRankInfo[]
+  totalQuestNum: number
+  commonResponse: CommonResponse
+}
+
+export type QuestRewardCard = {
+  cardId: string
+  funAmount: string
+  exp: number
+  isExpTruncated: boolean
+}
+
+export type QuestStartResponse = {
+  questId: string
+  result: LiveResult
+  reward: QuestReward
+  rankType: ResultRankType
+  rankPlus: number
+  rankPatterns: QuestRankPattern[]
+  highestRank: number
+  highestScore: string
+  hierarchyChangeInfo: HierarchyChangeInfo
+  friendApplyToBuddyInfo: FriendApplyToBuddyInfo
+  commonResponse: CommonResponse
+}
+
+export type QuestTopResponse = {
+  mainAreaGroups: QuestAreaGroupInfo[]
+  contestTotalScore: string
+  hasUnplayedContest: boolean
+  pvpInfo: QuestTopPvpInfo
+  currentTowerQuestId: string
+  isDailyPlayable: boolean
+  gvgInfo: CurrentGvgInfo
+  hierarchyNotiInfo: HierarchyNotiInfo
+  dailyAreas: QuestAreaInfo[]
+  towerArea: QuestAreaInfo
+  contestArea: QuestAreaInfo
+  isTowerTopUnlocked: boolean
+  bulkDailyInfos: QuestBulkDailyInfo[]
+  commonResponse: CommonResponse
+}
+
+export type QuestTowerAreaInfo = {
+  area: QuestAreaInfo
+  currentTowerQuestId: string
+}
+
+export type QuestTowerRankInfo = {
+  rank: number
+  questId: string
+  userName: string
+  deckName: string
+  cards: LiveCardInfo[]
+  emblemId: string
+  userId: string
+}
+
+export type RaceAccessoryInfo = {
+  accessoryId: string
+  categoryType: AccessoryCategoryType
+  param1Permil: number
+  param1Value: number
+  param2Permil: number
+  param2Value: number
+}
+
+export type RaceDailyRankingUserInfo = {
+  userId: string
+  userName: string
+  score: string
+  emblemId: string
+  rank: number
+}
+
+export type RaceInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  exchangeEndTime: string
+  aggregateEndTime: string
+  assetId: string
+  eventStoryInfo: EventStoryInfo
+  eventMissionInfo: EventMissionInfo
+  noticeInfo: NoticeInfo
+  racePointItemId: string
+  raceMedalItemId: string
+  raceLiveBonusResetItemId: string
+  raceAreaInfos: RaceAreaInfo[]
+  requiredCardCoolTimeRacePointAmount: number
+  raceRankGradeInfos: RaceRankGradeInfo[]
+  livePanelDifficultyNumber: number
+  cardCoolTimeMinutes: number
+  raceLiveBonusGroupId: string
+}
+
+export type RaceLiveBonusInfo = {
+  liveBonusId: string
+  level: number
+}
+
+export type RaceLiveQuestInfo = {
+  raceQuestId: string
+  currentClearDifficultyNumber: number
+  beforeClearDifficultyNumber: number
+  difficultyLevelInfos: RaceLiveQuestDifficultyLevelInfo[]
+}
+
+export type RaceOpponentProgressInfo = {
+  userId: string
+  name: string
+  displayCharacterId: string
+  clearPanelCount: number
+  rank: number
+  liveBonusInfos: RaceLiveBonusInfo[]
+}
+
+export type RacePhotoAbilityInfo = {
+  photoAbilityId: string
+  effectValue: string
+}
+
+export type RaceRankingInfo = {
+  userId: string
+  name: string
+  managerLevel: number
+  clearPanelCount: number
+  rank: number
   emblemId: string
 }
-export type ProfileUpdateEmblemResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ProfileUpdateLayoutRequest = {
-  // ProtoMember(1)
-  layoutType: ProfileLayoutType
-}
-export type ProfileUpdateLayoutResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ProfileClearTwitterMissionResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PvpTopResponse = {
-  // ProtoMember(1)
-  topResult: PvpTopResultInfo
-  // ProtoMember(2)
-  opponentInfos: PvpOpponentInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PvpTopResultInfo = {
-  // ProtoMember(1)
-  pvpSeason: PvpSeasonInfo
-  // ProtoMember(2)
-  pvpRewards: PvpRewardInfo[]
-  // ProtoMember(3)
-  pvpQuest: LiveBattleQuestInfo
-  // ProtoMember(4)
-  userPvpSeason: UserPvpSeasonInfo
-  // ProtoMember(5)
-  rank: string
-  // ProtoMember(6)
-  isSkipAvailable: boolean
-  // ProtoMember(7)
-  pvpTicketAvailableAmount: number
-}
-export type UserPvpSeasonInfo = {
-  // ProtoMember(1)
-  point: string
-  // ProtoMember(2)
-  challengeCount: number
-}
-export type PvpListOpponentRequest = {
-  // ProtoMember(1)
-  pvpSeasonId: string
-}
-export type PvpListOpponentResponse = {
-  // ProtoMember(1)
-  opponentInfos: PvpOpponentInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PvpListRankingRequest = {
-  // ProtoMember(1)
-  pvpSeasonId: string
-}
-export type PvpListRankingResponse = {
-  // ProtoMember(1)
-  rankingInfos: LiveRankingInfo[]
-  // ProtoMember(2)
-  selfPoint: string
-  // ProtoMember(3)
-  selfRank: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PvpStartRequest = {
-  // ProtoMember(1)
-  pvpSeasonId: string
-  // ProtoMember(2)
-  opponentId: string
-  // ProtoMember(3)
-  deckNumber: number
-  // ProtoMember(4)
-  usePvpTicket: boolean
-  // ProtoMember(5)
-  isSkip: boolean
-}
-export type PvpStartResponse = {
-  // ProtoMember(1)
-  result: LiveResult
-  // ProtoMember(2)
-  point: string
-  // ProtoMember(3)
-  addPoint: string
-  // ProtoMember(4)
-  rank: number
-  // ProtoMember(5)
-  musicMasteryRewards: Reward[]
-  // ProtoMember(6)
-  challengeRewards: RewardResult[]
-  // ProtoMember(7)
-  profile: AllProfileInfo
-  // ProtoMember(8)
-  opponentProfile: AllProfileInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type PvpListAssetRequest = {
-  // ProtoMember(1)
-  pvpSeasonId: string
-  // ProtoMember(2)
-  opponentId: string
-  // ProtoMember(3)
-  deckNumber: number
-}
-export type PvpListAssetResponse = {
-  // ProtoMember(1)
-  characterAssets: LiveCharacterAssetInfo[]
-  // ProtoMember(2)
-  opponentCharacterAssets: LiveCharacterAssetInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestListMainResponse = {
-  // ProtoMember(1)
-  areaGroups: QuestAreaGroupInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestListDailyResponse = {
-  // ProtoMember(1)
-  areas: QuestAreaInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestListContestResponse = {
-  // ProtoMember(1)
-  area: QuestAreaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestListTowerResponse = {
-  // ProtoMember(1)
-  area: QuestAreaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestStartRequest = {
-  // ProtoMember(1)
-  questId: string
-  // ProtoMember(2)
-  deckNumber: number
-  // ProtoMember(3)
-  useDailyTicket: boolean
-  // ProtoMember(4)
-  isSkip: boolean
-  // ProtoMember(5)
-  playCount: number
-}
-export type QuestListTowerRankingRequest = {
-  // ProtoMember(1)
-  areaId: string
-}
-export type QuestListContestRankingRequest = {
-  // ProtoMember(1)
-  questId: string
-}
-export type QuestListContestRankingResponse = {
-  // ProtoMember(1)
-  selfHighestRank: number
-  // ProtoMember(2)
-  selfScore: string
-  // ProtoMember(3)
-  ranks: QuestContestRankInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestListLatestClearRequest = {
-  // ProtoMember(1)
-  questId: string
-}
-export type QuestListLatestClearResponse = {
-  // ProtoMember(1)
-  clears: QuestClearInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestListAssetRequest = {
-  // ProtoMember(1)
-  questId: string
-  // ProtoMember(2)
-  deckNumber: number
-}
-export type QuestListAssetResponse = {
-  // ProtoMember(1)
-  characterAssets: LiveCharacterAssetInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestGetLatestClearLiveResultRequest = {
-  // ProtoMember(1)
-  questId: string
-  // ProtoMember(2)
-  userId: string
-}
-export type QuestGetLatestClearLiveResultResponse = {
-  // ProtoMember(1)
-  result: LiveResult
-  // ProtoMember(2)
-  rankPatterns: QuestRankPattern[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestGetRankingLiveResultRequest = {
-  // ProtoMember(1)
-  questId: string
-  // ProtoMember(2)
-  userId: string
-}
-export type QuestGetRankingLiveResultResponse = {
-  // ProtoMember(1)
-  result: LiveResult
-  // ProtoMember(2)
-  rankPatterns: QuestRankPattern[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type QuestTowerTopResponse = {
-  // ProtoMember(1)
-  towerArea: QuestTowerAreaInfo
-  // ProtoMember(2)
-  subTowerAreas: QuestTowerAreaInfo[]
-  // ProtoMember(3)
-  hierarchyNotiInfo: HierarchyNotiInfo
-}
-export type QuestTopPvpInfo = {
-  // ProtoMember(5)
-  rank: number
-  // ProtoMember(6)
-  remainingChallengeCount: number
-  // ProtoMember(7)
-  pvpInfo: PvpSeasonInfo
-  // ProtoMember(8)
-  nextPvpInfo: PvpSeasonInfo
-}
-export type SalaryGetPayslipRequest = {
-  // ProtoMember(1)
-  yearMonths: number[]
-}
-export type SalaryGetPayslipResponse = {
-  // ProtoMember(1)
-  payslips: Payslip[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type SalaryPayRequest = {
-  // ProtoMember(1)
-  year: number
-  // ProtoMember(2)
-  month: number
-}
-export type SalaryPayResponse = {
-  // ProtoMember(1)
-  payslip: Payslip
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopListResponse = {
-  // ProtoMember(1)
-  shops: ShopInfo[]
-  // ProtoMember(2)
-  dokanInfos: DokanInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopListItemRequest = {
-  // ProtoMember(1)
-  shopId: string
-}
-export type ShopListItemResponse = {
-  // ProtoMember(1)
-  shopItems: ShopItem[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopGetLoginBonusPackageItemRequest = {
-  // ProtoMember(1)
-  shopId: string
-}
-export type ShopGetLoginBonusPackageItemResponse = {
-  // ProtoMember(1)
-  loginBonusPackageItem: LoginBonusPackageItem
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopGetConditionRewardPackageItemRequest = {
-  // ProtoMember(1)
-  shopId: string
-}
-export type ShopGetConditionRewardPackageItemResponse = {
-  // ProtoMember(1)
-  conditionRewardPackageItem: ConditionRewardPackageItem
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopPurchaseRequest = {
-  // ProtoMember(1)
-  shopItemId: string
-}
-export type ShopPurchaseResponse = {
-  // ProtoMember(1)
-  rewards: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopRegisterPurchaseTransactionRequest = {
-  // ProtoMember(1)
-  shopItemId: string
-}
-export type ShopRegisterPurchaseTransactionResponse = {
-  // ProtoMember(1)
-  transactionId: string
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopCancelPurchaseTransactionRequest = {
-  // ProtoMember(1)
-  shopItemId: string
-  // ProtoMember(2)
-  transactionId: string
-}
-export type ShopCancelPurchaseTransactionResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopPurchaseStoneRequest = {
-  // ProtoMember(1)
-  productId: string
-  // ProtoMember(2)
-  transactionId: string
-  // ProtoMember(3)
-  receipt: string
-  // ProtoMember(4)
-  signature: string
-  // ProtoMember(5)
-  currencyCode: string
-  // ProtoMember(6)
-  localizedPricePermyriad: string
-}
-export type ShopPurchaseStoneResponse = {
-  // ProtoMember(1)
-  rewards: RewardResult[]
-  // ProtoMember(2)
-  paidJpy: PaidJpy
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopRecoverPurchaseStoneRequest = {
-  // ProtoMember(1)
-  productId: string
-  // ProtoMember(2)
-  receipt: string
-  // ProtoMember(3)
-  signature: string
-  // ProtoMember(4)
-  currencyCode: string
-  // ProtoMember(5)
-  localizedPricePermyriad: string
-}
-export type ShopRecoverPurchaseStoneResponse = {
-  // ProtoMember(1)
-  rewards: RewardResult[]
-  // ProtoMember(2)
-  shopItemName: string
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopCheckPurchaseStoneRequest = {
-  // ProtoMember(1)
-  shopItemId: string
-}
-export type ShopCheckPurchaseStoneResponse = {
-  // ProtoMember(1)
-  birthdayNotRegistered: boolean
-  // ProtoMember(2)
-  exceedMaxStoneAmount: boolean
-  // ProtoMember(3)
-  exceedPurchaseThreshold: boolean
-  // ProtoMember(4)
-  exceedAlertThreshold: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopRegisterBirthdayRequest = {
-  // ProtoMember(1)
-  year: number
-  // ProtoMember(2)
-  month: number
-}
-export type ShopRegisterBirthdayResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type ShopReceiveConditionRewardRequest = {
-  // ProtoMember(1)
-  shopId: string
-  // ProtoMember(2)
-  numbers: number[]
-}
-export type ShopReceiveConditionRewardResponse = {
-  // ProtoMember(1)
-  rewards: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type StaffTrainRequest = {
-  // ProtoMember(1)
-  parameterType: ParameterType
-}
-export type StaffTrainResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type StoryReadRequest = {
-  // ProtoMember(1)
-  storyId: string
-  // ProtoMember(2)
-  isLast: boolean
-}
-export type StoryReadResponse = {
-  // ProtoMember(1)
-  rewards: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type StoryReleaseEpisodeRequest = {
-  // ProtoMember(1)
-  storyPartId: string
-  // ProtoMember(2)
-  chapter: number
-  // ProtoMember(3)
-  route: number
-  // ProtoMember(4)
-  episode: number
-}
-export type StoryReleaseEpisodeResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type StoryListEventResponse = {
-  // ProtoMember(1)
-  infos: EventStoryInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type StoryReadEventRequest = {
-  // ProtoMember(1)
-  eventStoryId: string
-  // ProtoMember(2)
-  episode: number
-  // ProtoMember(3)
-  isLast: boolean
-}
-export type StoryReadEventResponse = {
-  // ProtoMember(1)
-  rewards: RewardResult[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type SystemCheckRequest = {
-  // ProtoMember(1)
-  firebaseIDToken: string
-}
-export type SystemCheckResponse = {
-  // ProtoMember(1)
-  maintenanceInfo: MaintenanceInfo
-  // ProtoMember(2)
-  reviewInfo: ReviewInfo
-  // ProtoMember(3)
-  keepAliveTimeMilliseconds: number
-  // ProtoMember(4)
-  keepAliveTimeoutMilliseconds: number
-}
-export type MaintenanceInfo = {
-  // ProtoMember(1)
-  inMaintenance: boolean
-  // ProtoMember(2)
-  topMessage: string
-  // ProtoMember(3)
-  bottomMessage: string
-  // ProtoMember(4)
-  startTime: string
-  // ProtoMember(5)
-  endTime: string
-  // ProtoMember(6)
-  isBeforeRelease: boolean
-  // ProtoMember(7)
-  twitterUrl: string
-  // ProtoMember(8)
-  mvUrl: string
-  // ProtoMember(9)
-  gamePvUrl: string
-}
-export type ReviewInfo = {
-  // ProtoMember(1)
-  inReview: boolean
-  // ProtoMember(2)
-  alternativeApiHost: string
-}
-export type TelephoneReceiveRequest = {
-  // ProtoMember(1)
-  telephoneIds: string[]
-}
-export type TelephoneReceiveResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TelephoneFinishesRequest = {
-  // ProtoMember(1)
-  telephoneIds: string[]
-}
-export type TelephoneFinishesResponse = {
-  // ProtoMember(1)
-  isReliabilityUp: boolean
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TelephoneCallHistoryRequest = {
-  // ProtoMember(1)
-  telephoneId: string
-}
-export type TelephoneCallHistoryResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourTopRequest = {
-  // ProtoMember(1)
-  tourId: string
-}
-export type TourTopResponse = {
-  // ProtoMember(1)
-  tourInfo: TourInfo
-  // ProtoMember(2)
-  userTourInfo: UserTourInfo
-  // ProtoMember(3)
-  dokanInfos: DokanInfo[]
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourRankingRequest = {
-  // ProtoMember(1)
-  tourId: string
-}
-export type TourRankingResponse = {
-  // ProtoMember(1)
-  rankingInfos: TourRankingInfo[]
-  // ProtoMember(2)
-  selfPoint: string
-  // ProtoMember(3)
-  selfRank: number
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaTopRequest = {
-  // ProtoMember(1)
-  tourId: string
-  // ProtoMember(2)
-  isCurrentAreaRestart: boolean
-  // ProtoMember(3)
-  tourDifficultyNumber: number
-}
-export type TourAreaTopResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaActivityRequest = {
-  // ProtoMember(1)
-  tourId: string
-  // ProtoMember(2)
-  step: number
-  // ProtoMember(3)
-  position: number
-}
-export type TourAreaActivityResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaRefreshRequest = {
-  // ProtoMember(1)
-  tourId: string
-  // ProtoMember(2)
-  step: number
-  // ProtoMember(3)
-  position: number
-}
-export type TourAreaRefreshResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaScoutRequest = {
-  // ProtoMember(1)
-  tourId: string
-  // ProtoMember(2)
-  step: number
-  // ProtoMember(3)
-  position: number
-  // ProtoMember(4)
+
+export type RaceUserCardCoolTimeInfo = {
   cardId: string
+  coolTime: string
 }
-export type TourAreaScoutResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaLiveRequest = {
-  // ProtoMember(1)
-  tourId: string
-  // ProtoMember(2)
-  step: number
-  // ProtoMember(3)
-  position: number
-  // ProtoMember(4)
-  isSkip: boolean
-}
-export type TourAreaLiveResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(2)
-  liveInfo: TourLiveInfo
-  // ProtoMember(3)
-  resultInfo: TourResultInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaLiveBonusRequest = {
-  // ProtoMember(1)
-  tourId: string
-  // ProtoMember(2)
-  step: number
-  // ProtoMember(3)
-  position: number
-  // ProtoMember(4)
-  liveBonusId: string
-}
-export type TourAreaLiveBonusResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaPvpRequest = {
-  // ProtoMember(1)
-  tourId: string
-  // ProtoMember(2)
-  step: number
-  // ProtoMember(3)
-  position: number
-  // ProtoMember(4)
-  isSkip: boolean
-}
-export type TourAreaPvpResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(2)
-  liveInfo: TourLiveInfo
-  // ProtoMember(3)
-  resultInfo: TourResultInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaClearRequest = {
-  // ProtoMember(1)
-  tourId: string
-}
-export type TourAreaClearResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(2)
-  areaClearInfo: TourAreaClearInfo
-  // ProtoMember(3)
-  resultInfo: TourResultInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaNextRequest = {
-  // ProtoMember(1)
-  tourId: string
-}
-export type TourAreaNextResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourAreaRetireRequest = {
-  // ProtoMember(1)
-  tourId: string
-}
-export type TourAreaRetireResponse = {
-  // ProtoMember(1)
-  areaInfo: TourAreaInfo
-  // ProtoMember(2)
-  resultInfo: TourResultInfo
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourDeckSaveRequest = {
-  // ProtoMember(1)
-  tourId: string
-  // ProtoMember(2)
-  deckInfos: TourDeckInfo[]
-}
-export type TourDeckSaveResponse = {
-  // ProtoMember(9999)
-  commonResponse: CommonResponse
-}
-export type TourInfo = {
-  // ProtoMember(1)
+
+export type Refresh = {
   id: string
-  // ProtoMember(2)
   name: string
-  // ProtoMember(3)
-  type: TourType
-  // ProtoMember(4)
-  enemyType: TourEnemyType
-  // ProtoMember(5)
+  requiredMinutes: number
+  unlockConditionId: string
+  isUnlocked: boolean
+  level: number
+  exp: number
+  nextLevelRequiredExp: number
+  levels: RefreshLevel[]
+  viewConditionId: string
+}
+
+export type RefreshLevel = {
+  level: number
+  name: string
+  requiredGold: number
+  unlockConditionId: string
+  isUnlocked: boolean
+  activityPerformanceId: string
+  recoveryAmount: number
+  viewConditionId: string
+  subGenre: string
+}
+
+export type RefreshProgress = {
+  activityRefreshId: string
+  activityRefreshName: string
+  activityRefreshSubName: string
+  activityRefreshLevel: number
+  characters: ActivityCharacterInfo[]
   startTime: string
-  // ProtoMember(6)
-  endTime: string
-  // ProtoMember(7)
-  aggregateEndTime: string
-  // ProtoMember(8)
-  exchangeEndTime: string
-  // ProtoMember(9)
-  assetId: string
-  // ProtoMember(10)
-  bannerAssetId: string
-  // ProtoMember(11)
-  areaStaminaRecoveryMinutes: number
-  // ProtoMember(12)
-  initialAreaStamina: number
-  // ProtoMember(13)
-  initialLife: number
-  // ProtoMember(14)
-  eventStoryInfo: EventStoryInfo
-  // ProtoMember(15)
-  eventMissionInfo: EventMissionInfo
-  // ProtoMember(16)
-  eventExchangeBoothInfo: EventExchangeBoothInfo
-  // ProtoMember(17)
+  finishTime: string
+  requiredMinutes: number
+  recoveryAmount: number
+  activityPerformanceId: string
+  subGenre: string
+}
+
+export type ShopConditionReward = {
+  number: number
+  conditionId: string
+  rewardId: string
+  statusType: ShopConditionRewardStatusType
+}
+
+export type ShopInfo = {
+  id: string
+  name: string
+  type: ShopType
+  order: number
+  colorCode: string
+  backgroundColorCode: string
   noticeInfo: NoticeInfo
-  // ProtoMember(18)
-  tourRankingRewardInfos: TourRankingRewardInfo[]
-  // ProtoMember(19)
-  tourDifficultyInfos: TourDifficultyInfo[]
+  viewConditionId: string
+  thumbnailAssetId: string
+  costumeId: string
+  resetTimingType: ResetTimingType
+  nextResetTime: string
+  isPurchased: boolean
+  progress: number
+  maxProgress: number
+  bannerAssetId: string
 }
-export type UserTourInfo = {
-  // ProtoMember(1)
-  areaStamina: number
-  // ProtoMember(2)
-  staminaUpdatedTime: string
-  // ProtoMember(3)
-  highestScore: string
-  // ProtoMember(4)
-  highestScoreTime: string
-  // ProtoMember(5)
-  mostProgressArea: number
-  // ProtoMember(6)
-  mostProgressAreaName: string
-  // ProtoMember(7)
-  life: number
-  // ProtoMember(8)
-  currentScore: string
-  // ProtoMember(9)
-  currentArea: number
-  // ProtoMember(10)
-  currentAreaName: string
-  // ProtoMember(11)
-  rank: string
-  // ProtoMember(13)
-  isRetired: boolean
-  // ProtoMember(14)
-  isAreaCleared: boolean
-  // ProtoMember(15)
-  isLastArea: boolean
-  // ProtoMember(16)
-  clearedDifficultyNumber: number
-  // ProtoMember(17)
-  currentDifficultyNumber: number
-}
-export type TourDeckInfo = {
-  // ProtoMember(1)
-  position: number
-  // ProtoMember(2)
-  cardId: string
-  // ProtoMember(3)
-  scoutId: string
-}
-export type TourAreaInfo = {
-  // ProtoMember(1)
-  areaStamina: number
-  // ProtoMember(2)
-  staminaUpdatedTime: string
-  // ProtoMember(3)
-  highestScore: string
-  // ProtoMember(4)
-  highestScoreTime: string
-  // ProtoMember(5)
-  mostProgressArea: number
-  // ProtoMember(6)
-  mostProgressAreaName: string
-  // ProtoMember(7)
-  life: number
-  // ProtoMember(8)
-  score: string
-  // ProtoMember(9)
-  area: number
-  // ProtoMember(10)
-  areaName: string
-  // ProtoMember(11)
-  step: number
-  // ProtoMember(12)
-  position: number
-  // ProtoMember(13)
-  areaScore: string
-  // ProtoMember(14)
-  isAreaCleared: boolean
-  // ProtoMember(15)
-  isRetired: boolean
-  // ProtoMember(16)
-  stepInfos: TourStepInfo[]
-  // ProtoMember(17)
-  areaRewards: Reward[]
-  // ProtoMember(18)
-  liveBonusInfos: TourLiveBonusInfo[]
-  // ProtoMember(19)
-  cardInfos: TourCardInfo[]
-  // ProtoMember(20)
-  scoutInfos: TourScoutInfo[]
-  // ProtoMember(21)
-  deckInfos: TourDeckInfo[]
-  // ProtoMember(22)
-  isLastArea: boolean
-  // ProtoMember(23)
-  tourType: TourType
-  // ProtoMember(24)
-  tourAreaType: TourAreaType
-}
-export type TourStepInfo = {
-  // ProtoMember(1)
-  step: number
-  // ProtoMember(2)
-  positionInfos: TourPositionInfo[]
-}
-export type TourPositionInfo = {
-  // ProtoMember(1)
-  position: number
-  // ProtoMember(2)
-  type: TourStepType
-  // ProtoMember(3)
-  activityInfo: TourEffectActivity
-  // ProtoMember(4)
-  refreshInfo: TourEffectRefresh
-  // ProtoMember(5)
-  scoutInfo: TourEffectScout
-  // ProtoMember(6)
-  liveInfo: TourEffectLive
-  // ProtoMember(7)
-  pvpInfo: TourEffectPvp
-  // ProtoMember(9)
-  liveBonusInfos: TourLiveBonusInfo[]
-  // ProtoMember(10)
-  isPassed: boolean
-}
-export type TourEffectScout = {
-  // ProtoMember(1)
-  scoutInfos: TourScoutInfo[]
-}
-export type TourOpponentInfo = {
-  // ProtoMember(1)
+
+export type ShopItem = {
+  id: string
   name: string
-  // ProtoMember(2)
+  description: string
+  productId: string
+  consumptionId: string
+  rewardId: string
+  thumbnailAssetId: string
+  purchaseLimit: number
+  leftCount: number
+  order: number
+  viewConditionId: string
+  pushSegment: string
+  resetTimingType: ResetTimingType
+  nextResetTime: string
+  unlockConditionId: string
+  unlocked: boolean
+  colorCode: string
+  backgroundColorCode: string
+}
+
+export type ShopLoginBonus = {
+  day: number
+  rewardId: string
+  isReceived: boolean
+}
+
+export type TimelineInfo = {
+  messageGroupId: string
+  timelineId: string
+  messageId: string
+  arrivedTime: string
+  selectMessageDetailIds: string[]
+  lastMessageDetailId: string
+  lastMessageDetailTime: string
+  finished: boolean
+}
+
+export type TourDifficultyInfo = {
+  tourDifficultyId: string
+  tourDifficultyNumber: number
   managerLevel: number
-  // ProtoMember(3)
-  cardInfos: LiveBattleCardInfo[]
+  unlockConditionId: string
+  unlocked: boolean
 }
-export type TourLiveBonusInfo = {
-  // ProtoMember(1)
-  liveBonusId: string
-  // ProtoMember(2)
+
+export type TourEffectActivity = {
+  itemId: string
+  amount: number
+  activityPerformanceId: string
+  activityPromotionSubGenre: string
+}
+
+export type TourEffectLive = {
+  musicId: string
   name: string
-  // ProtoMember(3)
+  stageId: string
+  musicChartPatternId: string
+  maxCapacity: number
+  mentalThreshold: number
+  clearScore: string
+  rewardId: string
+  difficultyLevel: number
+  tourQuestSettingId: string
+  liveSkipType: LiveSkipType
+}
+
+export type TourEffectPvp = {
+  musicId: string
+  name: string
+  stageId: string
+  musicChartPatternId: string
+  maxCapacity: number
+  mentalThreshold: number
+  clearScore: string
+  opponentInfo: TourOpponentInfo
+  scoutInfo: TourScoutInfo
+  rewardId: string
+  tourQuestSettingId: string
+  liveSkipType: LiveSkipType
+}
+
+export type TourEffectRefresh = {
+  amountPermil: number
+  activityPerformanceId: string
+  activityRefreshSubGenre: string
+}
+
+export type TourLiveBonusInfo = {
+  liveBonusId: string
+  name: string
   liveAbilityId: string
-  // ProtoMember(4)
   liveAbilityLevel: number
-  // ProtoMember(5)
   powerPermil: number
 }
-export type TourCardInfo = {
-  // ProtoMember(1)
-  cardId: string
-  // ProtoMember(2)
-  staminaPermil: number
-}
-export type TourScoutInfo = {
-  // ProtoMember(1)
-  scoutId: string
-  // ProtoMember(2)
-  cardId: string
-  // ProtoMember(3)
-  staminaPermil: number
-  // ProtoMember(4)
-  isRival: boolean
-  // ProtoMember(5)
-  level: number
-  // ProtoMember(6)
-  rarity: number
-  // ProtoMember(7)
-  dance: string
-  // ProtoMember(8)
-  vocal: string
-  // ProtoMember(9)
-  visual: string
-  // ProtoMember(10)
-  stamina: string
-  // ProtoMember(11)
-  mental: string
-  // ProtoMember(12)
-  technique: string
-  // ProtoMember(13)
-  skillLevel1: number
-  // ProtoMember(14)
-  skillLevel2: number
-  // ProtoMember(15)
-  skillLevel3: number
-}
-export type TourLiveInfo = {
-  // ProtoMember(1)
-  result: LiveResult
-  // ProtoMember(2)
-  rewards: Reward[]
-  // ProtoMember(3)
-  rankType: ResultRankType
-  // ProtoMember(4)
-  rankPlus: number
-  // ProtoMember(5)
-  rankPatterns: QuestRankPattern[]
-}
-export type TourAreaClearInfo = {
-  // ProtoMember(1)
-  areaRewards: Reward[]
-  // ProtoMember(2)
-  firstClearRewards: Reward[]
-  // ProtoMember(3)
-  score: string
-  // ProtoMember(4)
-  areaScore: string
-  // ProtoMember(5)
-  rank: string
-  // ProtoMember(6)
-  isBest: boolean
-}
-export type TourResultInfo = {
-  // ProtoMember(1)
-  score: string
-  // ProtoMember(2)
-  rank: string
-  // ProtoMember(3)
-  isBest: boolean
-}
-export type TutorialInitRequest = {
-  // ProtoMember(1)
+
+export type TourRankingInfo = {
+  userId: string
   name: string
+  managerLevel: number
+  point: string
+  rank: number
+  emblemId: string
 }
-export type TutorialInitResponse = {
-  // ProtoMember(9999)
+
+export type TourRankingRewardInfo = {
+  rankFrom: number
+  rewardId: string
+}
+
+export type UserHierarchyInfo = {
+  currentDetailGradeId: string
+  currentRank: number
+  currentPoint: string
+}
+
+export type AccessoryEnhanceRequest = {
+  accessoryId: string
+  count: number
+}
+
+export type AccessoryEnhanceResponse = {
   commonResponse: CommonResponse
 }
-export type TutorialProgressRequest = {
-  // ProtoMember(1)
-  type: TutorialType
-  // ProtoMember(2)
+
+export type AccessoryLimitBreakRequest = {
+  accessoryId: string
+  isInUse: boolean
+}
+
+export type AccessoryLimitBreakResponse = {
+  commonResponse: CommonResponse
+}
+
+export type AccessorySellRequest = {
+  accessoryId: string
+  count: number
+}
+
+export type AccessorySellResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ActivityStartFanEventRequest = {
+  activityFanEventId: string
+  characterIds: string[]
+  costumeIds: string[]
+  itemIds: string[]
+  hairIds: string[]
+}
+
+export type ActivityStartFanEventResponse = {
+  progress: FanEventProgress
+  commonResponse: CommonResponse
+}
+
+export type ActivityLoadFanEventResponse = {
+  progress: FanEventProgress
+  commonResponse: CommonResponse
+}
+
+export type ActivityFetchFanEventStepsRequest = {
+  steps: number[]
+}
+
+export type ActivityFetchFanEventStepsResponse = {
+  characterSteps: FanEventCharacterSteps[]
+  commonResponse: CommonResponse
+}
+
+export type ActivitySaveFanEventRequest = {
+  characterResults: FanEventCharacterResult[]
+  useItemId: string
+  execCheer: boolean
+}
+
+export type ActivitySaveFanEventResponse = {
+  characterSteps: FanEventCharacterSteps[]
+  commonResponse: CommonResponse
+}
+
+export type ActivityFinishFanEventResponse = {
+  activityPoint: number
+  rankType: ResultRankType
+  plus: number
+  rewards: Reward[]
+  rankPatterns: FanEventRankPattern[]
+  activityLevelProgress: ActivityLevelProgress
+  characters: ActivityCharacterInfo[]
+  campaignEffects: ActivityCampaignEffect[]
+  campaignDropRewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type ActivityGetFanEventRankingRequest = {
+  activityFanEventId: string
+}
+
+export type ActivityGetFanEventRankingResponse = {
+  selfRank: string
+  selfScore: string
+  rankInfos: FanEventRankingInfo[]
+  commonResponse: CommonResponse
+}
+
+export type ActivityStartPromotionRequest = {
+  activityPromotionId: string
+  characterIds: string[]
+  costumeIds: string[]
+  hairIds: string[]
+}
+
+export type ActivityStartPromotionResponse = {
+  progress: PromotionProgress
+  commonResponse: CommonResponse
+}
+
+export type ActivityLoadPromotionResponse = {
+  progress: PromotionProgress
+  commonResponse: CommonResponse
+}
+
+export type ActivityUsePromotionItemRequest = {
+  itemId: string
+  amount: number
+}
+
+export type ActivityUsePromotionItemResponse = {
+  progress: PromotionProgress
+  commonResponse: CommonResponse
+}
+
+export type ActivityReceivePromotionRewardResponse = {
+  rewards: Reward[]
+  bonusRewards: Reward[]
+  completedStep: number
+  progress: PromotionProgress
+  activityLevelProgress: ActivityLevelProgress
+  campaignEffects: ActivityCampaignEffect[]
+  campaignDropRewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type ActivityFetchPromotionStepsRequest = {
   step: number
 }
-export type TutorialProgressResponse = {
-  // ProtoMember(9999)
+
+export type ActivityFetchPromotionStepsResponse = {
+  steps: PromotionStep[]
   commonResponse: CommonResponse
 }
-export type TutorialStartQuestRequest = {
-  // ProtoMember(1)
+
+export type ActivityFinishPromotionResponse = {
+  rewards: Reward[]
+  bonusRewards: Reward[]
+  activityLevelProgress: ActivityLevelProgress
+  totalSteps: number
+  characters: ActivityCharacterInfo[]
+  campaignEffects: ActivityCampaignEffect[]
+  campaignDropRewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type ActivityStartRefreshRequest = {
+  activityRefreshId: string
+  activityRefreshLevel: number
+  characterIds: string[]
+  costumeIds: string[]
+  hairIds: string[]
+}
+
+export type ActivityStartRefreshResponse = {
+  progress: RefreshProgress
+  commonResponse: CommonResponse
+}
+
+export type ActivityLoadRefreshResponse = {
+  progress: RefreshProgress
+  commonResponse: CommonResponse
+}
+
+export type ActivityUseRefreshItemRequest = {
+  itemId: string
+  amount: number
+}
+
+export type ActivityUseRefreshItemResponse = {
+  progress: RefreshProgress
+  commonResponse: CommonResponse
+}
+
+export type ActivityFinishRefreshResponse = {
+  activityLevelProgress: ActivityLevelProgress
+  characters: ActivityCharacterInfo[]
+  commonResponse: CommonResponse
+}
+
+export type ActivityReceiveLessonRewardResponse = {
+  rewards: Reward[]
+  progress: ActivityLessonProgress
+  campaignEffects: ActivityCampaignEffect[]
+  campaignDropRewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type ActivityPromoteLessonRequest = {
+  isFree: boolean
+}
+
+export type ActivityPromoteLessonResponse = {
+  rewards: Reward[]
+  progress: ActivityLessonProgress
+  campaignEffects: ActivityCampaignEffect[]
+  campaignDropRewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type FanEventCharacterSteps = {
+  characterId: string
+  steps: FanEventStep[]
+}
+
+export type FanEventStep = {
+  step: number
+  happenings: FanEventHappening[]
+  itemEffects: FanEventItemEffect[]
+}
+
+export type FanEventHappening = {
+  type: ActivityFanEventHappeningType
+  characterId: string
+}
+
+export type FanEventItemEffect = {
+  type: ItemType
+  value: number
+}
+
+export type FanEventCharacterResult = {
+  characterId: string
+  stepResults: FanEventStepResult[]
+}
+
+export type FanEventStepResult = {
+  step: number
+  reductionMilliSeconds: string
+  activityPoint: number
+}
+
+export type PromotionStep = {
+  step: number
+  rewards: ActivityPromotionReward[]
+}
+
+export type AuthCreateRequest = {
+  firebaseUID: string
+}
+
+export type AuthCreateResponse = {
+  firebaseCustomToken: string
+}
+
+export type AuthLoginRequest = {
+  firebaseIDToken: string
+}
+
+export type AuthLoginResponse = {
+  gameAuthToken: string
+  userPublic: UserPublic
+  requiredFirebaseReauthenticate: boolean
+}
+
+export type AuthDeleteResponse = {}
+
+export type BacksideTopRequest = {
+  backsideId: string
+}
+
+export type BacksideTopResponse = {
+  backsideInfo: BacksideInfo
+  dokanInfos: DokanInfo[]
+  commonResponse: CommonResponse
+}
+
+export type BacksideRankingRequest = {
+  backsideId: string
+}
+
+export type BacksideRankingResponse = {
+  rankingInfos: BacksideRankingInfo[]
+  selfFinalScore: string
+  selfRank: number
+  commonResponse: CommonResponse
+}
+
+export type BacksideStageStartRequest = {
+  backsideId: string
+  number: number
+  deckNumber: string
+  difficultyNumber: number
+}
+
+export type BacksideStageStartResponse = {
+  stageInfo: BacksideStageInfo
+  execPanelLocationInfo: BacksideExecPanelLocationInfo
+  halfwayLiveBonusChoices: BacksideLiveBonus[]
+  halfwaySurpriseInfo: BacksideSurpriseInfo
+  halfwayPracticeClearInfo: BacksidePracticeStageClearInfo
+  isForceRetired: boolean
+  commonResponse: CommonResponse
+}
+
+export type BacksideStageActionRequest = {
+  backsideId: string
+  pieceNumber: number
+  radiusNumber: number
+  panelNumber: number
+  isSkip: boolean
+}
+
+export type BacksideStageActionResponse = {
+  stageProgressInfo: BacksideStageProgressInfo
+  liveBonusChoices: BacksideLiveBonus[]
+  isScheduled: boolean
+  liveInfo: BacksideLiveInfo
+  practiceClearInfo: BacksidePracticeStageClearInfo
+  finalClearInfo: BacksideFinalStageClearInfo
+  surpriseInfo: BacksideSurpriseInfo
+  isForceRetired: boolean
+  commonResponse: CommonResponse
+}
+
+export type BacksideStageLiveBonusRequest = {
+  backsideId: string
+  liveBonusId: string
+}
+
+export type BacksideStageLiveBonusResponse = {
+  stageProgressInfo: BacksideStageProgressInfo
+  commonResponse: CommonResponse
+}
+
+export type BacksideStagePracticeUpdateRequest = {
+  backsideId: string
+  isUpdate: boolean
+}
+
+export type BacksideStagePracticeUpdateResponse = {
+  commonResponse: CommonResponse
+}
+
+export type BacksideStageResetRequest = {
+  backsideId: string
+  isInGame: boolean
+}
+
+export type BacksideStageResetResponse = {
+  commonResponse: CommonResponse
+}
+
+export type BacksideStageSurpriseFinishRequest = {
+  backsideId: string
+}
+
+export type BacksideStageSurpriseFinishResponse = {
+  stageProgressInfo: BacksideStageProgressInfo
+  commonResponse: CommonResponse
+}
+
+export type BacksideStageDeckPositionChangeRequest = {
+  backsideId: string
+  deckPositionInfos: BacksideDeckPositionInfo[]
+}
+
+export type BacksideStageDeckPositionChangeResponse = {
+  deckUserCharacters: UserCharacter[]
+  deckDetailInfo: BacksideStageDeckDetailInfo
+  scoreLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+  battleLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+  commonResponse: CommonResponse
+}
+
+export type BacksideInfo = {
+  id: string
+  name: string
+  type: BacksideType
+  startTime: string
+  endTime: string
+  aggregateEndTime: string
+  exchangeEndTime: string
+  assetId: string
+  eventStoryInfo: EventStoryInfo
+  eventMissionInfo: EventMissionInfo
+  eventExchangeBoothInfo: EventExchangeBoothInfo
+  noticeInfo: NoticeInfo
+  areaInfo: BacksideAreaInfo
+  rankingRewardInfos: BacksideRankingRewardInfo[]
+  realScore: string
+  realScoreTime: string
+  rank: string
+  stageStamina: string
+  stageStaminaUpdatedTime: string
+  stageStaminaRecoveryMinutes: number
+}
+
+export type BacksideAreaInfo = {
+  areaId: string
+  name: string
+  type: BacksideAreaType
+  assetId: string
+  backsideDifficultyInfos: BacksideDifficultyInfo[]
+  currentDifficultyNumber: number
+  lastChallengeDifficultyNumber: number
+  difficultyType: BacksideDifficultyType
+}
+
+export type BacksidePracticeStageTotalResultInfo = {
+  practiceRankType: BacksidePracticeRankType
+  practiceRankPlus: number
+  practiceScore: string
+  practiceLiveBonusInfos: BacksideLiveBonusInfo[]
+}
+
+export type BacksidePracticeStageResultInfo = {
+  practiceRankType: BacksidePracticeRankType
+  practiceRankPlus: number
+  practiceScore: string
+  deckCardInfos: BacksideDeckCardInfo[]
+  liveBonuses: BacksideLiveBonus[]
+}
+
+export type BacksideFinalStageResultInfo = {
+  totalPracticeRankType: BacksidePracticeRankType
+  totalPracticeRankPlus: number
+  totalPracticeScore: string
+  finalRankType: ResultRankType
+  finalRankPlus: number
+  finalScore: string
+  deckCardInfos: BacksideDeckCardInfo[]
+  allLiveBonusInfos: BacksideLiveBonusInfo[]
+  practiceScore: string
+}
+
+export type BacksidePracticeStageHalfwayInfo = {
+  passedActionCount: number
+  practiceScore: string
+  deckCardInfos: BacksideDeckCardInfo[]
+  liveBonuses: BacksideLiveBonus[]
+}
+
+export type BacksideFinalStageHalfwayInfo = {
+  passedActionCount: number
+  deckCardInfos: BacksideDeckCardInfo[]
+  allLiveBonusInfos: BacksideLiveBonusInfo[]
+  practiceScore: string
+  totalPracticeScore: string
+}
+
+export type BacksideLiveBonusInfo = {
+  stageNumber: number
+  stageType: BacksideStageType
+  stageName: string
+  liveBonuses: BacksideLiveBonus[]
+}
+
+export type BacksideStageDeckDetailInfo = {
+  deckCardDetailInfos: BacksideDeckCardDetailInfo[]
+  deckCardStaminaInfos: BacksideDeckCardStaminaInfo[]
+  baseDeckOverallValue: string
+}
+
+export type BacksideStageInfo = {
+  panelInfos: BacksidePanelInfo[]
+  scheduleInfos: BacksideScheduleInfo[]
+  nextActionCount: string
+  practiceScore: string
+  liveBonuses: BacksideLiveBonus[]
+  allLiveBonusInfos: BacksideLiveBonusInfo[]
+  cardLiveAbilityInfos: BacksideCardLiveAbilityInfo[]
+  totalPracticeScore: string
+  deckUserCharacters: UserCharacter[]
+  deckDetailInfo: BacksideStageDeckDetailInfo
+  scoreLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+  battleLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+}
+
+export type BacksideStageProgressInfo = {
+  panelInfos: BacksidePanelInfo[]
+  nextActionCount: string
+  practiceScore: string
+  liveBonuses: BacksideLiveBonus[]
+  execPanelLocationInfo: BacksideExecPanelLocationInfo
+  totalPracticeScore: string
+  deckUserCharacters: UserCharacter[]
+  deckDetailInfo: BacksideStageDeckDetailInfo
+  scoreLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+  battleLiveDeckDetailInfo: BacksideStageDeckDetailInfo
+}
+
+export type BacksidePanelInfo = {
+  pieceNumber: number
+  radiusNumber: number
+  panelNumber: number
+  panelType: BacksidePanelType
+  panelAttributeType: BacksidePanelAttributeType
+  panelRank: number
+  panelGoalInfo: BacksidePanelGoalInfo
+  panelLiveInfo: BacksidePanelLiveInfo
+  panelPvpInfo: BacksidePanelPvpInfo
+  panelStaminaInfo: BacksidePanelStaminaInfo
+  haveExecuted: boolean
+  canAction: boolean
+}
+
+export type BacksideOpponentInfo = {
+  name: string
+  managerLevel: number
+  cardInfos: LiveBattleCardInfo[]
+}
+
+export type BacksidePanelStaminaInfo = {
+  staminaConsumptionAmount: number
+  staminaRecoveryAmount: number
+}
+
+export type BacksideScheduleInfo = {
+  actionCount: number
+  panelType: BacksidePanelType
+}
+
+export type BacksideLiveInfo = {
+  result: LiveResult
+  rankType: ResultRankType
+  rankPlus: number
+  rankPatterns: QuestRankPattern[]
+}
+
+export type BacksidePracticeStageClearInfo = {
+  name: string
+  practiceRankType: BacksidePracticeRankType
+  practiceRankPlus: number
+  practiceScore: string
+  liveBonuses: BacksideLiveBonus[]
+  lastPracticeRankType: BacksidePracticeRankType
+  lastPracticeRankPlus: number
+  lastPracticeScore: string
+  lastLiveBonuses: BacksideLiveBonus[]
+  firstClearRewardResults: RewardResult[]
+  firstPracticeRankRewardResults: RewardResult[]
+  loopPracticeRankRewardResults: RewardResult[]
+}
+
+export type BacksideFinalStageClearInfo = {
+  name: string
+  finalRankType: ResultRankType
+  finalRankPlus: number
+  finalScore: string
+  firstClearRewardResults: RewardResult[]
+  firstFinalRankRewardResults: RewardResult[]
+  isBest: boolean
+  newRank: string
+  practiceScore: string
+  totalPracticeScore: string
+  loopFinalRankRewardResults: RewardResult[]
+  difficultyAreaRewardResults: RewardResult[]
+}
+
+export type BacksideSurpriseInfo = {
+  advAssetId: string
+  liveBonus: BacksideLiveBonus
+}
+
+export type BacksideExecPanelLocationInfo = {
+  pieceNumber: number
+  radiusNumber: number
+  panelNumber: number
+}
+
+export type BacksideDeckPositionInfo = {
+  cardId: string
+  newPosition: number
+}
+
+export type CardEnhanceRequest = {
+  cardId: string
+  level: number
+}
+
+export type CardEnhanceResponse = {
+  commonResponse: CommonResponse
+}
+
+export type CardLimitBreakRequest = {
+  cardId: string
+  rarity: number
+}
+
+export type CardLimitBreakResponse = {
+  commonResponse: CommonResponse
+}
+
+export type CardSkillEnhanceRequest = {
+  cardId: string
+  skillId: string
+}
+
+export type CardSkillEnhanceResponse = {
+  commonResponse: CommonResponse
+}
+
+export type CardLiveAbilityEnhanceRequest = {
+  cardId: string
+  abilityId: string
+}
+
+export type CardLiveAbilityEnhanceResponse = {
+  commonResponse: CommonResponse
+}
+
+export type CardActivityAbilityEnhanceRequest = {
+  cardId: string
+  abilityId: string
+}
+
+export type CardActivityAbilityEnhanceResponse = {
+  commonResponse: CommonResponse
+}
+
+export type CardResetRequest = {
+  cardId: string
+}
+
+export type CardResetResponse = {
+  rewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type CardSetSupportRequest = {
+  number: number
+  cardId: string
+}
+
+export type CardSetSupportResponse = {
+  commonResponse: CommonResponse
+}
+
+export type CardRemoveSupportRequest = {
+  number: number
+}
+
+export type CardRemoveSupportResponse = {
+  rewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type CardReleaseSupportRequest = {
+  useStone: boolean
+}
+
+export type CardReleaseSupportResponse = {
+  commonResponse: CommonResponse
+}
+
+export type LoginBonusPackageItem = {
+  shopItem: ShopItem
+  loginBonuses: ShopLoginBonus[]
+  isPurchased: boolean
+}
+
+export type ConditionRewardPackageItem = {
+  shopItem: ShopItem
+  conditionRewards: ShopConditionReward[]
+  isPurchased: boolean
+}
+
+export type LiveResult = {
+  userInfos: LiveUserInfo[]
+  activatedPassiveSkills: LiveSkill[]
+  charts: LiveChart[]
+  totalAudienceAmount: number
+  cleared: boolean
+}
+
+export type LiveUserDeck = {
+  deckName: string
+  cards: LiveDeckCard[]
+  bonusSkills: LiveDeckCardSkill[]
+}
+
+export type LiveChart = {
+  number: number
+  chartType: MusicChartType
+  attributeType: AttributeType
+  beats: LiveBeat[]
+  activatedSkill: LiveSkill
+  activatedPassiveSkills: LiveSkill[]
+  userStatuses: LiveUserStatus[]
+  cardStatuses: LiveCardStatus[]
+}
+
+export type LiveBeat = {
+  order: number
+  cardIndex: number
+  score: string
+  isCritical: boolean
+}
+
+export type LiveSkill = {
+  order: number
+  cardIndex: number
+  skillIndex: number
+  activated: boolean
+  stamina: string
+  score: string
+  isCritical: boolean
+  details: LiveSkillDetail[]
+  failures: LiveSkillFailure[]
+  isComboBreak: boolean
+  descriptions: LiveLogDescription[]
+}
+
+export type LiveSkillFailure = {
+  cardIndex: number
+  type: SkillFailureType
+  eachFailureTypes: SkillFailureType[]
+}
+
+export type LiveSkillDetail = {
+  efficacyIndex: number
+  value: string
+  statusType: StatusEffectType
+  targetCardIndexes: number[]
+}
+
+export type LiveLogDescription = {
+  message: string
+}
+
+export type LiveUserStatus = {
+  userIndex: number
+  currentComboCount: number
+  totalScore: string
+}
+
+export type LiveCardStatus = {
+  cardIndex: number
+  stamina: string
+  dance: string
+  vocal: string
+  visual: string
+  effects: LiveCardStatusEffect[]
+  skillStatuses: LiveSkillStatus[]
+}
+
+export type LiveCardStatusEffect = {
+  statusType: StatusEffectType
+  skillEfficacyType: SkillEfficacyType
+  value: string
+  grade: number
+  remainEffectedChartCount: number
+  maxGrade: number
+  value2: string
+}
+
+export type LiveSkillStatus = {
+  skillIndex: number
+  remainCount: number
+  coolTime: number
+}
+
+export type LiveUserResult = {
+  score: string
+  criticalCount: number
+  hitCount: number
+  missCount: number
+  maxComboCount: number
+  cardResults: LiveCardResult[]
+}
+
+export type PvpOpponentInfo = {
+  opponentId: string
+  name: string
+  managerLevel: number
+  point: string
+  rank: number
+  cardInfos: LiveBattleCardInfo[]
+}
+
+export type GvgOpponentInfo = {
+  opponentId: string
+  name: string
+  managerLevel: number
+  cardInfos: LiveBattleCardInfo[]
+}
+
+export type QuestRankPattern = {
+  rankType: ResultRankType
+  plus: number
+  thresholdScore: string
+}
+
+export type ActivityPromotionReward = {
+  resourceType: ResourceType
+  resourceId: string
+  amount: string
+  isRare: boolean
+}
+
+export type AllProfileInfo = {
+  profile: ProfileInfo
+  hierarchy: HierarchyProfileInfo
+}
+
+export type FavoritePhotoInfo = {
+  photoId: string
+  assetId: string
+  imageType: PhotoImageType
+}
+
+export type NoticeInfo = {
+  id: string
+  title: string
+  bannerAssetId: string
+  linkType: LinkType
+  linkDetail: string
+  displayNotification: boolean
+  startTime: string
+  listTitle: string
+  notificationRestartTime: string
+}
+
+export type PaidJpy = {
+  amount: number
+}
+
+export type FanEventRankPattern = {
+  rankType: ResultRankType
+  plus: number
+  thresholdPoint: number
+}
+
+export type ActivityLevelProgress = {
+  maxActivityLevel: number
+  before: ActivityLevelInfo
+  after: ActivityLevelInfo
+}
+
+export type ActivityLevelInfo = {
+  exp: number
+  level: number
+  nextLevelLocked: boolean
+}
+
+export type ActivityCampaignEffect = {
+  type: ActivityCampaignEffectType
+  value: number
+  endTime: string
+}
+
+export type EventStoryEpisodeInfo = {
+  episode: number
+  unlocked: boolean
+}
+
+export type EventExchangeBoothInfo = {
+  id: string
+  name: string
+  bannerAssetId: string
+  requiredResourceType: ResourceType
+  requiredResourceId: string
+}
+
+export type PvpSeasonInfo = {
+  id: string
+  name: string
+  startTime: string
+  endTime: string
+  aggregateEndTime: string
+  challengeCount: number
+  nextStartTime: string
+}
+
+export type CurrentGvgInfo = {
+  gvgSeason: GvgSeasonInfo
+  isRemainingChallenge: boolean
+}
+
+export type GachaStampInfo = {
+  currentSheetNumber: number
+  currentStampNumber: number
+}
+
+export type HomeEventInfo = {
+  eventMissionInfos: HomeEventMissionInfo[]
+  tourInfos: HomeTourInfo[]
+  backsideInfos: HomeBacksideInfo[]
+  marathonInfos: HomeMarathonInfo[]
+  photoContestInfos: HomePhotoContestInfo[]
+  raceInfos: HomeRaceInfo[]
+  ladderInfos: HomeLadderInfo[]
+}
+
+export type QuestReward = {
+  clearRewards: RewardResult[]
+  scoreRankRewards: RewardResult[]
+  scoreRankAdditionalRewards: RewardResult[]
+  musicMasteryRewards: Reward[]
+  achievedRankRewards: Reward[]
+  rewardCards: QuestRewardCard[]
+  campaignDropRewards: RewardResult[]
+}
+
+export type QuestOpponentInfo = {
+  name: string
+  managerLevel: number
+  cardInfos: LiveBattleCardInfo[]
+}
+
+export type BoxGachaDrawResult = {
+  itemType: BoxGachaItemType
+  rewards: Reward[]
+  liveBonusId: string
+}
+
+export type UserDeckPosition = {
+  position: number
+  cardId: string
+  part1AccessoryId: string
+  part2AccessoryId: string
+  photoIds: string[]
+  costumeId: string
+  buddyUserId: string
+  hairId: string
+}
+
+export type LadderProgressInfo = {
+  steps: LadderStep[]
+}
+
+export type LadderStep = {
+  step: number
+  lane1Panel: LadderPanel
+  lane2Panel: LadderPanel
+  lane3Panel: LadderPanel
+}
+
+export type FriendApplyToBuddyInfo = {
+  isActive: boolean
+  isAlreadyOffered: boolean
+}
+
+export type CommonResponse = {
+  updatedData: UpdatedData
+  deletedData: DeletedData
+}
+
+export type UpdatedData = {
+  user: User
+  items: UserItem[]
+  cards: UserCard[]
+  characters: UserCharacter[]
+  costumes: UserCostume[]
+  accessories: UserAccessory[]
+  photos: UserPhoto[]
+  decks: UserDeck[]
+  deckPositions: UserDeckPosition[]
+  stories: UserStory[]
+  points: UserPoint[]
+  staffs: UserStaff[]
+  messages: UserMessage[]
+  telephones: UserTelephone[]
+  missions: UserMission[]
+  profile: UserProfile
+  emblems: UserEmblem[]
+  characterMusics: UserCharacterMusic[]
+  balance: UserBalance
+  totalCount: UserTotalCount
+  areas: UserArea[]
+  quests: UserQuest[]
+  gachaButtons: UserGachaButton[]
+  homeTalks: UserHomeTalk[]
+  photoReport: UserPhotoReport
+  cardSupports: UserCardSupport[]
+  messageSchedules: UserMessageSchedule[]
+  notifications: UserNotification[]
+  hierarchy: UserHierarchy
+  tutorials: UserTutorial[]
+  homePositions: UserHomePosition[]
+  musics: UserMusic[]
+  decorations: UserDecoration[]
+  photoRecipes: UserPhotoRecipe[]
+  buddy: UserBuddy
+  invite: UserInvite
+  hairs: UserHair[]
+}
+
+export type DeletedData = {
+  items: UserItem[]
+  accessories: UserAccessory[]
+  photos: UserPhoto[]
+  decks: UserDeck[]
+  deckPositions: UserDeckPosition[]
+  points: UserPoint[]
+  messageSchedules: UserMessageSchedule[]
+  stories: UserStory[]
+  photoRecipes: UserPhotoRecipe[]
+}
+
+export type CostumeSetRequest = {
+  costumeId: string
+  hairId: string
+}
+
+export type CostumeSetResponse = {
+  commonResponse: CommonResponse
+}
+
+export type CostumeLiveSetRequest = {
+  costumeId: string
+  hairId: string
+}
+
+export type CostumeLiveSetResponse = {
+  commonResponse: CommonResponse
+}
+
+export type CostumeCheckRequest = {
+  costumeId: string
+}
+
+export type CostumeCheckResponse = {
+  commonResponse: CommonResponse
+}
+
+export type DeckSaveRequest = {
+  number: number
+  name: string
+  userDeckPositions: UserDeckPosition[]
+  deckEditType: DeckEditType
   questId: string
 }
-export type TutorialStartQuestResponse = {
-  // ProtoMember(1)
+
+export type DeckSaveResponse = {
+  commonResponse: CommonResponse
+}
+
+export type DeckDeleteRequest = {
+  number: number
+}
+
+export type DeckDeleteResponse = {
+  commonResponse: CommonResponse
+}
+
+export type DeckBuddyListResponse = {
+  friendBuddyUserCardInfos: DeckBuddyUserCardInfo[]
+  notFriendBuddyUserCardInfos: DeckBuddyUserCardInfo[]
+  commonResponse: CommonResponse
+}
+
+export type DeckBuddyUserCardInfo = {
+  userId: string
+  userCard: UserCard
+  managerName: string
+}
+
+export type DiaryGetInfosResponse = {
+  infos: DiaryInfo[]
+  commonResponse: CommonResponse
+}
+
+export type DiaryReadRequest = {
+  diaryIds: string[]
+}
+
+export type DiaryReadResponse = {
+  commonResponse: CommonResponse
+}
+
+export type DiaryInfo = {
+  id: string
+  year: number
+  month: number
+  day: number
+  assetId: string
+  isRead: boolean
+}
+
+export type DivisionListResponse = {
+  divisions: DivisionInfo[]
+  reasonType: DivisionCannotMoveReasonType
+  commonResponse: CommonResponse
+}
+
+export type DivisionMoveRequest = {
+  divisionId: string
+}
+
+export type DivisionMoveResponse = {
+  commonResponse: CommonResponse
+}
+
+export type DokanListResponse = {
+  dokanInfos: DokanInfo[]
+  commonResponse: CommonResponse
+}
+
+export type DokanSetWatchedRequest = {
+  dokanIds: string[]
+  skippedDokanIds: string[]
+}
+
+export type DokanSetWathcedResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ExchangeListResponse = {
+  booths: ExchangeBooth[]
+  commonResponse: CommonResponse
+}
+
+export type ExchangeExecuteRequest = {
+  exchangeId: string
+  count: number
+}
+
+export type ExchangeExecuteResponse = {
+  results: RewardResult[]
+  afterExchangeItem: ExchangeItem
+  booth: ExchangeBooth
+  commonResponse: CommonResponse
+}
+
+export type ExchangeTryOnRequest = {
+  exchangeId: string
+  costumeId: string
+  hairId: string
+}
+
+export type ExchangeTryOnResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ExerciseTopResponse = {
+  exercises: ExerciseInfo[]
+  commonResponse: CommonResponse
+}
+
+export type ExerciseSaveDeckRequest = {
+  exerciseId: string
+  positions: ExerciseDeckPosition[]
+}
+
+export type ExerciseSaveDeckResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ExerciseStartRequest = {
+  exerciseId: string
+  isSkip: boolean
+}
+
+export type ExerciseListAssetRequest = {
+  exerciseId: string
+}
+
+export type ExerciseListAssetResponse = {
+  characterAssets: LiveCharacterAssetInfo[]
+  commonResponse: CommonResponse
+}
+
+export type ForumListThreadReplyRequest = {
+  threadId: string
+  requestType: ForumListReplyRequestType
+  replyId: number
+}
+
+export type ForumCreateThreadRequest = {
+  title: string
+  firstReplyContent: string
+}
+
+export type ForumSendThreadReplyRequest = {
+  threadId: string
+  replyContent: string
+}
+
+export type ForumLikeReplyRequest = {
+  threadId: string
+  replyId: number
+}
+
+export type ForumDislikeReplyRequest = {
+  threadId: string
+  replyId: number
+}
+
+export type ForumBookmarkThreadRequest = {
+  threadId: string
+}
+
+export type ForumUnbookmarkThreadRequest = {
+  threadId: string
+}
+
+export type ForumBlockUserRequest = {
+  userId: string
+}
+
+export type ForumListThreadResponse = {
+  threads: ForumThreadInfo[]
+  commonResponse: CommonResponse
+}
+
+export type ForumListThreadReplyResponse = {
+  threadReplies: ForumThreadReplyInfo[]
+  thread: ForumThreadInfo
+  commonResponse: CommonResponse
+}
+
+export type ForumCreateThreadResponse = {
+  threadId: string
+  commonResponse: CommonResponse
+}
+
+export type ForumSendThreadReplyResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ForumLikeReplyResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ForumDislikeReplyResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ForumBookmarkThreadResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ForumUnbookmarkThreadResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ForumBlockUserResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ForumThreadInfo = {
+  id: string
+  title: string
+  replyCount: number
+  isBookmarked: boolean
+  lastUpdatedTime: string
+  power: number
+}
+
+export type ForumThreadReplyInfo = {
+  id: number
+  threadId: string
+  userId: string
+  userName: string
+  repliedTime: string
+  content: string
+  likeCount: number
+  isLiked: boolean
+  isBlocked: boolean
+  isDeleted: boolean
+}
+
+export type FriendListResponse = {
+  profiles: ProfileInfo[]
+  commonResponse: CommonResponse
+}
+
+export type FriendDeleteRequest = {
+  userIds: string[]
+}
+
+export type FriendDeleteResponse = {
+  commonResponse: CommonResponse
+}
+
+export type FriendApplyRequest = {
+  userId: string
+}
+
+export type FriendApplyResponse = {
+  isTargetOfferedLimit: boolean
+  isAlreadyFriend: boolean
+  isAlreadyOffering: boolean
+  isAlreadyOffered: boolean
+  isAccountBan: boolean
+  applied: boolean
+  isAccountDeleted: boolean
+  commonResponse: CommonResponse
+}
+
+export type FriendApproveRequest = {
+  userId: string
+}
+
+export type FriendApproveResponse = {
+  isFriendLimit: boolean
+  isTargetFriendLimit: boolean
+  isOfferDeleted: boolean
+  isAccountBan: boolean
+  approved: boolean
+  isAccountDeleted: boolean
+  commonResponse: CommonResponse
+}
+
+export type FriendCancelRequest = {
+  userId: string
+}
+
+export type FriendCancelResponse = {
+  commonResponse: CommonResponse
+}
+
+export type FriendCancelAllResponse = {
+  commonResponse: CommonResponse
+}
+
+export type FriendRejectRequest = {
+  userId: string
+}
+
+export type FriendRejectResponse = {
+  isOfferDeleted: boolean
+  commonResponse: CommonResponse
+}
+
+export type FriendListApplyingResponse = {
+  profiles: ProfileInfo[]
+  commonResponse: CommonResponse
+}
+
+export type FriendListAppliedResponse = {
+  profiles: ProfileInfo[]
+  commonResponse: CommonResponse
+}
+
+export type FriendSearchResponse = {
+  profiles: ProfileInfo[]
+  commonResponse: CommonResponse
+}
+
+export type GachaListResponse = {
+  gachas: GachaInfo[]
+  commonResponse: CommonResponse
+}
+
+export type GachaDrawRequest = {
+  gachaButtonId: string
+  execCount: number
+}
+
+export type GachaDrawResponse = {
+  button: GachaButtonInfo
+  rewards: Reward[]
+  consumptionResults: ConsumptionResult[]
+  rewardResults: RewardResult[]
+  drawRewardResults: RewardResult[]
+  bonusRewards: Reward[]
+  gachaMovie: GachaMovie
+  cardRewards: Reward[]
+  continuousResult: GachaContinuousResult
+  stampInfo: GachaStampInfo
+  stampRewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type GachaExchangeRequest = {
+  gachaExchangeId: string
+  count: number
+}
+
+export type GachaExchangeResponse = {
+  exchange: GachaExchangeInfo
+  rewardResults: RewardResult[]
+  consumptionResults: ConsumptionResult[]
+  commonResponse: CommonResponse
+}
+
+export type GachaProbabilityRequest = {
+  gachaId: string
+}
+
+export type GachaProbabilityResponse = {
+  rarityProbabilityInfos: RarityProbabilityInfo[]
+  fixProbabilityInfos: FixProbabilityInfo[]
+  probabilityInfos: ProbabilityInfo[]
+  commonResponse: CommonResponse
+}
+
+export type GachaHistoryRequest = {
+  gachaType: GachaType
+}
+
+export type GachaHistoryResponse = {
+  histories: GachaHistory[]
+  commonResponse: CommonResponse
+}
+
+export type GachaSelectCardRequest = {
+  gachaId: string
+  selectedCardIds: string[]
+}
+
+export type GachaSelectCardResponse = {
+  commonResponse: CommonResponse
+}
+
+export type RarityProbabilityInfo = {
+  rarity: number
+  probability: number
+  probabilityInfos: ProbabilityInfo[]
+  gachaRewardPatternType: GachaRewardPatternType
+  individualProbability: number
+}
+
+export type FixProbabilityInfo = {
+  gachaButtonId: string
+  rarityProbabilityInfos: RarityProbabilityInfo[]
+}
+
+export type ProbabilityInfo = {
+  resourceType: ResourceType
+  resourceId: string
+  amount: string
+  probability: number
+  isRatioUp: boolean
+}
+
+export type GachaAnimation = {
+  id: string
+  embeddedType: GachaAnimationEmbeddedType
+  assetId: string
+}
+
+export type GachaMovie = {
+  assetId: string
+  bgmAssetId: string
+  isForce: boolean
+}
+
+export type GiftListRequest = {
+  offset: number
+  sortType: GiftSortType
+  filters: GiftFilterType[]
+  desc: boolean
+}
+
+export type GiftListResponse = {
+  gifts: UserGift[]
+  hasNext: boolean
+  count: number
+  commonResponse: CommonResponse
+}
+
+export type GiftCountRequest = {
+  filters: GiftFilterType[]
+}
+
+export type GiftCountResponse = {
+  count: number
+  commonResponse: CommonResponse
+}
+
+export type GiftReceiveRequest = {
+  giftIds: string[]
+}
+
+export type GiftReceiveResponse = {
+  results: RewardResult[]
+  hasUnreceivedGift: boolean
+  receivedGiftIds: string[]
+  unreceivedGiftIds: string[]
+  hierarchyChangeInfo: HierarchyChangeInfo
+  commonResponse: CommonResponse
+}
+
+export type GiftHistoryListResponse = {
+  gifts: UserGiftHistory[]
+  commonResponse: CommonResponse
+}
+
+export type GuildListResponse = {
+  guilds: GuildParam[]
+  commonResponse: CommonResponse
+}
+
+export type GuildGvgSeasonResult = {
+  seasonRank: number
+  seasonWinCount: number
+  seasonLoseCount: number
+  seasonDrawCount: number
+  seasonTotalPoint: string
+}
+
+export type GuildTopResponse = {
+  rewardGuildMedalAmount: number
+  gvgSeasonInfo: GuildGvgSeasonInfo
+  exchangeBoothId: string
+  commonResponse: CommonResponse
+}
+
+export type GuildGvgRankInfo = {
+  name: string
+  point: string
+  rank: number
+}
+
+export type GuildJoinRequest = {
+  guildId: string
+  isRecommended: boolean
+}
+
+export type GuildJoinResponse = {
+  commonResponse: CommonResponse
+}
+
+export type GvgTopResponse = {
+  topResult: GvgTopInfo
+  commonResponse: CommonResponse
+}
+
+export type GvgTopInfo = {
+  gvgSeason: GvgSeasonInfo
+  currentMatch: GvgCurrentSeasonMatchInfo
+  seasonMatches: GvgSeasonMatchInfo[]
+  rankingRewards: GvgRankingRewardInfo[]
+  guildRankingRewards: GvgGuildRankingRewardInfo[]
+  gvgQuest: LiveBattleQuestInfo
+  userGvgSeason: UserGvgSeasonInfo
+  isSkipAvailable: boolean
+}
+
+export type UserGvgSeasonInfo = {
+  points: string[]
+  totalPoint: string
+  rankRatePercent: number
+  rank: number
+  guildPoint: string
+  guildRank: number
+  hasChallenged: boolean
+  winCount: number
+  loseCount: number
+  drawCount: number
+  isCurrentMatchWin: boolean
+}
+
+export type GvgListOpponentRequest = {
+  gvgSeasonId: string
+}
+
+export type GvgListOpponentResponse = {
+  opponentInfos: GvgOpponentInfo[]
+  commonResponse: CommonResponse
+}
+
+export type GvgListRankingRequest = {
+  gvgSeasonId: string
+}
+
+export type GvgListRankingResponse = {
+  rankingInfos: LiveRankingInfo[]
+  selfPoint: string
+  selfRank: number
+  commonResponse: CommonResponse
+}
+
+export type GvgStartRequest = {
+  gvgSeasonId: string
+  opponentId: string
+  deckNumber: number
+  useStone: boolean
+  isSkip: boolean
+  matchNumber: number
+  challengeConsumptionType: GvgChallengeConsumptionType
+}
+
+export type GvgStartResponse = {
   result: LiveResult
-  // ProtoMember(2)
+  point: string
+  addPoint: string
+  rank: number
+  musicMasteryRewards: Reward[]
+  challengeRewards: RewardResult[]
+  guildPoint: string
+  addGuildPoint: string
+  totalPoint: string
+  profile: AllProfileInfo
+  opponentProfile: AllProfileInfo
+  winRewards: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type GvgListAssetRequest = {
+  gvgSeasonId: string
+  opponentId: string
+  deckNumber: number
+  matchNumber: number
+}
+
+export type GvgListAssetResponse = {
+  characterAssets: LiveCharacterAssetInfo[]
+  opponentCharacterAssets: LiveCharacterAssetInfo[]
+  commonResponse: CommonResponse
+}
+
+export type HairCheckRequest = {
+  hairId: string
+}
+
+export type HairCheckResponse = {
+  commonResponse: CommonResponse
+}
+
+export type HealthCheckRequest = {
+  service: string
+}
+
+export type HealthCheckResponse = {}
+
+export type HierarchyRewardsReceiveRequest = {
+  hierarchyRewardIds: string[]
+}
+
+export type HierarchyDivisionRewardsReceiveRequest = {
+  hierarchyDivisionRewardIds: string[]
+}
+
+export type HierarchyTopResponse = {
+  userHierarchyInfo: UserHierarchyInfo
+  rewardInfos: HierarchyRewardInfo[]
+  divisionRewardInfos: HierarchyDivisionRewardInfo[]
+  highestGradeUserNames: string[]
+  commonResponse: CommonResponse
+}
+
+export type HierarchyRankingResponse = {
+  rankUserInfos: HierarchyRankUserInfo[]
+  commonResponse: CommonResponse
+}
+
+export type HierarchyRewardsReceiveResponse = {
+  results: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type HierarchyDivisionRewardsReceiveResponse = {
+  results: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type HomeEnterRequest = {
+  skipUpdate: boolean
+}
+
+export type NotiShopItem = {
+  shopId: string
+  shopItemIds: string[]
+}
+
+export type HomeLoginRequest = {
+  settingInfo: SettingInfo
+}
+
+export type SettingInfo = {
+  soundBgm: number
+  soundEffect: number
+  soundVoice: number
+  graphicType: GraphicType
+  frameRate: number
+  activityFinishNotification: boolean
+  messageNotification: boolean
+  nightMode: boolean
+  notLoginNotification: boolean
+}
+
+export type HomeLoginResponse = {
+  paidJpy: PaidJpy
+  purchasedLoginBonusShopInfos: PurchasedLoginBonusShopInfo[]
+  commonResponse: CommonResponse
+}
+
+export type HomeReadTalkRequest = {
+  homeTalkId: string
+}
+
+export type HomeReadTalkResponse = {
+  isReliabilityUp: boolean
+  commonResponse: CommonResponse
+}
+
+export type HomeSetReviewResponse = {
+  commonResponse: CommonResponse
+}
+
+export type HomeSetCharacterPositionRequest = {
+  positions: HomeCharacterPosition[]
+}
+
+export type HomeCharacterPosition = {
+  type: HomePositionType
+  characterId: string
+}
+
+export type HomeSetCharacterPositionResponse = {
+  commonResponse: CommonResponse
+}
+
+export type HomePvpInfo = {
+  remainingChallengeCount: number
+  latestPvpSeason: PvpSeasonInfo
+}
+
+export type PvpRewardResultInfo = {
+  name: string
+  point: string
+  rank: string
+  rankingRewards: Reward[]
+  hierarchyChangeInfo: HierarchyChangeInfo
+}
+
+export type GvgRewardResultInfo = {
+  name: string
+  point: string
+  rank: number
+  rankRate: number
+  guildRank: number
+  rankingRewards: Reward[]
+  guildRankingRewards: Reward[]
+  hierarchyChangeInfo: HierarchyChangeInfo
+}
+
+export type TourRewardResultInfo = {
+  name: string
+  score: string
+  rank: number
+  rankingRewards: Reward[]
+}
+
+export type BacksideRewardResultInfo = {
+  name: string
+  score: string
+  rank: number
+  rankingRewards: Reward[]
+}
+
+export type PhotoContestRewardResultInfo = {
+  name: string
+  score: string
+  rank: number
+  rankingRewards: Reward[]
+}
+
+export type RaceRewardResultInfo = {
+  name: string
+  score: string
+  rank: number
+  rankingRewards: Reward[]
+}
+
+export type RaceDailyRewardResultInfo = {
+  score: string
+  rank: number
+  rankingRewards: Reward[]
+  rankingUserInfos: RaceDailyRankingUserInfo[]
+  days: number
+}
+
+export type BuddyUsedRewardResultInfo = {
+  usedCount: string
+  rewards: Reward[]
+}
+
+export type HomeActiveFanEvent = {
+  characterIds: string[]
+  finishTime: string
+  activityPoint: number
+  rankType: ResultRankType
+  rankPlus: number
+  currentCheerPoint: number
+}
+
+export type HomeActivePromotion = {
+  characterIds: string[]
+  finishTime: string
+  rewardGoldAmount: number
+  rewardCardEnhanceItemAmount: number
+  rewards: ActivityPromotionReward[]
+  hasMoreRewards: boolean
+}
+
+export type HomeActiveRefresh = {
+  characterIds: string[]
+  finishTime: string
+}
+
+export type FunctionMaintenanceInfo = {
+  type: FunctionMaintenanceType
+  targetIds: string[]
+  isTwitter: boolean
+  websiteUrl: string
+}
+
+export type BannerInfo = {
+  menuBanners: Banner[]
+  messageBanners: Banner[]
+  boardBanners: Banner[]
+  questBanners: Banner[]
+  inviteBanners: Banner[]
+  exerciseBanners: Banner[]
+}
+
+export type FanEventInfo = {
+  fanEvents: FanEvent[]
+  activeFanEvent: ActiveFanEvent
+  campaignEffects: ActivityCampaignEffect[]
+}
+
+export type PromotionInfo = {
+  promotions: Promotion[]
+  activePromotion: ActivePromotion
+  campaignEffects: ActivityCampaignEffect[]
+}
+
+export type RefreshInfo = {
+  refreshes: Refresh[]
+  activeRefresh: ActiveRefresh
+  campaignEffects: ActivityCampaignEffect[]
+}
+
+export type PurchasedLoginBonusShopInfo = {
+  shopInfo: ShopInfo
+  loginBonusPackageItem: LoginBonusPackageItem
+}
+
+export type PurchasedConditionRewardShopInfo = {
+  shopInfo: ShopInfo
+  conditionRewardPackageItem: ConditionRewardPackageItem
+}
+
+export type InviteTopResponse = {
+  inviteCode: string
+  guestInfos: InviteGuestInfo[]
+  noticeInfo: NoticeInfo
+  receivedHostRewardTotalAmount: string
+  exchangeBoothId: string
+  commonResponse: CommonResponse
+}
+
+export type InviteReceiveHostRewardsRequest = {
+  userIds: string[]
+}
+
+export type InviteReceiveHostRewardsResponse = {
+  results: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type InviteEnterCodeRequest = {
+  inviteCode: string
+}
+
+export type InviteEnterCodeResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ItemSellRequest = {
+  itemId: string
+  amount: string
+}
+
+export type ItemSellResponse = {
+  commonResponse: CommonResponse
+}
+
+export type LadderTopRequest = {
+  ladderId: string
+}
+
+export type LadderTopResponse = {
+  ladderInfo: LadderInfo
+  progressInfo: LadderProgressInfo
+  dokanInfos: DokanInfo[]
+  commonResponse: CommonResponse
+}
+
+export type LadderPanelReachRequest = {
+  ladderId: string
+  step: number
+  lane: number
+}
+
+export type LadderPanelReachResponse = {
+  rewardResults: RewardResult[]
+  progressInfo: LadderProgressInfo
+  reachablePanelCount: number
+  commonResponse: CommonResponse
+}
+
+export type LoginBonusListResponse = {
+  infos: LoginBonusInfo[]
+  commonResponse: CommonResponse
+}
+
+export type LoginBonusReceiveRequest = {
+  loginBonusId: string
+}
+
+export type LoginBonusReceiveResponse = {
+  userLoginBonus: UserLoginBonus
+  rewards: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type LoginBonusInfo = {
+  userLoginBonus: UserLoginBonus
+  noticeInfo: NoticeInfo
+}
+
+export type MarathonTopRequest = {
+  marathonId: string
+}
+
+export type MarathonTopResponse = {
+  marathonInfo: MarathonInfo
+  userMarathonInfo: UserMarathonInfo
+  questInfos: MarathonQuestInfo[]
+  boxGachaInfos: MarathonBoxGachaInfo[]
+  dokanInfos: DokanInfo[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonQuestUnlockRequest = {
+  marathonQuestId: string
+}
+
+export type MarathonQuestUnlockResponse = {
+  unlockedQuestInfo: MarathonQuestInfo
+  commonResponse: CommonResponse
+}
+
+export type MarathonQuestStartRequest = {
+  marathonQuestId: string
+  marathonQuestDifficultyNumber: number
+  deckNumber: number
+  isSkip: boolean
+  execCount: number
+  userBuddyDeckPositions: UserDeckPosition[]
+  buddyDeckName: string
+}
+
+export type MarathonQuestListAssetRequest = {
+  marathonId: string
+  deckNumber: number
+  userBuddyDeckPositions: UserDeckPosition[]
+  buddyDeckName: string
+}
+
+export type MarathonQuestListAssetResponse = {
+  characterAssets: LiveCharacterAssetInfo[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonUseQuestStaminaRecoveryItemRequest = {
+  marathonId: string
+  amount: number
+}
+
+export type MarathonUseQuestStaminaRecoveryItemResponse = {
+  userMarathonInfo: UserMarathonInfo
+  commonResponse: CommonResponse
+}
+
+export type MarathonListDeckRequest = {
+  marathonId: string
+  marathonQuestId: string
+  marathonQuestDifficultyNumber: number
+  marathonBuddyDecks: MarathonBuddyDeck[]
+}
+
+export type MarathonListDeckResponse = {
+  deckInfos: MarathonDeckInfo[]
+  buddyDeckInfos: MarathonDeckInfo[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonDeckSaveRequest = {
+  marathonQuestId: string
+  number: number
+  name: string
+  userDeckPositions: UserDeckPosition[]
+  marathonQuestDifficultyNumber: number
+}
+
+export type MarathonDeckSaveResponse = {
+  deckInfo: MarathonDeckInfo
+  commonResponse: CommonResponse
+}
+
+export type MarathonBuddyDeckRequest = {
+  marathonQuestId: string
+  marathonQuestDifficultyNumber: number
+  marathonBuddyDecks: MarathonBuddyDeck[]
+}
+
+export type MarathonBuddyDeck = {
+  deckNumber: number
+  deckName: string
+  userBuddyDeckPositions: UserDeckPosition[]
+}
+
+export type MarathonBuddyDeckResponse = {
+  buddyDeckInfos: MarathonDeckInfo[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonBoxGachaDrawRequest = {
+  marathonId: string
+  boxGachaId: string
+  execCount: number
+}
+
+export type MarathonBoxGachaDrawResponse = {
+  drawResults: BoxGachaDrawResult[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonBoxGachaResetRequest = {
+  marathonId: string
+  boxGachaId: string
+}
+
+export type MarathonBoxGachaResetResponse = {
+  boxGachaInfo: MarathonBoxGachaInfo
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidListRequest = {
+  marathonId: string
+}
+
+export type MarathonRaidListResponse = {
+  joinableQuests: MarathonRaidQuestProgress[]
+  progressingQuests: MarathonRaidQuestProgress[]
+  finishedQuests: MarathonRaidQuestProgress[]
+  updateEnableTime: string
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidCheckProgressRequest = {
+  marathonId: string
+  raidId: string
+}
+
+export type MarathonRaidCheckProgressResponse = {
+  finished: boolean
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidListHistoryRequest = {
+  marathonId: string
+}
+
+export type MarathonRaidListHistoryResponse = {
+  quests: MarathonRaidQuestProgress[]
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidGetHistoryDetailRequest = {
+  marathonId: string
+  raidId: string
+}
+
+export type MarathonRaidGetHistoryDetailResponse = {
+  raidResult: MarathonRaidResult
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidListRankingRequest = {
+  marathonId: string
+  raidId: string
+}
+
+export type MarathonRaidListRankingResponse = {
+  rankedUsers: MarathonRaidRankedUser[]
+  selfScore: string
+  commonResponse: CommonResponse
+}
+
+export type MarathonRaidStartRequest = {
+  marathonId: string
+  difficultyNumber: number
+  deckNumber: number
+  isSkip: boolean
+}
+
+export type MarathonRaidStartResponse = {
+  marathonId: string
+  difficultyNumber: number
+  difficultyLevel: number
+  result: LiveResult
+  reward: QuestReward
+  hostRewards: RewardResult[]
+  raidEndTime: string
+  raidResult: MarathonRaidResult
+  beforeScore: string
   rankPatterns: QuestRankPattern[]
-  // ProtoMember(9999)
   commonResponse: CommonResponse
 }
-export type TutorialActivityStartFanEventResponse = {
-  // ProtoMember(1)
-  progress: FanEventProgress
-  // ProtoMember(9999)
+
+export type MarathonRaidJoinRequest = {
+  marathonId: string
+  raidId: string
+  deckNumber: number
+  isSkip: boolean
+  difficultyNumber: number
+}
+
+export type MarathonRaidJoinResponse = {
+  marathonId: string
+  difficultyNumber: number
+  difficultyLevel: number
+  result: LiveResult
+  joinRewards: RewardResult[]
+  raidEndTime: string
+  raidResult: MarathonRaidResult
+  beforeScore: string
+  rankPatterns: QuestRankPattern[]
   commonResponse: CommonResponse
 }
-export type TutorialActivityReceivePromotionRewardResponse = {
-  // ProtoMember(1)
-  rewards: Reward[]
-  // ProtoMember(2)
-  activityLevelProgress: ActivityLevelProgress
-  // ProtoMember(9999)
+
+export type MarathonRaidFinishRequest = {
+  marathonId: string
+  raidId: string
+}
+
+export type MarathonRaidFinishResponse = {
+  raidResult: MarathonRaidResult
   commonResponse: CommonResponse
 }
-export type TutorialActivityReceiveLessonRewardResponse = {
-  // ProtoMember(1)
-  rewards: Reward[]
-  // ProtoMember(9999)
+
+export type MarathonUseRaidStaminaRecoveryItemRequest = {
+  marathonId: string
+  amount: number
+}
+
+export type MarathonUseRaidStaminaRecoveryItemResponse = {
+  userMarathonInfo: UserMarathonInfo
   commonResponse: CommonResponse
 }
-export type TutorialPhotoCreateShootingRequest = {
-  // ProtoMember(1)
-  mainCharacterId: string
+
+export type MarathonListRaidDeckRequest = {
+  marathonId: string
+  difficultyNumber: number
+  raidId: string
 }
-export type TutorialPhotoCreateShootingResponse = {
-  // ProtoMember(1)
-  photo: UserPhoto
-  // ProtoMember(2)
-  isGift: boolean
-  // ProtoMember(9999)
+
+export type MarathonListRaidDeckResponse = {
+  deckInfos: MarathonDeckInfo[]
+  rankedUsers: MarathonRaidSimpleRankedUser[]
   commonResponse: CommonResponse
 }
-export type TutorialSkipResponse = {
-  // ProtoMember(9999)
+
+export type MarathonRaidDeckSaveRequest = {
+  marathonId: string
+  number: number
+  name: string
+  userDeckPositions: UserDeckPosition[]
+  difficultyNumber: number
+}
+
+export type MarathonRaidDeckSaveResponse = {
+  deckInfo: MarathonDeckInfo
   commonResponse: CommonResponse
 }
-export type UserGetResponse = {
-  // ProtoMember(1)
-  user: User
-  // ProtoMember(2)
-  items: UserItem[]
-  // ProtoMember(3)
-  cards: UserCard[]
-  // ProtoMember(4)
-  characters: UserCharacter[]
-  // ProtoMember(5)
-  costumes: UserCostume[]
-  // ProtoMember(6)
-  accessories: UserAccessory[]
-  // ProtoMember(7)
-  photos: UserPhoto[]
-  // ProtoMember(8)
-  decks: UserDeck[]
-  // ProtoMember(9)
-  deckPositions: UserDeckPosition[]
-  // ProtoMember(10)
-  stories: UserStory[]
-  // ProtoMember(11)
-  points: UserPoint[]
-  // ProtoMember(12)
-  staffs: UserStaff[]
-  // ProtoMember(13)
-  messages: UserMessage[]
-  // ProtoMember(14)
-  telephones: UserTelephone[]
-  // ProtoMember(15)
-  missions: UserMission[]
-  // ProtoMember(16)
-  profile: UserProfile
-  // ProtoMember(17)
-  emblems: UserEmblem[]
-  // ProtoMember(18)
-  characterMusics: UserCharacterMusic[]
-  // ProtoMember(19)
-  balance: UserBalance
-  // ProtoMember(20)
-  totalCount: UserTotalCount
-  // ProtoMember(21)
-  areas: UserArea[]
-  // ProtoMember(22)
-  quests: UserQuest[]
-  // ProtoMember(23)
-  gachaButtons: UserGachaButton[]
-  // ProtoMember(24)
-  homeTalks: UserHomeTalk[]
-  // ProtoMember(25)
-  photoReport: UserPhotoReport
-  // ProtoMember(26)
-  cardSupports: UserCardSupport[]
-  // ProtoMember(27)
-  messageSchedules: UserMessageSchedule[]
-  // ProtoMember(28)
-  notifications: UserNotification[]
-  // ProtoMember(29)
-  hierarchy: UserHierarchy
-  // ProtoMember(30)
-  tutorials: UserTutorial[]
-  // ProtoMember(31)
-  homePositions: UserHomePosition[]
-  // ProtoMember(32)
-  musics: UserMusic[]
-  // ProtoMember(33)
-  decorations: UserDecoration[]
-  // ProtoMember(999)
-  userPublic: UserPublic
+
+export type UserMarathonInfo = {
+  currentStamina: number
+  staminaUpdatedTime: string
+  liveBonusInfos: MarathonLiveBonusInfo[]
+  currentRaidStamina: number
+  raidStaminaUpdatedTime: string
+  ladderProgressInfo: LadderProgressInfo
+  progressingRaidQuestCount: number
+  finishedRaidQuestCount: number
+  nextRaidHostEnableTime: string
+  isRaidHostEnable: boolean
+  reachableLadderPanelCount: number
 }
-export type UserUpdateRequest = {
-  // ProtoMember(1)
+
+export type MarathonQuestDifficultyLevelInfo = {
+  marathonQuestDifficultyNumber: number
+  cleared: boolean
+  rankType: ResultRankType
+  plus: number
+  opponentInfo: QuestOpponentInfo
+  unlocked: boolean
+  highestScore: string
+  liveSkipType: LiveSkipType
+}
+
+export type MarathonDeckInfo = {
+  number: number
+  cardDetailInfo: MarathonDeckCardDetailInfo[]
+  deckOverallValue: string
+}
+
+export type MarathonDeckCardDetailInfo = {
+  position: number
+  vocal: string
+  dance: string
+  visual: string
+  stamina: string
+  mental: string
+  technique: string
+  accessoryInfos: MarathonAccessoryInfo[]
+  photoInfos: MarathonPhotoInfo[]
+}
+
+export type MarathonPhotoInfo = {
+  photoId: string
+  level: number
+  abilities: MarathonPhotoAbilityInfo[]
+}
+
+export type MarathonRaidResult = {
+  isClear: boolean
+  score: string
+  clearScore: string
+  totalScore: string
+  elapsedMilliSeconds: number
+  rank: number
+  joinedUserCount: number
+  mvpRewards: RewardResult[]
+  rankedUsers: MarathonRaidRankedUser[]
+}
+
+export type MarathonRaidSimpleRankedUser = {
+  rank: number
+  userName: string
+  userId: string
+}
+
+export type MarathonRaidQuestProgress = {
+  raidId: string
+  hostUser: MarathonRaidHostUser
+  raidEndTime: string
+  joinedUserCount: number
+  clearScore: string
+  totalScore: string
+  difficultyNumber: number
+  difficultyLevel: number
+  progressType: MarathonRaidProgressType
+  liveSkipType: LiveSkipType
+}
+
+export type MarketListItemResponse = {
+  marketItems: MarketItem[]
+  nextResetTime: string
+  freeResetRemainCount: number
+  resetRemainCount: number
+  requiredResetStoneAmount: number
+  commonResponse: CommonResponse
+}
+
+export type MarketResetRequest = {
+  isFree: boolean
+}
+
+export type MarketResetResponse = {
+  marketItems: MarketItem[]
+  freeResetRemainCount: number
+  resetRemainCount: number
+  requiredResetStoneAmount: number
+  commonResponse: CommonResponse
+}
+
+export type MarketPurchaseRequest = {
+  number: number
+}
+
+export type MarketPurchaseResponse = {
+  marketItems: MarketItem[]
+  commonResponse: CommonResponse
+}
+
+export type MasterGetResponse = {
+  masterTag: MasterTag
+}
+
+export type MasterFaqResponse = {
+  helpCategories: HelpCategory[]
+}
+
+export type MasterRuleRequest = {
+  ruleType: RuleType
+}
+
+export type MasterRuleResponse = {
+  text: string
+}
+
+export type MessageListGroupResponse = {
+  infos: MessageGroupInfo[]
+  commonResponse: CommonResponse
+}
+
+export type MessageTimelineRequest = {
+  messageGroupId: string
+  timelineId: string
+}
+
+export type MessageTimelineResponse = {
+  infos: TimelineInfo[]
+  hasNext: boolean
+  commonResponse: CommonResponse
+}
+
+export type MessageReceiveRequest = {
+  messageIds: string[]
+}
+
+export type MessageReceiveResponse = {
+  commonResponse: CommonResponse
+}
+
+export type MessageSaveRequest = {
+  messageGroupId: string
+  timelineId: string
+  messageDetailId: string
+  selectMessageDetailIds: string[]
+}
+
+export type MessageSaveResponse = {
+  commonResponse: CommonResponse
+}
+
+export type MessageFinishRequest = {
+  messageGroupId: string
+  timelineId: string
+  selectMessageDetailIds: string[]
+}
+
+export type MessageFinishResponse = {
+  isReliabilityUp: boolean
+  commonResponse: CommonResponse
+}
+
+export type MessageSaveHistoryRequest = {
+  messageId: string
+  selectMessageDetailIds: string[]
+}
+
+export type MessageSaveHistoryResponse = {
+  commonResponse: CommonResponse
+}
+
+export type MigrationListResponse = {
+  apple: boolean
+  google: boolean
+  facebook: boolean
+  twitter: boolean
+  password: boolean
+  commonResponse: CommonResponse
+}
+
+export type MigrationExecuteRequest = {
+  onetimeToken: string
+}
+
+export type MigrationExecuteResponse = {
+  token: string
+}
+
+export type MigrationSetPasswordRequest = {
+  password: string
+}
+
+export type MigrationSetPasswordResponse = {
+  commonResponse: CommonResponse
+}
+
+export type MigrationMigratePasswordRequest = {
+  userId: string
+  password: string
+}
+
+export type MigrationProviderAppleInfo = {
+  idToken: string
+}
+
+export type MigrationLinkAppleRequest = {
+  info: MigrationProviderAppleInfo
+}
+
+export type MigrationMigrateAppleRequest = {
+  info: MigrationProviderAppleInfo
+}
+
+export type MigrationProviderGoogleInfo = {
+  idToken: string
+}
+
+export type MigrationLinkGoogleRequest = {
+  info: MigrationProviderGoogleInfo
+}
+
+export type MigrationMigrateGoogleRequest = {
+  info: MigrationProviderGoogleInfo
+}
+
+export type RequestTwitterOAuthTokenRequest = {
+  bundleId: string
+}
+
+export type RequestTwitterOAuthTokenResponse = {
+  oauthToken: string
+}
+
+export type MigrationProviderTwitterInfo = {
+  oauthToken: string
+  oauthVerifier: string
+}
+
+export type MigrationLinkTwitterRequest = {
+  info: MigrationProviderTwitterInfo
+}
+
+export type MigrationMigrateTwitterRequest = {
+  info: MigrationProviderTwitterInfo
+}
+
+export type MigrationLinkResponse = {
+  success: boolean
+  linkedUserId: string
+  linkedUser: User
+  onetimeToken: string
+  commonResponse: CommonResponse
+}
+
+export type MigrationMigrateResponse = {
+  success: boolean
+  linkedUserId: string
+  linkedUser: User
+  onetimeToken: string
+}
+
+export type MigrationUnlinkRequest = {
+  providerType: ProviderType
+}
+
+export type MigrationUnlinkResponse = {
+  commonResponse: CommonResponse
+}
+
+export type MissionListResponse = {
+  userMissions: UserMission[]
+  commonResponse: CommonResponse
+}
+
+export type MissionReceiveRequest = {
+  missionIds: string[]
+}
+
+export type MissionReceiveResponse = {
+  results: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type MissionURLTransitionRequest = {
+  url: string
+}
+
+export type MissionURLTransitionResponse = {
+  commonResponse: CommonResponse
+}
+
+export type MissionEventRequest = {
+  eventMissionId: string
+}
+
+export type MissionEventResponse = {
+  info: EventMissionInfo
+  commonResponse: CommonResponse
+}
+
+export type CheckOption = {
+  disableGameAuthToken: boolean
+  disableMasterVersion: boolean
+  enableResponseCache: boolean
+  enableBodyHash: boolean
+  disableCheckLoginToday: boolean
+  disableCheckMaintenance: boolean
+  disableCheckAppVersion: boolean
+}
+
+export type ErrorOption = {
+  errorCodes: ErrorCode[]
+}
+
+export type NoticeListResponse = {
+  notices: NoticeInfo[]
+  malfunctionNotices: NoticeInfo[]
+  prNotices: NoticeInfo[]
+  noticeHasNext: boolean
+  malfunctionNoticeHasNext: boolean
+  prNoticeHasNext: boolean
+  roootAssociateToken: string
+  commonResponse: CommonResponse
+}
+
+export type NoticeFetchRequest = {
+  noticeCategoryType: number
+  offset: number
+}
+
+export type NoticeFetchResponse = {
+  notices: NoticeInfo[]
+  hasNext: boolean
+  roootAssociateToken: string
+  commonResponse: CommonResponse
+}
+
+export type NoticeGetRequest = {
+  noticeId: string
+}
+
+export type NoticeGetResponse = {
+  notice: NoticeInfo
+  roootAssociateToken: string
+  commonResponse: CommonResponse
+}
+
+export type PhotoSwitchLockRequest = {
+  photoIds: string[]
+}
+
+export type PhotoSwitchLockResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PhotoDeleteRequest = {
+  photoIds: string[]
+}
+
+export type PhotoDeleteResponse = {
+  rewardResults: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type PhotoEnhanceRequest = {
+  photoId: string
+  level: number
+}
+
+export type PhotoEnhanceResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PhotoRerollRequest = {
+  photoId: string
+}
+
+export type PhotoRerollResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PhotoRetouchRequest = {
+  photoRecipeId: string
+  photoId: string
+}
+
+export type PhotoRetouchResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PhotoUpdateRequest = {
+  photoId: string
   name: string
 }
+
+export type PhotoUpdateResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PhotoReportResponse = {
+  isGift: boolean
+  commonResponse: CommonResponse
+}
+
+export type PhotoGetImageUrlRequest = {
+  type: PhotoImageRequestType
+  assetIds: string[]
+}
+
+export type PhotoGetImageUrlResponse = {
+  urlList: PhotoImageUrl[]
+}
+
+export type PhotoImageUrl = {
+  assetId: string
+  origUrl: string
+  tmbUrl: string
+}
+
+export type PhotoCheckShootingRequest = {
+  actionType: PhotoShootingActionType
+  photoActivityId: string
+  photoMusicId: string
+  photoStageId: string
+  characterIds: string[]
+  costumeIds: string[]
+  hairIds: string[]
+}
+
+export type PhotoCheckShootingResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PhotoCreateShootingRequest = {
+  itemId: string
+  actionType: PhotoShootingActionType
+  photoActivityId: string
+  photoMusicId: string
+  photoStageId: string
+  mainCharacterId: string
+  characterIds: string[]
+  costumeIds: string[]
+  manualCount: number
+  hairIds: string[]
+}
+
+export type PhotoCreateShootingResponse = {
+  photo: UserPhoto
+  isGift: boolean
+  commonResponse: CommonResponse
+}
+
+export type PhotoListShootingResponse = {
+  activities: PhotoActivity[]
+  musics: PhotoMusic[]
+  stages: PhotoStage[]
+  commonResponse: CommonResponse
+}
+
+export type PhotoExtendLimitResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PhotoSaleRecipeRequest = {
+  photoRecipeIds: string[]
+}
+
+export type PhotoSaleRecipeResponse = {
+  rewardResults: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type PhotoContestTopRequest = {
+  photoContestId: string
+}
+
+export type PhotoContestTopResponse = {
+  photoContestInfo: PhotoContestInfo
+  dokanInfos: DokanInfo[]
+  commonResponse: CommonResponse
+}
+
+export type PhotoContestListPhotoRequest = {
+  photoContestId: string
+}
+
+export type PhotoContestListPhotoResponse = {
+  photoInfos: PhotoContestPhotoInfo[]
+  commonResponse: CommonResponse
+}
+
+export type PhotoContestRankingRequest = {
+  photoContestId: string
+}
+
+export type PhotoContestRankingResponse = {
+  rankingInfos: PhotoContestRankingInfo[]
+  selfPoint: string
+  selfRank: number
+  commonResponse: CommonResponse
+}
+
+export type PhotoContestReceiveSectionRewardsRequest = {
+  photoContestId: string
+  sectionRewardIds: string[]
+  sectionId: string
+}
+
+export type PhotoContestReceiveSectionRewardsResponse = {
+  results: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type PhotoContestCheckShootingRequest = {
+  photoContestId: string
+  actionType: PhotoShootingActionType
+  photoContestActivityId: string
+  photoContestQuestMusicId: string
+  photoContestQuestStageId: string
+  selectedCharacterIds: string[]
+  selectedCostumeIds: string[]
+  sectionId: string
+  selectedHairIds: string[]
+}
+
+export type PhotoContestCheckShootingResponse = {
+  nextPhotoImageId: string
+  commonResponse: CommonResponse
+}
+
+export type PhotoContestSubmitShootingRequest = {
+  photoContestId: string
+  sectionId: string
+  itemId: string
+  actionType: PhotoShootingActionType
+  photoContestActivityId: string
+  photoContestQuestMusicId: string
+  photoContestQuestStageId: string
+  mainCharacterId: string
+  characterIds: string[]
+  costumeIds: string[]
+  elapsedMilliSeconds: number
+  sizeFullPermil: number
+  sizeUpperPermil: number
+  directionFrontPermil: number
+  directionSidePermil: number
+  positionPermil: number
+  shootingMotionId: string
+  selectedCharacterIds: string[]
+  selectedCostumeIds: string[]
+  hairIds: string[]
+  selectedHairIds: string[]
+}
+
+export type PhotoContestCreateShootingRequest = {
+  photoContestId: string
+  assetId: string
+  itemId: string
+}
+
+export type PhotoContestCreateShootingResponse = {
+  photo: UserPhoto
+  isGift: boolean
+  commonResponse: CommonResponse
+}
+
+export type PhotoContestSectionBaseGuideInfo = {
+  baseEvaluationType: PhotoContestBaseEvaluationType
+  baseGuideRankType: PhotoContestBaseGuideRankType
+}
+
+export type PhotoContestSectionAdvanceGuideInfo = {
+  number: number
+  description: string
+  isSatisfied: boolean
+}
+
+export type ProfileFindUserRequest = {
+  userId: string
+}
+
+export type ProfileUpdateNameRequest = {
+  name: string
+}
+
+export type ProfileUpdateNameResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ProfileUpdateMessageRequest = {
+  message: string
+}
+
+export type ProfileUpdateMessageResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ProfileUpdateBackgroundRequest = {
+  backgroundType: ProfileBackgroundType
+  favoriteCardId: string
+  favoritePhotoId: string
+}
+
+export type ProfileUpdateBackgroundResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ProfileUpdateFavoriteCharactersRequest = {
+  favoriteCharacterIds: string[]
+}
+
+export type ProfileUpdateFavoriteCharactersResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ProfileUpdateDecorationRequest = {
+  decorationId: string
+}
+
+export type ProfileUpdateDecorationResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ProfileUpdateEmblemRequest = {
+  emblemId: string
+}
+
+export type ProfileUpdateEmblemResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ProfileUpdateLayoutRequest = {
+  layoutType: ProfileLayoutType
+  informationType: ProfileInformationType
+  colorType: ProfileColorType
+}
+
+export type ProfileUpdateLayoutResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ProfileClearTwitterMissionResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ProfileUpdateBuddyCardRequest = {
+  cardId: string
+}
+
+export type ProfileUpdateBuddyCardResponse = {
+  commonResponse: CommonResponse
+}
+
+export type PvpTopResponse = {
+  topResult: PvpTopResultInfo
+  opponentInfos: PvpOpponentInfo[]
+  commonResponse: CommonResponse
+}
+
+export type PvpTopResultInfo = {
+  pvpSeason: PvpSeasonInfo
+  pvpRewards: PvpRewardInfo[]
+  pvpQuest: LiveBattleQuestInfo
+  userPvpSeason: UserPvpSeasonInfo
+  rank: string
+  isSkipAvailable: boolean
+  pvpTicketAvailableAmount: number
+}
+
+export type UserPvpSeasonInfo = {
+  point: string
+  challengeCount: number
+}
+
+export type PvpListOpponentRequest = {
+  pvpSeasonId: string
+}
+
+export type PvpListOpponentResponse = {
+  opponentInfos: PvpOpponentInfo[]
+  commonResponse: CommonResponse
+}
+
+export type PvpListRankingRequest = {
+  pvpSeasonId: string
+}
+
+export type PvpListRankingResponse = {
+  rankingInfos: LiveRankingInfo[]
+  selfPoint: string
+  selfRank: number
+  commonResponse: CommonResponse
+}
+
+export type PvpStartRequest = {
+  pvpSeasonId: string
+  opponentId: string
+  deckNumber: number
+  usePvpTicket: boolean
+  isSkip: boolean
+}
+
+export type PvpStartResponse = {
+  result: LiveResult
+  point: string
+  addPoint: string
+  rank: number
+  musicMasteryRewards: Reward[]
+  challengeRewards: RewardResult[]
+  profile: AllProfileInfo
+  opponentProfile: AllProfileInfo
+  commonResponse: CommonResponse
+}
+
+export type PvpListAssetRequest = {
+  pvpSeasonId: string
+  opponentId: string
+  deckNumber: number
+}
+
+export type PvpListAssetResponse = {
+  characterAssets: LiveCharacterAssetInfo[]
+  opponentCharacterAssets: LiveCharacterAssetInfo[]
+  commonResponse: CommonResponse
+}
+
+export type QuestListMainResponse = {
+  areaGroups: QuestAreaGroupInfo[]
+  commonResponse: CommonResponse
+}
+
+export type QuestListDailyResponse = {
+  areas: QuestAreaInfo[]
+  bulkDailyInfos: QuestBulkDailyInfo[]
+  commonResponse: CommonResponse
+}
+
+export type QuestListContestResponse = {
+  area: QuestAreaInfo
+  commonResponse: CommonResponse
+}
+
+export type QuestListTowerResponse = {
+  area: QuestAreaInfo
+  commonResponse: CommonResponse
+}
+
+export type QuestStartRequest = {
+  questId: string
+  deckNumber: number
+  useDailyTicket: boolean
+  isSkip: boolean
+  playCount: number
+  userBuddyDeckPositions: UserDeckPosition[]
+  buddyDeckName: string
+}
+
+export type QuestStartBulkDailyResponse = {
+  results: QuestBulkDailyResultInfo[]
+  commonResponse: CommonResponse
+}
+
+export type QuestListTowerRankingRequest = {
+  areaId: string
+}
+
+export type QuestListContestRankingRequest = {
+  questId: string
+}
+
+export type QuestListContestRankingResponse = {
+  selfHighestRank: number
+  selfScore: string
+  ranks: QuestContestRankInfo[]
+  commonResponse: CommonResponse
+}
+
+export type QuestListLatestClearRequest = {
+  questId: string
+}
+
+export type QuestListLatestClearResponse = {
+  clears: QuestClearInfo[]
+  commonResponse: CommonResponse
+}
+
+export type QuestListAssetRequest = {
+  questId: string
+  deckNumber: number
+  userBuddyDeckPositions: UserDeckPosition[]
+  buddyDeckName: string
+}
+
+export type QuestListAssetResponse = {
+  characterAssets: LiveCharacterAssetInfo[]
+  commonResponse: CommonResponse
+}
+
+export type QuestGetLatestClearLiveResultRequest = {
+  questId: string
+  userId: string
+}
+
+export type QuestGetLatestClearLiveResultResponse = {
+  result: LiveResult
+  rankPatterns: QuestRankPattern[]
+  commonResponse: CommonResponse
+}
+
+export type QuestGetRankingLiveResultRequest = {
+  questId: string
+  userId: string
+}
+
+export type QuestGetRankingLiveResultResponse = {
+  result: LiveResult
+  rankPatterns: QuestRankPattern[]
+  commonResponse: CommonResponse
+}
+
+export type QuestTowerTopResponse = {
+  towerArea: QuestTowerAreaInfo
+  subTowerAreas: QuestTowerAreaInfo[]
+  hierarchyNotiInfo: HierarchyNotiInfo
+}
+
+export type QuestTopPvpInfo = {
+  rank: number
+  remainingChallengeCount: number
+  latestPvpSeason: PvpSeasonInfo
+}
+
+export type RaceTopRequest = {
+  raceId: string
+}
+
+export type RaceTopResponse = {
+  raceInfo: RaceInfo
+  userRaceInfo: UserRaceInfo
+  liveQuestInfos: RaceLiveQuestInfo[]
+  isInitialLogin: boolean
+  dokanInfos: DokanInfo[]
+  opponentProgressInfos: RaceOpponentProgressInfo[]
+  isFirstLoginInDailyAggregationPeriod: boolean
+  nextDailyAggregationTime: string
+  commonResponse: CommonResponse
+}
+
+export type RaceMovePanelRequest = {
+  raceId: string
+}
+
+export type RaceMovePanelResponse = {
+  rewardResults: RewardResult[]
+  userRaceInfo: UserRaceInfo
+  opponentProgressInfos: RaceOpponentProgressInfo[]
+  liveQuestInfos: RaceLiveQuestInfo[]
+  commonResponse: CommonResponse
+}
+
+export type RaceReceiveActivityLessonRequest = {
+  raceId: string
+}
+
+export type RaceReceiveActivityLessonResponse = {
+  rewards: Reward[]
+  userRaceInfo: UserRaceInfo
+  commonResponse: CommonResponse
+}
+
+export type RaceEnhanceLiveBonusRequest = {
+  raceId: string
+  liveBonusId: string
+  level: number
+}
+
+export type RaceEnhanceLiveBonusResponse = {
+  userRaceInfo: UserRaceInfo
+  commonResponse: CommonResponse
+}
+
+export type RaceResetLiveBonusRequest = {
+  raceId: string
+}
+
+export type RaceResetLiveBonusResponse = {
+  userRaceInfo: UserRaceInfo
+  commonResponse: CommonResponse
+}
+
+export type RaceStartLivePanelQuestRequest = {
+  raceId: string
+  deckNumber: number
+  isSkip: boolean
+}
+
+export type RaceStartLivePanelQuestResponse = {
+  result: LiveResult
+  userRaceInfo: UserRaceInfo
+  opponentProgressInfos: RaceOpponentProgressInfo[]
+  beforeScore: string
+  rankPatterns: QuestRankPattern[]
+  commonResponse: CommonResponse
+}
+
+export type RaceStartLiveAreaQuestRequest = {
+  raceId: string
+  raceQuestId: string
+  difficultyNumber: number
+  deckNumber: number
+  isSkip: boolean
+}
+
+export type RaceStartLiveAreaQuestResponse = {
+  result: LiveResult
+  userRaceInfo: UserRaceInfo
+  rankPatterns: QuestRankPattern[]
+  commonResponse: CommonResponse
+}
+
+export type RaceQuestListAssetRequest = {
+  raceId: string
+  raceQuestId: string
+  deckNumber: number
+}
+
+export type RaceQuestListAssetResponse = {
+  characterAssets: LiveCharacterAssetInfo[]
+  commonResponse: CommonResponse
+}
+
+export type RaceListDeckRequest = {
+  raceId: string
+  raceQuestId: string
+  difficultyNumber: number
+}
+
+export type RaceListDeckResponse = {
+  deckInfos: RaceDeckInfo[]
+}
+
+export type RaceSaveDeckRequest = {
+  raceId: string
+  number: number
+  name: string
+  userDeckPositions: UserDeckPosition[]
+  raceQuestId: string
+  difficultyNumber: number
+}
+
+export type RaceSaveDeckResponse = {
+  deckInfo: RaceDeckInfo
+  commonResponse: CommonResponse
+}
+
+export type RaceResetCardCoolTimeRequest = {
+  raceId: string
+  cardId: string
+}
+
+export type RaceResetCardCoolTimeResponse = {
+  userRaceInfo: UserRaceInfo
+  commonResponse: CommonResponse
+}
+
+export type RaceRankingRequest = {
+  raceId: string
+}
+
+export type RaceRankingResponse = {
+  rankingInfos: RaceRankingInfo[]
+  selfClearPanelCount: string
+  selfRank: number
+}
+
+export type RaceAreaInfo = {
+  raceAreaId: string
+  order: number
+  panelCount: number
+}
+
+export type RaceRankGradeInfo = {
+  id: string
+  hierarchyPointFrom: string
+  name: string
+  topColorCode: string
+  bottomColorCode: string
+}
+
+export type UserRaceInfo = {
+  rankGradeId: string
+  rankGradeNumber: number
+  currnentRank: number
+  currentAreaId: string
+  currentPanelNumber: number
+  activityLessonProgress: RaceActivityLessonProgress
+  liveBonusInfos: RaceLiveBonusInfo[]
+  cardCoolTimeInfos: RaceUserCardCoolTimeInfo[]
+  totalClearPanelCount: number
+  currentLivePanelScore: string
+}
+
+export type RaceActivityLessonProgress = {
+  stepRewardRacePoint: number
+  stepRewardRaceMedal: number
+  lastReceiveTime: string
+  maxRewardTime: string
+}
+
+export type RaceLiveQuestDifficultyLevelInfo = {
+  raceLiveQuestDifficultyNumber: number
+  cleared: boolean
+  opponentInfo: QuestOpponentInfo
+  highestScore: string
+  unlocked: boolean
+}
+
+export type RaceDeckInfo = {
+  number: number
+  cardDetailInfos: RaceDeckCardDetailInfo[]
+  deckOverallValue: string
+}
+
+export type RaceDeckCardDetailInfo = {
+  position: number
+  vocal: string
+  dance: string
+  visual: string
+  stamina: string
+  mental: string
+  technique: string
+  accessoryInfos: RaceAccessoryInfo[]
+  photoInfos: RacePhotoInfo[]
+}
+
+export type RacePhotoInfo = {
+  photoId: string
+  level: number
+  abilities: RacePhotoAbilityInfo[]
+}
+
+export type SalaryGetPayslipRequest = {
+  yearMonths: number[]
+}
+
+export type SalaryGetPayslipResponse = {
+  payslips: Payslip[]
+  commonResponse: CommonResponse
+}
+
+export type SalaryPayRequest = {
+  year: number
+  month: number
+}
+
+export type SalaryPayResponse = {
+  payslip: Payslip
+  commonResponse: CommonResponse
+}
+
+export type ShopListResponse = {
+  shops: ShopInfo[]
+  dokanInfos: DokanInfo[]
+  commonResponse: CommonResponse
+}
+
+export type ShopListItemRequest = {
+  shopId: string
+}
+
+export type ShopListItemResponse = {
+  shopItems: ShopItem[]
+  commonResponse: CommonResponse
+}
+
+export type ShopGetLoginBonusPackageItemRequest = {
+  shopId: string
+}
+
+export type ShopGetLoginBonusPackageItemResponse = {
+  loginBonusPackageItem: LoginBonusPackageItem
+  commonResponse: CommonResponse
+}
+
+export type ShopGetConditionRewardPackageItemRequest = {
+  shopId: string
+}
+
+export type ShopGetConditionRewardPackageItemResponse = {
+  conditionRewardPackageItem: ConditionRewardPackageItem
+  commonResponse: CommonResponse
+}
+
+export type ShopPurchaseRequest = {
+  shopItemId: string
+}
+
+export type ShopPurchaseResponse = {
+  rewards: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type ShopRegisterPurchaseTransactionRequest = {
+  shopItemId: string
+}
+
+export type ShopRegisterPurchaseTransactionResponse = {
+  transactionId: string
+  commonResponse: CommonResponse
+}
+
+export type ShopCancelPurchaseTransactionRequest = {
+  shopItemId: string
+  transactionId: string
+}
+
+export type ShopCancelPurchaseTransactionResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ShopPurchaseStoneRequest = {
+  productId: string
+  transactionId: string
+  receipt: string
+  signature: string
+  currencyCode: string
+  localizedPricePermyriad: string
+}
+
+export type ShopPurchaseStoneResponse = {
+  rewards: RewardResult[]
+  paidJpy: PaidJpy
+  commonResponse: CommonResponse
+}
+
+export type ShopRecoverPurchaseStoneRequest = {
+  productId: string
+  receipt: string
+  signature: string
+  currencyCode: string
+  localizedPricePermyriad: string
+}
+
+export type ShopRecoverPurchaseStoneResponse = {
+  rewards: RewardResult[]
+  shopItemName: string
+  commonResponse: CommonResponse
+}
+
+export type ShopCheckPurchaseStoneRequest = {
+  shopItemId: string
+}
+
+export type ShopCheckPurchaseStoneResponse = {
+  birthdayNotRegistered: boolean
+  exceedMaxStoneAmount: boolean
+  exceedPurchaseThreshold: boolean
+  exceedAlertThreshold: boolean
+  commonResponse: CommonResponse
+}
+
+export type ShopRegisterBirthdayRequest = {
+  year: number
+  month: number
+}
+
+export type ShopRegisterBirthdayResponse = {
+  commonResponse: CommonResponse
+}
+
+export type ShopReceiveConditionRewardRequest = {
+  shopId: string
+  numbers: number[]
+}
+
+export type ShopReceiveConditionRewardResponse = {
+  rewards: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type ShopTryOnRequest = {
+  shopItemId: string
+  costumeId: string
+  hairId: string
+}
+
+export type ShopTryOnResponse = {
+  commonResponse: CommonResponse
+}
+
+export type StaffTrainRequest = {
+  parameterType: ParameterType
+}
+
+export type StaffTrainResponse = {
+  commonResponse: CommonResponse
+}
+
+export type StoryReadRequest = {
+  storyId: string
+  isLast: boolean
+}
+
+export type StoryReadResponse = {
+  rewards: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type StoryReleaseEpisodeRequest = {
+  storyPartId: string
+  chapter: number
+  route: number
+  episode: number
+}
+
+export type StoryReleaseEpisodeResponse = {
+  commonResponse: CommonResponse
+}
+
+export type StoryListEventResponse = {
+  infos: EventStoryInfo[]
+  commonResponse: CommonResponse
+}
+
+export type StoryReadEventRequest = {
+  eventStoryId: string
+  episode: number
+  isLast: boolean
+}
+
+export type StoryReadEventResponse = {
+  rewards: RewardResult[]
+  commonResponse: CommonResponse
+}
+
+export type SystemCheckRequest = {
+  firebaseIDToken: string
+}
+
+export type SystemCheckResponse = {
+  maintenanceInfo: MaintenanceInfo
+  reviewInfo: ReviewInfo
+  keepAliveTimeMilliseconds: number
+  keepAliveTimeoutMilliseconds: number
+  enableCrashlyticsCollection: boolean
+  enableUnityLogErrorToLogException: boolean
+}
+
+export type MaintenanceInfo = {
+  inMaintenance: boolean
+  topMessage: string
+  bottomMessage: string
+  startTime: string
+  endTime: string
+  isBeforeRelease: boolean
+  twitterUrl: string
+  mvUrl: string
+  gamePvUrl: string
+}
+
+export type ReviewInfo = {
+  inReview: boolean
+  alternativeApiHost: string
+}
+
+export type TelephoneReceiveRequest = {
+  telephoneIds: string[]
+}
+
+export type TelephoneReceiveResponse = {
+  commonResponse: CommonResponse
+}
+
+export type TelephoneFinishesRequest = {
+  telephoneIds: string[]
+}
+
+export type TelephoneFinishesResponse = {
+  isReliabilityUp: boolean
+  commonResponse: CommonResponse
+}
+
+export type TelephoneCallHistoryRequest = {
+  telephoneId: string
+}
+
+export type TelephoneCallHistoryResponse = {
+  commonResponse: CommonResponse
+}
+
+export type TourTopRequest = {
+  tourId: string
+}
+
+export type TourTopResponse = {
+  tourInfo: TourInfo
+  userTourInfo: UserTourInfo
+  dokanInfos: DokanInfo[]
+  commonResponse: CommonResponse
+}
+
+export type TourRankingRequest = {
+  tourId: string
+}
+
+export type TourRankingResponse = {
+  rankingInfos: TourRankingInfo[]
+  selfPoint: string
+  selfRank: number
+  commonResponse: CommonResponse
+}
+
+export type TourAreaTopRequest = {
+  tourId: string
+  isCurrentAreaRestart: boolean
+  tourDifficultyNumber: number
+}
+
+export type TourAreaTopResponse = {
+  areaInfo: TourAreaInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaActivityRequest = {
+  tourId: string
+  step: number
+  position: number
+}
+
+export type TourAreaActivityResponse = {
+  areaInfo: TourAreaInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaRefreshRequest = {
+  tourId: string
+  step: number
+  position: number
+}
+
+export type TourAreaRefreshResponse = {
+  areaInfo: TourAreaInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaScoutRequest = {
+  tourId: string
+  step: number
+  position: number
+  cardId: string
+}
+
+export type TourAreaScoutResponse = {
+  areaInfo: TourAreaInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaLiveRequest = {
+  tourId: string
+  step: number
+  position: number
+  isSkip: boolean
+}
+
+export type TourAreaLiveResponse = {
+  areaInfo: TourAreaInfo
+  liveInfo: TourLiveInfo
+  resultInfo: TourResultInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaLiveBonusRequest = {
+  tourId: string
+  step: number
+  position: number
+  liveBonusId: string
+}
+
+export type TourAreaLiveBonusResponse = {
+  areaInfo: TourAreaInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaPvpRequest = {
+  tourId: string
+  step: number
+  position: number
+  isSkip: boolean
+}
+
+export type TourAreaPvpResponse = {
+  areaInfo: TourAreaInfo
+  liveInfo: TourLiveInfo
+  resultInfo: TourResultInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaClearRequest = {
+  tourId: string
+}
+
+export type TourAreaClearResponse = {
+  areaInfo: TourAreaInfo
+  areaClearInfo: TourAreaClearInfo
+  resultInfo: TourResultInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaNextRequest = {
+  tourId: string
+}
+
+export type TourAreaNextResponse = {
+  areaInfo: TourAreaInfo
+  commonResponse: CommonResponse
+}
+
+export type TourAreaRetireRequest = {
+  tourId: string
+}
+
+export type TourAreaRetireResponse = {
+  areaInfo: TourAreaInfo
+  resultInfo: TourResultInfo
+  commonResponse: CommonResponse
+}
+
+export type TourDeckSaveRequest = {
+  tourId: string
+  deckInfos: TourDeckInfo[]
+}
+
+export type TourDeckSaveResponse = {
+  commonResponse: CommonResponse
+}
+
+export type TourInfo = {
+  id: string
+  name: string
+  type: TourType
+  enemyType: TourEnemyType
+  startTime: string
+  endTime: string
+  aggregateEndTime: string
+  exchangeEndTime: string
+  assetId: string
+  bannerAssetId: string
+  areaStaminaRecoveryMinutes: number
+  initialAreaStamina: number
+  initialLife: number
+  eventStoryInfo: EventStoryInfo
+  eventMissionInfo: EventMissionInfo
+  eventExchangeBoothInfo: EventExchangeBoothInfo
+  noticeInfo: NoticeInfo
+  tourRankingRewardInfos: TourRankingRewardInfo[]
+  tourDifficultyInfos: TourDifficultyInfo[]
+}
+
+export type UserTourInfo = {
+  areaStamina: number
+  staminaUpdatedTime: string
+  highestScore: string
+  highestScoreTime: string
+  mostProgressArea: number
+  mostProgressAreaName: string
+  life: number
+  currentScore: string
+  currentArea: number
+  currentAreaName: string
+  rank: string
+  isRetired: boolean
+  isAreaCleared: boolean
+  isLastArea: boolean
+  clearedDifficultyNumber: number
+  currentDifficultyNumber: number
+}
+
+export type TourDeckInfo = {
+  position: number
+  cardId: string
+  scoutId: string
+}
+
+export type TourAreaInfo = {
+  areaStamina: number
+  staminaUpdatedTime: string
+  highestScore: string
+  highestScoreTime: string
+  mostProgressArea: number
+  mostProgressAreaName: string
+  life: number
+  score: string
+  area: number
+  areaName: string
+  step: number
+  position: number
+  areaScore: string
+  isAreaCleared: boolean
+  isRetired: boolean
+  stepInfos: TourStepInfo[]
+  areaRewards: Reward[]
+  liveBonusInfos: TourLiveBonusInfo[]
+  cardInfos: TourCardInfo[]
+  scoutInfos: TourScoutInfo[]
+  deckInfos: TourDeckInfo[]
+  isLastArea: boolean
+  tourType: TourType
+  tourAreaType: TourAreaType
+}
+
+export type TourStepInfo = {
+  step: number
+  positionInfos: TourPositionInfo[]
+}
+
+export type TourPositionInfo = {
+  position: number
+  type: TourStepType
+  activityInfo: TourEffectActivity
+  refreshInfo: TourEffectRefresh
+  scoutInfo: TourEffectScout
+  liveInfo: TourEffectLive
+  pvpInfo: TourEffectPvp
+  liveBonusInfos: TourLiveBonusInfo[]
+  isPassed: boolean
+}
+
+export type TourEffectScout = {
+  scoutInfos: TourScoutInfo[]
+}
+
+export type TourOpponentInfo = {
+  name: string
+  managerLevel: number
+  cardInfos: LiveBattleCardInfo[]
+}
+
+export type TourCardInfo = {
+  cardId: string
+  staminaPermil: number
+}
+
+export type TourScoutInfo = {
+  scoutId: string
+  cardId: string
+  staminaPermil: number
+  isRival: boolean
+  level: number
+  rarity: number
+  dance: string
+  vocal: string
+  visual: string
+  stamina: string
+  mental: string
+  technique: string
+  skillLevel1: number
+  skillLevel2: number
+  skillLevel3: number
+}
+
+export type TourLiveInfo = {
+  result: LiveResult
+  rewards: Reward[]
+  rankType: ResultRankType
+  rankPlus: number
+  rankPatterns: QuestRankPattern[]
+}
+
+export type TourAreaClearInfo = {
+  areaRewards: Reward[]
+  firstClearRewards: Reward[]
+  score: string
+  areaScore: string
+  rank: string
+  isBest: boolean
+}
+
+export type TourResultInfo = {
+  score: string
+  rank: string
+  isBest: boolean
+}
+
+export type TutorialInitRequest = {
+  name: string
+}
+
+export type TutorialInitResponse = {
+  commonResponse: CommonResponse
+}
+
+export type TutorialProgressRequest = {
+  type: TutorialType
+  step: number
+}
+
+export type TutorialProgressResponse = {
+  commonResponse: CommonResponse
+}
+
+export type TutorialStartQuestRequest = {
+  questId: string
+}
+
+export type TutorialStartQuestResponse = {
+  result: LiveResult
+  rankPatterns: QuestRankPattern[]
+  commonResponse: CommonResponse
+}
+
+export type TutorialActivityStartFanEventResponse = {
+  progress: FanEventProgress
+  commonResponse: CommonResponse
+}
+
+export type TutorialActivityReceivePromotionRewardResponse = {
+  rewards: Reward[]
+  activityLevelProgress: ActivityLevelProgress
+  commonResponse: CommonResponse
+}
+
+export type TutorialActivityReceiveLessonRewardResponse = {
+  rewards: Reward[]
+  commonResponse: CommonResponse
+}
+
+export type TutorialPhotoCreateShootingRequest = {
+  mainCharacterId: string
+}
+
+export type TutorialPhotoCreateShootingResponse = {
+  photo: UserPhoto
+  isGift: boolean
+  commonResponse: CommonResponse
+}
+
+export type TutorialSkipResponse = {
+  commonResponse: CommonResponse
+}
+
+export type UserGetResponse = {
+  user: User
+  items: UserItem[]
+  cards: UserCard[]
+  characters: UserCharacter[]
+  costumes: UserCostume[]
+  accessories: UserAccessory[]
+  photos: UserPhoto[]
+  decks: UserDeck[]
+  deckPositions: UserDeckPosition[]
+  stories: UserStory[]
+  points: UserPoint[]
+  staffs: UserStaff[]
+  messages: UserMessage[]
+  telephones: UserTelephone[]
+  missions: UserMission[]
+  profile: UserProfile
+  emblems: UserEmblem[]
+  characterMusics: UserCharacterMusic[]
+  balance: UserBalance
+  totalCount: UserTotalCount
+  areas: UserArea[]
+  quests: UserQuest[]
+  gachaButtons: UserGachaButton[]
+  homeTalks: UserHomeTalk[]
+  photoReport: UserPhotoReport
+  cardSupports: UserCardSupport[]
+  messageSchedules: UserMessageSchedule[]
+  notifications: UserNotification[]
+  hierarchy: UserHierarchy
+  tutorials: UserTutorial[]
+  homePositions: UserHomePosition[]
+  musics: UserMusic[]
+  decorations: UserDecoration[]
+  photoRecipes: UserPhotoRecipe[]
+  buddy: UserBuddy
+  invite: UserInvite
+  hairs: UserHair[]
+  userPublic: UserPublic
+}
+
+export type UserUpdateRequest = {
+  name: string
+}
+
 export type UserUpdateResponse = {
-  // ProtoMember(9999)
+  commonResponse: CommonResponse
+}
+
+export type UserProvideExternalRewardRequest = {
+  externalRewardId: string
+}
+
+export type UserProvideExternalRewardResponse = {
   commonResponse: CommonResponse
 }
