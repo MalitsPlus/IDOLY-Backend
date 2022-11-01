@@ -26,6 +26,7 @@ const responder: APIMapping['Card'] = async ({ id }) => {
         'skillId2',
         'skillId3',
         'releaseDate',
+        'stories',
       ])
     )
 }
