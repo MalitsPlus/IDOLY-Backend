@@ -20,11 +20,15 @@ export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
       ping(req, ctx.remoteAddr as Deno.NetAddr).catch(console.log)
       const url = new URL(req.url)
       const params = mergeSearchParams(url.searchParams)
-      const result = await f(params).catch((e) => ({
-        ok: false,
-        message: String(e),
-        [FieldStatus]: 400,
-      }))
+      const result = await f(params).catch((e) =>
+        FieldStatus in e
+          ? e
+          : {
+              ok: false,
+              message: String(e),
+              [FieldStatus]: 400,
+            }
+      )
       let status = 200
       if (FieldStatus in (result as ErrorWithStatus)) {
         status = result[FieldStatus]
