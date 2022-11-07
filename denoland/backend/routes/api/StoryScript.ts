@@ -43,7 +43,6 @@ const responder: APIMapping['StoryScript'] = async ({ id }) => {
         })
         .then(read)
         .then((x) => {
-          console.log('xxc', x)
           return x.filter((y: Line) => y._t !== 'Unknown')
         })
     )

@@ -23,7 +23,5 @@ export default async function ping(
       'X-Forwarded-For': remoteAddr?.hostname,
     },
     method: 'POST',
-  })
-    .then((x) => x.text())
-    .then(console.log)
+  }).then((x) => x.text())
 }
