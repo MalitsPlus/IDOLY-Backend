@@ -1,10 +1,10 @@
 import type { APIMapping } from 'hoshimi-types'
 import { read } from '@hoshimei/adv'
+import type { Line } from '@hoshimei/adv/types'
 import { dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import createErrStatus from '../../utils/createErrStatus.ts'
 import { ASSETS_DOMAIN } from '../../utils/env.ts'
-import { Line } from 'https://esm.sh/v96/@hoshimei/adv@0.3.0/types.d.ts'
 
 const responder: APIMapping['StoryScript'] = async ({ id }) => {
   const dbStory = await dbGet('Story')
