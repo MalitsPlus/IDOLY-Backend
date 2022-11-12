@@ -1,6 +1,6 @@
 {
   "name": "hoshimi-types",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Typings for IP data.",
   "repository": {
     "type": "git",
@@ -16,9 +16,6 @@
     "bundle": "bash scripts/build.sh",
     "bundle:deno": "bash scripts/denoify.sh",
     "bnp": "npm run bundle && npm publish dist/"
-  },
-  "dependencies": {
-    "@hoshimei/adv": "^0.4.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
