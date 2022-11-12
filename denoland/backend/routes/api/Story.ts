@@ -6,21 +6,11 @@ import createErrStatus from '../../utils/createErrStatus.ts'
 
 const responder: APIMapping['Story'] = async ({ id }) => {
   const dbStory = await dbGet('Story')
-  const dbStoryPart = await dbGet('StoryPart')
-  const episode = dbStoryPart
-    .map((x) => x.chapters)
-    .reduce((a, b) => [...a, ...b])
-    .map((x) => x.episodes)
-    .reduce((a, b) => [...a, ...b])
-    .filter((r) => r.storyId === id && r.isReleased)?.[0]
   const ret = dbStory.filter((x) => x.id === id)?.[0]
   if (!ret) {
     return createErrStatus(`Story not found: ${id}`, 404)
   }
-  return {
-    ...pick(ret, ['id', 'name', 'sectionName', 'description']),
-    advAssetId: episode?.assetId ?? ret.advAssetIds,
-  }
+  return pick(ret, ['id', 'name', 'sectionName', 'description', 'advAssetIds'])
 }
 
 export const handler = apiWrapper(responder)
