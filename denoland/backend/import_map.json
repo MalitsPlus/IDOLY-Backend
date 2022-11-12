@@ -1,6 +1,6 @@
 {
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.0.1/",
+    "$fresh/": "https://deno.land/x/fresh@1.1.2/",
     "@utils/": "./utils/",
     "preact": "https://cdn.skypack.dev/preact@10.10.0",
     "preact/": "https://cdn.skypack.dev/preact@10.10.0/",
