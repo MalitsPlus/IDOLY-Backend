@@ -1,4 +1,5 @@
 export type OctoData = {
+  revision: number
   assetBundleList: AssetBundle[]
   resourceList: Resource[]
 }
