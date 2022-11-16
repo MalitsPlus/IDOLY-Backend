@@ -11,6 +11,8 @@ export const READONLY_TOKEN = Deno.env.get('READONLY_TOKEN') ?? ''
 export const SLACK_REPORT_URL = Deno.env.get('SLACK_REPORT_URL') ?? ''
 export const UMAMI_DOMAIN = Deno.env.get('UMAMI_DOMAIN') ?? ''
 export const UMAMI_WEBSITE_ID = Deno.env.get('UMAMI_WEBSITE_ID') ?? ''
+export const GHTOKEN_ADV = Deno.env.get('GHTOKEN_ADV') ?? ''
+export const GHREPO_ADV = Deno.env.get('GHREPO_ADV') ?? ''
 
 /**
  * Setting env `DENO_ENV=development` will bypass all authentications.
@@ -27,6 +29,8 @@ const env = {
   SLACK_REPORT_URL,
   UMAMI_DOMAIN,
   UMAMI_WEBSITE_ID,
+  GHTOKEN_ADV,
+  GHREPO_ADV,
 }
 
 export default env
