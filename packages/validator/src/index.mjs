@@ -1,4 +1,4 @@
-const RULES = ['./rules/skillx-match-skill.mjs']
+const RULES = []
 
 async function main() {
   console.log('>>> Validating data')
