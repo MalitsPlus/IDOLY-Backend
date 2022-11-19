@@ -92,6 +92,8 @@ $defs:
       - const: dance_boost
       - const: visual_boost
       - const: active_score_multiplier_add
+      - const: passive_score_multiplier_add
+      - const: special_score_multiplier_add
   EffectChart:
     oneOf:
       - $ref: "#/$defs/EffectScoreGet"
@@ -132,6 +134,7 @@ $defs:
       - const: score_get_by_more_stamina
       - const: score_get_by_less_stamina
       - const: score_get_and_stamina_consumption_by_more_stamina_use
+      - const: score_get_by_skill_success_rate_up
       - const: score_get
   EffectTargetCharacterWithoutLen:
     type: object
@@ -162,6 +165,18 @@ $defs:
       owner:
         type: string
   TriggerCond:
+    oneOf:
+      - $ref: "#/$defs/TriggerCondWithoutValue"
+      - $ref: "#/$defs/TriggerCondWithValue"
+  TriggerCondWithoutValue:
+    type: object
+    additionalProperties: false
+    required:
+      - typ
+    properties:
+      typ:
+        $ref: "#/$defs/TriggerCondTypWithoutValue"
+  TriggerCondWithValue:
     type: object
     additionalProperties: false
     required:
@@ -169,7 +184,7 @@ $defs:
       - len
     properties:
       typ:
-        const: "combo"
+        $ref: "#/$defs/TriggerCondTypWithValue"
       len:
         type: number
   TargetCharacterWithCount:
@@ -261,6 +276,7 @@ $defs:
     oneOf:
       - $ref: "#/$defs/EffectCharacterLevelOnly"
       - $ref: "#/$defs/EffectCharacterSimple"
+      - $ref: "#/$defs/EffectOnEffect"
   EffectCharacterLengthLevel:
     type: object
     additionalProperties: false
@@ -311,6 +327,18 @@ $defs:
     properties:
       typ:
         $ref: "#/$defs/EffectCharacterSimpleTyp"
+  EffectOnEffect:
+    type: object
+    required:
+      - typ
+      - prt
+    properties:
+      typ:
+        oneOf:
+          - const: strength_effect_erasing
+      prt:
+        $ref: "#/$defs/EffectCharacterLengthLevelTyp"
+
   EffectCharacterLevelOnlyTyp:
     oneOf:
       - const: fix_stamina_recovery
@@ -326,3 +354,12 @@ $defs:
       - const: strength_effect_migration_before_special_skill
       - const: strength_effect_migration_before_active_skill
       - const: strength_effect_erasing_all
+      - const: strength_effect_assignment_all
+  TriggerCondTypWithoutValue:
+    oneOf:
+      - const: critical
+      - const: position_attribute_dance
+  TriggerCondTypWithValue:
+    oneOf:
+      - const: combo_less_equal
+      - const: combo

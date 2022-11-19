@@ -26,7 +26,7 @@ EffectTargetCharacterWithoutLen =
 EffectChart = EffectScoreGet / EffectScoreGetByStaEff / EffectScoreGetByTrigExtra
 
 EffectCharacterWithLength = EffectCharacterLengthLevel / EffectCharacterLengthOnly
-EffectCharacterWithoutLength = EffectCharacterLevelOnly / EffectCharacterSimple
+EffectCharacterWithoutLength = EffectCharacterLevelOnly / EffectCharacterSimple / EffectOnEffect
 
 EffectCharacterLengthLevel = typ:EffectCharacterLengthLevelTyp "-" lvl:Number  { return {typ, lvl} }
 EffectCharacterLevelOnly = typ:EffectCharacterLevelOnlyTyp "-" lvl:Number { return {typ, lvl} }
@@ -45,12 +45,13 @@ EffectCharacterLengthLevelTyp
   / "weakness_effect_prevention"
   / "vocal_down" / "dance_down" / "visual_down"
   / "vocal_boost" / "dance_boost" / "visual_boost"
-  / "active_score_multiplier_add"
+  / "active_score_multiplier_add" / "passive_score_multiplier_add"
+  / "special_score_multiplier_add"
 // num (level) - no num
 EffectCharacterLevelOnlyTyp
   = "fix_stamina_recovery" / "target_stamina_recovery"
   / "cool_time_reduction" / "stamina_consumption"
-  / "strength_effect_count_increase" / "strength_effect_value_increase" 
+  / "strength_effect_count_increase" / "strength_effect_value_increase"
 // no num - num (length)
 EffectCharacterLengthOnlyTyp = "skill_impossible" / "combo_continuation"
 // non-non dayo!
@@ -60,10 +61,16 @@ EffectCharacterSimpleTyp
   / "strength_effect_migration_before_special_skill"
   / "strength_effect_migration_before_active_skill"
   / "strength_effect_erasing_all"
+  / "strength_effect_assignment_all"
 
 EffectScoreGet
   = typ:EffectScoreGetTyp "-" typ2:Number {
     return {typ, typ2}
+  }
+
+EffectOnEffect
+  = typ:"strength_effect_erasing" "-" prt:EffectCharacterLengthLevelTyp {
+    return {typ, prt}
   }
 
 EffectScoreGetByStaEff
@@ -75,8 +82,23 @@ EffectScoreGetByTrigExtra
     return {typ, lvl, cond, condLvl}
   }
 
+TriggerCondTypWithoutValue
+  = "critical" / "position_attribute_dance"
+
+TriggerCondTypWithValue
+  = "combo_less_equal" / "combo"
+
 TriggerCond
-  = "tg" "-" typ:"combo" "-" len:Number {
+  = r:TriggerCondWithoutValue {return r}
+  / r:TriggerCondWithValue { return r }
+
+TriggerCondWithoutValue
+  = "tg-" typ:TriggerCondTypWithoutValue {
+    return {typ}
+  }
+
+TriggerCondWithValue
+  = "tg-" typ:TriggerCondTypWithValue "-" len:Number {
     return {typ, len}
   }
 
@@ -85,6 +107,7 @@ EffectScoreGetTyp
   / "score_get_by_more_combo_count" / "score_get_by_skill_activation_count" / "score_get_by_strength_effect_count"
   / "score_get_by_more_stamina_use" / "score_get_by_more_stamina" / "score_get_by_less_stamina"
   / "score_get_and_stamina_consumption_by_more_stamina_use"
+  / "score_get_by_skill_success_rate_up"
   / "score_get"
 
 TargetChart = typ:"chart_dependence" {

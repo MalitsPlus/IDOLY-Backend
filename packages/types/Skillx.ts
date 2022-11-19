@@ -24,6 +24,7 @@ export type EffectScoreGetTyp =
   | 'score_get_by_more_stamina'
   | 'score_get_by_less_stamina'
   | 'score_get_and_stamina_consumption_by_more_stamina_use'
+  | 'score_get_by_skill_success_rate_up'
   | 'score_get'
 export type EffectCharacterLengthLevelTyp =
   | 'vocal_up'
@@ -53,6 +54,11 @@ export type EffectCharacterLengthLevelTyp =
   | 'dance_boost'
   | 'visual_boost'
   | 'active_score_multiplier_add'
+  | 'passive_score_multiplier_add'
+  | 'special_score_multiplier_add'
+export type TriggerCond = TriggerCondWithoutValue | TriggerCondWithValue
+export type TriggerCondTypWithoutValue = 'critical' | 'position_attribute_dance'
+export type TriggerCondTypWithValue = 'combo_less_equal' | 'combo'
 export type EffectCharacterWithLength =
   | EffectCharacterLengthLevel
   | EffectCharacterLengthOnly
@@ -93,6 +99,7 @@ export type TargetCharacterWithTypeType =
 export type EffectCharacterWithoutLength =
   | EffectCharacterLevelOnly
   | EffectCharacterSimple
+  | EffectOnEffect
 export type EffectCharacterLevelOnlyTyp =
   | 'fix_stamina_recovery'
   | 'target_stamina_recovery'
@@ -106,6 +113,7 @@ export type EffectCharacterSimpleTyp =
   | 'strength_effect_migration_before_special_skill'
   | 'strength_effect_migration_before_active_skill'
   | 'strength_effect_erasing_all'
+  | 'strength_effect_assignment_all'
 
 /**
  * Parsed skills format
@@ -133,8 +141,11 @@ export interface EffectScoreGetByTrigExtra {
   cond: TriggerCond
   condLvl: number
 }
-export interface TriggerCond {
-  typ: 'combo'
+export interface TriggerCondWithoutValue {
+  typ: TriggerCondTypWithoutValue
+}
+export interface TriggerCondWithValue {
+  typ: TriggerCondTypWithValue
   len: number
 }
 export interface TargetChart {
@@ -188,4 +199,9 @@ export interface EffectCharacterLevelOnly {
 }
 export interface EffectCharacterSimple {
   typ: EffectCharacterSimpleTyp
+}
+export interface EffectOnEffect {
+  typ: 'strength_effect_erasing'
+  prt: EffectCharacterLengthLevelTyp
+  [k: string]: unknown
 }
