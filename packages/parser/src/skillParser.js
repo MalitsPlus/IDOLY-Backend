@@ -37,7 +37,7 @@ async function main() {
   if (existsSync(src)) {
     // It's a file
     skillsJson = JSON.parse(readFileSync(src, 'utf-8'))
-  } else if (src.match(/$https?:\/\//) !== null) {
+  } else if (src.match(/^https?:\/\//) !== null) {
     // It's a site
     skillsJson = await request(`${src}/manage/raw?key=${skillDbName}`, {
       headers: {
