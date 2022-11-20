@@ -12,7 +12,6 @@ from concurrent.futures import ThreadPoolExecutor, wait, ALL_COMPLETED
 
 API_ENDPOINT = "{{API_ENDPOINT}}"
 ADMIN_TOKEN = "{{ADMIN_TOKEN}}"
-DATA_PREFIX = "HSM_"
 MAX_RETRY_TIMES = 5
 MAX_WORK_THREAD = 20
 
@@ -56,7 +55,7 @@ def async_task(file: Path):
         origin = json.dumps(
             origin, ensure_ascii=False, separators=separators)
         body = {
-            "key": DATA_PREFIX + name,
+            "key": name,
             # KV server side only accepts string values.
             "value": origin
         }
@@ -72,7 +71,7 @@ def main():
     #         name = file.name.removesuffix(".json")
     #         origin = json.load(fp)
     #         body = {
-    #             "key": DATA_PREFIX + name,
+    #             "key": name,
     #             # KV server side only accepts string values.
     #             "value": str(origin)
     #         }
