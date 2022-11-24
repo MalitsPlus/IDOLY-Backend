@@ -2,6 +2,7 @@ import type { APIMapping } from 'hoshimi-types'
 import { dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import pick from 'lodash/pick'
+import filterRelease from '@utils/filterRelease.ts'
 import createErrStatus from '@utils/createErrStatus.ts'
 import calcPropValue from '../../../utils/calcPropValue.ts'
 
@@ -10,7 +11,7 @@ const responder: APIMapping['Card/List'] = async ({
   rarity: _rarity,
 }) => {
   const [cards, cardParam, cardRarity] = await Promise.all([
-    dbGet('Card'),
+    dbGet('Card').then(filterRelease),
     dbGet('CardParameter'),
     dbGet('CardRarity'),
   ])
