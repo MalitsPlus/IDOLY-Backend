@@ -38,9 +38,11 @@ const responder: APIMapping['MusicChartList'] = async () => {
   )
 
   const ret: UnwrapPromise<ReturnType<typeof responder>> = []
+  const ingestedMusicItems = new Set()
 
   for (const i of chartIds) {
     const musicId = i.replace(/^chart-/, 'music-').replace(/-[0-9]+$/, '')
+    ingestedMusicItems.add(musicId)
     const maybeChartListItem = firstMatches(ret, 'musicId', musicId)
     const aCount = chartACounts.find((r) => r._id === i)?.cnt ?? 0
     const spCount = chartSPCounts.find((r) => r._id === i)?.cnt ?? 0
@@ -64,6 +66,18 @@ const responder: APIMapping['MusicChartList'] = async () => {
           desc: chartDesc,
         },
       ],
+    })
+  }
+
+  for (const i of musicItems) {
+    const musicId = i.id
+    if (ingestedMusicItems.has(musicId)) continue
+    // Music with no charts
+    ret.push({
+      musicId,
+      title: i.name,
+      assetId: i.assetId,
+      charts: [],
     })
   }
 
