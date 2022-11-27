@@ -81,7 +81,11 @@ const responder: APIMapping['MusicChartList'] = async () => {
     })
   }
 
-  return ret
+  return ret.sort(
+    (a, b) =>
+      (musicItems.find((x) => x.id === a.musicId)?.order ?? Infinity) -
+      (musicItems.find((x) => x.id === b.musicId)?.order ?? Infinity)
+  )
 }
 
 export const handler = apiWrapper(responder)
