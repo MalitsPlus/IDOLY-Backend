@@ -74,6 +74,25 @@ export async function del(key: string): Promise<void> {
   })
 }
 
+export async function delWithFilter(
+  key: string,
+  filter: Record<string, any>
+): Promise<void> {
+  await easyPost(`${baseUrl}/deleteMany`, {
+    method: 'POST',
+    headers: {
+      'api-key': MONGODB_API_KEY,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      collection: key,
+      database: MONGODB_DATABASE,
+      dataSource: MONGODB_DATA_SOURCE,
+      filter,
+    }),
+  })
+}
+
 export function setValue(key: string, value: string): Promise<string> {
   return easyPost(`${baseUrl}/updateOne`, {
     method: 'POST',
@@ -134,6 +153,7 @@ export default {
   get,
   put,
   del,
+  delWithFilter,
   setValue,
   getValue,
   aggregate,

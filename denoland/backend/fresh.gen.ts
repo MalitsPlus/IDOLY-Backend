@@ -32,6 +32,7 @@ import * as $25 from "./routes/manage/octo/resource.ts";
 import * as $26 from "./routes/manage/raw.ts";
 import * as $27 from "./routes/manage/write.ts";
 import * as $28 from "./routes/manage/write/done.ts";
+import * as $29 from "./routes/manage/writeCommu.ts";
 
 const manifest = {
   routes: {
@@ -64,6 +65,7 @@ const manifest = {
     "./routes/manage/raw.ts": $26,
     "./routes/manage/write.ts": $27,
     "./routes/manage/write/done.ts": $28,
+    "./routes/manage/writeCommu.ts": $29,
   },
   islands: {},
   baseUrl: import.meta.url,

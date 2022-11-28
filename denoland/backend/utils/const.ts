@@ -7,6 +7,8 @@ export const UpdateTimeKey = '_UpdateTime'
 
 export const OctoObservedKey = '_OctoObserved'
 
+export const CommuXKey = 'CommuX'
+
 export const NonExpandedKeys = ['Notice', 'Octo', 'Skillx']
 
 export const XXHashSeed = 0xe2d09373
