@@ -29,6 +29,7 @@ export function get(
       collection: key,
       database: MONGODB_DATABASE,
       dataSource: MONGODB_DATA_SOURCE,
+      limit: 10000,
     }),
   }).then((x) =>
     x.documents.map((x: Record<string, unknown>) => omit(x, ['_id']))
