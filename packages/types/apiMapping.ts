@@ -4,8 +4,11 @@ import type {
   CardParameter,
   CardRarity,
   Character,
+  Condition,
+  ConditionTerm,
   EventStory,
   EventStoryEpisode,
+  Gacha,
   Message,
   MessageGroup,
   Music,
@@ -130,6 +133,12 @@ export type APIMapping = {
   >
   'EventStory/List': OnlyOutput<
     Pick<EventStory, 'id' | 'name' | 'description' | 'order'>[]
+  >
+  Gacha: OnlyOutput<
+    (Pick<Gacha, 'name' | 'gachaType'> & {
+      nowAfter: number
+      nowBefore: number
+    })[]
   >
   Message: InputAndOutput<
     { id: string },

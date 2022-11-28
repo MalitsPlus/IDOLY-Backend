@@ -5,7 +5,9 @@ import type {
   CardParameter,
   CardRarity,
   Character,
+  Condition,
   EventStory,
+  Gacha,
   Message,
   MessageGroup,
   Music,
@@ -24,7 +26,9 @@ export type ResourceMapping = {
   CardParameter: CardParameter[]
   CardRarity: CardRarity[]
   Character: Character[]
+  Condition: Condition[]
   EventStory: EventStory[]
+  Gacha: Gacha[]
   Message: Message[]
   MessageGroup: MessageGroup[]
   Music: Music[]
