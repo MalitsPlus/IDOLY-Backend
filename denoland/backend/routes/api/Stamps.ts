@@ -6,9 +6,10 @@ const responder: APIMapping['Stamps'] = async () => {
   const assets = await dbGet('Octo').then((x) => x.assetBundleList)
 
   return assets
-    .filter((x) => x.name.startsWith('img_message_stamp_'))
-    .sort((a, b) => (a?.id ?? 0) - (b?.id ?? 0))
-    .map((x) => x.name.replace(/^img_message_stamp_/, ''))
+    .map((x) => x.name)
+    .filter((x) => x.startsWith('img_message_stamp_'))
+    .map((x) => x.replace(/^img_message_stamp_/, ''))
+    .sort()
 }
 
 export const handler = apiWrapper(responder)
