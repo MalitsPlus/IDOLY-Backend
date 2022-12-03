@@ -192,6 +192,7 @@ export type APIMapping = {
   'Skill/All': OnlyOutput<Skill[]>
   'Skill/EffectTypes': OnlyOutput<string[]>
   'Skill/X': InputAndOutput<{ ids?: MultiString }, SkillxData>
+  Stamps: OnlyOutput<string[]>
   Story: InputAndOutput<
     { id: string },
     Pick<Story, 'name' | 'id' | 'sectionName' | 'description' | 'advAssetIds'>
