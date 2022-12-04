@@ -12,3 +12,6 @@ export const CommuXKey = 'CommuX'
 export const NonExpandedKeys = ['Notice', 'Octo', 'Skillx']
 
 export const XXHashSeed = 0xe2d09373
+
+export const DefaultLimit = 30
+export const MaxLimit = 150

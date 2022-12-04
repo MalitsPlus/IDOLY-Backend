@@ -6,6 +6,7 @@ import type {
   CardRarity,
   Character,
   Condition,
+  Emblem,
   EventStory,
   Gacha,
   Message,
@@ -27,6 +28,7 @@ export type ResourceMapping = {
   CardRarity: CardRarity[]
   Character: Character[]
   Condition: Condition[]
+  Emblem: Emblem[]
   EventStory: EventStory[]
   Gacha: Gacha[]
   Message: Message[]

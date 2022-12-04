@@ -4,8 +4,7 @@ import type {
   CardParameter,
   CardRarity,
   Character,
-  Condition,
-  ConditionTerm,
+  Emblem,
   EventStory,
   EventStoryEpisode,
   Gacha,
@@ -16,7 +15,12 @@ import type {
   Story,
 } from './ProtoMaster'
 import type { MusicChart } from './types'
-import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
+import type {
+  OnlyOutput,
+  InputAndOutput,
+  MultiString,
+  Paginated,
+} from './helpers'
 import { TheRootMapping as SkillxData } from './Skillx'
 import { NoticeInfo } from './ProtoApi'
 
@@ -123,6 +127,10 @@ export type APIMapping = {
       Character,
       'id' | 'order' | 'characterGroupId' | 'name' | 'enName' | 'color'
     >[]
+  >
+  Emblems: Paginated<
+    {},
+    Pick<Emblem, 'name' | 'assetId' | 'isViewableInInactive' | 'description'>[]
   >
   EventStory: InputAndOutput<
     { id: string },
