@@ -129,7 +129,7 @@ export type APIMapping = {
     >[]
   >
   Emblems: Paginated<
-    {},
+    { showHidden: boolean },
     Pick<Emblem, 'name' | 'assetId' | 'isViewableInInactive' | 'description'>[]
   >
   EventStory: InputAndOutput<

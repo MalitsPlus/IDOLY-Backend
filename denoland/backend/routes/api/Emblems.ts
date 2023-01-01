@@ -6,9 +6,11 @@ import { extractPageParams } from '../../utils/paginator.ts'
 
 const responder: APIMapping['Emblems'] = async (params) => {
   const { lim, off } = extractPageParams(params)
+  const showHidden = params.showHidden ?? false
   const emblems = await dbGet('Emblem')
 
   const data = emblems
+    .filter((x) => (showHidden ? true : x.isViewableInInactive))
     .sort((a, b) => a.order - b.order)
     .slice(off, off + lim)
     .map((x) =>
