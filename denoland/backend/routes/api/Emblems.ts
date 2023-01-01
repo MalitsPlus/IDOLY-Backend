@@ -3,10 +3,11 @@ import { dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import pick from 'lodash/pick'
 import { extractPageParams } from '../../utils/paginator.ts'
+import parseBool from '../../utils/parseBool.ts'
 
 const responder: APIMapping['Emblems'] = async (params) => {
   const { lim, off } = extractPageParams(params)
-  const showHidden = params.showHidden ?? false
+  const showHidden = parseBool(params.showHidden)
   const emblems = await dbGet('Emblem')
 
   const data = emblems
