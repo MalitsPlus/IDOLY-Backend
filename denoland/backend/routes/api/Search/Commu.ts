@@ -11,7 +11,7 @@ const responder: APIMapping['Search/Commu'] = async ({ q }) => {
         text: {
           query: q,
           path: {
-            // wildcard: '*',
+            wildcard: '*',
           },
         },
       },
