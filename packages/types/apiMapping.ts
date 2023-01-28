@@ -211,6 +211,7 @@ export type APIMapping = {
     { id: string },
     Pick<Story, 'name' | 'id' | 'sectionName' | 'description' | 'advAssetIds'>
   >
+  'Story/Reverse': InputAndOutput<{ advAssetId: string }, { id: string }>
   Version: OnlyOutput<{
     version: string
   }>
