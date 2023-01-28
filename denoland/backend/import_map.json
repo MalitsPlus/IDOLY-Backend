@@ -2,14 +2,14 @@
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.1.2/",
     "@utils/": "./utils/",
-    "preact": "https://cdn.skypack.dev/preact@10.10.0",
-    "preact/": "https://cdn.skypack.dev/preact@10.10.0/",
-    "preact-render-to-string": "https://cdn.skypack.dev/preact-render-to-string@5.2.0",
+    "preact": "https://cdn.skypack.dev/preact@10.11.3",
+    "preact/": "https://cdn.skypack.dev/preact@10.11.3/",
+    "preact-render-to-string": "https://cdn.skypack.dev/preact-render-to-string@5.2.6",
     "hoshimi-types": "https://esm.sh/hoshimi-types@2.4.1",
     "hoshimi-types/": "https://esm.sh/hoshimi-types@2.4.1/",
     "lodash/": "https://cdn.skypack.dev/lodash@4.17.21/",
     "xxhashjs": "https://cdn.skypack.dev/xxhashjs@0.2.2",
-    "octokit": "https://cdn.skypack.dev/octokit@2.0.10",
+    "octokit": "https://cdn.skypack.dev/octokit@2.0.14",
     "@dev/hoshimi-types": "../../packages/types/denodist/index.ts"
   }
 }
