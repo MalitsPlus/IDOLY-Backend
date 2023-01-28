@@ -21,19 +21,20 @@ export const handler: Handlers = {
       return errorResponse('Unauthorized', 403)
     }
     const json: Record<string, string> = await req.json?.()
-    if (!json.title || !Array.isArray(json.lines)) {
+    if (!json.title || !json.advAssetId || !Array.isArray(json.lines)) {
       return new Response('Invalid title or lines found', {
         status: 400,
       })
     }
-    const { title, lines } = json
-    await kv.delWithFilter(CommuXKey, { title })
+    const { title, advAssetId, lines } = json
+    await kv.delWithFilter(CommuXKey, { advAssetId })
     return await kv
       .put(
         CommuXKey,
         lines.map(({ name, text }) => ({
           name,
           text,
+          advAssetId,
           title,
         }))
       )
