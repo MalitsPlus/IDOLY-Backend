@@ -15,3 +15,17 @@ export type MusicChart = {
    */
   chart: Record<1 | 2 | 3 | 4 | 5, number[]>
 }
+
+/**
+ * Describes a commu message sentence.
+ * @member name Speaker name
+ * @member text Text
+ * @member advAssetId adv_asset_id
+ * @member title Commu title
+ */
+export type CommuX = {
+  name: string
+  text: string
+  advAssetId: string
+  title: string
+}

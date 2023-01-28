@@ -14,7 +14,7 @@ import type {
   Skill,
   Story,
 } from './ProtoMaster'
-import type { MusicChart } from './types'
+import type { CommuX, MusicChart } from './types'
 import type {
   OnlyOutput,
   InputAndOutput,
@@ -190,6 +190,12 @@ export type APIMapping = {
       NoticeInfo,
       'id' | 'title' | 'linkDetail' | 'startTime' | 'listTitle'
     >[]
+  >
+  'Search/Commu': InputAndOutput<
+    {
+      q: string
+    },
+    CommuX[]
   >
   Skill: InputAndOutput<
     {

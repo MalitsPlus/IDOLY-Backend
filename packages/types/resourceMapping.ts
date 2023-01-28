@@ -20,6 +20,7 @@ import type {
 
 import { TheRootMapping as SkillxData } from './Skillx'
 import { OctoData } from './octoData'
+import { CommuX } from './types'
 
 export type ResourceMapping = {
   Card: Card[]
@@ -27,6 +28,7 @@ export type ResourceMapping = {
   CardParameter: CardParameter[]
   CardRarity: CardRarity[]
   Character: Character[]
+  CommuX: CommuX[]
   Condition: Condition[]
   Emblem: Emblem[]
   EventStory: EventStory[]

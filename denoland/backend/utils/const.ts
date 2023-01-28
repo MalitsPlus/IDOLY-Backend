@@ -8,6 +8,7 @@ export const UpdateTimeKey = '_UpdateTime'
 export const OctoObservedKey = '_OctoObserved'
 
 export const CommuXKey = 'CommuX'
+export const CommuXSearchIndex = 's-commux'
 
 export const NonExpandedKeys = ['Notice', 'Octo', 'Skillx']
 
