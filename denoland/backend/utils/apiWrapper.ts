@@ -21,7 +21,7 @@ export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
       const url = new URL(req.url)
       const params = mergeSearchParams(url.searchParams)
       const result = await f(params).catch((e) =>
-        FieldStatus in e
+        typeof e === 'object' && FieldStatus in e
           ? e
           : {
               ok: false,
