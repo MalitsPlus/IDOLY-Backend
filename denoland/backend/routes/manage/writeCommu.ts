@@ -22,7 +22,7 @@ export const handler: Handlers = {
     }
     const json: Record<string, string> = await req.json?.()
     if (!json.title || !json.advAssetId || !Array.isArray(json.lines)) {
-      return new Response('Invalid title or lines found', {
+      return new Response('Invalid title, advAssetId, or lines found', {
         status: 400,
       })
     }
