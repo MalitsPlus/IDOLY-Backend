@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-explicit-any
 
-import type { AcceptableDbKey, ResourceMapping } from '@dev/hoshimi-types'
+import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types'
 import { NonExpandedKeys } from './const.ts'
 import kv from './kv.ts'
 import { MongoQueryParameterType } from './types.ts'
