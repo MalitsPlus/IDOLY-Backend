@@ -8,6 +8,7 @@ import type {
   EventStory,
   EventStoryEpisode,
   Gacha,
+  LiveAbility,
   Message,
   MessageGroup,
   Music,
@@ -148,6 +149,7 @@ export type APIMapping = {
       nowBefore: number
     })[]
   >
+  LiveAbility: InputAndOutput<{ id: string }, LiveAbility>
   Message: InputAndOutput<
     { id: string },
     Omit<Message, 'unlockConditionId' | 'instantType' | 'rarityType'> | null
