@@ -47,6 +47,7 @@ export type APIMapping = {
       | 'skillId3'
       | 'releaseDate'
       | 'stories'
+      | 'liveAbilityId'
     >[]
   >
   /**
