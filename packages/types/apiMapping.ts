@@ -48,6 +48,7 @@ export type APIMapping = {
       | 'releaseDate'
       | 'stories'
       | 'liveAbilityId'
+      | 'activityAbilityId'
     >[]
   >
   /**
