@@ -1,4 +1,5 @@
 import type {
+  ActivityAbility,
   Card,
   CardLevel,
   CardParameter,
@@ -26,6 +27,7 @@ import { TheRootMapping as SkillxData } from './Skillx'
 import { NoticeInfo } from './ProtoApi'
 
 export type APIMapping = {
+  ActivityAbility: InputAndOutput<{ id: string }, ActivityAbility>
   Card: InputAndOutput<
     { id?: string },
     Pick<

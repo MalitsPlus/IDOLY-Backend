@@ -1,5 +1,6 @@
 import { NoticeInfo } from './ProtoApi'
 import type {
+  ActivityAbility,
   Card,
   CardLevel,
   CardParameter,
@@ -24,6 +25,7 @@ import { OctoData } from './octoData'
 import { CommuX } from './types'
 
 export type ResourceMapping = {
+  ActivityAbility: ActivityAbility[]
   Card: Card[]
   CardLevel: CardLevel[]
   CardParameter: CardParameter[]
