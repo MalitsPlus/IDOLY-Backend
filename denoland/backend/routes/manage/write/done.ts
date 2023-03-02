@@ -4,6 +4,7 @@ import { isAdmin } from '@utils/requirePermission.ts'
 import kv from '@utils/kv.ts'
 import { UpdateTimeKey } from '@utils/const.ts'
 import observeAdv from '@utils/observeAdv.ts'
+import flattenMessages from '@utils/flattenMessage.ts'
 
 /**
  * POST /manage/write/done
@@ -19,7 +20,11 @@ export const handler: Handlers = {
     // A bit of privacy...
     now.setMinutes(0)
     now.setSeconds(0)
-    await Promise.all([kv.setValue(UpdateTimeKey, String(now)), observeAdv()])
+    await Promise.all([
+      kv.setValue(UpdateTimeKey, String(now)),
+      observeAdv(),
+      flattenMessages(),
+    ])
 
     return jsonResponse({ ok: true })
   },
