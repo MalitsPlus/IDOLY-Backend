@@ -16,7 +16,7 @@ import type {
   Skill,
   Story,
 } from './ProtoMaster'
-import type { CommuX, MusicChart } from './types'
+import type { CommuX, MessageX, MusicChart } from './types'
 import type {
   OnlyOutput,
   InputAndOutput,
@@ -203,6 +203,7 @@ export type APIMapping = {
     },
     CommuX[]
   >
+  'Search/Message': InputAndOutput<{ q: string }, MessageX[]>
   Skill: InputAndOutput<
     {
       ids: MultiString

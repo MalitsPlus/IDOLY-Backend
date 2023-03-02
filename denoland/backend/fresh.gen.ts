@@ -25,20 +25,21 @@ import * as $18 from "./routes/api/MusicChart.ts";
 import * as $19 from "./routes/api/MusicChartList.ts";
 import * as $20 from "./routes/api/Notice.ts";
 import * as $21 from "./routes/api/Search/Commu.ts";
-import * as $22 from "./routes/api/Skill.ts";
-import * as $23 from "./routes/api/Skill/All.ts";
-import * as $24 from "./routes/api/Skill/EffectTypes.ts";
-import * as $25 from "./routes/api/Skill/X.ts";
-import * as $26 from "./routes/api/Stamps.ts";
-import * as $27 from "./routes/api/Story.ts";
-import * as $28 from "./routes/api/Story/Reverse.ts";
-import * as $29 from "./routes/api/Version.ts";
-import * as $30 from "./routes/manage/octo/asset.ts";
-import * as $31 from "./routes/manage/octo/resource.ts";
-import * as $32 from "./routes/manage/raw.ts";
-import * as $33 from "./routes/manage/write.ts";
-import * as $34 from "./routes/manage/write/done.ts";
-import * as $35 from "./routes/manage/writeCommu.ts";
+import * as $22 from "./routes/api/Search/Message.ts";
+import * as $23 from "./routes/api/Skill.ts";
+import * as $24 from "./routes/api/Skill/All.ts";
+import * as $25 from "./routes/api/Skill/EffectTypes.ts";
+import * as $26 from "./routes/api/Skill/X.ts";
+import * as $27 from "./routes/api/Stamps.ts";
+import * as $28 from "./routes/api/Story.ts";
+import * as $29 from "./routes/api/Story/Reverse.ts";
+import * as $30 from "./routes/api/Version.ts";
+import * as $31 from "./routes/manage/octo/asset.ts";
+import * as $32 from "./routes/manage/octo/resource.ts";
+import * as $33 from "./routes/manage/raw.ts";
+import * as $34 from "./routes/manage/write.ts";
+import * as $35 from "./routes/manage/write/done.ts";
+import * as $36 from "./routes/manage/writeCommu.ts";
 
 const manifest = {
   routes: {
@@ -64,20 +65,21 @@ const manifest = {
     "./routes/api/MusicChartList.ts": $19,
     "./routes/api/Notice.ts": $20,
     "./routes/api/Search/Commu.ts": $21,
-    "./routes/api/Skill.ts": $22,
-    "./routes/api/Skill/All.ts": $23,
-    "./routes/api/Skill/EffectTypes.ts": $24,
-    "./routes/api/Skill/X.ts": $25,
-    "./routes/api/Stamps.ts": $26,
-    "./routes/api/Story.ts": $27,
-    "./routes/api/Story/Reverse.ts": $28,
-    "./routes/api/Version.ts": $29,
-    "./routes/manage/octo/asset.ts": $30,
-    "./routes/manage/octo/resource.ts": $31,
-    "./routes/manage/raw.ts": $32,
-    "./routes/manage/write.ts": $33,
-    "./routes/manage/write/done.ts": $34,
-    "./routes/manage/writeCommu.ts": $35,
+    "./routes/api/Search/Message.ts": $22,
+    "./routes/api/Skill.ts": $23,
+    "./routes/api/Skill/All.ts": $24,
+    "./routes/api/Skill/EffectTypes.ts": $25,
+    "./routes/api/Skill/X.ts": $26,
+    "./routes/api/Stamps.ts": $27,
+    "./routes/api/Story.ts": $28,
+    "./routes/api/Story/Reverse.ts": $29,
+    "./routes/api/Version.ts": $30,
+    "./routes/manage/octo/asset.ts": $31,
+    "./routes/manage/octo/resource.ts": $32,
+    "./routes/manage/raw.ts": $33,
+    "./routes/manage/write.ts": $34,
+    "./routes/manage/write/done.ts": $35,
+    "./routes/manage/writeCommu.ts": $36,
   },
   islands: {},
   baseUrl: import.meta.url,

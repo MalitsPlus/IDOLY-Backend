@@ -1,3 +1,4 @@
+import { MessageXKey } from './const.ts'
 import { dbGet } from './dbGet.ts'
 import kv from './kv.ts'
 
@@ -9,10 +10,11 @@ export default async function flattenMessages() {
         ...line,
         name: commu.name,
         id: commu.id,
+        characterGroupId: commu.characterId,
       }))
     )
     .reduce((a, b) => [...a, ...b])
 
-  await kv.del('Messagex')
-  await kv.put('Messagex', flattenedMessages)
+  await kv.del(MessageXKey)
+  await kv.put(MessageXKey, flattenedMessages)
 }

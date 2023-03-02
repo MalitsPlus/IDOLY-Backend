@@ -22,7 +22,7 @@ import type {
 
 import { TheRootMapping as SkillxData } from './Skillx'
 import { OctoData } from './octoData'
-import { CommuX } from './types'
+import { CommuX, MessageX } from './types'
 
 export type ResourceMapping = {
   ActivityAbility: ActivityAbility[]
@@ -38,6 +38,7 @@ export type ResourceMapping = {
   Gacha: Gacha[]
   LiveAbility: LiveAbility[]
   Message: Message[]
+  MessageX: MessageX[]
   MessageGroup: MessageGroup[]
   Music: Music[]
   MusicChartPattern: MusicChartPattern[]

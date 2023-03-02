@@ -1,3 +1,5 @@
+import { Message, MessageDetail } from './ProtoMaster'
+
 /**
  * Describes a music chart.
  * @member id Music chart id
@@ -29,3 +31,8 @@ export type CommuX = {
   advAssetId: string
   title: string
 }
+
+export type MessageX = Pick<Message, 'name' | 'id'> &
+  Pick<MessageDetail, 'messageDetailId' | 'text' | 'characterId'> & {
+    characterGroupId: Message['characterId']
+  }
