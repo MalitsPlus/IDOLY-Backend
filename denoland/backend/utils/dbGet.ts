@@ -1,9 +1,8 @@
-// deno-lint-ignore-file no-explicit-any
-
-import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types'
 import { NonExpandedKeys } from './const.ts'
 import kv from './kv.ts'
-import { MongoQueryParameterType } from './types.ts'
+import { NaiveResourceMapping, UnArray } from './types.ts'
+import { Filter } from 'mongo'
+import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types'
 
 /**
  * Use MongoDB-based operation API if possible.
@@ -11,25 +10,20 @@ import { MongoQueryParameterType } from './types.ts'
 export function dbGet<T extends AcceptableDbKey>(
   s: T
 ): Promise<ResourceMapping[T]> {
-  if (NonExpandedKeys.includes(s)) {
-    return kv.getValue(s).then(JSON.parse)
+  if (NonExpandedKeys.includes(s as typeof NonExpandedKeys[number])) {
+    return kv.getValue(s as typeof NonExpandedKeys[number]).then(JSON.parse)
   }
-  return kv.get(s) as any
+  return kv.get(s as any) as any
 }
 
-export function dbGetPlus<T extends AcceptableDbKey>(
+export function dbGetPlus<T extends keyof NaiveResourceMapping>(
   s: T,
-  params: Partial<Record<MongoQueryParameterType, any>>
+  params: Filter<UnArray<ResourceMapping[T]>>
 ): Promise<ResourceMapping[T]> {
-  if (NonExpandedKeys.includes(s)) {
+  if (NonExpandedKeys.includes(s as any)) {
     throw Error('Filter cannot be used on plain-text collections.')
   }
   return kv.get(s, params) as any
 }
 
-export function dbAggregate<T extends AcceptableDbKey>(
-  s: T,
-  p: Record<string, any>[]
-): Promise<any[]> {
-  return kv.aggregate(s, p)
-}
+export const dbAggregate = kv.aggregate

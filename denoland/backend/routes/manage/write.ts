@@ -1,4 +1,4 @@
-import { Handlers } from 'https://deno.land/x/fresh@1.0.1/server.ts'
+import { Handlers } from '$fresh/server.ts'
 import jsonResponse, { errorResponse } from '@utils/jsonResponse.ts'
 import { isAdmin } from '@utils/requirePermission.ts'
 import kv from '@utils/kv.ts'
@@ -28,7 +28,9 @@ export const handler: Handlers = {
     }
     const key = json.key
     const typ =
-      json.type === 'value' || NonExpandedKeys.includes(key) ? 'value' : 'array'
+      json.type === 'value' || NonExpandedKeys.includes(key as any)
+        ? 'value'
+        : 'array'
     const value = tryJsonParse(json.value)
     if (value === undefined) {
       return errorResponse('Invalid JSON', 400)
@@ -38,13 +40,13 @@ export const handler: Handlers = {
     }
     if (Array.isArray(value) && typ === 'array') {
       return await kv
-        .put(key, value)
-        .then((x) => jsonResponse({ ok: true, lines: x.length }))
+        .put(key as any, value)
+        .then((x) => jsonResponse({ ok: true, lines: x }))
         .catch((x) => errorResponse(x, 500))
     }
     if (typ === 'value') {
       return await kv
-        .setValue(key, JSON.stringify(value))
+        .setValue(key as any, JSON.stringify(value))
         .then(() => jsonResponse({ ok: true, lines: 1 }))
         .catch((x) => errorResponse(x, 500))
     }

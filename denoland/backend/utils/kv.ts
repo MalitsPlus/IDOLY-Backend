@@ -1,152 +1,107 @@
-// deno-lint-ignore-file no-explicit-any
+import { NonExpandedKeys } from './const.ts'
+import type { NaiveResourceMapping, UnArray } from './types.ts'
+import { MONGODB_CONNECTION, MONGODB_DATABASE } from '@utils/env.ts'
 
-import easyPost from './easyPost.ts'
-import {
-  MONGODB_API_APPID,
-  MONGODB_API_KEY,
-  MONGODB_DATABASE,
-  MONGODB_DATA_SOURCE,
-} from './env.ts'
-import omit from 'lodash/omit'
-import { MongoQueryParameterType } from './types.ts'
-
-const baseUrl = `https://data.mongodb-api.com/app/${MONGODB_API_APPID}/endpoint/data/v1/action`
+import { DeleteResult, MongoClient, WithId } from 'mongo'
+import type { Db, Filter } from 'mongo'
 
 const IS_ONLY = { __isOnly: true }
 
-export function get(
-  key: string,
-  params: Partial<Record<MongoQueryParameterType, any>> | undefined = undefined
-): Promise<any[]> {
-  return easyPost(`${baseUrl}/find`, {
-    method: 'POST',
-    headers: {
-      'api-key': MONGODB_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      ...params,
-      collection: key,
-      database: MONGODB_DATABASE,
-      dataSource: MONGODB_DATA_SOURCE,
-      limit: 10000,
-    }),
-  }).then((x) =>
-    x.documents.map((x: Record<string, unknown>) => omit(x, ['_id']))
+class Client {
+  #client: MongoClient
+  #dbName: string
+  #connected: boolean = false
+
+  constructor(conn: string, dbName: string) {
+    this.#client = new MongoClient(conn)
+    this.#dbName = dbName
+  }
+
+  async getClient(): Promise<Db> {
+    if (!this.#connected) {
+      try {
+        await this.#client.connect()
+      } catch (e) {
+        console.log(e)
+      }
+      this.#connected = true
+    }
+    return this.#client.db(this.#dbName)
+  }
+}
+
+const client = new Client(MONGODB_CONNECTION, MONGODB_DATABASE)
+
+export async function get<T extends keyof NaiveResourceMapping>(
+  collectionName: T,
+  filter: Filter<UnArray<NaiveResourceMapping[T]>> = {}
+): Promise<WithId<UnArray<NaiveResourceMapping[T]>>[]> {
+  const $ = await client.getClient()
+  return $.collection<UnArray<NaiveResourceMapping[T]>>(collectionName)
+    .find(filter)
+    .toArray()
+}
+
+export async function put<T extends keyof NaiveResourceMapping>(
+  collectionName: T,
+  filter: UnArray<NaiveResourceMapping[T]>[]
+): Promise<number> {
+  await del(collectionName)
+  if (filter.length === 0) {
+    return 0
+  }
+  const $ = await client.getClient()
+  return (await $.collection(collectionName).insertMany(filter)).insertedCount
+}
+
+export async function del<T extends keyof NaiveResourceMapping>(
+  collectionName: T
+): Promise<DeleteResult> {
+  const $ = await client.getClient()
+  return $.collection<UnArray<NaiveResourceMapping[T]>>(
+    collectionName
+  ).deleteMany()
+}
+
+export async function delWithFilter<T extends keyof NaiveResourceMapping>(
+  collectionName: T,
+  filter: Filter<UnArray<NaiveResourceMapping[T]>>
+): Promise<void> {
+  const $ = await client.getClient()
+  await $.collection<UnArray<NaiveResourceMapping[T]>>(
+    collectionName
+  ).deleteMany(filter)
+}
+
+export async function setValue<T extends typeof NonExpandedKeys[number]>(
+  key: T,
+  value: string
+): Promise<void> {
+  const $ = await client.getClient()
+  await $.collection(key).updateOne(
+    IS_ONLY,
+    { $set: { value } },
+    { upsert: true }
   )
 }
 
-export async function put(key: string, values: any[]): Promise<string[]> {
-  await del(key)
-  if (values.length === 0) {
-    return []
-  }
-  return easyPost(`${baseUrl}/insertMany`, {
-    method: 'POST',
-    headers: {
-      'api-key': MONGODB_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      collection: key,
-      database: MONGODB_DATABASE,
-      dataSource: MONGODB_DATA_SOURCE,
-      documents: values,
-    }),
-  }).then((x) => {
-    return x.insertedIds
-  })
+export async function getValue<T extends typeof NonExpandedKeys[number]>(
+  key: T
+): Promise<string> {
+  const $ = await client.getClient()
+  return $.collection(key)
+    .findOne(IS_ONLY)
+    .then((x) => x?.value ?? '')
 }
 
-export async function del(key: string): Promise<void> {
-  await easyPost(`${baseUrl}/deleteMany`, {
-    method: 'POST',
-    headers: {
-      'api-key': MONGODB_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      collection: key,
-      database: MONGODB_DATABASE,
-      dataSource: MONGODB_DATA_SOURCE,
-      filter: {},
-    }),
-  })
-}
-
-export async function delWithFilter(
-  key: string,
-  filter: Record<string, any>
-): Promise<void> {
-  await easyPost(`${baseUrl}/deleteMany`, {
-    method: 'POST',
-    headers: {
-      'api-key': MONGODB_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      collection: key,
-      database: MONGODB_DATABASE,
-      dataSource: MONGODB_DATA_SOURCE,
-      filter,
-    }),
-  })
-}
-
-export function setValue(key: string, value: string): Promise<string> {
-  return easyPost(`${baseUrl}/updateOne`, {
-    method: 'POST',
-    headers: {
-      'api-key': MONGODB_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      collection: key,
-      database: MONGODB_DATABASE,
-      dataSource: MONGODB_DATA_SOURCE,
-      upsert: true,
-      filter: IS_ONLY,
-      update: {
-        value,
-        ...IS_ONLY,
-      },
-    }),
-  }).then((x) => x.insertedId)
-}
-
-export function getValue(key: string): Promise<string> {
-  return easyPost(`${baseUrl}/findOne`, {
-    method: 'POST',
-    headers: {
-      'api-key': MONGODB_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      collection: key,
-      database: MONGODB_DATABASE,
-      dataSource: MONGODB_DATA_SOURCE,
-      filter: IS_ONLY,
-    }),
-  }).then((x) => x.document.value)
-}
-
-export function aggregate(
-  key: string,
-  pipeline: Record<string, any>[]
-): Promise<any[]> {
-  return easyPost(`${baseUrl}/aggregate`, {
-    method: 'POST',
-    headers: {
-      'api-key': MONGODB_API_KEY,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      collection: key,
-      database: MONGODB_DATABASE,
-      dataSource: MONGODB_DATA_SOURCE,
-      pipeline,
-    }),
-  }).then((x) => x.documents)
+export async function aggregate<T extends keyof NaiveResourceMapping>(
+  collectionName: T,
+  pipeline: NaiveResourceMapping[T]
+): Promise<WithId<UnArray<NaiveResourceMapping[T]>>[]> {
+  const $ = await client.getClient()
+  return $.collection<UnArray<NaiveResourceMapping[T]>>(collectionName)
+    .aggregate<WithId<UnArray<NaiveResourceMapping[T]>>>(pipeline)
+    .toArray()
 }
 
 export default {
