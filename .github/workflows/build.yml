@@ -17,9 +17,9 @@ jobs:
           persist-credentials: false
 
       - name: Install and check 🔍
-        run: npx pnpm install
+        run: npx pnpm@8 install
 
       - name: Build 🔧
         run: |
           cd packages/${{matrix.package}}
-          npx pnpm run build
+          npx pnpm@8 run build
