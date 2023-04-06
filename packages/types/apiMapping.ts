@@ -17,12 +17,7 @@ import type {
   Story,
 } from './ProtoMaster'
 import type { CommuX, MessageX, MusicChart } from './types'
-import type {
-  OnlyOutput,
-  InputAndOutput,
-  MultiString,
-  Paginated,
-} from './helpers'
+import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
 import { TheRootMapping as SkillxData } from './Skillx'
 import { NoticeInfo } from './ProtoApi'
 
@@ -133,8 +128,8 @@ export type APIMapping = {
       'id' | 'order' | 'characterGroupId' | 'name' | 'enName' | 'color'
     >[]
   >
-  Emblems: Paginated<
-    { showHidden: string },
+  Emblems: InputAndOutput<
+    { prefix: string },
     Pick<Emblem, 'name' | 'assetId' | 'isViewableInInactive' | 'description'>[]
   >
   EventStory: InputAndOutput<

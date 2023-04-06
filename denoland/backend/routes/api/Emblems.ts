@@ -2,26 +2,20 @@ import type { APIMapping } from 'hoshimi-types'
 import { dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import pick from 'lodash/pick'
-import { extractPageParams } from '../../utils/paginator.ts'
-import parseBool from '../../utils/parseBool.ts'
 
-const responder: APIMapping['Emblems'] = async (params) => {
-  const { lim, off } = extractPageParams(params)
-  const showHidden = parseBool(params.showHidden)
+const responder: APIMapping['Emblems'] = async ({ prefix }) => {
   const emblems = await dbGet('Emblem')
+  const prefixes = prefix.split(',')
 
   const data = emblems
-    .filter((x) => (showHidden ? true : x.isViewableInInactive))
+    .filter((x) => prefixes.filter((p) => x.assetId.startsWith(p)).length > 0)
     .sort((a, b) => a.order - b.order)
-    .slice(off, off + lim)
+
     .map((x) =>
       pick(x, ['name', 'assetId', 'isViewableInInactive', 'description'])
     )
 
-  return {
-    more: lim + off < emblems.length,
-    data,
-  }
+  return data
 }
 
 export const handler = apiWrapper(responder)
