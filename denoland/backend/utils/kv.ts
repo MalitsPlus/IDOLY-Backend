@@ -1,41 +1,38 @@
 import { NonExpandedKeys } from './const.ts'
 import type { NaiveResourceMapping, UnArray } from './types.ts'
-import { MONGODB_CONNECTION, MONGODB_DATABASE } from '@utils/env.ts'
+import { MONGODB_CONNECTION } from '@utils/env.ts'
 
-import { DeleteResult, MongoClient, WithId } from 'mongo'
-import type { Db, Filter } from 'mongo'
+import { Database, MongoClient } from 'mongodb'
+import type { Filter } from 'mongodb'
 
 const IS_ONLY = { __isOnly: true }
 
 class Client {
   #client: MongoClient
-  #dbName: string
-  #connected: boolean = false
+  #db: Database | null = null
+  #conn: string
 
-  constructor(conn: string, dbName: string) {
-    this.#client = new MongoClient(conn)
-    this.#dbName = dbName
+  constructor(conn: string) {
+    this.#client = new MongoClient()
+    this.#conn = conn
   }
 
-  async getClient(): Promise<Db> {
-    if (!this.#connected) {
-      try {
-        await this.#client.connect()
-      } catch (e) {
-        console.log(e)
-      }
-      this.#connected = true
+  async getClient(): Promise<Database> {
+    if (this.#db !== null) {
+      return this.#db
     }
-    return this.#client.db(this.#dbName)
+
+    this.#db = await this.#client.connect(this.#conn)
+    return this.#db
   }
 }
 
-const client = new Client(MONGODB_CONNECTION, MONGODB_DATABASE)
+const client = new Client(MONGODB_CONNECTION)
 
 export async function get<T extends keyof NaiveResourceMapping>(
   collectionName: T,
   filter: Filter<UnArray<NaiveResourceMapping[T]>> = {}
-): Promise<WithId<UnArray<NaiveResourceMapping[T]>>[]> {
+): Promise<UnArray<NaiveResourceMapping[T]>[]> {
   const $ = await client.getClient()
   return $.collection<UnArray<NaiveResourceMapping[T]>>(collectionName)
     .find(filter)
@@ -56,11 +53,11 @@ export async function put<T extends keyof NaiveResourceMapping>(
 
 export async function del<T extends keyof NaiveResourceMapping>(
   collectionName: T
-): Promise<DeleteResult> {
+): Promise<void> {
   const $ = await client.getClient()
-  return $.collection<UnArray<NaiveResourceMapping[T]>>(
+  await $.collection<UnArray<NaiveResourceMapping[T]>>(
     collectionName
-  ).deleteMany()
+  ).deleteMany({})
 }
 
 export async function delWithFilter<T extends keyof NaiveResourceMapping>(
@@ -97,10 +94,10 @@ export async function getValue<T extends typeof NonExpandedKeys[number]>(
 export async function aggregate<T extends keyof NaiveResourceMapping>(
   collectionName: T,
   pipeline: NaiveResourceMapping[T]
-): Promise<WithId<UnArray<NaiveResourceMapping[T]>>[]> {
+): Promise<UnArray<NaiveResourceMapping[T]>[]> {
   const $ = await client.getClient()
   return $.collection<UnArray<NaiveResourceMapping[T]>>(collectionName)
-    .aggregate<WithId<UnArray<NaiveResourceMapping[T]>>>(pipeline)
+    .aggregate<UnArray<NaiveResourceMapping[T]>>(pipeline)
     .toArray()
 }
 

@@ -1,7 +1,7 @@
 import { NonExpandedKeys } from './const.ts'
 import kv from './kv.ts'
 import { NaiveResourceMapping, UnArray } from './types.ts'
-import { Filter } from 'mongo'
+import { Filter } from 'mongodb'
 import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types'
 
 /**
