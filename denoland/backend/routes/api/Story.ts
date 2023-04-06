@@ -5,8 +5,12 @@ import pick from 'lodash/pick'
 import createErrStatus from '@utils/createErrStatus.ts'
 
 const responder: APIMapping['Story'] = async ({ id }) => {
-  const dbStory = await dbGet('Story')
-  const ret = dbStory.filter((x) => x.id === id)?.[0]
+  const dbStory = await dbGet('Story', {
+    id: {
+      $eq: id,
+    },
+  })
+  const ret = dbStory[0]
   if (!ret) {
     return createErrStatus(`Story not found: ${id}`, 404)
   }

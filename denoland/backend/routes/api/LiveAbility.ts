@@ -4,8 +4,12 @@ import apiWrapper from '@utils/apiWrapper.ts'
 import createErrStatus from '@utils/createErrStatus.ts'
 
 const responder: APIMapping['LiveAbility'] = async ({ id }) => {
-  const abilities = await dbGet('LiveAbility')
-  const item = abilities.find((x) => x.id === id)
+  const abilities = await dbGet('LiveAbility', {
+    id: {
+      $eq: id,
+    },
+  })
+  const item = abilities[0]
   if (!item) {
     return createErrStatus(`No music found with id ${id}`, 404)
   }

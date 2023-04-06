@@ -5,8 +5,10 @@ import { parseMultiString } from '@utils/parse.ts'
 
 const responder: APIMapping['Skill'] = async ({ ids: _ids }) => {
   const ids = parseMultiString(_ids)
-  const allSkills = await dbGet('Skill')
-  return allSkills.filter((x) => ids.includes(x.id))
+  const allSkills = await dbGet('Skill', {
+    $or: ids.map((id) => ({ id: { $eq: id } })),
+  })
+  return allSkills
 }
 
 export const handler = apiWrapper(responder)

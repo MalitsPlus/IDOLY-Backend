@@ -2,7 +2,7 @@ import { NonExpandedKeys } from './const.ts'
 import type { NaiveResourceMapping, UnArray } from './types.ts'
 import { MONGODB_CONNECTION, MONGODB_DATABASE } from '@utils/env.ts'
 
-import { Database, MongoClient } from 'mongodb'
+import { AggregatePipeline, Database, MongoClient } from 'mongodb'
 import type { Filter } from 'mongodb'
 
 const IS_ONLY = { __isOnly: true }
@@ -96,7 +96,7 @@ export async function getValue<T extends typeof NonExpandedKeys[number]>(
 
 export async function aggregate<T extends keyof NaiveResourceMapping>(
   collectionName: T,
-  pipeline: NaiveResourceMapping[T]
+  pipeline: AggregatePipeline<NaiveResourceMapping[T]>[]
 ): Promise<UnArray<NaiveResourceMapping[T]>[]> {
   const $ = await client.getClient()
   return $.collection<UnArray<NaiveResourceMapping[T]>>(collectionName)

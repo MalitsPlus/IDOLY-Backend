@@ -5,12 +5,12 @@ import createErrStatus from '@utils/createErrStatus.ts'
 import omit from 'lodash/omit'
 
 const responder: APIMapping['Music'] = async ({ id }) => {
-  if (!id) {
-    return createErrStatus('No id found')
-  }
-
-  const musics = await dbGet('Music')
-  const item = musics.filter((x) => x.id === id)?.[0]
+  const musics = await dbGet('Music', {
+    id: {
+      $eq: id,
+    },
+  })
+  const item = musics[0]
   if (!item) {
     return createErrStatus(`No music found with id ${id}`, 404)
   }
