@@ -1,6 +1,6 @@
 import { NonExpandedKeys } from './const.ts'
 import type { NaiveResourceMapping, UnArray } from './types.ts'
-import { MONGODB_CONNECTION } from '@utils/env.ts'
+import { MONGODB_CONNECTION, MONGODB_DATABASE } from '@utils/env.ts'
 
 import { Database, MongoClient } from 'mongodb'
 import type { Filter } from 'mongodb'
@@ -11,10 +11,12 @@ class Client {
   #client: MongoClient
   #db: Database | null = null
   #conn: string
+  #dbName: string
 
-  constructor(conn: string) {
+  constructor(conn: string, dbName: string) {
     this.#client = new MongoClient()
     this.#conn = conn
+    this.#dbName = dbName
   }
 
   async getClient(): Promise<Database> {
@@ -22,12 +24,13 @@ class Client {
       return this.#db
     }
 
-    this.#db = await this.#client.connect(this.#conn)
+    await this.#client.connect(this.#conn)
+    this.#db = this.#client.database(this.#dbName)
     return this.#db
   }
 }
 
-const client = new Client(MONGODB_CONNECTION)
+const client = new Client(MONGODB_CONNECTION, MONGODB_DATABASE)
 
 export async function get<T extends keyof NaiveResourceMapping>(
   collectionName: T,
