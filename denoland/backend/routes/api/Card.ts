@@ -5,11 +5,16 @@ import filterRelease from '@utils/filterRelease.ts'
 import pick from 'lodash/pick'
 
 const responder: APIMapping['Card'] = async ({ id }) => {
-  const cards = await dbGet('Card', {
-    id: {
-      $eq: id,
-    },
-  }).then(filterRelease)
+  const cards = await dbGet(
+    'Card',
+    id
+      ? {
+          id: {
+            $eq: id,
+          },
+        }
+      : {}
+  ).then(filterRelease)
 
   return cards.map((x) =>
     pick(x, [
