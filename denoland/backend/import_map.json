@@ -11,6 +11,7 @@
     "xxhashjs": "https://cdn.skypack.dev/xxhashjs@0.2.2",
     "octokit": "https://cdn.skypack.dev/octokit@2.0.14",
     "mongodb": "https://deno.land/x/mongo@v0.31.2/mod.ts",
+    "sentry": "https://esm.sh/@sentry/browser@7.47.0",
     "@dev/hoshimi-types": "../../packages/types/denodist/index.ts"
   }
 }

@@ -14,6 +14,7 @@ export const UMAMI_WEBSITE_ID = Deno.env.get('UMAMI_WEBSITE_ID') ?? ''
 export const GHTOKEN_ADV = Deno.env.get('GHTOKEN_ADV') ?? ''
 export const GHREPO_ADV = Deno.env.get('GHREPO_ADV') ?? ''
 export const MONGODB_CONNECTION = Deno.env.get('MONGODB_CONNECTION') ?? ''
+export const SENTRY_DSN = Deno.env.get('SENTRY_DSN') ?? ''
 
 /**
  * Setting env `DENO_ENV=development` will bypass all authentications.
@@ -33,6 +34,7 @@ const env = {
   GHTOKEN_ADV,
   GHREPO_ADV,
   MONGODB_CONNECTION,
+  SENTRY_DSN,
 }
 
 export default env

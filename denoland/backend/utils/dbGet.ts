@@ -1,3 +1,4 @@
+import * as Sentry from 'sentry'
 import { NonExpandedKeys } from './const.ts'
 import kv from './kv.ts'
 import { UnArray } from './types.ts'
@@ -7,14 +8,22 @@ import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types'
 /**
  * Use MongoDB-based operation API if possible.
  */
-export function dbGet<T extends AcceptableDbKey>(
+export async function dbGet<T extends AcceptableDbKey>(
   s: T,
   filter: Filter<UnArray<ResourceMapping[T]>> = {}
 ): Promise<ResourceMapping[T]> {
+  const transaction = Sentry.getCurrentHub().getScope().getTransaction()
+  const startAt = performance.now()
   if (NonExpandedKeys.includes(s as typeof NonExpandedKeys[number])) {
-    return kv.getValue(s as typeof NonExpandedKeys[number]).then(JSON.parse)
+    const result = await kv.getValue(s as typeof NonExpandedKeys[number])
+    const endAt = performance.now()
+    transaction?.setMeasurement('dbRequestTime', endAt - startAt, 'millisecond')
+    return JSON.parse(result)
   }
-  return kv.get(s as any, filter) as any
+  const result = await kv.get(s as any, filter)
+  const endAt = performance.now()
+  transaction?.setMeasurement('dbRequestTime', endAt - startAt, 'millisecond')
+  return result as any
 }
 
 export const dbAggregate = kv.aggregate
