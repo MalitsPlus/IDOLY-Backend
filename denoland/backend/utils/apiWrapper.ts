@@ -39,7 +39,7 @@ export default function apiWrapper(f: (...t: any) => Promise<any>): Handlers {
       //   .catch((_) => undefined)
       const eTag = `"${xxhash(JSON.stringify(result))}"`
       const commonCacheTags = {
-        'Cache-Control': 'max-age=3600, stale-while-revalidate=3600',
+        'Cache-Control': 'public, max-age=3600, stale-while-revalidate=3600',
         ETag: `W/${eTag}`,
         // ...(lastUpdate ? { 'Last-Modified': lastUpdate } : {}),
       }
