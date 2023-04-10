@@ -13,6 +13,6 @@ import { SENTRY_DSN, isDevelopEnv } from './utils/env.ts'
 checkEnv()
 Sentry.init({
   dsn: SENTRY_DSN,
-  tracesSampleRate: isDevelopEnv ? 1.0 : 0.7,
+  tracesSampleRate: isDevelopEnv ? 1.0 : 0.2,
 })
 await start(manifest)
