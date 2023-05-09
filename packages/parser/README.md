@@ -1,4 +1,4 @@
-## @hoshimi/parser
+## @hoshimi/parser (deprecated)
 
 Parse enums and classes and generate the TypeScript version of the enumeration/class definition.
 

@@ -11,6 +11,8 @@ EffectItem
 
 EffectWithTarget =
   obj:EffectTargetChart { return obj }
+  / obj:EffectStatusEffectChange { return obj }
+  / obj:EffectStatusEffectAssignment { return obj }
   / obj:EffectTargetCharacterWithLen { return obj }
   / obj:EffectTargetCharacterWithoutLen { return obj }
 
@@ -22,6 +24,33 @@ EffectTargetCharacterWithLen =
 
 EffectTargetCharacterWithoutLen =
   effect:EffectCharacterWithoutLength "-" target:TargetCharacterWithoutLength { return {effect, target} }
+  
+// "ef-status_effect_change-target-visual-1-visual_up-tension_up"
+EffectStatusEffectChange = 
+  "status_effect_change-target-" typ:TargetChPropsType "-" cnt:Number "-" typ1:EffectCharacterLengthLevelTyp "-" typ2:EffectCharacterLengthLevelTyp {
+    return {
+      effect: {
+        typ: "status_effect_change",
+        typ2
+      },
+      target: {
+        typ: typ1,
+        cnt
+      }
+    }
+  }
+
+// "ef-strength_effect_assignment-dance_up-target-center"
+EffectStatusEffectAssignment = 
+  "strength_effect_assignment-" typ1:EffectCharacterLengthLevelTyp "-" target:TargetCharacter {
+    return {
+      effect: {
+        typ: "strength_effect_assignment",
+        typ2: typ1
+      },
+      target
+    }
+  }
 
 EffectChart = EffectScoreGet / EffectScoreGetByStaEff / EffectScoreGetByTrigExtra
 
@@ -62,6 +91,7 @@ EffectCharacterSimpleTyp
   / "strength_effect_migration_before_active_skill"
   / "strength_effect_erasing_all"
   / "strength_effect_assignment_all"
+  / "cover_weakness_effect"
 
 EffectScoreGet
   = typ:EffectScoreGetTyp "-" typ2:Number {
@@ -133,10 +163,11 @@ TargetCharacterSpecial
   = "target" "-" typ:TargetCharacterSpecialType {
     return {typ}
   }
-  
+
 TargetCharacterSpecialType
   = "self" / "all" / "center" / "neighbor"
   / "opponent_same_position" / "opponent_center"
+  / "opponent_all"
 
 // "target-stamina_lower-1"
 TargetCharacterWithProps

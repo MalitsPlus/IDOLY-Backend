@@ -16,6 +16,22 @@ const skillFixMap = {
   '-up': '_up',
 }
 
+const specialSkillType = [
+  'backside',
+  'live',
+  'marathon',
+  'mini',
+  'phot',
+  'photo',
+  'phot_recipe',
+  'race',
+  'tour',
+]
+
+function isCardSkill(id) {
+  return id.startsWith('sk-') && !specialSkillType.includes(id.split('-')[1])
+}
+
 async function main() {
   if (process.argv.length !== 3 && process.argv.length !== 5) {
     console.log(
@@ -55,6 +71,7 @@ async function main() {
   // 2. Parse the skills
   const ret = {}
   for (const i of skillsJson) {
+    if (!isCardSkill(i.id)) continue
     for (const lvl of i.levels) {
       const skillItems = []
       for (const skd of lvl.skillDetails) {
