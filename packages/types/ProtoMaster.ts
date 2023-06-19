@@ -1,83 +1,87 @@
 // Generated from ProtoMaster.proto
-
 import type {
   AccessoryCategoryType,
   AccessoryParameterType,
+  ActivityAbilityType,
   ActivityFanEventType,
   AreaType,
-  ItemType,
+  AssetDownloadType,
   AttributeType,
-  MoodType,
-  CardType,
+  BacksidePanelAttributeType,
+  BacksidePanelType,
   CardImageType,
+  CardLevelReleaseType,
+  CardType,
   CharacterPersonalityType,
-  SimpleCharacterPersonalityType,
   CharacterSdPersonalityType,
-  PsylliumColorType,
   CharacterType,
+  DayOfWeekType,
   EventMissionType,
+  ExerciseHintType,
+  ExtraStoryPartType,
+  ExtraStoryType,
   FunctionLockType,
-  GachaType,
-  ResourceType,
   GachaLimitType,
+  GachaType,
+  HelpDisplayTargetType,
+  HelpType,
   HierarchyRewardType,
-  HomePositionType,
   HomeActionType,
   HomePlaceType,
+  HomePositionType,
+  ItemType,
+  JoinedGuildType,
   LinkType,
-  LiveAbilityType,
   LiveAbilityLevelBackgroundRankType,
+  LiveAbilityType,
   LiveResultType,
-  LoadingType,
+  LiveSkipType,
+  LiveTipType,
+  LiveType,
   LoadingDisplayTargetType,
+  LoadingType,
   LoginBonusType,
-  MessageType,
+  LoveHomeActionType,
   MessageInstantType,
   MessageRarityType,
+  MessageType,
   MissionCategoryType,
   MissionType,
-  StageType,
-  PhotoAbilityType,
-  LiveType,
-  StatusEffectType,
-  PhotoShootingActionType,
-  LiveSkipType,
-  RacePanelType,
-  RaceActivityLessonRewardType,
-  RaceRankingType,
-  SkillEfficacyType,
-  SkillTriggerType,
+  MoodType,
+  MusicChartType,
   ParameterType,
+  PhotoAbilityGradeType,
+  PhotoAbilityTargetType,
+  PhotoAbilityType,
+  PhotoShootingActionType,
+  PhotoShootingMotionType,
+  PlatformType,
+  PointType,
+  PsylliumColorType,
+  RaceActivityLessonRewardType,
+  RacePanelType,
+  RaceRankingType,
+  ResourceType,
+  ResultRankType,
+  RewardSortResourceType,
+  RewardSortTargetType,
+  SalaryDetailType,
+  SimpleCharacterPersonalityType,
+  SkillCategoryType,
+  SkillEfficacyType,
+  SkillTargetType,
+  SkillTriggerType,
+  StageType,
+  StatusEffectType,
   StoryAdvPlayType,
   StoryPartType,
-  PointType,
-  TutorialType,
-  AssetDownloadType,
-  BacksidePanelType,
-  BacksidePanelAttributeType,
-  HelpType,
-  HelpDisplayTargetType,
-  LiveTipType,
-  MusicChartType,
-  PhotoAbilityTargetType,
-  PhotoShootingMotionType,
-  RewardSortTargetType,
-  RewardSortResourceType,
-  SalaryDetailType,
-  SkillCategoryType,
-  SkillTargetType,
-  PlatformType,
   TitleBackgroundType,
-  ActivityAbilityType,
-  CardLevelReleaseType,
-  DayOfWeekType,
-  JoinedGuildType,
-  ResultRankType,
-  ExerciseHintType,
-  PhotoAbilityGradeType,
-  TutorialNavigationType,
   TutorialNavigationPositionType,
+  TutorialNavigationType,
+  TutorialType,
 } from './ProtoEnum'
+
+export const protobufPackage = 'master'
 
 export type PhotoContestSection = {
   id: string
@@ -363,6 +367,7 @@ export type Character = {
   isHomeDanceTarget: boolean
   type: CharacterType
   groupName: string
+  loveInfo: LoveCharacterInfo | undefined
 }
 
 export type CharacterCostumeGroup = {
@@ -651,6 +656,46 @@ export type ExerciseDeckPosition = {
 export type ExercisePhoto = {
   photoAllInOneId: string
   amount: number
+}
+
+export type ExtraStory = {
+  id: string
+  extraStoryPartId: string
+  assetId: string
+  name: string
+  description: string
+  order: number
+  viewConditionId: string
+  unlockConditionId: string
+  episodes: ExtraStoryEpisode[]
+  extraStoryType: ExtraStoryType
+  iconAssetId: string
+  backgroundAssetId: string
+  secretEffectColorCode: string
+}
+
+export type ExtraStoryEpisode = {
+  episode: number
+  assetId: string
+  storyId: string
+  viewConditionId: string
+  unlockConditionId: string
+  afterReadAssetId: string
+  isSecret: boolean
+  isPrologue: boolean
+}
+
+export type ExtraStoryPart = {
+  id: string
+  assetId: string
+  name: string
+  subTitle: string
+  noteText: string
+  order: number
+  type: ExtraStoryPartType
+  viewConditionId: string
+  unlockConditionId: string
+  extraStoryIds: string[]
 }
 
 export type FunctionLock = {
@@ -975,6 +1020,32 @@ export type LoginBonusText = {
   id: string
   costumeId: string
   text: string
+}
+
+export type LoveHomeAction = {
+  id: string
+  loveId: string
+  characterId: string
+  motionAssetId: string
+  additionMotionAssetId: string
+  voiceAssetId: string
+  text: string
+  hiddenFavorabilityGte: string
+  hiddenFavorabilityLte: string
+  nowAfter: string
+  nowBefore: string
+  unlockLoveStoryEndIds: string[]
+  weight: number
+  actionType: LoveHomeActionType
+}
+
+export type LoveStoryEpisode = {
+  id: string
+  loveId: string
+  episode: number
+  storyId: string
+  assetId: string
+  consumptionItemAmount: number
 }
 
 export type MarathonBoxGachaSetting = {
@@ -1353,7 +1424,6 @@ export type Quest = {
   name: string
   description: string
   order: number
-  skipType: LiveSkipType
   musicChartPatternId: string
   position1AttributeType: AttributeType
   position2AttributeType: AttributeType
@@ -1597,6 +1667,8 @@ export type Setting = {
   photoRecipeLimit: string
   photoRecipeSaleAmountLimit: number
   exerciseFixedBannerNoticeId: string
+  deckEntrustCoolTimeLotteryCoefficientPermil: number
+  deckEntrustMentalLotteryCoefficientPermil: number
   statusEffectTypeStrengthList: StatusEffectType[]
   statusEffectTypeWeaknessDownList: StatusEffectType[]
   statusEffectTypeWeaknessOtherList: StatusEffectType[]
@@ -1612,6 +1684,9 @@ export type Setting = {
   raceSecondsPerActivityLessonStep: number
   tourRankingDisplayNum: number
   buddyRentalDailyLimit: number
+  leagueRankingDisplayRankLimit: number
+  loveSaveSlotNum: number
+  secondsPerLoveLessonStep: number
 }
 
 export type SkillDetail = {
@@ -1667,6 +1742,7 @@ export type Story = {
   rewardId: string
   advPlayTypes: StoryAdvPlayType[]
   advAssetIds: string[]
+  additionalDisplayCharacterIds: string[]
 }
 
 export type StoryEpisode = {
@@ -1784,6 +1860,13 @@ export type CardParameter = {
   level: number
   value: string
   staminaValue: string
+}
+
+export type CardRank = {
+  rank: number
+  levelLimitUpAmount: number
+  requiredExp: number
+  isDataExist: boolean
 }
 
 export type CardRarity = {
@@ -1951,6 +2034,14 @@ export type LiveTip = {
   priority: number
 }
 
+export type LoveLevel = {
+  loveId: string
+  level: number
+  requiredExp: string
+  lessonStepRewardExp: string
+  lessonStepRewardStoryReadItemAmount: string
+}
+
 export type ManagerLevel = {
   level: number
   requiredExp: string
@@ -2065,6 +2156,11 @@ export type Stage = {
   isHideWithPhotoShooting: boolean
 }
 
+export type StatusEffectName = {
+  statusEffectType: StatusEffectType
+  name: string
+}
+
 export type StoreProduct = {
   productId: string
   platformType: PlatformType
@@ -2120,80 +2216,89 @@ export type ActivityFanEventWord = {
   voiceAssetId: string
 }
 
+export type LoveCharacterInfo = {
+  name: string
+  enName: string
+  cv: string
+  colorCode: string
+}
+
 export type ConditionSetting = {
-  satisfyCondition: ConditionSatisfyCondition
-  notSatisfyCondition: ConditionNotSatisfyCondition
-  startHours: ConditionStartHours
-  notLoginDays: ConditionNotLoginDays
-  accumulationLoginDays: ConditionAccumulationLoginDays
-  managerLevel: ConditionManagerLevel
-  deckMaxOverallValue: ConditionDeckMaxOverallValue
-  clearQuest: ConditionClearQuest
-  maxQuestScoreRank: ConditionMaxQuestScoreRank
-  dailyQuestClear: ConditionDailyQuestClear
-  dailyAreaClear: ConditionDailyAreaClear
-  animeStoryPoint: ConditionAnimeStoryPoint
-  gameStoryPoint: ConditionGameStoryPoint
-  groupStoryPoint: ConditionGroupStoryPoint
-  readStory: ConditionReadStory
-  clearMission: ConditionClearMission
-  obtainCharacter: ConditionObtainCharacter
-  obtainCard: ConditionObtainCard
-  obtainCostume: ConditionObtainCostume
-  wearCostume: ConditionWearCostume
-  cardLevel: ConditionCardLevel
-  cardRarity: ConditionCardRarity
-  photoReportPityTimer: ConditionPhotoReportPityTimer
-  activityLevel: ConditionActivityLevel
-  exchangeCount: ConditionExchangeCount
-  term: ConditionTerm
-  dayOfWeek: ConditionDayOfWeek
-  time: ConditionTime
-  obtainItem: ConditionObtainItem
-  itemAmount: ConditionItemAmount
-  gold: ConditionGold
-  stone: ConditionStone
-  obtainEmblem: ConditionObtainEmblem
-  openGacha: ConditionOpenGacha
-  drawGacha: ConditionDrawGacha
-  purchaseShop: ConditionPurchaseShop
-  platformType: ConditionPlatformType
-  division: ConditionDivision
-  joinedGuild: ConditionJoinedGuild
-  activityFanEventLevel: ConditionActivityFanEventLevel
-  activityPromotionLevel: ConditionActivityPromotionLevel
-  activityRefreshLevel: ConditionActivityRefreshLevel
-  contestQuestTotalScore: ConditionContestQuestTotalScore
-  clearArea: ConditionClearArea
-  reliability: ConditionReliability
-  hierarchyDetailGradeId: ConditionHierarchyDetailGradeId
-  hierarchyPointGte: ConditionHierarchyPointGte
-  diary: ConditionDiary
-  staffTrainTotalCount: ConditionStaffTrainTotalCount
-  photoShootTotalCount: ConditionPhotoShootTotalCount
-  tourAreaProgress: ConditionTourAreaProgress
-  activityFanEventBestScoreRank: ConditionActivityFanEventBestScoreRank
-  activityFanEventTotalCount: ConditionActivityFanEventTotalCount
-  activityPromotionTotalHours: ConditionActivityPromotionTotalHours
-  activityRefreshTotalCount: ConditionActivityRefreshTotalCount
-  liveCharacterHighestScore: ConditionLiveCharacterHighestScore
-  fanAmount: ConditionFanAmount
-  highestSalary: ConditionHighestSalary
-  characterPhotoAmount: ConditionCharacterPhotoAmount
-  tutorialStep: ConditionTutorialStep
-  forumCreateReplyCount: ConditionForumCreateReplyCount
-  birthday: ConditionBirthDay
-  finishedMessage: ConditionFinishedMessage
-  pvpOpen: ConditionPvpOpen
-  obtainAccessory: ConditionObtainAccessory
-  accessoryAmount: ConditionAccessoryAmount
-  wearLiveCostume: ConditionWearLiveCostume
-  contestQuestHighestRank: ConditionContestQuestHighestRank
-  comebackUser: ConditionComebackUser
-  gameStartTerm: ConditionGameStartTerm
-  obtainHair: ConditionObtainHair
-  wearHair: ConditionWearHair
-  wearLiveHair: ConditionWearLiveHair
+  satisfyCondition: ConditionSatisfyCondition | undefined
+  notSatisfyCondition: ConditionNotSatisfyCondition | undefined
+  startHours: ConditionStartHours | undefined
+  notLoginDays: ConditionNotLoginDays | undefined
+  accumulationLoginDays: ConditionAccumulationLoginDays | undefined
+  managerLevel: ConditionManagerLevel | undefined
+  deckMaxOverallValue: ConditionDeckMaxOverallValue | undefined
+  clearQuest: ConditionClearQuest | undefined
+  maxQuestScoreRank: ConditionMaxQuestScoreRank | undefined
+  dailyQuestClear: ConditionDailyQuestClear | undefined
+  dailyAreaClear: ConditionDailyAreaClear | undefined
+  animeStoryPoint: ConditionAnimeStoryPoint | undefined
+  gameStoryPoint: ConditionGameStoryPoint | undefined
+  groupStoryPoint: ConditionGroupStoryPoint | undefined
+  readStory: ConditionReadStory | undefined
+  clearMission: ConditionClearMission | undefined
+  obtainCharacter: ConditionObtainCharacter | undefined
+  obtainCard: ConditionObtainCard | undefined
+  obtainCostume: ConditionObtainCostume | undefined
+  wearCostume: ConditionWearCostume | undefined
+  cardLevel: ConditionCardLevel | undefined
+  cardRarity: ConditionCardRarity | undefined
+  photoReportPityTimer: ConditionPhotoReportPityTimer | undefined
+  activityLevel: ConditionActivityLevel | undefined
+  exchangeCount: ConditionExchangeCount | undefined
+  term: ConditionTerm | undefined
+  dayOfWeek: ConditionDayOfWeek | undefined
+  time: ConditionTime | undefined
+  obtainItem: ConditionObtainItem | undefined
+  itemAmount: ConditionItemAmount | undefined
+  gold: ConditionGold | undefined
+  stone: ConditionStone | undefined
+  obtainEmblem: ConditionObtainEmblem | undefined
+  openGacha: ConditionOpenGacha | undefined
+  drawGacha: ConditionDrawGacha | undefined
+  purchaseShop: ConditionPurchaseShop | undefined
+  platformType: ConditionPlatformType | undefined
+  division: ConditionDivision | undefined
+  joinedGuild: ConditionJoinedGuild | undefined
+  activityFanEventLevel: ConditionActivityFanEventLevel | undefined
+  activityPromotionLevel: ConditionActivityPromotionLevel | undefined
+  activityRefreshLevel: ConditionActivityRefreshLevel | undefined
+  contestQuestTotalScore: ConditionContestQuestTotalScore | undefined
+  clearArea: ConditionClearArea | undefined
+  reliability: ConditionReliability | undefined
+  hierarchyDetailGradeId: ConditionHierarchyDetailGradeId | undefined
+  hierarchyPointGte: ConditionHierarchyPointGte | undefined
+  diary: ConditionDiary | undefined
+  staffTrainTotalCount: ConditionStaffTrainTotalCount | undefined
+  photoShootTotalCount: ConditionPhotoShootTotalCount | undefined
+  tourAreaProgress: ConditionTourAreaProgress | undefined
+  activityFanEventBestScoreRank:
+    | ConditionActivityFanEventBestScoreRank
+    | undefined
+  activityFanEventTotalCount: ConditionActivityFanEventTotalCount | undefined
+  activityPromotionTotalHours: ConditionActivityPromotionTotalHours | undefined
+  activityRefreshTotalCount: ConditionActivityRefreshTotalCount | undefined
+  liveCharacterHighestScore: ConditionLiveCharacterHighestScore | undefined
+  fanAmount: ConditionFanAmount | undefined
+  highestSalary: ConditionHighestSalary | undefined
+  characterPhotoAmount: ConditionCharacterPhotoAmount | undefined
+  tutorialStep: ConditionTutorialStep | undefined
+  forumCreateReplyCount: ConditionForumCreateReplyCount | undefined
+  birthday: ConditionBirthDay | undefined
+  finishedMessage: ConditionFinishedMessage | undefined
+  pvpOpen: ConditionPvpOpen | undefined
+  obtainAccessory: ConditionObtainAccessory | undefined
+  accessoryAmount: ConditionAccessoryAmount | undefined
+  wearLiveCostume: ConditionWearLiveCostume | undefined
+  contestQuestHighestRank: ConditionContestQuestHighestRank | undefined
+  comebackUser: ConditionComebackUser | undefined
+  gameStartTerm: ConditionGameStartTerm | undefined
+  obtainHair: ConditionObtainHair | undefined
+  wearHair: ConditionWearHair | undefined
+  wearLiveHair: ConditionWearLiveHair | undefined
 }
 
 export type ConditionStartHours = {

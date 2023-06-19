@@ -1,6 +1,6 @@
 {
   "name": "hoshimi-types",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "Typings for IP data.",
   "repository": {
     "type": "git",
@@ -13,12 +13,14 @@
   "author": "Outvi V <git@outv.im>",
   "scripts": {
     "build": "tsc",
+    "protoc:gen": "protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=. --ts_proto_opt=outputJsonMethods=false,outputEncodeMethods=false,outputPartialMethods=false,outputClientImpl=false,removeEnumPrefix=true,unrecognizedEnum=false,forceLong=string --proto_path=../../solis ProtoApi.proto ProtoEnum.proto ProtoMaster.proto ProtoTransaction.proto",
     "bundle": "bash scripts/build.sh",
     "bundle:deno": "bash scripts/denoify.sh",
     "bnp": "npm run bundle && npm publish dist/"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",
+    "ts-proto": "^1.149.0",
     "typescript": "^4.3.2"
   }
 }

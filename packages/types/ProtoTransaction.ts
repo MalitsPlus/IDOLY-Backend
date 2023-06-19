@@ -1,21 +1,21 @@
 // Generated from ProtoTransaction.proto
-
 import type {
+  CardDisplayType,
   HomePositionType,
   MessageStatusType,
   MissionStatusType,
+  NotificationType,
+  ParameterType,
   PhotoImageType,
+  PointType,
   ProfileBackgroundType,
-  ProfileLayoutType,
-  ProfileInformationType,
   ProfileColorType,
+  ProfileInformationType,
+  ProfileLayoutType,
+  ResourceType,
   ResultRankType,
   StoryStatusType,
   TelephoneStatusType,
-  ResourceType,
-  NotificationType,
-  PointType,
-  ParameterType,
   TutorialType,
 } from './ProtoEnum'
 
@@ -71,6 +71,7 @@ export type User = {
   photoLimitExtendedCount: number
   inviteHostUserId: string
   buddyCardId: string
+  nextPhotoImageIds: string[]
   managerLevel: number
   cardSupportMaxNumber: number
 }
@@ -99,6 +100,8 @@ export type UserCard = {
   obtainedTime: string
   supported: boolean
   lastEnhanceTime: string
+  rankTotalExp: number
+  displayType: CardDisplayType
   level: number
   rarity: number
   vocal: string
@@ -129,6 +132,7 @@ export type UserCard = {
   baseLiveAbilityId: string
   baseActivityAbilityId: string
   basePhotoEquipableCount: number
+  rank: number
 }
 
 export type UserCharacter = {
@@ -190,6 +194,8 @@ export type UserHierarchy = {
 export type UserHomePosition = {
   homePositionType: HomePositionType
   characterId: string
+  isCharacterRandom: boolean
+  isCostumeRandom: boolean
 }
 
 export type UserHomeTalk = {
@@ -274,10 +280,11 @@ export type UserProfile = {
   birthDay: string
   backgroundType: ProfileBackgroundType
   layoutType: ProfileLayoutType
-  twitterInfo: TwitterInfo
+  twitterInfo: TwitterInfo | undefined
   decorationId: string
   informationType: ProfileInformationType
   colorType: ProfileColorType
+  favoriteCardDisplayType: CardDisplayType
 }
 
 export type UserQuest = {
@@ -347,6 +354,11 @@ export type RewardResult = {
   additionalGifts: Reward[]
 }
 
+export type UserActivityFanEventProgress = {
+  bestScoreRankType: ResultRankType
+  bestScoreRankPlus: string
+}
+
 export type UserBalance = {
   freeBalance: number
   paidBalance: number
@@ -393,7 +405,7 @@ export type UserGift = {
   message: string
   postedTime: string
   limitTime: string
-  photoGift: PhotoGift
+  photoGift: PhotoGift | undefined
 }
 
 export type PhotoGift = {
@@ -408,7 +420,7 @@ export type UserGiftHistory = {
   message: string
   postedTime: string
   receivedTime: string
-  photoGift: PhotoGiftHistory
+  photoGift: PhotoGiftHistory | undefined
 }
 
 export type PhotoGiftHistory = {
@@ -418,6 +430,13 @@ export type PhotoGiftHistory = {
 export type UserInvite = {
   inviteCode: string
   receivedHostRewardTotalAmount: string
+}
+
+export type UserLove = {
+  loveId: string
+  unlockedLoveStoryEndIDs: string[]
+  hiddenFavorability: string
+  isReadingStory: boolean
 }
 
 export type UserNotification = {

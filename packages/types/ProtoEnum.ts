@@ -25,7 +25,11 @@ export enum ActivityAbilityType {
   PromotionGoldUp = 2002,
   PromotionAccessoryMultiStepRewardUp = 2003,
   PromotionGachaTicketMultiStepRewardUp = 2004,
+  PromotionPhotoInkMultiStepRewardUp = 2005,
   RefreshStaminaUp = 3001,
+  LessonManagerExpUp = 4001,
+  LessonGoldUp = 4002,
+  LessonCardEnhanceItemUp = 4003,
 }
 
 export enum ActivityCampaignEffectType {
@@ -53,6 +57,12 @@ export enum ActivityFanEventType {
   Handshake = 1,
   Sign = 2,
   PhotoSession = 3,
+}
+
+export enum AnniversaryTransitionActionType {
+  Unknown = 0,
+  Exit = 1,
+  Contents = 2,
 }
 
 export enum AreaType {
@@ -133,12 +143,19 @@ export enum BacksideType {
   Unknown = 0,
   Normal = 1,
   Mini = 2,
+  Simple = 3,
 }
 
 export enum BoxGachaItemType {
   Unknown = 0,
   Reward = 1,
   MarathonLiveBonusGroup = 2,
+}
+
+export enum CardDisplayType {
+  Unknown = 0,
+  BeforeLimitBreak = 1,
+  AfterLimitBreak = 2,
 }
 
 export enum CardImageType {
@@ -228,6 +245,7 @@ export enum DokanTargetType {
   PhotoContest = 6,
   Race = 7,
   Ladder = 8,
+  Love = 9,
 }
 
 export enum DokanType {
@@ -272,7 +290,6 @@ export enum ErrorCode {
   PurchaseRecoverFailed = 3015,
   DivisionMoveOutOfTerm = 3016,
   GvgMatchMismatched = 3017,
-  TwitterAccessTokenInvalid = 3018,
   LiveResultNotFound = 3019,
   PvpSeasonNotOpened = 3020,
   GvgSeasonNotOpened = 3021,
@@ -280,14 +297,16 @@ export enum ErrorCode {
   ActivityStaminaAlreadyMax = 3023,
   EventConditionInvalid = 3024,
   RecoveryPurchaseTransactionNotFound = 3025,
-  ReleaseDateIsFuture = 3026,
-  TwitterDailyStatusUpdateLimit = 3027,
   AlreadyMaximumStamina = 3028,
   NotInCoolTime = 3029,
   InviteWrongCode = 3030,
   InviteHostGuestLimit = 3031,
   InviteEnterCodeNotAllowed = 3032,
-  MarathonRaidFinished = 3033,
+  LeagueSeasonNotOpened = 3034,
+  LeagueInBattle = 3035,
+  LeagueInBattleExtension = 3036,
+  SpecialPhotoShootingConditionInvalid = 3037,
+  LoveSeasonNotOpened = 3038,
 }
 
 export enum EventMissionType {
@@ -300,6 +319,18 @@ export enum ExerciseHintType {
   Unknown = 0,
   Initial = 1,
   AfterFailed = 2,
+}
+
+export enum ExtraStoryPartType {
+  Unknown = 0,
+  Normal = 1,
+  Limited = 2,
+}
+
+export enum ExtraStoryType {
+  Unknown = 0,
+  Story = 1,
+  Theater = 2,
 }
 
 export enum ForumListReplyRequestType {
@@ -341,6 +372,12 @@ export enum FunctionLockType {
   BuddyUseQuestContest = 26,
   Exercise = 27,
   BuddyUseMarathon = 28,
+  CardRankUp = 29,
+  League = 30,
+  LiveResultDetail = 31,
+  Birthday = 32,
+  StoryPointDisplayHide = 33,
+  HomeNewStoryButtonDisplayChange = 34,
 }
 
 export enum FunctionMaintenanceType {
@@ -592,6 +629,24 @@ export enum HelpDisplayTargetType {
   MarathonRaidLiveQuestSelect = 158,
   MarathonRaidLiveDeckSelect = 159,
   MarathonRaidLiveBattleDeckSelect = 160,
+  LeagueTop = 161,
+  LeagueLiveNews = 162,
+  LeagueLiveDeckSelect = 163,
+  LeagueLastSeasonRecord = 164,
+  SpecialStory = 165,
+  ExtraStory = 166,
+  SpecialPhotographyTop = 167,
+  SpecialLivePhotography = 168,
+  SpecialActivityPhotography = 169,
+  LoveEpisodeList = 170,
+  LoveHome = 171,
+  LoveSave = 172,
+  LoveLoad = 173,
+  LoveMission = 174,
+  LoveSetting = 175,
+  LoveStatus = 176,
+  BirthdayTop = 177,
+  TheaterTop = 178,
 }
 
 export enum HelpType {
@@ -599,6 +654,7 @@ export enum HelpType {
   Help = 1,
   Faq = 2,
   Tips = 3,
+  AccountRecovery = 4,
 }
 
 export enum HierarchyRewardType {
@@ -629,6 +685,11 @@ export enum HomePositionType {
   Idol = 4,
 }
 
+export enum InquiryTemplateType {
+  Unknown = 0,
+  AccountRecovery = 1,
+}
+
 export enum ItemType {
   Unknown = 0,
   CardEnhance = 1,
@@ -646,11 +707,16 @@ export enum ItemType {
   PhotoShootingLevelChange = 13,
   AccessoryLimitBreak = 14,
   PhotoInk = 15,
+  CardRank = 16,
+  SpecialPhotoShooting = 17,
   ActivityRefreshShorten = 1001,
   ActivityPromotionShorten = 1002,
   ActivityFanEventSuperMode = 1003,
   ActivityFanEventSpeedUp = 1004,
   ActivityFanEventCheerPointUp = 1005,
+  ActivityFanEventRewardUp = 1006,
+  ActivityLessonPromote = 1007,
+  ActivityPromotionSpecialShorten = 1008,
   QuestDailyGoldTicket = 2001,
   QuestDailyCardEnhanceTicket = 2002,
   QuestDailyPhotoTicketTicket = 2003,
@@ -667,6 +733,9 @@ export enum ItemType {
   RacePoint = 7001,
   RaceLiveBonusReset = 7002,
   LadderPoint = 8001,
+  LoveStoryRead = 9001,
+  LoveHiddenFavorabilityObtain = 9002,
+  LoveLessonPromote = 9003,
 }
 
 export enum JoinedGuildType {
@@ -679,6 +748,34 @@ export enum LadderPanelType {
   Unknown = 0,
   Reward = 1,
   Message = 2,
+}
+
+export enum LeagueDeckType {
+  Unknown = 0,
+  A = 1,
+  B = 2,
+}
+
+export enum LeagueSeasonCardResultType {
+  Unknown = 0,
+  HighestScore = 1,
+  SkillActivationRate = 2,
+  MvpCount = 3,
+}
+
+export enum LeagueSeasonResultType {
+  Unknown = 0,
+  Upgrade = 1,
+  Stay = 2,
+  Downgrade = 3,
+}
+
+export enum LeagueStatusType {
+  Unknown = 0,
+  Prepare = 1,
+  Battle = 2,
+  BattleExtension = 3,
+  NotOpened = 4,
 }
 
 export enum LinkType {
@@ -727,6 +824,9 @@ export enum LinkType {
   PhotoContest = 104,
   Race = 105,
   Ladder = 106,
+  Love = 107,
+  Birthday = 108,
+  ProfileFavoriteCharacter = 109,
   WebView = 999,
   ExternalWebPage = 1000,
 }
@@ -844,6 +944,25 @@ export enum LoadingType {
 }
 
 export enum LoginBonusType {
+  Unknown = 0,
+  Normal = 1,
+  Event = 2,
+}
+
+export enum LoveHintType {
+  Unknown = 0,
+  ChoiceGroup = 1,
+  Choice = 2,
+}
+
+export enum LoveHomeActionType {
+  Unknown = 0,
+  Tap = 1,
+  NonTap = 2,
+  Present = 3,
+}
+
+export enum LoveType {
   Unknown = 0,
   Normal = 1,
   Event = 2,
@@ -969,6 +1088,23 @@ export enum MissionType {
   QuestSubTowerClearCount = 52,
   PhotoRetouchCount = 53,
   PhotoRetouchTotalCount = 54,
+  AccessoryUsedAmount = 55,
+  AnimeStoryPointUsedAmount = 56,
+  GameStoryPointUsedAmount = 57,
+  GroupStoryPointUsedAmount = 58,
+  GoldUsedAmount = 59,
+  GuildMedalUsedAmount = 60,
+  PvpMedalUsedAmount = 61,
+  ItemUsedAmount = 62,
+  PhotoRecipeUsedAmount = 63,
+  StoneUsedAmount = 64,
+  PaidStoneUsedAmount = 65,
+  CharacterQuestAllClearCount = 66,
+  CharacterQuestPvpPlayCount = 67,
+  CharacterPhotoShootCount = 68,
+  CharacterStartActivityFanEventCount = 69,
+  CharacterStartActivityPromotionCount = 70,
+  CharacterStartActivityRefreshmentCount = 71,
   TourAreaClearCount = 1001,
   TourRivalClearCount = 1002,
   TourBossClearCountWithCharacter = 1003,
@@ -990,6 +1126,8 @@ export enum MissionType {
   LadderPanelReachedCount = 1401,
   LadderConsumptionPointAmount = 1402,
   LadderReachedStep = 1403,
+  LoveLevelAchievement = 1501,
+  LoveStoryEndUnlockCount = 1502,
 }
 
 export enum MoodType {
@@ -1358,6 +1496,13 @@ export enum RewardSortResourceType {
   ItemPhotoInk = 59,
   Hair = 60,
   ItemMarathonRaidStaminaRecovery = 61,
+  ItemActivityFanEventRewardUp = 62,
+  ItemActivityLessonPromote = 63,
+  ItemActivityPromotionSpecialShorten = 65,
+  ItemCardRank = 66,
+  ItemLoveStoryRead = 67,
+  ItemLoveHiddenFavorabilityObtain = 68,
+  ItemLoveLessonPromote = 69,
 }
 
 export enum RewardSortTargetType {
@@ -1534,6 +1679,15 @@ export enum SkillEfficacyType {
   ActiveSkillChanceAssignment = 64,
   StrengthEffectErasingAll = 65,
   StrengthEffectAssignmentAll = 66,
+  ScoreGetByLessComboCount = 67,
+  ScoreGetByCharacterCount = 68,
+  ScoreGetByLessTotalScore = 69,
+  ScoreGetByScoreRatio = 70,
+  StrengthEffectGradeLimit = 71,
+  StatusEffectChange = 72,
+  PassiveSkillCoolTimeReset = 73,
+  PassiveSkillImpossible = 74,
+  CoverWeaknessEffect = 75,
 }
 
 export enum SkillFailureType {
@@ -1623,6 +1777,10 @@ export enum SkillTriggerType {
   MoreThanPositionCardTypeCount = 35,
   BeforeActiveSkill = 36,
   BeforeSpecialSkill = 37,
+  SkillFailureSelf = 38,
+  StatusEffectGradeHigher = 39,
+  StatusEffectGradeLower = 40,
+  SomeoneStatusEffectGradeHigher = 41,
 }
 
 export enum SpecialSkillCameraOrientationType {
@@ -1686,6 +1844,7 @@ export enum StatusEffectType {
   PassiveScoreMultiplierAdd = 23,
   StaminaContinuousRecovery = 24,
   ActiveSkillChanceAssignment = 25,
+  CoverWeaknessEffect = 26,
   DanceDown = 1001,
   VocalDown = 1002,
   VisualDown = 1003,
@@ -1693,12 +1852,17 @@ export enum StatusEffectType {
   StaminaConsumptionIncrease = 1005,
   AudienceAmountReduction = 1006,
   StaminaContinuousConsumption = 1007,
+  StrengthEffectGradeLimit = 1008,
+  PassiveSkillImpossible = 1009,
 }
 
 export enum StoryAdvPlayType {
   Unknown = 0,
   Adv = 1,
   LiveMovie = 2,
+  VerticalAdv = 3,
+  VerticalMovie = 4,
+  HorizontalMovie = 5,
 }
 
 export enum StoryPartType {
@@ -1808,4 +1972,8 @@ export enum TutorialType {
   PhotoRetouch = 29,
   Collaboration = 30,
   MarathonRaid = 31,
+  League = 32,
+  CardRank = 33,
+  Love = 34,
+  Anniversary = 35,
 }
