@@ -1,5 +1,4 @@
-// @ts-nocheck
-// This page is a bit of chaotic...
+// @ts-nocheck：This page is a bit of chaotic...
 
 import type { APIMapping } from 'hoshimi-types'
 import { MusicChartType } from 'hoshimi-types/ProtoEnum'

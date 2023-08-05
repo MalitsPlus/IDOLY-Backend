@@ -1,3 +1,5 @@
+// deno-lint-ignore-file no-explicit-any
+
 import { Handlers } from '$fresh/server.ts'
 import jsonResponse, { errorResponse } from '@utils/jsonResponse.ts'
 import { isAdmin } from '@utils/requirePermission.ts'
