@@ -8,7 +8,7 @@ const responder: APIMapping['Skill'] = async ({ ids: _ids }) => {
   const allSkills = await dbGet('Skill', {
     $or: ids.map((id) => ({ id: { $eq: id } })),
   })
-  return allSkills
+  return ids.map((id) => allSkills.find((skill) => skill.id === id)!)
 }
 
 export const handler = apiWrapper(responder)
