@@ -7,7 +7,7 @@ export type UnArray<T> = T extends (infer R)[] ? R : never
 
 export type NaiveResourceMapping = Omit<
   ResourceMapping,
-  typeof NonExpandedKeys[number]
+  (typeof NonExpandedKeys)[number]
 >
 
 export const FieldStatus = Symbol('Status')

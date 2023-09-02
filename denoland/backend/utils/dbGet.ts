@@ -5,8 +5,10 @@ import { UnArray } from './types.ts'
 import { Filter } from 'mongodb'
 import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types'
 
-function isNonExpandedKey(key: string): key is typeof NonExpandedKeys[number] {
-  return NonExpandedKeys.includes(key as typeof NonExpandedKeys[number])
+function isNonExpandedKey(
+  key: string
+): key is (typeof NonExpandedKeys)[number] {
+  return NonExpandedKeys.includes(key as (typeof NonExpandedKeys)[number])
 }
 
 /**
@@ -19,7 +21,7 @@ export async function dbGet<T extends AcceptableDbKey>(
   const transaction = Sentry.getCurrentHub().getScope().getTransaction()
   const startAt = performance.now()
   if (isNonExpandedKey(s)) {
-    const result = await kv.getValue(s as typeof NonExpandedKeys[number])
+    const result = await kv.getValue(s as (typeof NonExpandedKeys)[number])
     const endAt = performance.now()
     transaction?.setMeasurement('dbRequestTime', endAt - startAt, 'millisecond')
     return JSON.parse(result)
