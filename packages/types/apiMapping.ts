@@ -129,7 +129,7 @@ export type APIMapping = {
       'id' | 'order' | 'characterGroupId' | 'name' | 'enName' | 'color'
     >[]
   >
-  'Constume/Chibi': InputAndOutput<
+  'Costume/Chibi': InputAndOutput<
     { characterId: string },
     Pick<
       Costume,
