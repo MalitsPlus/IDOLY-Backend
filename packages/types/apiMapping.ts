@@ -5,6 +5,7 @@ import type {
   CardParameter,
   CardRarity,
   Character,
+  Costume,
   Emblem,
   EventStory,
   EventStoryEpisode,
@@ -126,6 +127,13 @@ export type APIMapping = {
     Pick<
       Character,
       'id' | 'order' | 'characterGroupId' | 'name' | 'enName' | 'color'
+    >[]
+  >
+  'Constume/Chibi': InputAndOutput<
+    { characterId: string },
+    Pick<
+      Costume,
+      'id' | 'characterId' | 'order' | 'name' | 'sdAssetId' | 'defaultHairId'
     >[]
   >
   Emblems: InputAndOutput<
