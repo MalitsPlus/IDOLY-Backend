@@ -46,7 +46,6 @@ export async function put<T extends keyof NaiveResourceMapping>(
   collectionName: T,
   filter: UnArray<NaiveResourceMapping[T]>[]
 ): Promise<number> {
-  await del(collectionName)
   if (filter.length === 0) {
     return 0
   }

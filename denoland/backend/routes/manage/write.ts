@@ -41,6 +41,7 @@ export const handler: Handlers = {
       return errorResponse('Key should be string', 400)
     }
     if (Array.isArray(value) && typ === 'array') {
+      await kv.del(key as any)
       return await kv
         .put(key as any, value)
         .then((x) => jsonResponse({ ok: true, lines: x }))
