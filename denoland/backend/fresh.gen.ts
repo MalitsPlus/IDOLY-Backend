@@ -3,84 +3,88 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $0 from "./routes/api/ActivityAbility.ts";
-import * as $1 from "./routes/api/Card.ts";
-import * as $2 from "./routes/api/Card/Id.ts";
-import * as $3 from "./routes/api/Card/List.ts";
-import * as $4 from "./routes/api/CardLevel.ts";
-import * as $5 from "./routes/api/CardParameter.ts";
-import * as $6 from "./routes/api/CardRarity.ts";
-import * as $7 from "./routes/api/Character.ts";
-import * as $8 from "./routes/api/Character/List.ts";
-import * as $9 from "./routes/api/Costume/Chibi.ts";
-import * as $10 from "./routes/api/Emblems.ts";
-import * as $11 from "./routes/api/EventStory.ts";
-import * as $12 from "./routes/api/EventStory/List.ts";
-import * as $13 from "./routes/api/Gacha.ts";
-import * as $14 from "./routes/api/LiveAbility.ts";
-import * as $15 from "./routes/api/Message.ts";
-import * as $16 from "./routes/api/Message/Group.ts";
-import * as $17 from "./routes/api/MessageGroup.ts";
-import * as $18 from "./routes/api/Music.ts";
-import * as $19 from "./routes/api/MusicChart.ts";
-import * as $20 from "./routes/api/MusicChartList.ts";
-import * as $21 from "./routes/api/Notice.ts";
-import * as $22 from "./routes/api/Search/Commu.ts";
-import * as $23 from "./routes/api/Search/Message.ts";
-import * as $24 from "./routes/api/Skill.ts";
-import * as $25 from "./routes/api/Skill/All.ts";
-import * as $26 from "./routes/api/Skill/EffectTypes.ts";
-import * as $27 from "./routes/api/Skill/X.ts";
-import * as $28 from "./routes/api/Stamps.ts";
-import * as $29 from "./routes/api/Story.ts";
-import * as $30 from "./routes/api/Story/Reverse.ts";
-import * as $31 from "./routes/api/Version.ts";
-import * as $32 from "./routes/manage/octo/asset.ts";
-import * as $33 from "./routes/manage/octo/resource.ts";
-import * as $34 from "./routes/manage/raw.ts";
-import * as $35 from "./routes/manage/write.ts";
-import * as $36 from "./routes/manage/write/done.ts";
-import * as $37 from "./routes/manage/writeCommu.ts";
+import * as $1 from "./routes/api/Appearance/Costume.ts";
+import * as $2 from "./routes/api/Appearance/Hair.ts";
+import * as $3 from "./routes/api/Card.ts";
+import * as $4 from "./routes/api/Card/Id.ts";
+import * as $5 from "./routes/api/Card/List.ts";
+import * as $6 from "./routes/api/CardLevel.ts";
+import * as $7 from "./routes/api/CardParameter.ts";
+import * as $8 from "./routes/api/CardRarity.ts";
+import * as $9 from "./routes/api/Character.ts";
+import * as $10 from "./routes/api/Character/List.ts";
+import * as $11 from "./routes/api/Costume/Chibi.ts";
+import * as $12 from "./routes/api/Emblems.ts";
+import * as $13 from "./routes/api/EventStory.ts";
+import * as $14 from "./routes/api/EventStory/List.ts";
+import * as $15 from "./routes/api/Gacha.ts";
+import * as $16 from "./routes/api/LiveAbility.ts";
+import * as $17 from "./routes/api/Message.ts";
+import * as $18 from "./routes/api/Message/Group.ts";
+import * as $19 from "./routes/api/MessageGroup.ts";
+import * as $20 from "./routes/api/Music.ts";
+import * as $21 from "./routes/api/MusicChart.ts";
+import * as $22 from "./routes/api/MusicChartList.ts";
+import * as $23 from "./routes/api/Notice.ts";
+import * as $24 from "./routes/api/Search/Commu.ts";
+import * as $25 from "./routes/api/Search/Message.ts";
+import * as $26 from "./routes/api/Skill.ts";
+import * as $27 from "./routes/api/Skill/All.ts";
+import * as $28 from "./routes/api/Skill/EffectTypes.ts";
+import * as $29 from "./routes/api/Skill/X.ts";
+import * as $30 from "./routes/api/Stamps.ts";
+import * as $31 from "./routes/api/Story.ts";
+import * as $32 from "./routes/api/Story/Reverse.ts";
+import * as $33 from "./routes/api/Version.ts";
+import * as $34 from "./routes/manage/octo/asset.ts";
+import * as $35 from "./routes/manage/octo/resource.ts";
+import * as $36 from "./routes/manage/raw.ts";
+import * as $37 from "./routes/manage/write.ts";
+import * as $38 from "./routes/manage/write/done.ts";
+import * as $39 from "./routes/manage/writeCommu.ts";
 
 const manifest = {
   routes: {
     "./routes/api/ActivityAbility.ts": $0,
-    "./routes/api/Card.ts": $1,
-    "./routes/api/Card/Id.ts": $2,
-    "./routes/api/Card/List.ts": $3,
-    "./routes/api/CardLevel.ts": $4,
-    "./routes/api/CardParameter.ts": $5,
-    "./routes/api/CardRarity.ts": $6,
-    "./routes/api/Character.ts": $7,
-    "./routes/api/Character/List.ts": $8,
-    "./routes/api/Costume/Chibi.ts": $9,
-    "./routes/api/Emblems.ts": $10,
-    "./routes/api/EventStory.ts": $11,
-    "./routes/api/EventStory/List.ts": $12,
-    "./routes/api/Gacha.ts": $13,
-    "./routes/api/LiveAbility.ts": $14,
-    "./routes/api/Message.ts": $15,
-    "./routes/api/Message/Group.ts": $16,
-    "./routes/api/MessageGroup.ts": $17,
-    "./routes/api/Music.ts": $18,
-    "./routes/api/MusicChart.ts": $19,
-    "./routes/api/MusicChartList.ts": $20,
-    "./routes/api/Notice.ts": $21,
-    "./routes/api/Search/Commu.ts": $22,
-    "./routes/api/Search/Message.ts": $23,
-    "./routes/api/Skill.ts": $24,
-    "./routes/api/Skill/All.ts": $25,
-    "./routes/api/Skill/EffectTypes.ts": $26,
-    "./routes/api/Skill/X.ts": $27,
-    "./routes/api/Stamps.ts": $28,
-    "./routes/api/Story.ts": $29,
-    "./routes/api/Story/Reverse.ts": $30,
-    "./routes/api/Version.ts": $31,
-    "./routes/manage/octo/asset.ts": $32,
-    "./routes/manage/octo/resource.ts": $33,
-    "./routes/manage/raw.ts": $34,
-    "./routes/manage/write.ts": $35,
-    "./routes/manage/write/done.ts": $36,
-    "./routes/manage/writeCommu.ts": $37,
+    "./routes/api/Appearance/Costume.ts": $1,
+    "./routes/api/Appearance/Hair.ts": $2,
+    "./routes/api/Card.ts": $3,
+    "./routes/api/Card/Id.ts": $4,
+    "./routes/api/Card/List.ts": $5,
+    "./routes/api/CardLevel.ts": $6,
+    "./routes/api/CardParameter.ts": $7,
+    "./routes/api/CardRarity.ts": $8,
+    "./routes/api/Character.ts": $9,
+    "./routes/api/Character/List.ts": $10,
+    "./routes/api/Costume/Chibi.ts": $11,
+    "./routes/api/Emblems.ts": $12,
+    "./routes/api/EventStory.ts": $13,
+    "./routes/api/EventStory/List.ts": $14,
+    "./routes/api/Gacha.ts": $15,
+    "./routes/api/LiveAbility.ts": $16,
+    "./routes/api/Message.ts": $17,
+    "./routes/api/Message/Group.ts": $18,
+    "./routes/api/MessageGroup.ts": $19,
+    "./routes/api/Music.ts": $20,
+    "./routes/api/MusicChart.ts": $21,
+    "./routes/api/MusicChartList.ts": $22,
+    "./routes/api/Notice.ts": $23,
+    "./routes/api/Search/Commu.ts": $24,
+    "./routes/api/Search/Message.ts": $25,
+    "./routes/api/Skill.ts": $26,
+    "./routes/api/Skill/All.ts": $27,
+    "./routes/api/Skill/EffectTypes.ts": $28,
+    "./routes/api/Skill/X.ts": $29,
+    "./routes/api/Stamps.ts": $30,
+    "./routes/api/Story.ts": $31,
+    "./routes/api/Story/Reverse.ts": $32,
+    "./routes/api/Version.ts": $33,
+    "./routes/manage/octo/asset.ts": $34,
+    "./routes/manage/octo/resource.ts": $35,
+    "./routes/manage/raw.ts": $36,
+    "./routes/manage/write.ts": $37,
+    "./routes/manage/write/done.ts": $38,
+    "./routes/manage/writeCommu.ts": $39,
   },
   islands: {},
   baseUrl: import.meta.url,
