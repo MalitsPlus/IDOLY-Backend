@@ -10,6 +10,7 @@ import type {
   EventStory,
   EventStoryEpisode,
   Gacha,
+  Hair,
   LiveAbility,
   Message,
   MessageGroup,
@@ -24,6 +25,23 @@ import { NoticeInfo } from './ProtoApi'
 
 export type APIMapping = {
   ActivityAbility: InputAndOutput<{ id: string }, ActivityAbility>
+  'Appearance/Costume': InputAndOutput<
+    { characterId: string },
+    Pick<Costume, 'id' | 'order' | 'name' | 'sdAssetId' | 'defaultHairId'>[]
+  >
+  'Appearance/Hair': InputAndOutput<
+    { characterId: string },
+    Pick<
+      Hair,
+      | 'id'
+      | 'order'
+      | 'name'
+      | 'sdHairAssetId'
+      | 'fittingCostumeId'
+      | 'wearableCostumeIds'
+      | 'notWearableCostumeIds'
+    >[]
+  >
   Card: InputAndOutput<
     { id?: string },
     Pick<
