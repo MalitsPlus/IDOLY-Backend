@@ -20,7 +20,6 @@ import type {
 } from './ProtoMaster'
 import type { CommuX, MessageX, MusicChart } from './types'
 import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
-import { TheRootMapping as SkillxData } from './Skillx'
 import { NoticeInfo } from './ProtoApi'
 
 export type APIMapping = {
@@ -233,7 +232,6 @@ export type APIMapping = {
   >
   'Skill/All': OnlyOutput<Skill[]>
   'Skill/EffectTypes': OnlyOutput<string[]>
-  'Skill/X': InputAndOutput<{ ids?: MultiString }, SkillxData>
   Stamps: OnlyOutput<string[]>
   Story: InputAndOutput<
     { id: string },

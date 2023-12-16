@@ -23,7 +23,6 @@ import type {
   StoryPart,
 } from './ProtoMaster'
 
-import { TheRootMapping as SkillxData } from './Skillx'
 import { OctoData } from './octoData'
 import { CommuX, MessageX } from './types'
 
@@ -55,7 +54,6 @@ export type ResourceMapping = {
   }
   Octo: OctoData
   Skill: Skill[]
-  Skillx: SkillxData
   Story: Story[]
   StoryPart: StoryPart[]
 }
