@@ -18,6 +18,11 @@ import type {
   MessageGroup,
   Music,
   MusicChartPattern,
+  PhotoAbility,
+  PhotoAbilitySet,
+  PhotoAbilityTarget,
+  PhotoAllInOne,
+  PhotoRecipe,
   Skill,
   Story,
   StoryPart,
@@ -53,6 +58,11 @@ export type ResourceMapping = {
     prNotices: NoticeInfo[]
   }
   Octo: OctoData
+  PhotoAbility: PhotoAbility[]
+  PhotoAbilitySet: PhotoAbilitySet[]
+  PhotoAbilityTarget: PhotoAbilityTarget[]
+  PhotoAllInOne: PhotoAllInOne[]
+  PhotoRecipe: PhotoRecipe[]
   Skill: Skill[]
   Story: Story[]
   StoryPart: StoryPart[]
