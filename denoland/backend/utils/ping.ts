@@ -9,7 +9,7 @@ export default async function ping(
     body: JSON.stringify({
       payload: {
         website: UMAMI_WEBSITE_ID,
-        url: url.pathname,
+        url: url.pathname + url.search,
         referrer: req.headers.get('Referer'),
         hostname: url.hostname,
         language: req.headers.get('Accept-Language'),
