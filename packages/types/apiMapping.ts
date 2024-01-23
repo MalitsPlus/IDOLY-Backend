@@ -18,7 +18,13 @@ import type {
   Skill,
   Story,
 } from './ProtoMaster'
-import type { CommuX, MessageX, MusicChart } from './types'
+import type {
+  CommuX,
+  MessageX,
+  MusicChart,
+  PhotoDetail,
+  PhotoMeta,
+} from './types'
 import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
 import { NoticeInfo } from './ProtoApi'
 
@@ -217,6 +223,14 @@ export type APIMapping = {
       'id' | 'title' | 'linkDetail' | 'startTime' | 'listTitle'
     >[]
   >
+  Photo: InputAndOutput<{ id: string }, PhotoDetail>
+  'Photo/AIO/List': InputAndOutput<
+    {
+      name: string
+    },
+    PhotoMeta[]
+  >
+  'Photo/AIO/Names': OnlyOutput<string[]>
   'Search/Commu': InputAndOutput<
     {
       q: string

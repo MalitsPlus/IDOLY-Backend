@@ -1,4 +1,10 @@
-import { Message, MessageDetail } from './ProtoMaster'
+import {
+  Message,
+  MessageDetail,
+  PhotoAbility,
+  PhotoAllInOne,
+  PhotoRecipe,
+} from './ProtoMaster'
 
 /**
  * Describes a music chart.
@@ -36,3 +42,22 @@ export type MessageX = Pick<Message, 'name' | 'id'> &
   Pick<MessageDetail, 'messageDetailId' | 'text' | 'characterId'> & {
     characterGroupId: Message['characterId']
   }
+
+export type PhotoMeta = Pick<
+  PhotoRecipe & PhotoAllInOne,
+  'id' | 'name' | 'assetId'
+> & {
+  // PhotoRecipe doesn't have that - need to be derived
+  rarity: number
+}
+
+export type PhotoDetail = Pick<
+  PhotoRecipe | PhotoAllInOne,
+  'id' | 'name' | 'assetId'
+> & {
+  rarity: number
+  abilities: Pick<
+    PhotoAbility,
+    'name' | 'description' | 'abilityType' | 'photoAbilityLevels' | 'skillId'
+  >
+}
