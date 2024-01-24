@@ -2,98 +2,100 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/api/ActivityAbility.ts";
-import * as $1 from "./routes/api/Appearance/Costume.ts";
-import * as $2 from "./routes/api/Appearance/Hair.ts";
-import * as $3 from "./routes/api/Card.ts";
-import * as $4 from "./routes/api/Card/Id.ts";
-import * as $5 from "./routes/api/Card/List.ts";
-import * as $6 from "./routes/api/CardLevel.ts";
-import * as $7 from "./routes/api/CardParameter.ts";
-import * as $8 from "./routes/api/CardRarity.ts";
-import * as $9 from "./routes/api/Character.ts";
-import * as $10 from "./routes/api/Character/List.ts";
-import * as $11 from "./routes/api/Costume/Chibi.ts";
-import * as $12 from "./routes/api/Emblems.ts";
-import * as $13 from "./routes/api/EventStory.ts";
-import * as $14 from "./routes/api/EventStory/List.ts";
-import * as $15 from "./routes/api/Gacha.ts";
-import * as $16 from "./routes/api/LiveAbility.ts";
-import * as $17 from "./routes/api/Message.ts";
-import * as $18 from "./routes/api/Message/Group.ts";
-import * as $19 from "./routes/api/MessageGroup.ts";
-import * as $20 from "./routes/api/Music.ts";
-import * as $21 from "./routes/api/MusicChart.ts";
-import * as $22 from "./routes/api/MusicChartList.ts";
-import * as $23 from "./routes/api/Notice.ts";
-import * as $24 from "./routes/api/Photo.ts";
-import * as $25 from "./routes/api/Photo/AIO/List.ts";
-import * as $26 from "./routes/api/Photo/AIO/Names.ts";
-import * as $27 from "./routes/api/Search/Commu.ts";
-import * as $28 from "./routes/api/Search/Message.ts";
-import * as $29 from "./routes/api/Skill.ts";
-import * as $30 from "./routes/api/Skill/All.ts";
-import * as $31 from "./routes/api/Skill/EffectTypes.ts";
-import * as $32 from "./routes/api/Skill/X.ts";
-import * as $33 from "./routes/api/Stamps.ts";
-import * as $34 from "./routes/api/Story.ts";
-import * as $35 from "./routes/api/Story/Reverse.ts";
-import * as $36 from "./routes/api/Version.ts";
-import * as $37 from "./routes/manage/octo/asset.ts";
-import * as $38 from "./routes/manage/octo/resource.ts";
-import * as $39 from "./routes/manage/raw.ts";
-import * as $40 from "./routes/manage/write.ts";
-import * as $41 from "./routes/manage/write/done.ts";
-import * as $42 from "./routes/manage/writeCommu.ts";
+import * as $api_ActivityAbility from "./routes/api/ActivityAbility.ts";
+import * as $api_Appearance_Costume from "./routes/api/Appearance/Costume.ts";
+import * as $api_Appearance_Hair from "./routes/api/Appearance/Hair.ts";
+import * as $api_Card from "./routes/api/Card.ts";
+import * as $api_Card_Id from "./routes/api/Card/Id.ts";
+import * as $api_Card_List from "./routes/api/Card/List.ts";
+import * as $api_CardLevel from "./routes/api/CardLevel.ts";
+import * as $api_CardParameter from "./routes/api/CardParameter.ts";
+import * as $api_CardRarity from "./routes/api/CardRarity.ts";
+import * as $api_Character from "./routes/api/Character.ts";
+import * as $api_Character_List from "./routes/api/Character/List.ts";
+import * as $api_Costume_Chibi from "./routes/api/Costume/Chibi.ts";
+import * as $api_Emblems from "./routes/api/Emblems.ts";
+import * as $api_EventStory from "./routes/api/EventStory.ts";
+import * as $api_EventStory_List from "./routes/api/EventStory/List.ts";
+import * as $api_Gacha from "./routes/api/Gacha.ts";
+import * as $api_LiveAbility from "./routes/api/LiveAbility.ts";
+import * as $api_Message from "./routes/api/Message.ts";
+import * as $api_Message_Group from "./routes/api/Message/Group.ts";
+import * as $api_MessageGroup from "./routes/api/MessageGroup.ts";
+import * as $api_Music from "./routes/api/Music.ts";
+import * as $api_MusicChart from "./routes/api/MusicChart.ts";
+import * as $api_MusicChartList from "./routes/api/MusicChartList.ts";
+import * as $api_Notice from "./routes/api/Notice.ts";
+import * as $api_Photo from "./routes/api/Photo.ts";
+import * as $api_Photo_AIO_List from "./routes/api/Photo/AIO/List.ts";
+import * as $api_Photo_AIO_Names from "./routes/api/Photo/AIO/Names.ts";
+import * as $api_Search_Commu from "./routes/api/Search/Commu.ts";
+import * as $api_Search_Message from "./routes/api/Search/Message.ts";
+import * as $api_Skill from "./routes/api/Skill.ts";
+import * as $api_Skill_All from "./routes/api/Skill/All.ts";
+import * as $api_Skill_EffectTypes from "./routes/api/Skill/EffectTypes.ts";
+import * as $api_Skill_X from "./routes/api/Skill/X.ts";
+import * as $api_Stamps from "./routes/api/Stamps.ts";
+import * as $api_Story from "./routes/api/Story.ts";
+import * as $api_Story_Reverse from "./routes/api/Story/Reverse.ts";
+import * as $api_Version from "./routes/api/Version.ts";
+import * as $manage_octo_asset from "./routes/manage/octo/asset.ts";
+import * as $manage_octo_resource from "./routes/manage/octo/resource.ts";
+import * as $manage_raw from "./routes/manage/raw.ts";
+import * as $manage_write from "./routes/manage/write.ts";
+import * as $manage_write_done from "./routes/manage/write/done.ts";
+import * as $manage_writeCommu from "./routes/manage/writeCommu.ts";
+
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/api/ActivityAbility.ts": $0,
-    "./routes/api/Appearance/Costume.ts": $1,
-    "./routes/api/Appearance/Hair.ts": $2,
-    "./routes/api/Card.ts": $3,
-    "./routes/api/Card/Id.ts": $4,
-    "./routes/api/Card/List.ts": $5,
-    "./routes/api/CardLevel.ts": $6,
-    "./routes/api/CardParameter.ts": $7,
-    "./routes/api/CardRarity.ts": $8,
-    "./routes/api/Character.ts": $9,
-    "./routes/api/Character/List.ts": $10,
-    "./routes/api/Costume/Chibi.ts": $11,
-    "./routes/api/Emblems.ts": $12,
-    "./routes/api/EventStory.ts": $13,
-    "./routes/api/EventStory/List.ts": $14,
-    "./routes/api/Gacha.ts": $15,
-    "./routes/api/LiveAbility.ts": $16,
-    "./routes/api/Message.ts": $17,
-    "./routes/api/Message/Group.ts": $18,
-    "./routes/api/MessageGroup.ts": $19,
-    "./routes/api/Music.ts": $20,
-    "./routes/api/MusicChart.ts": $21,
-    "./routes/api/MusicChartList.ts": $22,
-    "./routes/api/Notice.ts": $23,
-    "./routes/api/Photo.ts": $24,
-    "./routes/api/Photo/AIO/List.ts": $25,
-    "./routes/api/Photo/AIO/Names.ts": $26,
-    "./routes/api/Search/Commu.ts": $27,
-    "./routes/api/Search/Message.ts": $28,
-    "./routes/api/Skill.ts": $29,
-    "./routes/api/Skill/All.ts": $30,
-    "./routes/api/Skill/EffectTypes.ts": $31,
-    "./routes/api/Skill/X.ts": $32,
-    "./routes/api/Stamps.ts": $33,
-    "./routes/api/Story.ts": $34,
-    "./routes/api/Story/Reverse.ts": $35,
-    "./routes/api/Version.ts": $36,
-    "./routes/manage/octo/asset.ts": $37,
-    "./routes/manage/octo/resource.ts": $38,
-    "./routes/manage/raw.ts": $39,
-    "./routes/manage/write.ts": $40,
-    "./routes/manage/write/done.ts": $41,
-    "./routes/manage/writeCommu.ts": $42,
+    "./routes/api/ActivityAbility.ts": $api_ActivityAbility,
+    "./routes/api/Appearance/Costume.ts": $api_Appearance_Costume,
+    "./routes/api/Appearance/Hair.ts": $api_Appearance_Hair,
+    "./routes/api/Card.ts": $api_Card,
+    "./routes/api/Card/Id.ts": $api_Card_Id,
+    "./routes/api/Card/List.ts": $api_Card_List,
+    "./routes/api/CardLevel.ts": $api_CardLevel,
+    "./routes/api/CardParameter.ts": $api_CardParameter,
+    "./routes/api/CardRarity.ts": $api_CardRarity,
+    "./routes/api/Character.ts": $api_Character,
+    "./routes/api/Character/List.ts": $api_Character_List,
+    "./routes/api/Costume/Chibi.ts": $api_Costume_Chibi,
+    "./routes/api/Emblems.ts": $api_Emblems,
+    "./routes/api/EventStory.ts": $api_EventStory,
+    "./routes/api/EventStory/List.ts": $api_EventStory_List,
+    "./routes/api/Gacha.ts": $api_Gacha,
+    "./routes/api/LiveAbility.ts": $api_LiveAbility,
+    "./routes/api/Message.ts": $api_Message,
+    "./routes/api/Message/Group.ts": $api_Message_Group,
+    "./routes/api/MessageGroup.ts": $api_MessageGroup,
+    "./routes/api/Music.ts": $api_Music,
+    "./routes/api/MusicChart.ts": $api_MusicChart,
+    "./routes/api/MusicChartList.ts": $api_MusicChartList,
+    "./routes/api/Notice.ts": $api_Notice,
+    "./routes/api/Photo.ts": $api_Photo,
+    "./routes/api/Photo/AIO/List.ts": $api_Photo_AIO_List,
+    "./routes/api/Photo/AIO/Names.ts": $api_Photo_AIO_Names,
+    "./routes/api/Search/Commu.ts": $api_Search_Commu,
+    "./routes/api/Search/Message.ts": $api_Search_Message,
+    "./routes/api/Skill.ts": $api_Skill,
+    "./routes/api/Skill/All.ts": $api_Skill_All,
+    "./routes/api/Skill/EffectTypes.ts": $api_Skill_EffectTypes,
+    "./routes/api/Skill/X.ts": $api_Skill_X,
+    "./routes/api/Stamps.ts": $api_Stamps,
+    "./routes/api/Story.ts": $api_Story,
+    "./routes/api/Story/Reverse.ts": $api_Story_Reverse,
+    "./routes/api/Version.ts": $api_Version,
+    "./routes/manage/octo/asset.ts": $manage_octo_asset,
+    "./routes/manage/octo/resource.ts": $manage_octo_resource,
+    "./routes/manage/raw.ts": $manage_raw,
+    "./routes/manage/write.ts": $manage_write,
+    "./routes/manage/write/done.ts": $manage_write_done,
+    "./routes/manage/writeCommu.ts": $manage_writeCommu,
   },
   islands: {},
   baseUrl: import.meta.url,
-};
+} satisfies Manifest;
 
 export default manifest;

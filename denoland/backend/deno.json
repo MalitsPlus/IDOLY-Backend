@@ -12,32 +12,31 @@
         "fresh",
         "recommended"
       ]
-    },
-    "exclude": [
-      "_fresh"
-    ]
-  },
-  "fmt": {
-    "exclude": [
-      "_fresh"
-    ]
+    }
   },
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.4.3/",
-    "preact": "https://esm.sh/preact@10.15.1",
-    "preact/": "https://esm.sh/preact@10.15.1/",
+    "$fresh/": "https://deno.land/x/fresh@1.6.3/",
+    "preact": "https://esm.sh/preact@10.19.2",
+    "preact/": "https://esm.sh/preact@10.19.2/",
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.2.1",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.1.3",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.2.3",
-    "$std/": "https://deno.land/std@0.193.0/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
+    "$std/": "https://deno.land/std@0.212.0/",
     "@utils/": "./utils/",
     "hoshimi-types": "https://esm.sh/hoshimi-types@2.10.2",
     "hoshimi-types/": "https://esm.sh/hoshimi-types@2.10.2/",
     "lodash/": "https://cdn.skypack.dev/lodash@4.17.21/",
     "xxhashjs": "https://cdn.skypack.dev/xxhashjs@0.2.2",
-    "octokit": "https://esm.sh/octokit@3.1.0",
+    "octokit": "https://esm.sh/octokit@3.1.2",
     "mongodb": "https://deno.land/x/mongo@v0.32.0/mod.ts",
-    "sentry": "https://esm.sh/@sentry/browser@7.66.0",
+    "sentry": "https://esm.sh/@sentry/browser@7.95.0",
     "@dev/hoshimi-types": "../../packages/types/denodist/index.ts"
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
   }
 }
