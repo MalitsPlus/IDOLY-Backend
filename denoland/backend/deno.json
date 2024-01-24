@@ -34,9 +34,5 @@
   },
   "exclude": [
     "**/_fresh/*"
-  ],
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  }
+  ]
 }
