@@ -51,6 +51,8 @@ export type PhotoMeta = Pick<
   rarity: number
 }
 
+export type PhotoAioMeta = Omit<PhotoAllInOne, 'abilities'>
+
 export type PhotoDetail = Pick<
   PhotoRecipe | PhotoAllInOne,
   'id' | 'name' | 'assetId'

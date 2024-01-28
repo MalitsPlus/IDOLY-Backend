@@ -22,6 +22,7 @@ import type {
   CommuX,
   MessageX,
   MusicChart,
+  PhotoAioMeta,
   PhotoDetail,
   PhotoMeta,
 } from './types'
@@ -228,7 +229,7 @@ export type APIMapping = {
     {
       name: string
     },
-    PhotoMeta[]
+    PhotoAioMeta[]
   >
   'Photo/AIO/Names': OnlyOutput<string[]>
   'Search/Commu': InputAndOutput<
