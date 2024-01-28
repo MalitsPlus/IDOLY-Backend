@@ -3,7 +3,7 @@ import { NonExpandedKeys } from './const.ts'
 import kv from './kv.ts'
 import { UnArray } from './types.ts'
 import { Filter } from 'mongodb'
-import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types'
+import type { AcceptableDbKey, ResourceMapping } from 'hoshimi-types/'
 
 function isNonExpandedKey(
   key: string

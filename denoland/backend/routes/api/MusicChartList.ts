@@ -1,6 +1,6 @@
 // @ts-nocheck：This page is a bit of chaotic...
 
-import type { APIMapping } from 'hoshimi-types'
+import type { APIMapping } from 'hoshimi-types/'
 import { MusicChartType } from 'hoshimi-types/ProtoEnum'
 import { dbAggregate, dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'

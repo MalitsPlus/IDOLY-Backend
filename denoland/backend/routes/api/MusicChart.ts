@@ -1,4 +1,4 @@
-import type { APIMapping } from 'hoshimi-types'
+import type { APIMapping } from 'hoshimi-types/'
 import { dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import parseChart from '@utils/parseChart.ts'

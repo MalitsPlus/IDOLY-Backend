@@ -23,7 +23,6 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
     "$std/": "https://deno.land/std@0.212.0/",
     "@utils/": "./utils/",
-    "hoshimi-types": "https://esm.sh/hoshimi-types@2.10.2",
     "hoshimi-types/": "https://esm.sh/hoshimi-types@2.10.2/",
     "lodash/": "https://cdn.skypack.dev/lodash@4.17.21/",
     "xxhashjs": "https://cdn.skypack.dev/xxhashjs@0.2.2",

@@ -1,4 +1,4 @@
-import type { APIMapping } from 'hoshimi-types'
+import type { APIMapping } from 'hoshimi-types/'
 import { dbAggregate } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import { CommuXKey, CommuXSearchIndex } from '@utils/const.ts'

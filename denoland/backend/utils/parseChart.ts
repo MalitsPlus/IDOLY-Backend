@@ -2,7 +2,7 @@ import { MusicChartType } from 'hoshimi-types/ProtoEnum'
 import type { MusicChartPattern } from 'hoshimi-types/ProtoMaster'
 import type { MusicChart } from 'hoshimi-types/types'
 import { UnwrapPromise } from '@utils/types.ts'
-import type { APIMapping } from 'hoshimi-types'
+import type { APIMapping } from 'hoshimi-types/'
 
 export default function parseChart(
   chartId: string,

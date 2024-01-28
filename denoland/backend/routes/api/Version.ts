@@ -1,4 +1,4 @@
-import type { APIMapping } from 'hoshimi-types'
+import type { APIMapping } from 'hoshimi-types/'
 import apiWrapper from '@utils/apiWrapper.ts'
 import kv from '@utils/kv.ts'
 import { UpdateTimeKey } from '@utils/const.ts'
