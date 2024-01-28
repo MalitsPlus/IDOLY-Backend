@@ -34,7 +34,6 @@ import * as $api_Search_Message from "./routes/api/Search/Message.ts";
 import * as $api_Skill from "./routes/api/Skill.ts";
 import * as $api_Skill_All from "./routes/api/Skill/All.ts";
 import * as $api_Skill_EffectTypes from "./routes/api/Skill/EffectTypes.ts";
-import * as $api_Skill_X from "./routes/api/Skill/X.ts";
 import * as $api_Stamps from "./routes/api/Stamps.ts";
 import * as $api_Story from "./routes/api/Story.ts";
 import * as $api_Story_Reverse from "./routes/api/Story/Reverse.ts";
@@ -82,7 +81,6 @@ const manifest = {
     "./routes/api/Skill.ts": $api_Skill,
     "./routes/api/Skill/All.ts": $api_Skill_All,
     "./routes/api/Skill/EffectTypes.ts": $api_Skill_EffectTypes,
-    "./routes/api/Skill/X.ts": $api_Skill_X,
     "./routes/api/Stamps.ts": $api_Stamps,
     "./routes/api/Story.ts": $api_Story,
     "./routes/api/Story/Reverse.ts": $api_Story_Reverse,
