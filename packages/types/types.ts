@@ -61,5 +61,5 @@ export type PhotoDetail = Pick<
   abilities: Pick<
     PhotoAbility,
     'name' | 'description' | 'abilityType' | 'photoAbilityLevels' | 'skillId'
-  >
+  >[]
 }
