@@ -5,7 +5,7 @@ export default async function ping(
   remoteAddr: Deno.NetAddr
 ): Promise<void> {
   const url = new URL(req.url)
-  await fetch(`https://${UMAMI_DOMAIN}/api/collect`, {
+  await fetch(`https://${UMAMI_DOMAIN}/api/send`, {
     body: JSON.stringify({
       payload: {
         website: UMAMI_WEBSITE_ID,
