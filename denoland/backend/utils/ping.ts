@@ -15,7 +15,7 @@ export default async function ping(
         language: req.headers.get('Accept-Language'),
         screen: '1920x1080',
       },
-      type: 'pageview',
+      type: 'event',
     }),
     headers: {
       'User-Agent': req.headers.get('User-Agent') ?? '',
