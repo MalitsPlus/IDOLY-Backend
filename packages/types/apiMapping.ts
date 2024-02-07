@@ -22,9 +22,8 @@ import type {
   CommuX,
   MessageX,
   MusicChart,
+  PhotoAioDetail,
   PhotoAioMeta,
-  PhotoDetail,
-  PhotoMeta,
 } from './types'
 import type { OnlyOutput, InputAndOutput, MultiString } from './helpers'
 import { NoticeInfo } from './ProtoApi'
@@ -224,7 +223,7 @@ export type APIMapping = {
       'id' | 'title' | 'linkDetail' | 'startTime' | 'listTitle'
     >[]
   >
-  Photo: InputAndOutput<{ id: string }, PhotoDetail>
+  'Photo/AIO': InputAndOutput<{ id: string }, PhotoAioDetail>
   'Photo/AIO/List': InputAndOutput<
     {
       name: string
