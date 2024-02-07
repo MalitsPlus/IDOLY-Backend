@@ -4,12 +4,7 @@ import apiWrapper from '@utils/apiWrapper.ts'
 import pick from 'lodash/pick'
 import createErrStatus from '@utils/createErrStatus.ts'
 
-const responder: APIMapping['Photo'] = async ({ id }) => {
-  if (id.startsWith('photo-recipe')) {
-    // TODO: A part of PhotoRecipe
-  }
-
-  // A part of PhotoAllInOne
+const responder: APIMapping['Photo/AIO'] = async ({ id }) => {
   const photo = (
     await dbGet('PhotoAllInOne', {
       id: {
@@ -35,15 +30,16 @@ const responder: APIMapping['Photo'] = async ({ id }) => {
 
   return {
     ...pick(photo, ['id', 'name', 'assetId', 'rarity']),
-    abilities: photoAbilities.map((x) =>
-      pick(x, [
+    abilities: photoAbilities.map((x, index) => ({
+      ...pick(x, [
         'name',
         'description',
         'abilityType',
         'photoAbilityLevels',
         'skillId',
-      ])
-    ),
+      ]),
+      abilityEffectValue: photo.abilities[index].effectValue,
+    })),
   }
 }
 

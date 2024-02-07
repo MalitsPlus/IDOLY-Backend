@@ -26,7 +26,7 @@ import * as $api_Music from "./routes/api/Music.ts";
 import * as $api_MusicChart from "./routes/api/MusicChart.ts";
 import * as $api_MusicChartList from "./routes/api/MusicChartList.ts";
 import * as $api_Notice from "./routes/api/Notice.ts";
-import * as $api_Photo from "./routes/api/Photo.ts";
+import * as $api_Photo_AIO from "./routes/api/Photo/AIO.ts";
 import * as $api_Photo_AIO_List from "./routes/api/Photo/AIO/List.ts";
 import * as $api_Photo_AIO_Names from "./routes/api/Photo/AIO/Names.ts";
 import * as $api_Search_Commu from "./routes/api/Search/Commu.ts";
@@ -73,7 +73,7 @@ const manifest = {
     "./routes/api/MusicChart.ts": $api_MusicChart,
     "./routes/api/MusicChartList.ts": $api_MusicChartList,
     "./routes/api/Notice.ts": $api_Notice,
-    "./routes/api/Photo.ts": $api_Photo,
+    "./routes/api/Photo/AIO.ts": $api_Photo_AIO,
     "./routes/api/Photo/AIO/List.ts": $api_Photo_AIO_List,
     "./routes/api/Photo/AIO/Names.ts": $api_Photo_AIO_Names,
     "./routes/api/Search/Commu.ts": $api_Search_Commu,
