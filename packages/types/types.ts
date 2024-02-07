@@ -58,12 +58,14 @@ type PhotoDetail = Pick<
   'id' | 'name' | 'assetId'
 > & {
   rarity: number
-  abilities: Pick<
-    PhotoAbility,
-    'name' | 'description' | 'abilityType' | 'photoAbilityLevels' | 'skillId'
-  >[]
+  // abilities: add it at child types
 }
 
 export type PhotoAioDetail = PhotoDetail & {
-  abilityEffectValue: PhotoAllInOne['abilities'][number]['effectValue']
+  abilities: (Pick<
+    PhotoAbility,
+    'name' | 'description' | 'abilityType' | 'photoAbilityLevels' | 'skillId'
+  > & {
+    abilityEffectValue: PhotoAllInOne['abilities'][number]['effectValue']
+  })[]
 }
