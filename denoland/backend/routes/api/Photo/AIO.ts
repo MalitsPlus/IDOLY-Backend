@@ -29,7 +29,7 @@ const responder: APIMapping['Photo/AIO'] = async ({ id }) => {
   )
 
   return {
-    ...pick(photo, ['id', 'name', 'assetId', 'rarity']),
+    ...pick(photo, ['id', 'name', 'assetId', 'level', 'rarity']),
     abilities: photoAbilities.map((x, index) => ({
       ...pick(x, [
         'name',
@@ -38,7 +38,6 @@ const responder: APIMapping['Photo/AIO'] = async ({ id }) => {
         'photoAbilityLevels',
         'skillId',
       ]),
-      abilityEffectValue: photo.abilities[index].effectValue,
     })),
   }
 }

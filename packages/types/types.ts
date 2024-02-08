@@ -43,29 +43,14 @@ export type MessageX = Pick<Message, 'name' | 'id'> &
     characterGroupId: Message['characterId']
   }
 
-type PhotoMeta = Pick<
-  PhotoRecipe & PhotoAllInOne,
-  'id' | 'name' | 'assetId'
-> & {
-  // PhotoRecipe doesn't have that - need to be derived
-  rarity: number
-}
-
 export type PhotoAioMeta = Omit<PhotoAllInOne, 'abilities'>
 
-type PhotoDetail = Pick<
-  PhotoRecipe | PhotoAllInOne,
-  'id' | 'name' | 'assetId'
+export type PhotoAioDetail = Pick<
+  PhotoAllInOne,
+  'id' | 'name' | 'assetId' | 'level' | 'rarity'
 > & {
-  rarity: number
-  // abilities: add it at child types
-}
-
-export type PhotoAioDetail = PhotoDetail & {
-  abilities: (Pick<
+  abilities: Pick<
     PhotoAbility,
     'name' | 'description' | 'abilityType' | 'photoAbilityLevels' | 'skillId'
-  > & {
-    abilityEffectValue: PhotoAllInOne['abilities'][number]['effectValue']
-  })[]
+  >[]
 }
