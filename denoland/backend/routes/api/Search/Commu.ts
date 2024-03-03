@@ -4,6 +4,9 @@ import apiWrapper from '@utils/apiWrapper.ts'
 import { CommuXKey, CommuXSearchIndex } from '@utils/const.ts'
 
 const responder: APIMapping['Search/Commu'] = async ({ q }) => {
+  if (!q) {
+    return []
+  }
   const results = await dbAggregate(CommuXKey, [
     {
       $search: {

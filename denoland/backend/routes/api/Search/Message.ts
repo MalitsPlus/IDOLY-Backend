@@ -4,6 +4,9 @@ import apiWrapper from '@utils/apiWrapper.ts'
 import { MessageXKey, MessageXSearchIndex } from '@utils/const.ts'
 
 const responder: APIMapping['Search/Message'] = async ({ q }) => {
+  if (!q) {
+    return []
+  }
   const results = await dbAggregate(MessageXKey, [
     {
       $search: {
