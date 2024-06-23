@@ -18,17 +18,16 @@ export async function dbGet<T extends AcceptableDbKey>(
   s: T,
   filter: Filter<UnArray<ResourceMapping[T]>> = {}
 ): Promise<ResourceMapping[T]> {
-  const transaction = Sentry.getCurrentHub().getScope().getTransaction()
   const startAt = performance.now()
   if (isNonExpandedKey(s)) {
     const result = await kv.getValue(s as (typeof NonExpandedKeys)[number])
     const endAt = performance.now()
-    transaction?.setMeasurement('dbRequestTime', endAt - startAt, 'millisecond')
+    Sentry.setMeasurement('dbRequestTime', endAt - startAt, 'millisecond')
     return JSON.parse(result)
   }
   const result = await kv.get(s, filter)
   const endAt = performance.now()
-  transaction?.setMeasurement('dbRequestTime', endAt - startAt, 'millisecond')
+  Sentry.setMeasurement('dbRequestTime', endAt - startAt, 'millisecond')
   // @ts-nocheck: TODO: recognize the correct type
   return result
 }
