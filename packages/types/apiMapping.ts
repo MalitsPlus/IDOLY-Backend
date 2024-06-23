@@ -174,9 +174,13 @@ export type APIMapping = {
     Pick<EventStory, 'id' | 'name' | 'description' | 'order'>[]
   >
   Gacha: OnlyOutput<
-    (Pick<Gacha, 'name' | 'gachaType'> & {
+    (Pick<Gacha, 'name' | 'description' | 'gachaType' | 'bannerAssetId'> & {
       nowAfter: number
       nowBefore: number
+      pickupCards: Pick<
+        Card,
+        'id' | 'name' | 'assetId' | 'characterId' | 'type'
+      >
     })[]
   >
   LiveAbility: InputAndOutput<{ id: string }, LiveAbility>
