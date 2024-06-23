@@ -3,6 +3,13 @@
 /// <reference lib="dom.asynciterable" />
 /// <reference lib="deno.ns" />
 /// <reference lib="deno.unstable" />
+// denoland/deploy_feedback#527
+if (!Deno.permissions.querySync) {
+  ;(Deno.permissions as unknown as Record<string, unknown>)['querySync'] = (
+    _pd: Deno.PermissionDescriptor
+  ): { state: string } => ({ state: 'granted' })
+}
+
 import * as Sentry from 'sentry'
 
 import checkEnv from '@utils/checkEnv.ts'
