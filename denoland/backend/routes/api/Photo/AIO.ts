@@ -30,7 +30,7 @@ const responder: APIMapping['Photo/AIO'] = async ({ id }) => {
 
   return {
     ...pick(photo, ['id', 'name', 'assetId', 'level', 'rarity']),
-    abilities: photoAbilities.map((x, index) => ({
+    abilities: photoAbilities.map((x) => ({
       ...pick(x, [
         'name',
         'description',
