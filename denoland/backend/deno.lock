@@ -5,6 +5,7 @@
       "jsr:@luca/esbuild-deno-loader@0.10.3": "jsr:@luca/esbuild-deno-loader@0.10.3",
       "jsr:@std/assert@^0.213.1": "jsr:@std/assert@0.213.1",
       "jsr:@std/encoding@0.213": "jsr:@std/encoding@0.213.1",
+      "jsr:@std/json@^0.213.1": "jsr:@std/json@0.213.1",
       "jsr:@std/jsonc@0.213": "jsr:@std/jsonc@0.213.1",
       "jsr:@std/path@0.213": "jsr:@std/path@0.213.1"
     },
@@ -23,10 +24,14 @@
       "@std/encoding@0.213.1": {
         "integrity": "fcbb6928713dde941a18ca5db88ca1544d0755ec8fb20fe61e2dc8144b390c62"
       },
+      "@std/json@0.213.1": {
+        "integrity": "f572b1de605d07c4a5602445dac54bfc51b1fb87a3710a17aed2608bfca54e68"
+      },
       "@std/jsonc@0.213.1": {
         "integrity": "5578f21aa583b7eb7317eed077ffcde47b294f1056bdbb9aacec407758637bfe",
         "dependencies": [
-          "jsr:@std/assert@^0.213.1"
+          "jsr:@std/assert@^0.213.1",
+          "jsr:@std/json@^0.213.1"
         ]
       },
       "@std/path@0.213.1": {
@@ -40,7 +45,8 @@
   "redirects": {
     "https://crux.land/api/get/router@0.0.11": "https://crux.land/api/get/uYQG",
     "https://crux.land/api/get/uYQG": "https://crux.land/api/get/uYQG.ts",
-    "https://crux.land/router@0.0.11": "https://crux.land/api/get/router@0.0.11"
+    "https://crux.land/router@0.0.11": "https://crux.land/api/get/router@0.0.11",
+    "https://esm.sh/v135/@types/babel__helper-validator-identifier@~7/index.d.ts": "https://esm.sh/v135/@types/babel__helper-validator-identifier@7.15.2/index.d.ts"
   },
   "remote": {
     "https://cdn.skypack.dev/-/cuint@v0.2.2-kdOzyLw9sZELdZEIfCRn/dist=es2019,mode=imports/optimized/cuint.js": "a1d1c016d4002432235be7f5103216b5a4f9411c0b6e93cade5026df7b197705",
@@ -427,6 +433,7 @@
     "https://deno.land/std@0.216.0/fs/walk.ts": "78e1d01a9f75715614bf8d6e58bd77d9fafb1222c41194e607cd3849d7a0e771",
     "https://deno.land/std@0.216.0/http/server.ts": "6dce295abc169d0956ae00432441331b3425afad4d79e8b3475739be2f04d614",
     "https://deno.land/std@0.216.0/http/status.ts": "ed61b4882af2514a81aefd3245e8df4c47b9a8e54929a903577643d2d1ebf514",
+    "https://deno.land/std@0.216.0/json/common.ts": "33f1a4f39a45e2f9f357823fd0b5cf88b63fb4784b8c9a28f8120f70a20b23e9",
     "https://deno.land/std@0.216.0/jsonc/mod.ts": "82722888823e1af5a8f7918bf810ea581f68081064d529218533acad6cb7c2bc",
     "https://deno.land/std@0.216.0/jsonc/parse.ts": "747a0753289fdbfcb9cb86b709b56348c98abc107fbb0a7f350b87af4425a76a",
     "https://deno.land/std@0.216.0/media_types/_db.ts": "1d695d9fe1c785e523d6de7191b33f33ecc7866db77358a4f966221cca56e2f9",
@@ -684,7 +691,14 @@
     "https://esm.sh/*preact-render-to-string@6.2.1": "a0a12d2ce6a2e2a3ee6ce408c11984a6dc014c653a2be81974d17995fcb2f5aa",
     "https://esm.sh/*preact-render-to-string@6.3.1": "07807f027acf54b994b630bbb2a923f5a835f9544e01144f67ab292e90a431e4",
     "https://esm.sh/@babel/helper-validator-identifier@7.22.20": "daace34e028130297fddf97f3ef6deb4b05ec3eb46f5c5cacd6eaa43d6323b0a",
+    "https://esm.sh/hoshimi-types@2.14.0/": "a3e2e8301f36fab767c6c3634e43905385fe9090a75e6e09ffe9b1053ae4c293",
     "https://esm.sh/hoshimi-types@2.14.0/ProtoEnum": "13582075b62b729806d03fe9e4c73351d68f75d5c45c9d4a8b006bf7c59da613",
+    "https://esm.sh/hoshimi-types@2.14.0/ProtoMaster": "4ef3edafd57e76a967e4e21546a062b0dfba4b0ed2f42fbe10af1ecd1b809fc9",
+    "https://esm.sh/hoshimi-types@2.14.0/types": "50dd9e90a8a87dc279ae15963e449205b5c134011cd9dc3061655a5021e5f701",
+    "https://esm.sh/hoshimi-types@2.14.1/": "0d03a8ea43b0132bb45c71437e0571ad3603ba4f25b010b88e3305d2536a53be",
+    "https://esm.sh/hoshimi-types@2.14.1/ProtoEnum": "454d43098e15a22ff80f92e3402cb1e83e0952faf28086ccaffffa02e128b87b",
+    "https://esm.sh/hoshimi-types@2.14.1/ProtoMaster": "8041959a07f551dc087eb2f8e4faedf56311d0cc5ff723c5f33072f9cac7102c",
+    "https://esm.sh/hoshimi-types@2.14.1/types": "533fe4b1da9b270992b0c87b3019eba9942f1c699633e708ba0863758be0ad30",
     "https://esm.sh/octokit@4.0.2": "62b38bff6663e273c6fd6b2fac4eac95343aec045ee89c94b07db8ad9f71baba",
     "https://esm.sh/preact@10.19.6": "281b115a9b79918c6b73382b4e818d6f9e48db9064b7fd4f75a45a4edee54145",
     "https://esm.sh/preact@10.19.6/debug": "0e16b3e9f45372501b91ecf69b1bcaf2b2dad3ac470ce75113d957acbd5e277d",

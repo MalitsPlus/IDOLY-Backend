@@ -180,7 +180,7 @@ export type APIMapping = {
       pickupCards: Pick<
         Card,
         'id' | 'name' | 'assetId' | 'characterId' | 'type'
-      >
+      >[]
     })[]
   >
   LiveAbility: InputAndOutput<{ id: string }, LiveAbility>
