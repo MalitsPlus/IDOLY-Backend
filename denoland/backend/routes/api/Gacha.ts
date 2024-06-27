@@ -55,7 +55,14 @@ const responder: APIMapping['Gacha'] = async () => {
       return x.nowAfter < now && x.nowBefore > now
     })
 
-  return uniqBy(items, 'bannerAssetId')
+  return uniqBy(
+    items,
+    (x) =>
+      `${x.name}||${x.bannerAssetId}||${x.pickupCards
+        .map((x) => x.id)
+        .sort()
+        .join(',')}`
+  )
 }
 
 export const handler = apiWrapper(responder)
