@@ -3,6 +3,7 @@ import { dbGet } from '@utils/dbGet.ts'
 import apiWrapper from '@utils/apiWrapper.ts'
 import { GachaType } from 'hoshimi-types/ProtoEnum'
 import pick from 'lodash/pick'
+import uniqBy from 'lodash/uniqBy'
 
 const responder: APIMapping['Gacha'] = async () => {
   const [Gachas, Conditions, Cards] = await Promise.all([
@@ -10,7 +11,7 @@ const responder: APIMapping['Gacha'] = async () => {
     dbGet('Condition'),
     dbGet('Card'),
   ])
-  return Gachas.filter((x) =>
+  const items = Gachas.filter((x) =>
     [GachaType.Normal, GachaType.Premium].includes(x.gachaType)
   )
     .sort((a, b) => a.order - b.order)
@@ -53,6 +54,8 @@ const responder: APIMapping['Gacha'] = async () => {
       const now = Number(new Date())
       return x.nowAfter < now && x.nowBefore > now
     })
+
+  return uniqBy(items, 'bannerAssetId')
 }
 
 export const handler = apiWrapper(responder)
